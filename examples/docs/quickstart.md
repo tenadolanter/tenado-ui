@@ -2,16 +2,6 @@
 
 本节将介绍如何在项目中使用 Element。
 
-### 使用 vue-cli@3
-
-我们为新版的 vue-cli 准备了相应的 [Element 插件](https://github.com/ElementUI/vue-cli-plugin-element)，你可以用它们快速地搭建一个基于 Element 的项目。
-
-### 使用 Starter Kit
-
-我们提供了通用的[项目模板](https://github.com/ElementUI/element-starter)，你可以直接使用。对于 Laravel 用户，我们也准备了相应的[模板](https://github.com/ElementUI/element-in-laravel-starter)，同样可以直接下载使用。
-
-如果不希望使用我们提供的模板，请继续阅读。
-
 ### 引入 Element
 
 你可以引入整个 Element，或是根据需要仅引入部分组件。我们先介绍如何引入完整的 Element。
@@ -21,16 +11,16 @@
 在 main.js 中写入以下内容：
 
 ```javascript
-import Vue from 'vue';
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-import App from './App.vue';
+import Vue from "vue";
+import ElementUI from "element-ui";
+import "element-ui/lib/theme-chalk/index.css";
+import App from "./App.vue";
 
 Vue.use(ElementUI);
 
 new Vue({
-  el: '#app',
-  render: h => h(App)
+  el: "#app",
+  render: (h) => h(App),
 });
 ```
 
@@ -66,9 +56,9 @@ npm install babel-plugin-component -D
 接下来，如果你只希望引入部分组件，比如 Button 和 Select，那么需要在 main.js 中写入以下内容：
 
 ```javascript
-import Vue from 'vue';
-import { Button, Select } from 'element-ui';
-import App from './App.vue';
+import Vue from "vue";
+import { Button, Select } from "element-ui";
+import App from "./App.vue";
 
 Vue.component(Button.name, Button);
 Vue.component(Select.name, Select);
@@ -78,15 +68,15 @@ Vue.component(Select.name, Select);
  */
 
 new Vue({
-  el: '#app',
-  render: h => h(App)
+  el: "#app",
+  render: (h) => h(App),
 });
 ```
 
 完整组件列表和引入方式（完整组件列表以 [components.json](https://github.com/ElemeFE/element/blob/master/components.json) 为准）
 
 ```javascript
-import Vue from 'vue';
+import Vue from "vue";
 import {
   Pagination,
   Dialog,
@@ -164,8 +154,8 @@ import {
   Loading,
   MessageBox,
   Message,
-  Notification
-} from 'element-ui';
+  Notification,
+} from "element-ui";
 
 Vue.use(Pagination);
 Vue.use(Dialog);
@@ -259,18 +249,18 @@ Vue.prototype.$message = Message;
 完整引入 Element：
 
 ```js
-import Vue from 'vue';
-import Element from 'element-ui';
-Vue.use(Element, { size: 'small', zIndex: 3000 });
+import Vue from "vue";
+import Element from "element-ui";
+Vue.use(Element, { size: "small", zIndex: 3000 });
 ```
 
 按需引入 Element：
 
 ```js
-import Vue from 'vue';
-import { Button } from 'element-ui';
+import Vue from "vue";
+import { Button } from "element-ui";
 
-Vue.prototype.$ELEMENT = { size: 'small', zIndex: 3000 };
+Vue.prototype.$ELEMENT = { size: "small", zIndex: 3000 };
 Vue.use(Button);
 ```
 
@@ -287,4 +277,3 @@ Vue.use(Button);
 <div class="glitch-embed-wrap" style="height: 420px; width: 100%;">
   <iframe src="https://glitch.com/embed/#!/embed/nuxt-with-element?path=nuxt.config.js&previewSize=0&attributionHidden=true" alt="nuxt-with-element on glitch" style="height: 100%; width: 100%; border: 0;"></iframe>
 </div>
-

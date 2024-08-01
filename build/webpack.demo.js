@@ -1,27 +1,22 @@
 const path = require("path");
 const webpack = require("webpack");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const TerserWebpackPlugin = require("terser-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerWebpackPlugin = require("css-minimizer-webpack-plugin");
 const launchEditorMiddleware = require("launch-editor-middleware");
 
 const config = require("./config");
+const loader = require("sass-loader");
 
 const isProd = process.env.NODE_ENV === "production";
 
 const webpackConfig = {
   mode: process.env.NODE_ENV,
-  entry: isProd
-    ? {
-        docs: "./examples/entry.js",
-      }
-    : "./examples/entry.js",
+  entry: isProd ? { docs: "./examples/entry.js" } : "./examples/entry.js",
   output: {
-    path: path.resolve(process.cwd(), "./examples/element-ui/"),
+    path: path.resolve(process.cwd(), "./dist"),
     publicPath: process.env.CI_ENV || "",
     filename: "[name].[hash:7].js",
     chunkFilename: isProd ? "[name].[hash:7].js" : "[name].js",
@@ -34,16 +29,18 @@ const webpackConfig = {
   devServer: {
     host: "0.0.0.0",
     port: 8085,
-    publicPath: "/",
-    hot: true,
-    before: (app) => {
+    setupMiddlewares: (middlewares, devServer) => {
+      if (!devServer) {
+        throw new Error("webpack-dev-server is not defined");
+      }
       /*
        * 编辑器类型 :此处的指令表示的时各个各个编辑器在cmd或terminal中的命令
        * webstorm
        * code // vscode
        * idea
        */
-      app.use("/__open-in-editor", launchEditorMiddleware("code"));
+      devServer.app.use("/__open-in-editor", launchEditorMiddleware("code"));
+      return middlewares;
     },
   },
   performance: {
@@ -74,7 +71,17 @@ const webpackConfig = {
         use: [
           isProd ? MiniCssExtractPlugin.loader : "style-loader",
           "css-loader",
-          "sass-loader",
+          {
+            loader: "sass-loader",
+            options: {
+              sassOptions: {
+                silent: true,
+                logger: {
+                  warn: function() {},
+                },
+              },
+            },
+          },
         ],
       },
       {
@@ -96,8 +103,7 @@ const webpackConfig = {
       {
         test: /\.(svg|otf|ttf|woff2?|eot|gif|png|jpe?g)(\?\S*)?$/,
         loader: "url-loader",
-        // todo: 这种写法有待调整
-        query: {
+        options: {
           limit: 10000,
           name: path.posix.join("static", "[name].[hash:7].[ext]"),
         },
@@ -111,11 +117,8 @@ const webpackConfig = {
       filename: "./index.html",
       favicon: "./examples/favicon.ico",
     }),
-    new ProgressBarPlugin(),
+    new webpack.ProgressPlugin(),
     new VueLoaderPlugin(),
-    new webpack.DefinePlugin({
-      "process.env.FAAS_ENV": JSON.stringify(process.env.FAAS_ENV),
-    }),
     new webpack.LoaderOptionsPlugin({
       vue: {
         compilerOptions: {
@@ -127,22 +130,14 @@ const webpackConfig = {
   optimization: {
     minimizer: [],
   },
-  devtool: "#eval-source-map",
+  devtool: "eval-source-map",
 };
 
 if (isProd) {
-  webpackConfig.plugins.push(
-    new MiniCssExtractPlugin({
-      filename: "[name].[contenthash:7].css",
-    })
-  );
+  webpackConfig.plugins.push(new MiniCssExtractPlugin());
   webpackConfig.optimization.minimizer.push(
-    new UglifyJsPlugin({
-      cache: true,
-      parallel: true,
-      sourceMap: false,
-    }),
-    new OptimizeCSSAssetsPlugin({})
+    new TerserWebpackPlugin({ extractComments: false }),
+    new CssMinimizerWebpackPlugin()
   );
   // https://webpack.js.org/configuration/optimization/#optimizationsplitchunks
   webpackConfig.optimization.splitChunks = {
@@ -154,7 +149,7 @@ if (isProd) {
       },
     },
   };
-  webpackConfig.devtool = false;
+  delete webpackConfig.devtool;
 }
 
 module.exports = webpackConfig;

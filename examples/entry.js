@@ -7,7 +7,7 @@ import routes from "./route.config";
 import demoBlock from "./components/demo-block";
 import SideNav from "./components/side-nav";
 
-import "packages/theme-chalk/src/index.scss";
+import "theme-chalk/src/index.scss";
 import "./demo-styles/index.scss";
 import "./assets/styles/common.css";
 import "./assets/styles/fonts/style.css";
