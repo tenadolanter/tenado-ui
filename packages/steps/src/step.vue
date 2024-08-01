@@ -1,52 +1,50 @@
 <template>
   <div
-    class="el-step"
+    class="td-step"
     :style="style"
     :class="[
       !isSimple && `is-${$parent.direction}`,
       isSimple && 'is-simple',
       isLast && !space && !isCenter && 'is-flex',
-      isCenter && !isVertical && !isSimple && 'is-center'
-     ]">
+      isCenter && !isVertical && !isSimple && 'is-center',
+    ]"
+  >
     <!-- icon & line -->
-    <div
-      class="el-step__head"
-      :class="`is-${currentStatus}`">
+    <div class="td-step__head" :class="`is-${currentStatus}`">
       <div
-        class="el-step__line"
+        class="td-step__line"
         :style="isLast ? '' : { marginRight: $parent.stepOffset + 'px' }"
       >
-        <i class="el-step__line-inner" :style="lineStyle"></i>
+        <i class="td-step__line-inner" :style="lineStyle"></i>
       </div>
 
-      <div class="el-step__icon" :class="`is-${icon ? 'icon' : 'text'}`">
+      <div class="td-step__icon" :class="`is-${icon ? 'icon' : 'text'}`">
         <slot
           v-if="currentStatus !== 'success' && currentStatus !== 'error'"
-          name="icon">
-          <i v-if="icon" class="el-step__icon-inner" :class="[icon]"></i>
-          <div class="el-step__icon-inner" v-if="!icon && !isSimple">{{ index + 1 }}</div>
+          name="icon"
+        >
+          <i v-if="icon" class="td-step__icon-inner" :class="[icon]"></i>
+          <div class="td-step__icon-inner" v-if="!icon && !isSimple">
+            {{ index + 1 }}
+          </div>
         </slot>
         <i
           v-else
-          :class="['el-icon-' + (currentStatus === 'success' ? 'check' : 'close')]"
-          class="el-step__icon-inner is-status"
+          :class="[
+            'td-icon-' + (currentStatus === 'success' ? 'check' : 'close'),
+          ]"
+          class="td-step__icon-inner is-status"
         >
         </i>
       </div>
     </div>
     <!-- title & description -->
-    <div class="el-step__main">
-      <div
-        class="el-step__title"
-        ref="title"
-        :class="['is-' + currentStatus]">
+    <div class="td-step__main">
+      <div class="td-step__title" ref="title" :class="['is-' + currentStatus]">
         <slot name="title">{{ title }}</slot>
       </div>
-      <div v-if="isSimple" class="el-step__arrow"></div>
-      <div
-        v-else
-        class="el-step__description"
-        :class="['is-' + currentStatus]">
+      <div v-if="isSimple" class="td-step__arrow"></div>
+      <div v-else class="td-step__description" :class="['is-' + currentStatus]">
         <slot name="description">{{ description }}</slot>
       </div>
     </div>
@@ -55,20 +53,20 @@
 
 <script>
 export default {
-  name: 'ElStep',
+  name: "TdStep",
 
   props: {
     title: String,
     icon: String,
     description: String,
-    status: String
+    status: String,
   },
 
   data() {
     return {
       index: -1,
       lineStyle: {},
-      internalStatus: ''
+      internalStatus: "",
     };
   },
 
@@ -90,13 +88,13 @@ export default {
     },
     prevStatus() {
       const prevStep = this.$parent.steps[this.index - 1];
-      return prevStep ? prevStep.currentStatus : 'wait';
+      return prevStep ? prevStep.currentStatus : "wait";
     },
     isCenter() {
       return this.$parent.alignCenter;
     },
     isVertical() {
-      return this.$parent.direction === 'vertical';
+      return this.$parent.direction === "vertical";
     },
     isSimple() {
       return this.$parent.simple;
@@ -109,29 +107,33 @@ export default {
       return this.$parent.steps.length;
     },
     space() {
-      const { isSimple, $parent: { space } } = this;
-      return isSimple ? '' : space ;
+      const {
+        isSimple,
+        $parent: { space },
+      } = this;
+      return isSimple ? "" : space;
     },
     style: function() {
       const style = {};
       const parent = this.$parent;
       const len = parent.steps.length;
 
-      const space = (typeof this.space === 'number'
-        ? this.space + 'px'
-        : this.space
+      const space =
+        typeof this.space === "number"
+          ? this.space + "px"
+          : this.space
           ? this.space
-          : 100 / (len - (this.isCenter ? 0 : 1)) + '%');
+          : 100 / (len - (this.isCenter ? 0 : 1)) + "%";
       style.flexBasis = space;
       if (this.isVertical) return style;
       if (this.isLast) {
-        style.maxWidth = 100 / this.stepsCount + '%';
+        style.maxWidth = 100 / this.stepsCount + "%";
       } else {
-        style.marginRight = -this.$parent.stepOffset + 'px';
+        style.marginRight = -this.$parent.stepOffset + "px";
       }
 
       return style;
-    }
+    },
   },
 
   methods: {
@@ -140,10 +142,10 @@ export default {
 
       if (val > this.index) {
         this.internalStatus = this.$parent.finishStatus;
-      } else if (val === this.index && this.prevStatus !== 'error') {
+      } else if (val === this.index && this.prevStatus !== "error") {
         this.internalStatus = this.$parent.processStatus;
       } else {
-        this.internalStatus = 'wait';
+        this.internalStatus = "wait";
       }
 
       if (prevChild) prevChild.calcProgress(this.internalStatus);
@@ -153,32 +155,36 @@ export default {
       let step = 100;
       const style = {};
 
-      style.transitionDelay = 150 * this.index + 'ms';
+      style.transitionDelay = 150 * this.index + "ms";
       if (status === this.$parent.processStatus) {
-        step = this.currentStatus !== 'error' ? 0 : 0;
-      } else if (status === 'wait') {
+        step = this.currentStatus !== "error" ? 0 : 0;
+      } else if (status === "wait") {
         step = 0;
-        style.transitionDelay = (-150 * this.index) + 'ms';
+        style.transitionDelay = -150 * this.index + "ms";
       }
 
-      style.borderWidth = step && !this.isSimple ? '1px' : 0;
-      this.$parent.direction === 'vertical'
-        ? style.height = step + '%'
-        : style.width = step + '%';
+      style.borderWidth = step && !this.isSimple ? "1px" : 0;
+      this.$parent.direction === "vertical"
+        ? (style.height = step + "%")
+        : (style.width = step + "%");
 
       this.lineStyle = style;
-    }
+    },
   },
 
   mounted() {
-    const unwatch = this.$watch('index', val => {
-      this.$watch('$parent.active', this.updateStatus, { immediate: true });
-      this.$watch('$parent.processStatus', () => {
-        const activeIndex = this.$parent.active;
-        this.updateStatus(activeIndex);
-      }, { immediate: true });
+    const unwatch = this.$watch("index", (val) => {
+      this.$watch("$parent.active", this.updateStatus, { immediate: true });
+      this.$watch(
+        "$parent.processStatus",
+        () => {
+          const activeIndex = this.$parent.active;
+          this.updateStatus(activeIndex);
+        },
+        { immediate: true }
+      );
       unwatch();
     });
-  }
+  },
 };
 </script>

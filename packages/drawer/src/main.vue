@@ -1,43 +1,49 @@
 <template>
   <transition
-    name="el-drawer-fade"
+    name="td-drawer-fade"
     @after-enter="afterEnter"
-    @after-leave="afterLeave">
-    <div
-      class="el-drawer__wrapper"
-      tabindex="-1"
-      v-show="visible">
+    @after-leave="afterLeave"
+  >
+    <div class="td-drawer__wrapper" tabindex="-1" v-show="visible">
       <div
-        class="el-drawer__container"
-        :class="visible && 'el-drawer__open'"
+        class="td-drawer__container"
+        :class="visible && 'td-drawer__open'"
         @click.self="handleWrapperClick"
         role="document"
-        tabindex="-1">
+        tabindex="-1"
+      >
         <div
           aria-modal="true"
-          aria-labelledby="el-drawer__title"
+          aria-labelledby="td-drawer__title"
           :aria-label="title"
-          class="el-drawer"
+          class="td-drawer"
           :class="[direction, customClass]"
-          :style="isHorizontal ? `width: ${drawerSize}` : `height: ${drawerSize}`"
+          :style="
+            isHorizontal ? `width: ${drawerSize}` : `height: ${drawerSize}`
+          "
           ref="drawer"
           role="dialog"
           tabindex="-1"
+        >
+          <header
+            class="td-drawer__header"
+            id="td-drawer__title"
+            v-if="withHeader"
           >
-          <header class="el-drawer__header" id="el-drawer__title" v-if="withHeader">
             <slot name="title">
               <span role="heading" :title="title">{{ title }}</span>
             </slot>
             <button
               :aria-label="`close ${title || 'drawer'}`"
-              class="el-drawer__close-btn"
+              class="td-drawer__close-btn"
               type="button"
               v-if="showClose"
-              @click="closeDrawer">
-              <i class="el-dialog__close el-icon el-icon-close"></i>
+              @click="closeDrawer"
+            >
+              <i class="td-dialog__close td-icon td-icon-close"></i>
             </button>
           </header>
-          <section class="el-drawer__body" v-if="rendered">
+          <section class="td-drawer__body" v-if="rendered">
             <slot></slot>
           </section>
         </div>
@@ -47,97 +53,97 @@
 </template>
 
 <script>
-import Popup from 'element-ui/src/utils/popup';
-import emitter from 'element-ui/src/mixins/emitter';
+import Popup from "@tenado/ui/src/utils/popup";
+import emitter from "@tenado/ui/src/mixins/emitter";
 
 export default {
-  name: 'ElDrawer',
+  name: "TdDrawer",
   mixins: [Popup, emitter],
   props: {
     appendToBody: {
       type: Boolean,
-      default: false
+      default: false,
     },
     beforeClose: {
-      type: Function
+      type: Function,
     },
     customClass: {
       type: String,
-      default: ''
+      default: "",
     },
     closeOnPressEscape: {
       type: Boolean,
-      default: true
+      default: true,
     },
     destroyOnClose: {
       type: Boolean,
-      default: false
+      default: false,
     },
     modal: {
       type: Boolean,
-      default: true
+      default: true,
     },
     direction: {
       type: String,
-      default: 'rtl',
+      default: "rtl",
       validator(val) {
-        return ['ltr', 'rtl', 'ttb', 'btt'].indexOf(val) !== -1;
-      }
+        return ["ltr", "rtl", "ttb", "btt"].indexOf(val) !== -1;
+      },
     },
     modalAppendToBody: {
       type: Boolean,
-      default: true
+      default: true,
     },
     showClose: {
       type: Boolean,
-      default: true
+      default: true,
     },
     size: {
       type: [Number, String],
-      default: '30%'
+      default: "30%",
     },
     title: {
       type: String,
-      default: ''
+      default: "",
     },
     visible: {
-      type: Boolean
+      type: Boolean,
     },
     wrapperClosable: {
       type: Boolean,
-      default: true
+      default: true,
     },
     withHeader: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   computed: {
     isHorizontal() {
-      return this.direction === 'rtl' || this.direction === 'ltr';
+      return this.direction === "rtl" || this.direction === "ltr";
     },
     drawerSize() {
-      return typeof this.size === 'number' ? `${this.size}px` : this.size;
-    }
+      return typeof this.size === "number" ? `${this.size}px` : this.size;
+    },
   },
   data() {
     return {
       closed: false,
-      prevActiveElement: null
+      prevActiveElement: null,
     };
   },
   watch: {
     visible(val) {
       if (val) {
         this.closed = false;
-        this.$emit('open');
+        this.$emit("open");
         if (this.appendToBody) {
           document.body.appendChild(this.$el);
         }
         this.prevActiveElement = document.activeElement;
       } else {
         if (!this.closed) {
-          this.$emit('close');
+          this.$emit("close");
           if (this.destroyOnClose === true) {
             this.rendered = false;
           }
@@ -148,19 +154,19 @@ export default {
           }
         });
       }
-    }
+    },
   },
   methods: {
     afterEnter() {
-      this.$emit('opened');
+      this.$emit("opened");
     },
     afterLeave() {
-      this.$emit('closed');
+      this.$emit("closed");
     },
     hide(cancel) {
       if (cancel !== false) {
-        this.$emit('update:visible', false);
-        this.$emit('close');
+        this.$emit("update:visible", false);
+        this.$emit("close");
         if (this.destroyOnClose === true) {
           this.rendered = false;
         }
@@ -173,7 +179,7 @@ export default {
       }
     },
     closeDrawer() {
-      if (typeof this.beforeClose === 'function') {
+      if (typeof this.beforeClose === "function") {
         this.beforeClose(this.hide);
       } else {
         this.hide();
@@ -184,7 +190,7 @@ export default {
       // pressing `ESC` will call this method, and also close the drawer.
       // This method also calls `beforeClose` if there was one.
       this.closeDrawer();
-    }
+    },
   },
   mounted() {
     if (this.visible) {
@@ -200,6 +206,6 @@ export default {
     if (this.appendToBody && this.$el && this.$el.parentNode) {
       this.$el.parentNode.removeChild(this.$el);
     }
-  }
+  },
 };
 </script>

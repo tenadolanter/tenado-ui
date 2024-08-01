@@ -1,8 +1,8 @@
-import ElInputNumber from './src/input-number';
+import TdInputNumber from "./src/input-number";
 
 /* istanbul ignore next */
-ElInputNumber.install = function(Vue) {
-  Vue.component(ElInputNumber.name, ElInputNumber);
+TdInputNumber.install = function(Vue) {
+  Vue.component(TdInputNumber.name, TdInputNumber);
 };
 
-export default ElInputNumber;
+export default TdInputNumber;

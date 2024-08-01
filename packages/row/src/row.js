@@ -1,20 +1,20 @@
 export default {
-  name: 'ElRow',
+  name: "TdRow",
 
-  componentName: 'ElRow',
+  componentName: "TdRow",
 
   props: {
     tag: {
       type: String,
-      default: 'div'
+      default: "div",
     },
     gutter: Number,
     type: String,
     justify: {
       type: String,
-      default: 'start'
+      default: "start",
     },
-    align: String
+    align: String,
   },
 
   computed: {
@@ -27,18 +27,22 @@ export default {
       }
 
       return ret;
-    }
+    },
   },
 
   render(h) {
-    return h(this.tag, {
-      class: [
-        'el-row',
-        this.justify !== 'start' ? `is-justify-${this.justify}` : '',
-        this.align ? `is-align-${this.align}` : '',
-        { 'el-row--flex': this.type === 'flex' }
-      ],
-      style: this.style
-    }, this.$slots.default);
-  }
+    return h(
+      this.tag,
+      {
+        class: [
+          "td-row",
+          this.justify !== "start" ? `is-justify-${this.justify}` : "",
+          this.align ? `is-align-${this.align}` : "",
+          { "td-row--flex": this.type === "flex" },
+        ],
+        style: this.style,
+      },
+      this.$slots.default
+    );
+  },
 };

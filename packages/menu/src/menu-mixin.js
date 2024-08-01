@@ -1,10 +1,10 @@
 export default {
-  inject: ['rootMenu'],
+  inject: ["rootMenu"],
   computed: {
     indexPath() {
       const path = [this.index];
       let parent = this.$parent;
-      while (parent.$options.componentName !== 'ElMenu') {
+      while (parent.$options.componentName !== "TdMenu") {
         if (parent.index) {
           path.unshift(parent.index);
         }
@@ -16,14 +16,14 @@ export default {
       let parent = this.$parent;
       while (
         parent &&
-        ['ElMenu', 'ElSubmenu'].indexOf(parent.$options.componentName) === -1
+        ["TdMenu", "TdSubmenu"].indexOf(parent.$options.componentName) === -1
       ) {
         parent = parent.$parent;
       }
       return parent;
     },
     paddingStyle() {
-      if (this.rootMenu.mode !== 'vertical') return {};
+      if (this.rootMenu.mode !== "vertical") return {};
 
       let padding = 20;
       let parent = this.$parent;
@@ -31,14 +31,14 @@ export default {
       if (this.rootMenu.collapse) {
         padding = 20;
       } else {
-        while (parent && parent.$options.componentName !== 'ElMenu') {
-          if (parent.$options.componentName === 'ElSubmenu') {
+        while (parent && parent.$options.componentName !== "TdMenu") {
+          if (parent.$options.componentName === "TdSubmenu") {
             padding += 20;
           }
           parent = parent.$parent;
         }
       }
-      return {paddingLeft: padding + 'px'};
-    }
-  }
+      return { paddingLeft: padding + "px" };
+    },
+  },
 };

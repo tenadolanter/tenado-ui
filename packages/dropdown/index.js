@@ -1,8 +1,8 @@
-import ElDropdown from './src/dropdown';
+import TdDropdown from "./src/dropdown";
 
 /* istanbul ignore next */
-ElDropdown.install = function(Vue) {
-  Vue.component(ElDropdown.name, ElDropdown);
+TdDropdown.install = function(Vue) {
+  Vue.component(TdDropdown.name, TdDropdown);
 };
 
-export default ElDropdown;
+export default TdDropdown;

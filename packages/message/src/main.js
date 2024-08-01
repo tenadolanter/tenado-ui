@@ -1,8 +1,8 @@
-import Vue from 'vue';
-import Main from './main.vue';
-import { PopupManager } from 'element-ui/src/utils/popup';
-import { isVNode } from 'element-ui/src/utils/vdom';
-import { isObject } from 'element-ui/src/utils/types';
+import Vue from "vue";
+import Main from "./main.vue";
+import { PopupManager } from "@tenado/ui/src/utils/popup";
+import { isVNode } from "@tenado/ui/src/utils/vdom";
+import { isObject } from "@tenado/ui/src/utils/types";
 let MessageConstructor = Vue.extend(Main);
 
 let instance;
@@ -12,19 +12,19 @@ let seed = 1;
 const Message = function(options) {
   if (Vue.prototype.$isServer) return;
   options = options || {};
-  if (typeof options === 'string') {
+  if (typeof options === "string") {
     options = {
-      message: options
+      message: options,
     };
   }
   let userOnClose = options.onClose;
-  let id = 'message_' + seed++;
+  let id = "message_" + seed++;
 
   options.onClose = function() {
     Message.close(id, userOnClose);
   };
   instance = new MessageConstructor({
-    data: options
+    data: options,
   });
   instance.id = id;
   if (isVNode(instance.message)) {
@@ -34,7 +34,7 @@ const Message = function(options) {
   instance.$mount();
   document.body.appendChild(instance.$el);
   let verticalOffset = options.offset || 20;
-  instances.forEach(item => {
+  instances.forEach((item) => {
     verticalOffset += item.$el.offsetHeight + 16;
   });
   instance.verticalOffset = verticalOffset;
@@ -44,17 +44,17 @@ const Message = function(options) {
   return instance;
 };
 
-['success', 'warning', 'info', 'error'].forEach(type => {
+["success", "warning", "info", "error"].forEach((type) => {
   Message[type] = (options) => {
     if (isObject(options) && !isVNode(options)) {
       return Message({
         ...options,
-        type
+        type,
       });
     }
     return Message({
       type,
-      message: options
+      message: options,
     });
   };
 });
@@ -67,7 +67,7 @@ Message.close = function(id, userOnClose) {
     if (id === instances[i].id) {
       removedHeight = instances[i].$el.offsetHeight;
       index = i;
-      if (typeof userOnClose === 'function') {
+      if (typeof userOnClose === "function") {
         userOnClose(instances[i]);
       }
       instances.splice(i, 1);
@@ -75,10 +75,10 @@ Message.close = function(id, userOnClose) {
     }
   }
   if (len <= 1 || index === -1 || index > instances.length - 1) return;
-  for (let i = index; i < len - 1 ; i++) {
+  for (let i = index; i < len - 1; i++) {
     let dom = instances[i].$el;
-    dom.style['top'] =
-      parseInt(dom.style['top'], 10) - removedHeight - 16 + 'px';
+    dom.style["top"] =
+      parseInt(dom.style["top"], 10) - removedHeight - 16 + "px";
   }
 };
 

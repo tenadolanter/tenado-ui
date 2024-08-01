@@ -1,8 +1,8 @@
-import Vue from 'vue';
-import Main from './main.vue';
-import merge from 'element-ui/src/utils/merge';
-import { PopupManager } from 'element-ui/src/utils/popup';
-import { isVNode } from 'element-ui/src/utils/vdom';
+import Vue from "vue";
+import Main from "./main.vue";
+import merge from "@tenado/ui/src/utils/merge";
+import { PopupManager } from "@tenado/ui/src/utils/popup";
+import { isVNode } from "@tenado/ui/src/utils/vdom";
 const NotificationConstructor = Vue.extend(Main);
 
 let instance;
@@ -13,20 +13,20 @@ const Notification = function(options) {
   if (Vue.prototype.$isServer) return;
   options = merge({}, options);
   const userOnClose = options.onClose;
-  const id = 'notification_' + seed++;
-  const position = options.position || 'top-right';
+  const id = "notification_" + seed++;
+  const position = options.position || "top-right";
 
   options.onClose = function() {
     Notification.close(id, userOnClose);
   };
 
   instance = new NotificationConstructor({
-    data: options
+    data: options,
   });
 
   if (isVNode(options.message)) {
     instance.$slots.default = [options.message];
-    options.message = 'REPLACED_BY_VNODE';
+    options.message = "REPLACED_BY_VNODE";
   }
   instance.id = id;
   instance.$mount();
@@ -36,20 +36,22 @@ const Notification = function(options) {
   instance.dom.style.zIndex = PopupManager.nextZIndex();
 
   let verticalOffset = options.offset || 0;
-  instances.filter(item => item.position === position).forEach(item => {
-    verticalOffset += item.$el.offsetHeight + 16;
-  });
+  instances
+    .filter((item) => item.position === position)
+    .forEach((item) => {
+      verticalOffset += item.$el.offsetHeight + 16;
+    });
   verticalOffset += 16;
   instance.verticalOffset = verticalOffset;
   instances.push(instance);
   return instance;
 };
 
-['success', 'warning', 'info', 'error'].forEach(type => {
-  Notification[type] = options => {
-    if (typeof options === 'string' || isVNode(options)) {
+["success", "warning", "info", "error"].forEach((type) => {
+  Notification[type] = (options) => {
+    if (typeof options === "string" || isVNode(options)) {
       options = {
-        message: options
+        message: options,
       };
     }
     options.type = type;
@@ -69,7 +71,7 @@ Notification.close = function(id, userOnClose) {
   })[0];
   if (!instance) return;
 
-  if (typeof userOnClose === 'function') {
+  if (typeof userOnClose === "function") {
     userOnClose(instance);
   }
   instances.splice(index, 1);
@@ -77,10 +79,13 @@ Notification.close = function(id, userOnClose) {
   if (len <= 1) return;
   const position = instance.position;
   const removedHeight = instance.dom.offsetHeight;
-  for (let i = index; i < len - 1 ; i++) {
+  for (let i = index; i < len - 1; i++) {
     if (instances[i].position === position) {
       instances[i].dom.style[instance.verticalProperty] =
-        parseInt(instances[i].dom.style[instance.verticalProperty], 10) - removedHeight - 16 + 'px';
+        parseInt(instances[i].dom.style[instance.verticalProperty], 10) -
+        removedHeight -
+        16 +
+        "px";
     }
   }
 };

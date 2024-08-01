@@ -1,11 +1,11 @@
 <template>
   <label
-    class="el-radio-button"
+    class="td-radio-button"
     :class="[
-      size ? 'el-radio-button--' + size : '',
+      size ? 'td-radio-button--' + size : '',
       { 'is-active': value === label },
       { 'is-disabled': isDisabled },
-      { 'is-focus': focus }
+      { 'is-focus': focus },
     ]"
     role="radio"
     :aria-checked="value === label"
@@ -14,7 +14,7 @@
     @keydown.space.stop.prevent="value = isDisabled ? value : label"
   >
     <input
-      class="el-radio-button__orig-radio"
+      class="td-radio-button__orig-radio"
       :value="label"
       type="radio"
       v-model="value"
@@ -25,91 +25,104 @@
       @focus="focus = true"
       @blur="focus = false"
       autocomplete="off"
-    >
+    />
     <span
-      class="el-radio-button__inner"
+      class="td-radio-button__inner"
       :style="value === label ? activeStyle : null"
-      @keydown.stop>
+      @keydown.stop
+    >
       <slot></slot>
-      <template v-if="!$slots.default">{{label}}</template>
+      <template v-if="!$slots.default">{{ label }}</template>
     </span>
   </label>
 </template>
 <script>
-  import Emitter from 'element-ui/src/mixins/emitter';
+import Emitter from "@tenado/ui/src/mixins/emitter";
 
-  export default {
-    name: 'ElRadioButton',
+export default {
+  name: "TdRadioButton",
 
-    mixins: [Emitter],
+  mixins: [Emitter],
 
-    inject: {
-      elForm: {
-        default: ''
+  inject: {
+    elForm: {
+      default: "",
+    },
+    elFormItem: {
+      default: "",
+    },
+  },
+
+  props: {
+    label: {},
+    disabled: Boolean,
+    name: String,
+  },
+  data() {
+    return {
+      focus: false,
+    };
+  },
+  computed: {
+    value: {
+      get() {
+        return this._radioGroup.value;
       },
-      elFormItem: {
-        default: ''
+      set(value) {
+        this._radioGroup.$emit("input", value);
+      },
+    },
+    _radioGroup() {
+      let parent = this.$parent;
+      while (parent) {
+        if (parent.$options.componentName !== "TdRadioGroup") {
+          parent = parent.$parent;
+        } else {
+          return parent;
+        }
       }
+      return false;
     },
-
-    props: {
-      label: {},
-      disabled: Boolean,
-      name: String
-    },
-    data() {
+    activeStyle() {
       return {
-        focus: false
+        backgroundColor: this._radioGroup.fill || "",
+        borderColor: this._radioGroup.fill || "",
+        boxShadow: this._radioGroup.fill
+          ? `-1px 0 0 0 ${this._radioGroup.fill}`
+          : "",
+        color: this._radioGroup.textColor || "",
       };
     },
-    computed: {
-      value: {
-        get() {
-          return this._radioGroup.value;
-        },
-        set(value) {
-          this._radioGroup.$emit('input', value);
-        }
-      },
-      _radioGroup() {
-        let parent = this.$parent;
-        while (parent) {
-          if (parent.$options.componentName !== 'ElRadioGroup') {
-            parent = parent.$parent;
-          } else {
-            return parent;
-          }
-        }
-        return false;
-      },
-      activeStyle() {
-        return {
-          backgroundColor: this._radioGroup.fill || '',
-          borderColor: this._radioGroup.fill || '',
-          boxShadow: this._radioGroup.fill ? `-1px 0 0 0 ${this._radioGroup.fill}` : '',
-          color: this._radioGroup.textColor || ''
-        };
-      },
-      _elFormItemSize() {
-        return (this.elFormItem || {}).elFormItemSize;
-      },
-      size() {
-        return this._radioGroup.radioGroupSize || this._elFormItemSize || (this.$ELEMENT || {}).size;
-      },
-      isDisabled() {
-        return this.disabled || this._radioGroup.disabled || (this.elForm || {}).disabled;
-      },
-      tabIndex() {
-        return (this.isDisabled || (this._radioGroup && this.value !== this.label)) ? -1 : 0;
-      }
+    _elFormItemSize() {
+      return (this.elFormItem || {}).elFormItemSize;
     },
+    size() {
+      return (
+        this._radioGroup.radioGroupSize ||
+        this._elFormItemSize ||
+        (this.$ELEMENT || {}).size
+      );
+    },
+    isDisabled() {
+      return (
+        this.disabled ||
+        this._radioGroup.disabled ||
+        (this.elForm || {}).disabled
+      );
+    },
+    tabIndex() {
+      return this.isDisabled || (this._radioGroup && this.value !== this.label)
+        ? -1
+        : 0;
+    },
+  },
 
-    methods: {
-      handleChange() {
-        this.$nextTick(() => {
-          this.dispatch('ElRadioGroup', 'handleChange', this.value);
-        });
-      }
-    }
-  };
+  methods: {
+    handleChange() {
+      this.$nextTick(() => {
+        this.dispatch("TdRadioGroup", "handleChange", this.value);
+      });
+    },
+  },
+};
 </script>

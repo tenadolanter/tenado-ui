@@ -1,28 +1,33 @@
-import LayoutObserver from './layout-observer';
-import { mapStates } from './store/helper';
+import LayoutObserver from "./layout-observer";
+import { mapStates } from "./store/helper";
 
 export default {
-  name: 'ElTableFooter',
+  name: "TdTableFooter",
 
   mixins: [LayoutObserver],
 
   render(h) {
     let sums = [];
     if (this.summaryMethod) {
-      sums = this.summaryMethod({ columns: this.columns, data: this.store.states.data });
+      sums = this.summaryMethod({
+        columns: this.columns,
+        data: this.store.states.data,
+      });
     } else {
       this.columns.forEach((column, index) => {
         if (index === 0) {
           sums[index] = this.sumText;
           return;
         }
-        const values = this.store.states.data.map(item => Number(item[column.property]));
+        const values = this.store.states.data.map((item) =>
+          Number(item[column.property])
+        );
         const precisions = [];
         let notNumber = true;
-        values.forEach(value => {
+        values.forEach((value) => {
           if (!isNaN(value)) {
             notNumber = false;
-            let decimal = ('' + value).split('.')[1];
+            let decimal = ("" + value).split(".")[1];
             precisions.push(decimal ? decimal.length : 0);
           }
         });
@@ -37,43 +42,42 @@ export default {
             }
           }, 0);
         } else {
-          sums[index] = '';
+          sums[index] = "";
         }
       });
     }
 
     return (
       <table
-        class="el-table__footer"
+        class="td-table__footer"
         cellspacing="0"
         cellpadding="0"
-        border="0">
+        border="0"
+      >
         <colgroup>
-          {
-            this.columns.map(column => <col name={ column.id } key={column.id} />)
-          }
-          {
-            this.hasGutter ? <col name="gutter" /> : ''
-          }
+          {this.columns.map((column) => (
+            <col name={column.id} key={column.id} />
+          ))}
+          {this.hasGutter ? <col name="gutter" /> : ""}
         </colgroup>
-        <tbody class={ [{ 'has-gutter': this.hasGutter }] }>
+        <tbody class={[{ "has-gutter": this.hasGutter }]}>
           <tr>
-            {
-              this.columns.map((column, cellIndex) => <td
+            {this.columns.map((column, cellIndex) => (
+              <td
                 key={cellIndex}
-                colspan={ column.colSpan }
-                rowspan={ column.rowSpan }
-                class={ [...this.getRowClasses(column, cellIndex), 'el-table__cell'] }>
-                <div class={ ['cell', column.labelClassName] }>
-                  {
-                    sums[cellIndex]
-                  }
+                colspan={column.colSpan}
+                rowspan={column.rowSpan}
+                class={[
+                  ...this.getRowClasses(column, cellIndex),
+                  "td-table__cell",
+                ]}
+              >
+                <div class={["cell", column.labelClassName]}>
+                  {sums[cellIndex]}
                 </div>
-              </td>)
-            }
-            {
-              this.hasGutter ? <th class="el-table__cell gutter"></th> : ''
-            }
+              </td>
+            ))}
+            {this.hasGutter ? <th class="td-table__cell gutter" /> : ""}
           </tr>
         </tbody>
       </table>
@@ -83,7 +87,7 @@ export default {
   props: {
     fixed: String,
     store: {
-      required: true
+      required: true,
     },
     summaryMethod: Function,
     sumText: String,
@@ -92,11 +96,11 @@ export default {
       type: Object,
       default() {
         return {
-          prop: '',
-          order: ''
+          prop: "",
+          order: "",
         };
-      }
-    }
+      },
+    },
   },
 
   computed: {
@@ -109,30 +113,34 @@ export default {
     },
 
     ...mapStates({
-      columns: 'columns',
-      isAllSelected: 'isAllSelected',
-      leftFixedLeafCount: 'fixedLeafColumnsLength',
-      rightFixedLeafCount: 'rightFixedLeafColumnsLength',
-      columnsCount: states => states.columns.length,
-      leftFixedCount: states => states.fixedColumns.length,
-      rightFixedCount: states => states.rightFixedColumns.length
-    })
+      columns: "columns",
+      isAllSelected: "isAllSelected",
+      leftFixedLeafCount: "fixedLeafColumnsLength",
+      rightFixedLeafCount: "rightFixedLeafColumnsLength",
+      columnsCount: (states) => states.columns.length,
+      leftFixedCount: (states) => states.fixedColumns.length,
+      rightFixedCount: (states) => states.rightFixedColumns.length,
+    }),
   },
 
   methods: {
     isCellHidden(index, columns, column) {
-      if (this.fixed === true || this.fixed === 'left') {
+      if (this.fixed === true || this.fixed === "left") {
         return index >= this.leftFixedLeafCount;
-      } else if (this.fixed === 'right') {
+      } else if (this.fixed === "right") {
         let before = 0;
         for (let i = 0; i < index; i++) {
           before += columns[i].colSpan;
         }
         return before < this.columnsCount - this.rightFixedLeafCount;
-      } else if (!this.fixed && column.fixed) { // hide cell when footer instance is not fixed and column is fixed
+      } else if (!this.fixed && column.fixed) {
+        // hide cell when footer instance is not fixed and column is fixed
         return true;
       } else {
-        return (index < this.leftFixedCount) || (index >= this.columnsCount - this.rightFixedCount);
+        return (
+          index < this.leftFixedCount ||
+          index >= this.columnsCount - this.rightFixedCount
+        );
       }
     },
 
@@ -142,12 +150,12 @@ export default {
         classes.push(column.className);
       }
       if (this.isCellHidden(cellIndex, this.columns, column)) {
-        classes.push('is-hidden');
+        classes.push("is-hidden");
       }
       if (!column.children) {
-        classes.push('is-leaf');
+        classes.push("is-leaf");
       }
       return classes;
-    }
-  }
+    },
+  },
 };

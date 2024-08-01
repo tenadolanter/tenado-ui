@@ -1,8 +1,8 @@
-import ElAutocomplete from './src/autocomplete';
+import TdAutocomplete from "./src/autocomplete";
 
 /* istanbul ignore next */
-ElAutocomplete.install = function(Vue) {
-  Vue.component(ElAutocomplete.name, ElAutocomplete);
+TdAutocomplete.install = function(Vue) {
+  Vue.component(TdAutocomplete.name, TdAutocomplete);
 };
 
-export default ElAutocomplete;
+export default TdAutocomplete;

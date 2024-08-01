@@ -1,5 +1,5 @@
 import Vue from "vue";
-import entry from "./app";
+import entry from "./App";
 import VueRouter from "vue-router";
 import Element from "main/index.js";
 import hljs from "highlight.js";
@@ -7,11 +7,12 @@ import routes from "./route.config";
 import demoBlock from "./components/demo-block";
 import SideNav from "./components/side-nav";
 
-import "packages/theme-chalk/src/index.scss";
+import "theme-chalk/src/index.scss";
 import "./demo-styles/index.scss";
 import "./assets/styles/common.css";
 import "./assets/styles/fonts/style.css";
-import icon from "./icon.json";
+import "@tenado/icons/lib/index.min.css";
+import icon from "@tenado/icons/lib/config.json";
 
 Vue.use(Element);
 Vue.use(VueRouter);
@@ -47,7 +48,7 @@ router.afterEach((route) => {
     const blocks = document.querySelectorAll("pre code:not(.hljs)");
     Array.prototype.forEach.call(blocks, hljs.highlightBlock);
   });
-  document.title = "Element";
+  document.title = "Tdement";
 });
 
 new Vue({

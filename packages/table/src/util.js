@@ -1,10 +1,10 @@
-import { getValueByPath } from 'element-ui/src/utils/util';
+import { getValueByPath } from "@tenado/ui/src/utils/util";
 
 export const getCell = function(event) {
   let cell = event.target;
 
-  while (cell && cell.tagName.toUpperCase() !== 'HTML') {
-    if (cell.tagName.toUpperCase() === 'TD') {
+  while (cell && cell.tagName.toUpperCase() !== "HTML") {
+    if (cell.tagName.toUpperCase() === "TD") {
       return cell;
     }
     cell = cell.parentNode;
@@ -14,36 +14,42 @@ export const getCell = function(event) {
 };
 
 const isObject = function(obj) {
-  return obj !== null && typeof obj === 'object';
+  return obj !== null && typeof obj === "object";
 };
 
 export const orderBy = function(array, sortKey, reverse, sortMethod, sortBy) {
-  if (!sortKey && !sortMethod && (!sortBy || Array.isArray(sortBy) && !sortBy.length)) {
+  if (
+    !sortKey &&
+    !sortMethod &&
+    (!sortBy || (Array.isArray(sortBy) && !sortBy.length))
+  ) {
     return array;
   }
-  if (typeof reverse === 'string') {
-    reverse = reverse === 'descending' ? -1 : 1;
+  if (typeof reverse === "string") {
+    reverse = reverse === "descending" ? -1 : 1;
   } else {
-    reverse = (reverse && reverse < 0) ? -1 : 1;
+    reverse = reverse && reverse < 0 ? -1 : 1;
   }
-  const getKey = sortMethod ? null : function(value, index) {
-    if (sortBy) {
-      if (!Array.isArray(sortBy)) {
-        sortBy = [sortBy];
-      }
-      return sortBy.map(function(by) {
-        if (typeof by === 'string') {
-          return getValueByPath(value, by);
-        } else {
-          return by(value, index, array);
+  const getKey = sortMethod
+    ? null
+    : function(value, index) {
+        if (sortBy) {
+          if (!Array.isArray(sortBy)) {
+            sortBy = [sortBy];
+          }
+          return sortBy.map(function(by) {
+            if (typeof by === "string") {
+              return getValueByPath(value, by);
+            } else {
+              return by(value, index, array);
+            }
+          });
         }
-      });
-    }
-    if (sortKey !== '$key') {
-      if (isObject(value) && '$value' in value) value = value.$value;
-    }
-    return [isObject(value) ? getValueByPath(value, sortKey) : value];
-  };
+        if (sortKey !== "$key") {
+          if (isObject(value) && "$value" in value) value = value.$value;
+        }
+        return [isObject(value) ? getValueByPath(value, sortKey) : value];
+      };
   const compare = function(a, b) {
     if (sortMethod) {
       return sortMethod(a.value, b.value);
@@ -58,20 +64,23 @@ export const orderBy = function(array, sortKey, reverse, sortMethod, sortBy) {
     }
     return 0;
   };
-  return array.map(function(value, index) {
-    return {
-      value: value,
-      index: index,
-      key: getKey ? getKey(value, index) : null
-    };
-  }).sort(function(a, b) {
-    let order = compare(a, b);
-    if (!order) {
-      // make stable https://en.wikipedia.org/wiki/Sorting_algorithm#Stability
-      order = a.index - b.index;
-    }
-    return order * reverse;
-  }).map(item => item.value);
+  return array
+    .map(function(value, index) {
+      return {
+        value: value,
+        index: index,
+        key: getKey ? getKey(value, index) : null,
+      };
+    })
+    .sort(function(a, b) {
+      let order = compare(a, b);
+      if (!order) {
+        // make stable https://en.wikipedia.org/wiki/Sorting_algorithm#Stability
+        order = a.index - b.index;
+      }
+      return order * reverse;
+    })
+    .map((item) => item.value);
 };
 
 export const getColumnById = function(table, columnId) {
@@ -97,7 +106,7 @@ export const getColumnByKey = function(table, columnKey) {
 };
 
 export const getColumnByCell = function(table, cell) {
-  const matches = (cell.className || '').match(/el-table_[^\s]+/gm);
+  const matches = (cell.className || "").match(/el-table_[^\s]+/gm);
   if (matches) {
     return getColumnById(table, matches[0]);
   }
@@ -105,18 +114,18 @@ export const getColumnByCell = function(table, cell) {
 };
 
 export const getRowIdentity = (row, rowKey) => {
-  if (!row) throw new Error('row is required when get row identity');
-  if (typeof rowKey === 'string') {
-    if (rowKey.indexOf('.') < 0) {
+  if (!row) throw new Error("row is required when get row identity");
+  if (typeof rowKey === "string") {
+    if (rowKey.indexOf(".") < 0) {
       return row[rowKey];
     }
-    let key = rowKey.split('.');
+    let key = rowKey.split(".");
     let current = row;
     for (let i = 0; i < key.length; i++) {
       current = current[key[i]];
     }
     return current;
-  } else if (typeof rowKey === 'function') {
+  } else if (typeof rowKey === "function") {
     return rowKey.call(null, row);
   }
 };
@@ -142,7 +151,7 @@ export function mergeOptions(defaults, config) {
   for (key in config) {
     if (hasOwn(config, key)) {
       const value = config[key];
-      if (typeof value !== 'undefined') {
+      if (typeof value !== "undefined") {
         options[key] = value;
       }
     }
@@ -161,20 +170,20 @@ export function parseWidth(width) {
 }
 
 export function parseMinWidth(minWidth) {
-  if (typeof minWidth !== 'undefined') {
+  if (typeof minWidth !== "undefined") {
     minWidth = parseWidth(minWidth);
     if (isNaN(minWidth)) {
       minWidth = 80;
     }
   }
   return minWidth;
-};
+}
 
 export function parseHeight(height) {
-  if (typeof height === 'number') {
+  if (typeof height === "number") {
     return height;
   }
-  if (typeof height === 'string') {
+  if (typeof height === "string") {
     if (/^\d+(?:px)?$/.test(height)) {
       return parseInt(height, 10);
     } else {
@@ -187,7 +196,7 @@ export function parseHeight(height) {
 // https://github.com/reduxjs/redux/blob/master/src/compose.js
 export function compose(...funcs) {
   if (funcs.length === 0) {
-    return arg => arg;
+    return (arg) => arg;
   }
   if (funcs.length === 1) {
     return funcs[0];
@@ -209,7 +218,7 @@ export function toggleRowStatus(statusArr, row, newVal) {
     changed = true;
   };
 
-  if (typeof newVal === 'boolean') {
+  if (typeof newVal === "boolean") {
     if (newVal && !included) {
       addRow();
     } else if (!newVal && included) {
@@ -225,12 +234,17 @@ export function toggleRowStatus(statusArr, row, newVal) {
   return changed;
 }
 
-export function walkTreeNode(root, cb, childrenKey = 'children', lazyKey = 'hasChildren') {
+export function walkTreeNode(
+  root,
+  cb,
+  childrenKey = "children",
+  lazyKey = "hasChildren"
+) {
   const isNil = (array) => !(Array.isArray(array) && array.length);
 
   function _walker(parent, children, level) {
     cb(parent, children, level);
-    children.forEach(item => {
+    children.forEach((item) => {
       if (item[lazyKey]) {
         cb(item, null, level + 1);
         return;
@@ -242,7 +256,7 @@ export function walkTreeNode(root, cb, childrenKey = 'children', lazyKey = 'hasC
     });
   }
 
-  root.forEach(item => {
+  root.forEach((item) => {
     if (item[lazyKey]) {
       cb(item, null, 0);
       return;

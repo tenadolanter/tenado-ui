@@ -1,8 +1,8 @@
-import ElMenuItemGroup from '../menu/src/menu-item-group';
+import TdMenuItemGroup from "../menu/src/menu-item-group";
 
 /* istanbul ignore next */
-ElMenuItemGroup.install = function(Vue) {
-  Vue.component(ElMenuItemGroup.name, ElMenuItemGroup);
+TdMenuItemGroup.install = function(Vue) {
+  Vue.component(TdMenuItemGroup.name, TdMenuItemGroup);
 };
 
-export default ElMenuItemGroup;
+export default TdMenuItemGroup;

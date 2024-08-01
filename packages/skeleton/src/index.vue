@@ -1,14 +1,17 @@
 <template>
   <div>
     <template v-if="uiLoading">
-      <div :class="['el-skeleton', animated ? 'is-animated' : '', ]" v-bind="$attrs">
+      <div
+        :class="['td-skeleton', animated ? 'is-animated' : '']"
+        v-bind="$attrs"
+      >
         <template v-for="i in count">
           <slot v-if="loading" name="template">
-            <el-skeleton-item
+            <td-skeleton-item
               v-for="item in rows"
               :key="`${i}-${item}`"
               :class="{
-                'el-skeleton__paragraph': item !== 1,
+                'td-skeleton__paragraph': item !== 1,
                 'is-first': item === 1,
                 'is-last': item === rows && rows > 1,
               }"
@@ -25,28 +28,28 @@
 </template>
 <script>
 export default {
-  name: 'ElSkeleton',
+  name: "TdSkeleton",
   props: {
     animated: {
       type: Boolean,
-      default: false
+      default: false,
     },
     count: {
       type: Number,
-      default: 1
+      default: 1,
     },
     rows: {
       type: Number,
-      default: 4
+      default: 4,
     },
     loading: {
       type: Boolean,
-      default: true
+      default: true,
     },
     throttle: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
   watch: {
     loading: {
@@ -64,13 +67,13 @@ export default {
           this.uiLoading = loading;
         }
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   data() {
     return {
-      uiLoading: this.throttle <= 0 ? this.loading : false
+      uiLoading: this.throttle <= 0 ? this.loading : false,
     };
-  }
+  },
 };
 </script>

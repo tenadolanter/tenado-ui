@@ -1,8 +1,8 @@
-import ElTabs from './src/tabs';
+import TdTabs from "./src/tabs";
 
 /* istanbul ignore next */
-ElTabs.install = function(Vue) {
-  Vue.component(ElTabs.name, ElTabs);
+TdTabs.install = function(Vue) {
+  Vue.component(TdTabs.name, TdTabs);
 };
 
-export default ElTabs;
+export default TdTabs;

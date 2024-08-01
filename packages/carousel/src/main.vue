@@ -2,51 +2,51 @@
   <div
     :class="carouselClasses"
     @mouseenter.stop="handleMouseEnter"
-    @mouseleave.stop="handleMouseLeave">
-    <div
-      class="el-carousel__container"
-      :style="{ height: height }">
-      <transition
-        v-if="arrowDisplay"
-        name="carousel-arrow-left">
+    @mouseleave.stop="handleMouseLeave"
+  >
+    <div class="td-carousel__container" :style="{ height: height }">
+      <transition v-if="arrowDisplay" name="carousel-arrow-left">
         <button
           type="button"
           v-show="(arrow === 'always' || hover) && (loop || activeIndex > 0)"
           @mouseenter="handleButtonEnter('left')"
           @mouseleave="handleButtonLeave"
           @click.stop="throttledArrowClick(activeIndex - 1)"
-          class="el-carousel__arrow el-carousel__arrow--left">
-          <i class="el-icon-arrow-left"></i>
+          class="td-carousel__arrow td-carousel__arrow--left"
+        >
+          <i class="td-icon-arrow-left"></i>
         </button>
       </transition>
-      <transition
-        v-if="arrowDisplay"
-        name="carousel-arrow-right">
+      <transition v-if="arrowDisplay" name="carousel-arrow-right">
         <button
           type="button"
-          v-show="(arrow === 'always' || hover) && (loop || activeIndex < items.length - 1)"
+          v-show="
+            (arrow === 'always' || hover) &&
+              (loop || activeIndex < items.length - 1)
+          "
           @mouseenter="handleButtonEnter('right')"
           @mouseleave="handleButtonLeave"
           @click.stop="throttledArrowClick(activeIndex + 1)"
-          class="el-carousel__arrow el-carousel__arrow--right">
-          <i class="el-icon-arrow-right"></i>
+          class="td-carousel__arrow td-carousel__arrow--right"
+        >
+          <i class="td-icon-arrow-right"></i>
         </button>
       </transition>
       <slot></slot>
     </div>
-    <ul
-      v-if="indicatorPosition !== 'none'"
-      :class="indicatorsClasses">
+    <ul v-if="indicatorPosition !== 'none'" :class="indicatorsClasses">
       <li
         v-for="(item, index) in items"
         :key="index"
         :class="[
-          'el-carousel__indicator',
-          'el-carousel__indicator--' + direction,
-          { 'is-active': index === activeIndex }]"
+          'td-carousel__indicator',
+          'td-carousel__indicator--' + direction,
+          { 'is-active': index === activeIndex },
+        ]"
         @mouseenter="throttledIndicatorHover(index)"
-        @click.stop="handleIndicatorClick(index)">
-        <button class="el-carousel__button">
+        @click.stop="handleIndicatorClick(index)"
+      >
+        <button class="td-carousel__button">
           <span v-if="hasLabel">{{ item.label }}</span>
         </button>
       </li>
@@ -55,51 +55,54 @@
 </template>
 
 <script>
-import throttle from 'throttle-debounce/throttle';
-import { addResizeListener, removeResizeListener } from 'element-ui/src/utils/resize-event';
+import throttle from "throttle-debounce/throttle";
+import {
+  addResizeListener,
+  removeResizeListener,
+} from "@tenado/ui/src/utils/resize-event";
 
 export default {
-  name: 'ElCarousel',
+  name: "TdCarousel",
 
   props: {
     initialIndex: {
       type: Number,
-      default: 0
+      default: 0,
     },
     height: String,
     trigger: {
       type: String,
-      default: 'hover'
+      default: "hover",
     },
     autoplay: {
       type: Boolean,
-      default: true
+      default: true,
     },
     interval: {
       type: Number,
-      default: 3000
+      default: 3000,
     },
     indicatorPosition: String,
     indicator: {
       type: Boolean,
-      default: true
+      default: true,
     },
     arrow: {
       type: String,
-      default: 'hover'
+      default: "hover",
     },
     type: String,
     loop: {
       type: Boolean,
-      default: true
+      default: true,
     },
     direction: {
       type: String,
-      default: 'horizontal',
+      default: "horizontal",
       validator(val) {
-        return ['horizontal', 'vertical'].indexOf(val) !== -1;
-      }
-    }
+        return ["horizontal", "vertical"].indexOf(val) !== -1;
+      },
+    },
   },
 
   data() {
@@ -108,37 +111,40 @@ export default {
       activeIndex: -1,
       containerWidth: 0,
       timer: null,
-      hover: false
+      hover: false,
     };
   },
 
   computed: {
     arrowDisplay() {
-      return this.arrow !== 'never' && this.direction !== 'vertical';
+      return this.arrow !== "never" && this.direction !== "vertical";
     },
 
     hasLabel() {
-      return this.items.some(item => item.label.toString().length > 0);
+      return this.items.some((item) => item.label.toString().length > 0);
     },
 
     carouselClasses() {
-      const classes = ['el-carousel', 'el-carousel--' + this.direction];
-      if (this.type === 'card') {
-        classes.push('el-carousel--card');
+      const classes = ["td-carousel", "td-carousel--" + this.direction];
+      if (this.type === "card") {
+        classes.push("td-carousel--card");
       }
       return classes;
     },
 
     indicatorsClasses() {
-      const classes = ['el-carousel__indicators', 'el-carousel__indicators--' + this.direction];
+      const classes = [
+        "td-carousel__indicators",
+        "td-carousel__indicators--" + this.direction,
+      ];
       if (this.hasLabel) {
-        classes.push('el-carousel__indicators--labels');
+        classes.push("td-carousel__indicators--labels");
       }
-      if (this.indicatorPosition === 'outside' || this.type === 'card') {
-        classes.push('el-carousel__indicators--outside');
+      if (this.indicatorPosition === "outside" || this.type === "card") {
+        classes.push("td-carousel__indicators--outside");
       }
       return classes;
-    }
+    },
   },
 
   watch: {
@@ -149,7 +155,7 @@ export default {
     activeIndex(val, oldVal) {
       this.resetItemPosition(oldVal);
       if (oldVal > -1) {
-        this.$emit('change', val, oldVal);
+        this.$emit("change", val, oldVal);
       }
     },
 
@@ -164,7 +170,7 @@ export default {
     interval() {
       this.pauseTimer();
       this.startTimer();
-    }
+    },
   },
 
   methods: {
@@ -180,18 +186,22 @@ export default {
 
     itemInStage(item, index) {
       const length = this.items.length;
-      if (index === length - 1 && item.inStage && this.items[0].active ||
-        (item.inStage && this.items[index + 1] && this.items[index + 1].active)) {
-        return 'left';
-      } else if (index === 0 && item.inStage && this.items[length - 1].active ||
-        (item.inStage && this.items[index - 1] && this.items[index - 1].active)) {
-        return 'right';
+      if (
+        (index === length - 1 && item.inStage && this.items[0].active) ||
+        (item.inStage && this.items[index + 1] && this.items[index + 1].active)
+      ) {
+        return "left";
+      } else if (
+        (index === 0 && item.inStage && this.items[length - 1].active) ||
+        (item.inStage && this.items[index - 1] && this.items[index - 1].active)
+      ) {
+        return "right";
       }
       return false;
     },
 
     handleButtonEnter(arrow) {
-      if (this.direction === 'vertical') return;
+      if (this.direction === "vertical") return;
       this.items.forEach((item, index) => {
         if (arrow === this.itemInStage(item, index)) {
           item.hover = true;
@@ -200,14 +210,16 @@ export default {
     },
 
     handleButtonLeave() {
-      if (this.direction === 'vertical') return;
-      this.items.forEach(item => {
+      if (this.direction === "vertical") return;
+      this.items.forEach((item) => {
         item.hover = false;
       });
     },
 
     updateItems() {
-      this.items = this.$children.filter(child => child.$options.name === 'ElCarouselItem');
+      this.items = this.$children.filter(
+        (child) => child.$options.name === "TdCarouselItem"
+      );
     },
 
     resetItemPosition(oldIndex) {
@@ -242,15 +254,15 @@ export default {
     },
 
     setActiveItem(index) {
-      if (typeof index === 'string') {
-        const filteredItems = this.items.filter(item => item.name === index);
+      if (typeof index === "string") {
+        const filteredItems = this.items.filter((item) => item.name === index);
         if (filteredItems.length > 0) {
           index = this.items.indexOf(filteredItems[0]);
         }
       }
       index = Number(index);
       if (isNaN(index) || index !== Math.floor(index)) {
-        console.warn('[Element Warn][Carousel]index must be an integer.');
+        console.warn("[Element Warn][Carousel]index must be an integer.");
         return;
       }
       let length = this.items.length;
@@ -281,17 +293,17 @@ export default {
     },
 
     handleIndicatorHover(index) {
-      if (this.trigger === 'hover' && index !== this.activeIndex) {
+      if (this.trigger === "hover" && index !== this.activeIndex) {
         this.activeIndex = index;
       }
-    }
+    },
   },
 
   created() {
-    this.throttledArrowClick = throttle(300, true, index => {
+    this.throttledArrowClick = throttle(300, true, (index) => {
       this.setActiveItem(index);
     });
-    this.throttledIndicatorHover = throttle(300, index => {
+    this.throttledIndicatorHover = throttle(300, (index) => {
       this.handleIndicatorHover(index);
     });
   },
@@ -310,6 +322,6 @@ export default {
   beforeDestroy() {
     if (this.$el) removeResizeListener(this.$el, this.resetItemPosition);
     this.pauseTimer();
-  }
+  },
 };
 </script>

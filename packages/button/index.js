@@ -1,8 +1,8 @@
-import ElButton from './src/button';
+import TdButton from "./src/button";
 
 /* istanbul ignore next */
-ElButton.install = function(Vue) {
-  Vue.component(ElButton.name, ElButton);
+TdButton.install = function(Vue) {
+  Vue.component(TdButton.name, TdButton);
 };
 
-export default ElButton;
+export default TdButton;

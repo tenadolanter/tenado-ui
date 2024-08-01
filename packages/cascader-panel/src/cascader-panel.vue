@@ -1,55 +1,56 @@
 <template>
   <div
-    :class="[
-      'el-cascader-panel',
-      border && 'is-bordered'
-    ]"
-    @keydown="handleKeyDown">
+    :class="['td-cascader-panel', border && 'is-bordered']"
+    @keydown="handleKeyDown"
+  >
     <cascader-menu
       ref="menu"
       v-for="(menu, index) in menus"
       :index="index"
       :key="index"
-      :nodes="menu"></cascader-menu>
+      :nodes="menu"
+    ></cascader-menu>
   </div>
 </template>
 
 <script>
-import CascaderMenu from './cascader-menu';
-import Store from './store';
-import merge from 'element-ui/src/utils/merge';
-import AriaUtils from 'element-ui/src/utils/aria-utils';
-import scrollIntoView from 'element-ui/src/utils/scroll-into-view';
+import CascaderMenu from "./cascader-menu";
+import Store from "./store";
+import merge from "@tenado/ui/src/utils/merge";
+import AriaUtils from "@tenado/ui/src/utils/aria-utils";
+import scrollIntoView from "@tenado/ui/src/utils/scroll-into-view";
 import {
   noop,
   coerceTruthyValueToArray,
   isEqual,
   isEmpty,
-  valueEquals
-} from 'element-ui/src/utils/util';
+  valueEquals,
+} from "@tenado/ui/src/utils/util";
 
 const { keys: KeyCode } = AriaUtils;
 const DefaultProps = {
-  expandTrigger: 'click', // or hover
+  expandTrigger: "click", // or hover
   multiple: false,
   checkStrictly: false, // whether all nodes can be selected
   emitPath: true, // wether to emit an array of all levels value in which node is located
   lazy: false,
   lazyLoad: noop,
-  value: 'value',
-  label: 'label',
-  children: 'children',
-  leaf: 'leaf',
-  disabled: 'disabled',
-  hoverThreshold: 500
+  value: "value",
+  label: "label",
+  children: "children",
+  leaf: "leaf",
+  disabled: "disabled",
+  hoverThreshold: 500,
 };
 
-const isLeaf = el => !el.getAttribute('aria-owns');
+const isLeaf = (el) => !el.getAttribute("aria-owns");
 
 const getSibling = (el, distance) => {
   const { parentNode } = el;
   if (parentNode) {
-    const siblings = parentNode.querySelectorAll('.el-cascader-node[tabindex="-1"]');
+    const siblings = parentNode.querySelectorAll(
+      '.td-cascader-node[tabindex="-1"]'
+    );
     const index = Array.prototype.indexOf.call(siblings, el);
     return siblings[index + distance] || null;
   }
@@ -58,20 +59,20 @@ const getSibling = (el, distance) => {
 
 const getMenuIndex = (el, distance) => {
   if (!el) return;
-  const pieces = el.id.split('-');
+  const pieces = el.id.split("-");
   return Number(pieces[pieces.length - 2]);
 };
 
-const focusNode = el => {
+const focusNode = (el) => {
   if (!el) return;
   el.focus();
   !isLeaf(el) && el.click();
 };
 
-const checkNode = el => {
+const checkNode = (el) => {
   if (!el) return;
 
-  const input = el.querySelector('input');
+  const input = el.querySelector("input");
   if (input) {
     input.click();
   } else if (isLeaf(el)) {
@@ -80,10 +81,10 @@ const checkNode = el => {
 };
 
 export default {
-  name: 'ElCascaderPanel',
+  name: "TdCascaderPanel",
 
   components: {
-    CascaderMenu
+    CascaderMenu,
   },
 
   props: {
@@ -92,14 +93,14 @@ export default {
     props: Object,
     border: {
       type: Boolean,
-      default: true
+      default: true,
     },
-    renderLabel: Function
+    renderLabel: Function,
   },
 
   provide() {
     return {
-      panel: this
+      panel: this,
     };
   },
 
@@ -110,7 +111,7 @@ export default {
       store: [],
       menus: [],
       activePath: [],
-      loadCount: 0
+      loadCount: 0,
     };
   },
 
@@ -128,11 +129,11 @@ export default {
       return !this.checkStrictly;
     },
     isHoverMenu() {
-      return this.config.expandTrigger === 'hover';
+      return this.config.expandTrigger === "hover";
     },
     renderLabelFn() {
       return this.renderLabel || this.$scopedSlots.default;
-    }
+    },
   },
 
   watch: {
@@ -145,15 +146,15 @@ export default {
         this.initStore();
       },
       immediate: true,
-      deep: true
+      deep: true,
     },
     checkedValue(val) {
       if (!isEqual(val, this.value)) {
         this.checkStrictly && this.calculateCheckedNodePaths();
-        this.$emit('input', val);
-        this.$emit('change', val);
+        this.$emit("input", val);
+        this.$emit("change", val);
       }
-    }
+    },
   },
 
   mounted() {
@@ -191,7 +192,7 @@ export default {
     syncMultiCheckState() {
       const nodes = this.getFlattedNodes(this.leafOnly);
 
-      nodes.forEach(node => {
+      nodes.forEach((node) => {
         node.syncCheckState(this.checkedValue);
       });
     },
@@ -207,7 +208,9 @@ export default {
       const { store, multiple, activePath, checkedValue } = this;
 
       if (!isEmpty(activePath)) {
-        const nodes = activePath.map(node => this.getNodeByValue(node.getValue()));
+        const nodes = activePath.map((node) =>
+          this.getNodeByValue(node.getValue())
+        );
         this.expandNodes(nodes);
       } else if (!this.isEmptyValue(checkedValue)) {
         const value = multiple ? checkedValue[0] : checkedValue;
@@ -220,14 +223,14 @@ export default {
       }
     },
     expandNodes(nodes) {
-      nodes.forEach(node => this.handleExpand(node, true /* silent */));
+      nodes.forEach((node) => this.handleExpand(node, true /* silent */));
     },
     calculateCheckedNodePaths() {
       const { checkedValue, multiple } = this;
       const checkedValues = multiple
         ? coerceTruthyValueToArray(checkedValue)
-        : [ checkedValue ];
-      this.checkedNodePaths = checkedValues.map(v => {
+        : [checkedValue];
+      this.checkedNodePaths = checkedValues.map((v) => {
         const checkedNode = this.getNodeByValue(v);
         return checkedNode ? checkedNode.pathNodes : [];
       });
@@ -247,14 +250,18 @@ export default {
         case KeyCode.left:
           const preMenu = this.$refs.menu[getMenuIndex(target) - 1];
           if (preMenu) {
-            const expandedNode = preMenu.$el.querySelector('.el-cascader-node[aria-expanded="true"]');
+            const expandedNode = preMenu.$el.querySelector(
+              '.td-cascader-node[aria-expanded="true"]'
+            );
             focusNode(expandedNode);
           }
           break;
         case KeyCode.right:
           const nextMenu = this.$refs.menu[getMenuIndex(target) + 1];
           if (nextMenu) {
-            const firstNode = nextMenu.$el.querySelector('.el-cascader-node[tabindex="-1"]');
+            const firstNode = nextMenu.$el.querySelector(
+              '.td-cascader-node[tabindex="-1"]'
+            );
             focusNode(firstNode);
           }
           break;
@@ -263,7 +270,7 @@ export default {
           break;
         case KeyCode.esc:
         case KeyCode.tab:
-          this.$emit('close');
+          this.$emit("close");
           break;
         default:
           return;
@@ -284,11 +291,11 @@ export default {
       this.menus = menus;
 
       if (!silent) {
-        const pathValues = path.map(node => node.getValue());
-        const activePathValues = activePath.map(node => node.getValue());
+        const pathValues = path.map((node) => node.getValue());
+        const activePathValues = activePath.map((node) => node.getValue());
         if (!valueEquals(pathValues, activePathValues)) {
-          this.$emit('active-item-change', pathValues); // Deprecated
-          this.$emit('expand-change', pathValues);
+          this.$emit("active-item-change", pathValues); // Deprecated
+          this.$emit("expand-change", pathValues);
         }
       }
     },
@@ -303,7 +310,7 @@ export default {
         this.menus = [this.store.getNodes()];
       }
       node.loading = true;
-      const resolve = dataList => {
+      const resolve = (dataList) => {
         const parent = node.root ? null : node;
         dataList && dataList.length && this.store.appendNodes(dataList, parent);
         node.loading = false;
@@ -315,7 +322,10 @@ export default {
           const valueKey = this.config.value;
           const leafKey = this.config.leaf;
 
-          if (Array.isArray(dataList) && dataList.filter(item => item[valueKey] === nodeValue).length > 0) {
+          if (
+            Array.isArray(dataList) &&
+            dataList.filter((item) => item[valueKey] === nodeValue).length > 0
+          ) {
             const checkedNode = this.store.getNodeByValue(nodeValue);
 
             if (!checkedNode.data[leafKey]) {
@@ -337,21 +347,23 @@ export default {
 
     /**
      * public methods
-    */
+     */
     calculateMultiCheckedValue() {
-      this.checkedValue = this.getCheckedNodes(this.leafOnly)
-        .map(node => node.getValueByOption());
+      this.checkedValue = this.getCheckedNodes(this.leafOnly).map((node) =>
+        node.getValueByOption()
+      );
     },
     scrollIntoView() {
       if (this.$isServer) return;
 
       const menus = this.$refs.menu || [];
-      menus.forEach(menu => {
+      menus.forEach((menu) => {
         const menuElement = menu.$el;
         if (menuElement) {
-          const container = menuElement.querySelector('.el-scrollbar__wrap');
-          const activeNode = menuElement.querySelector('.el-cascader-node.is-active') ||
-            menuElement.querySelector('.el-cascader-node.in-active-path');
+          const container = menuElement.querySelector(".td-scrollbar__wrap");
+          const activeNode =
+            menuElement.querySelector(".td-cascader-node.is-active") ||
+            menuElement.querySelector(".td-cascader-node.in-active-path");
           scrollIntoView(container, activeNode);
         }
       });
@@ -367,7 +379,7 @@ export default {
       const { checkedValue, multiple } = this;
       if (multiple) {
         const nodes = this.getFlattedNodes(leafOnly);
-        return nodes.filter(node => node.checked);
+        return nodes.filter((node) => node.checked);
       } else {
         return this.isEmptyValue(checkedValue)
           ? []
@@ -379,13 +391,13 @@ export default {
       const { multiple, emitPath } = config;
       if (multiple) {
         this.getCheckedNodes(leafOnly)
-          .filter(node => !node.isDisabled)
-          .forEach(node => node.doCheck(false));
+          .filter((node) => !node.isDisabled)
+          .forEach((node) => node.doCheck(false));
         this.calculateMultiCheckedValue();
       } else {
         this.checkedValue = emitPath ? [] : null;
       }
-    }
-  }
+    },
+  },
 };
 </script>

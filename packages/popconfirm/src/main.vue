@@ -1,104 +1,92 @@
 <template>
-  <el-popover
-    v-bind="$attrs"
-    v-model="visible"
-    trigger="click"
-  >
-  <div class="el-popconfirm">
-    <p class="el-popconfirm__main">
-    <i
-      v-if="!hideIcon"
-      :class="icon"
-      class="el-popconfirm__icon"
-      :style="{color: iconColor}"
-    ></i>
-      {{title}}
-    </p>
-    <div class="el-popconfirm__action">
-      <el-button 
-        size="mini" 
-        :type="cancelButtonType" 
-        @click="cancel"
-      >
-        {{ displayCancelButtonText }}
-      </el-button>
-      <el-button 
-        size="mini" 
-        :type="confirmButtonType" 
-        @click="confirm"
-      >
-        {{ displayConfirmButtonText }}
-      </el-button>
+  <td-popover v-bind="$attrs" v-model="visible" trigger="click">
+    <div class="td-popconfirm">
+      <p class="td-popconfirm__main">
+        <i
+          v-if="!hideIcon"
+          :class="icon"
+          class="td-popconfirm__icon"
+          :style="{ color: iconColor }"
+        ></i>
+        {{ title }}
+      </p>
+      <div class="td-popconfirm__action">
+        <td-button size="mini" :type="cancelButtonType" @click="cancel">
+          {{ displayCancelButtonText }}
+        </td-button>
+        <td-button size="mini" :type="confirmButtonType" @click="confirm">
+          {{ displayConfirmButtonText }}
+        </td-button>
+      </div>
     </div>
-  </div>
-  <slot name="reference" slot="reference"></slot>
-</el-popover>
+    <slot name="reference" slot="reference"></slot>
+  </td-popover>
 </template>
 
 <script>
-import ElPopover from 'element-ui/packages/popover';
-import ElButton from 'element-ui/packages/button';
-import {t} from 'element-ui/src/locale';
+import TdPopover from "@tenado/ui/packages/popover";
+import TdButton from "@tenado/ui/packages/button";
+import { t } from "@tenado/ui/src/locale";
 
 export default {
-  name: 'ElPopconfirm',
+  name: "TdPopconfirm",
   props: {
     title: {
-      type: String
+      type: String,
     },
     confirmButtonText: {
-      type: String
+      type: String,
     },
     cancelButtonText: {
-      type: String
+      type: String,
     },
     confirmButtonType: {
       type: String,
-      default: 'primary'
+      default: "primary",
     },
     cancelButtonType: {
       type: String,
-      default: 'text'
+      default: "text",
     },
     icon: {
       type: String,
-      default: 'el-icon-question'
+      default: "td-icon-question",
     },
     iconColor: {
       type: String,
-      default: '#f90'
+      default: "#f90",
     },
     hideIcon: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   components: {
-    ElPopover,
-    ElButton
+    TdPopover,
+    TdButton,
   },
   data() {
     return {
-      visible: false
+      visible: false,
     };
   },
   computed: {
     displayConfirmButtonText() {
-      return this.confirmButtonText || t('el.popconfirm.confirmButtonText');
+      return this.confirmButtonText || t("el.popconfirm.confirmButtonText");
     },
     displayCancelButtonText() {
-      return this.cancelButtonText || t('el.popconfirm.cancelButtonText');
-    }
+      return this.cancelButtonText || t("el.popconfirm.cancelButtonText");
+    },
   },
   methods: {
     confirm() {
       this.visible = false;
-      this.$emit('confirm');
+      this.$emit("confirm");
     },
     cancel() {
       this.visible = false;
-      this.$emit('cancel');
-    }
-  }
+      this.$emit("cancel");
+    },
+  },
 };
 </script>

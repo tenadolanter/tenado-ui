@@ -1,20 +1,20 @@
-import Vue from 'vue';
-import { isString, isObject } from 'element-ui/src/utils/types';
+import Vue from "vue";
+import { isString, isObject } from "@tenado/ui/src/utils/types";
 
 const hasOwnProperty = Object.prototype.hasOwnProperty;
 
-export function noop() {};
+export function noop() {}
 
 export function hasOwn(obj, key) {
   return hasOwnProperty.call(obj, key);
-};
+}
 
 function extend(to, _from) {
   for (let key in _from) {
     to[key] = _from[key];
   }
   return to;
-};
+}
 
 export function toObject(arr) {
   var res = {};
@@ -24,11 +24,11 @@ export function toObject(arr) {
     }
   }
   return res;
-};
+}
 
 export const getValueByPath = function(object, prop) {
-  prop = prop || '';
-  const paths = prop.split('.');
+  prop = prop || "";
+  const paths = prop.split(".");
   let current = object;
   let result = null;
   for (let i = 0, j = paths.length; i < j; i++) {
@@ -46,10 +46,10 @@ export const getValueByPath = function(object, prop) {
 
 export function getPropByPath(obj, path, strict) {
   let tempObj = obj;
-  path = path.replace(/\[(\w+)\]/g, '.$1');
-  path = path.replace(/^\./, '');
+  path = path.replace(/\[(\w+)\]/g, ".$1");
+  path = path.replace(/^\./, "");
 
-  let keyArr = path.split('.');
+  let keyArr = path.split(".");
   let i = 0;
   for (let len = keyArr.length; i < len - 1; ++i) {
     if (!tempObj && !strict) break;
@@ -58,7 +58,7 @@ export function getPropByPath(obj, path, strict) {
       tempObj = tempObj[key];
     } else {
       if (strict) {
-        throw new Error('please transfer a valid prop path to form item!');
+        throw new Error("please transfer a valid prop path to form item!");
       }
       break;
     }
@@ -66,9 +66,9 @@ export function getPropByPath(obj, path, strict) {
   return {
     o: tempObj,
     k: keyArr[i],
-    v: tempObj ? tempObj[keyArr[i]] : null
+    v: tempObj ? tempObj[keyArr[i]] : null,
   };
-};
+}
 
 export const generateId = function() {
   return Math.floor(Math.random() * 10000);
@@ -86,7 +86,8 @@ export const valueEquals = (a, b) => {
   return true;
 };
 
-export const escapeRegexpString = (value = '') => String(value).replace(/[|\\{}()[\]^$+*?.]/g, '\\$&');
+export const escapeRegexpString = (value = "") =>
+  String(value).replace(/[|\\{}()[\]^$+*?.]/g, "\\$&");
 
 // TODO: use native Array.find, Array.findIndex when IE support is dropped
 export const arrayFindIndex = function(arr, pred) {
@@ -119,21 +120,23 @@ export const isIE = function() {
 };
 
 export const isEdge = function() {
-  return !Vue.prototype.$isServer && navigator.userAgent.indexOf('Edge') > -1;
+  return !Vue.prototype.$isServer && navigator.userAgent.indexOf("Edge") > -1;
 };
 
 export const isFirefox = function() {
-  return !Vue.prototype.$isServer && !!window.navigator.userAgent.match(/firefox/i);
+  return (
+    !Vue.prototype.$isServer && !!window.navigator.userAgent.match(/firefox/i)
+  );
 };
 
 export const autoprefixer = function(style) {
-  if (typeof style !== 'object') return style;
-  const rules = ['transform', 'transition', 'animation'];
-  const prefixes = ['ms-', 'webkit-'];
-  rules.forEach(rule => {
+  if (typeof style !== "object") return style;
+  const rules = ["transform", "transition", "animation"];
+  const prefixes = ["ms-", "webkit-"];
+  rules.forEach((rule) => {
     const value = style[rule];
     if (rule && value) {
-      prefixes.forEach(prefix => {
+      prefixes.forEach((prefix) => {
         style[prefix + rule] = value;
       });
     }
@@ -144,8 +147,8 @@ export const autoprefixer = function(style) {
 export const kebabCase = function(str) {
   const hyphenateRE = /([^-])([A-Z])/g;
   return str
-    .replace(hyphenateRE, '$1-$2')
-    .replace(hyphenateRE, '$1-$2')
+    .replace(hyphenateRE, "$1-$2")
+    .replace(hyphenateRE, "$1-$2")
     .toLowerCase();
 };
 
@@ -194,26 +197,26 @@ export const isEmpty = function(val) {
   // null or undefined
   if (val == null) return true;
 
-  if (typeof val === 'boolean') return false;
+  if (typeof val === "boolean") return false;
 
-  if (typeof val === 'number') return !val;
+  if (typeof val === "number") return !val;
 
-  if (val instanceof Error) return val.message === '';
+  if (val instanceof Error) return val.message === "";
 
   switch (Object.prototype.toString.call(val)) {
     // String or Array
-    case '[object String]':
-    case '[object Array]':
+    case "[object String]":
+    case "[object Array]":
       return !val.length;
 
     // Map or Set or File
-    case '[object File]':
-    case '[object Map]':
-    case '[object Set]': {
+    case "[object File]":
+    case "[object Map]":
+    case "[object Set]": {
       return !val.size;
     }
     // Plain Object
-    case '[object Object]': {
+    case "[object Object]": {
       return !Object.keys(val).length;
     }
   }
@@ -226,7 +229,7 @@ export function rafThrottle(fn) {
   return function(...args) {
     if (locked) return;
     locked = true;
-    window.requestAnimationFrame(_ => {
+    window.requestAnimationFrame((_) => {
       fn.apply(this, args);
       locked = false;
     });
@@ -241,5 +244,7 @@ export function objToArray(obj) {
 }
 
 export const isMac = function() {
-  return !Vue.prototype.$isServer && /macintosh|mac os x/i.test(navigator.userAgent);
+  return (
+    !Vue.prototype.$isServer && /macintosh|mac os x/i.test(navigator.userAgent)
+  );
 };

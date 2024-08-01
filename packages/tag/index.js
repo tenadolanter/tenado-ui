@@ -1,8 +1,8 @@
-import ElTag from './src/tag';
+import TdTag from "./src/tag";
 
 /* istanbul ignore next */
-ElTag.install = function(Vue) {
-  Vue.component(ElTag.name, ElTag);
+TdTag.install = function(Vue) {
+  Vue.component(TdTag.name, TdTag);
 };
 
-export default ElTag;
+export default TdTag;

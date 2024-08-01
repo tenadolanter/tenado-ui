@@ -1,75 +1,75 @@
-import Popper from 'element-ui/src/utils/vue-popper';
-import debounce from 'throttle-debounce/debounce';
-import { addClass, removeClass, on, off } from 'element-ui/src/utils/dom';
-import { generateId } from 'element-ui/src/utils/util';
-import Vue from 'vue';
+import Popper from "@tenado/ui/src/utils/vue-popper";
+import debounce from "throttle-debounce/debounce";
+import { addClass, removeClass, on, off } from "@tenado/ui/src/utils/dom";
+import { generateId } from "@tenado/ui/src/utils/util";
+import Vue from "vue";
 
 export default {
-  name: 'ElTooltip',
+  name: "TdTooltip",
 
   mixins: [Popper],
 
   props: {
     openDelay: {
       type: Number,
-      default: 0
+      default: 0,
     },
     disabled: Boolean,
     manual: Boolean,
     effect: {
       type: String,
-      default: 'dark'
+      default: "dark",
     },
     arrowOffset: {
       type: Number,
-      default: 0
+      default: 0,
     },
     popperClass: String,
     content: String,
     visibleArrow: {
-      default: true
+      default: true,
     },
     transition: {
       type: String,
-      default: 'el-fade-in-linear'
+      default: "td-fade-in-linear",
     },
     popperOptions: {
       default() {
         return {
           boundariesPadding: 10,
-          gpuAcceleration: false
+          gpuAcceleration: false,
         };
-      }
+      },
     },
     enterable: {
       type: Boolean,
-      default: true
+      default: true,
     },
     hideAfter: {
       type: Number,
-      default: 0
+      default: 0,
     },
     tabindex: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
 
   data() {
     return {
-      tooltipId: `el-tooltip-${generateId()}`,
+      tooltipId: `td-tooltip-${generateId()}`,
       timeoutPending: null,
-      focusing: false
+      focusing: false,
     };
   },
   beforeCreate() {
     if (this.$isServer) return;
 
     this.popperVM = new Vue({
-      data: { node: '' },
+      data: { node: "" },
       render(h) {
         return this.node;
-      }
+      },
     }).$mount();
 
     this.debounceClose = debounce(200, () => this.handleClosePopper());
@@ -78,29 +78,36 @@ export default {
   render(h) {
     if (this.popperVM) {
       this.popperVM.node = (
-        <transition
-          name={ this.transition }
-          onAfterLeave={ this.doDestroy }>
+        <transition name={this.transition} onAfterLeave={this.doDestroy}>
           <div
-            onMouseleave={ () => { this.setExpectedState(false); this.debounceClose(); } }
-            onMouseenter= { () => { this.setExpectedState(true); } }
+            onMouseleave={() => {
+              this.setExpectedState(false);
+              this.debounceClose();
+            }}
+            onMouseenter={() => {
+              this.setExpectedState(true);
+            }}
             ref="popper"
             role="tooltip"
             id={this.tooltipId}
-            aria-hidden={ (this.disabled || !this.showPopper) ? 'true' : 'false' }
+            aria-hidden={this.disabled || !this.showPopper ? "true" : "false"}
             v-show={!this.disabled && this.showPopper}
-            class={
-              ['el-tooltip__popper', 'is-' + this.effect, this.popperClass]
-            }>
-            { this.$slots.content || this.content }
+            class={[
+              "td-tooltip__popper",
+              "is-" + this.effect,
+              this.popperClass,
+            ]}
+          >
+            {this.$slots.content || this.content}
           </div>
-        </transition>);
+        </transition>
+      );
     }
 
     const firstElement = this.getFirstElement();
     if (!firstElement) return null;
 
-    const data = firstElement.data = firstElement.data || {};
+    const data = (firstElement.data = firstElement.data || {});
     data.staticClass = this.addTooltipClass(data.staticClass);
 
     return firstElement;
@@ -109,11 +116,11 @@ export default {
   mounted() {
     this.referenceElm = this.$el;
     if (this.$el.nodeType === 1) {
-      this.$el.setAttribute('aria-describedby', this.tooltipId);
-      this.$el.setAttribute('tabindex', this.tabindex);
-      on(this.referenceElm, 'mouseenter', this.show);
-      on(this.referenceElm, 'mouseleave', this.hide);
-      on(this.referenceElm, 'focus', () => {
+      this.$el.setAttribute("aria-describedby", this.tooltipId);
+      this.$el.setAttribute("tabindex", this.tabindex);
+      on(this.referenceElm, "mouseenter", this.show);
+      on(this.referenceElm, "mouseleave", this.hide);
+      on(this.referenceElm, "focus", () => {
         if (!this.$slots.default || !this.$slots.default.length) {
           this.handleFocus();
           return;
@@ -125,8 +132,8 @@ export default {
           this.handleFocus();
         }
       });
-      on(this.referenceElm, 'blur', this.handleBlur);
-      on(this.referenceElm, 'click', this.removeFocusing);
+      on(this.referenceElm, "blur", this.handleBlur);
+      on(this.referenceElm, "click", this.removeFocusing);
     }
     // fix issue https://github.com/ElemeFE/element/issues/14424
     if (this.value && this.popperVM) {
@@ -140,11 +147,11 @@ export default {
   watch: {
     focusing(val) {
       if (val) {
-        addClass(this.referenceElm, 'focusing');
+        addClass(this.referenceElm, "focusing");
       } else {
-        removeClass(this.referenceElm, 'focusing');
+        removeClass(this.referenceElm, "focusing");
       }
-    }
+    },
   },
   methods: {
     show() {
@@ -170,9 +177,9 @@ export default {
 
     addTooltipClass(prev) {
       if (!prev) {
-        return 'el-tooltip';
+        return "td-tooltip";
       } else {
-        return 'el-tooltip ' + prev.replace('el-tooltip', '');
+        return "td-tooltip " + prev.replace("td-tooltip", "");
       }
     },
 
@@ -191,7 +198,7 @@ export default {
     },
 
     handleClosePopper() {
-      if (this.enterable && this.expectedState || this.manual) return;
+      if ((this.enterable && this.expectedState) || this.manual) return;
       clearTimeout(this.timeout);
 
       if (this.timeoutPending) {
@@ -219,10 +226,10 @@ export default {
         if (slots[index] && slots[index].tag) {
           element = slots[index];
           break;
-        };
+        }
       }
       return element;
-    }
+    },
   },
 
   beforeDestroy() {
@@ -232,11 +239,11 @@ export default {
   destroyed() {
     const reference = this.referenceElm;
     if (reference.nodeType === 1) {
-      off(reference, 'mouseenter', this.show);
-      off(reference, 'mouseleave', this.hide);
-      off(reference, 'focus', this.handleFocus);
-      off(reference, 'blur', this.handleBlur);
-      off(reference, 'click', this.removeFocusing);
+      off(reference, "mouseenter", this.show);
+      off(reference, "mouseleave", this.hide);
+      off(reference, "focus", this.handleFocus);
+      off(reference, "blur", this.handleBlur);
+      off(reference, "click", this.removeFocusing);
     }
-  }
+  },
 };

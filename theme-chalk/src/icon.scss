@@ -1,0 +1,21 @@
+@import "common/var";
+
+.td-icon-loading {
+  animation: rotating 2s linear infinite;
+}
+
+.td-icon--right {
+  margin-left: 5px;
+}
+.td-icon--left {
+  margin-right: 5px;
+}
+
+@keyframes rotating {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}

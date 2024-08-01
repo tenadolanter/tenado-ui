@@ -1,9 +1,9 @@
 <template>
   <li
-    class="el-dropdown-menu__item"
+    class="td-dropdown-menu__item"
     :class="{
       'is-disabled': disabled,
-      'el-dropdown-menu__item--divided': divided
+      'td-dropdown-menu__item--divided': divided,
     }"
     @click="handleClick"
     :aria-disabled="disabled"
@@ -14,24 +14,24 @@
   </li>
 </template>
 <script>
-  import Emitter from 'element-ui/src/mixins/emitter';
+import Emitter from "@tenado/ui/src/mixins/emitter";
 
-  export default {
-    name: 'ElDropdownItem',
+export default {
+  name: "TdDropdownItem",
 
-    mixins: [Emitter],
+  mixins: [Emitter],
 
-    props: {
-      command: {},
-      disabled: Boolean,
-      divided: Boolean,
-      icon: String
+  props: {
+    command: {},
+    disabled: Boolean,
+    divided: Boolean,
+    icon: String,
+  },
+
+  methods: {
+    handleClick(e) {
+      this.dispatch("TdDropdown", "menu-item-click", [this.command, this]);
     },
-
-    methods: {
-      handleClick(e) {
-        this.dispatch('ElDropdown', 'menu-item-click', [this.command, this]);
-      }
-    }
-  };
+  },
+};
 </script>

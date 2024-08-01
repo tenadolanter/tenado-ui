@@ -1,13 +1,11 @@
-import throttle from 'throttle-debounce/debounce';
+import throttle from "throttle-debounce/debounce";
 import {
   isHtmlElement,
   isFunction,
   isUndefined,
-  isDefined
-} from 'element-ui/src/utils/types';
-import {
-  getScrollContainer
-} from 'element-ui/src/utils/dom';
+  isDefined,
+} from "@tenado/ui/src/utils/types";
+import { getScrollContainer } from "@tenado/ui/src/utils/dom";
 
 const getStyleComputedProperty = (element, property) => {
   if (element === window) {
@@ -23,8 +21,7 @@ const getStyleComputedProperty = (element, property) => {
 };
 
 const entries = (obj) => {
-  return Object.keys(obj || {})
-    .map(key => ([key, obj[key]]));
+  return Object.keys(obj || {}).map((key) => [key, obj[key]]);
 };
 
 const getPositionSize = (el, prop) => {
@@ -33,32 +30,32 @@ const getPositionSize = (el, prop) => {
     : el[prop];
 };
 
-const getOffsetHeight = el => {
-  return getPositionSize(el, 'offsetHeight');
+const getOffsetHeight = (el) => {
+  return getPositionSize(el, "offsetHeight");
 };
 
-const getClientHeight = el => {
-  return getPositionSize(el, 'clientHeight');
+const getClientHeight = (el) => {
+  return getPositionSize(el, "clientHeight");
 };
 
-const scope = 'ElInfiniteScroll';
+const scope = "TdInfiniteScroll";
 const attributes = {
   delay: {
     type: Number,
-    default: 200
+    default: 200,
   },
   distance: {
     type: Number,
-    default: 0
+    default: 0,
   },
   disabled: {
     type: Boolean,
-    default: false
+    default: false,
   },
   immediate: {
     type: Boolean,
-    default: true
-  }
+    default: true,
+  },
 };
 
 const getScrollOptions = (el, vm) => {
@@ -74,7 +71,11 @@ const getScrollOptions = (el, vm) => {
         value = Number.isNaN(value) ? defaultValue : value;
         break;
       case Boolean:
-        value = isDefined(value) ? value === 'false' ? false : Boolean(value) : defaultValue;
+        value = isDefined(value)
+          ? value === "false"
+            ? false
+            : Boolean(value)
+          : defaultValue;
         break;
       default:
         value = type(value);
@@ -84,7 +85,7 @@ const getScrollOptions = (el, vm) => {
   }, {});
 };
 
-const getElementTop = el => el.getBoundingClientRect().top;
+const getElementTop = (el) => el.getBoundingClientRect().top;
 
 const handleScroll = function(cb) {
   const { el, vm, container, observer } = this[scope];
@@ -102,9 +103,12 @@ const handleScroll = function(cb) {
     const scrollBottom = container.scrollTop + getClientHeight(container);
     shouldTrigger = container.scrollHeight - scrollBottom <= distance;
   } else {
-    const heightBelowTop = getOffsetHeight(el) + getElementTop(el) - getElementTop(container);
+    const heightBelowTop =
+      getOffsetHeight(el) + getElementTop(el) - getElementTop(container);
     const offsetHeight = getOffsetHeight(container);
-    const borderBottom = Number.parseFloat(getStyleComputedProperty(container, 'borderBottomWidth'));
+    const borderBottom = Number.parseFloat(
+      getStyleComputedProperty(container, "borderBottomWidth")
+    );
     shouldTrigger = heightBelowTop - offsetHeight + borderBottom <= distance;
   }
 
@@ -114,11 +118,10 @@ const handleScroll = function(cb) {
     observer.disconnect();
     this[scope].observer = null;
   }
-
 };
 
 export default {
-  name: 'InfiniteScroll',
+  name: "InfiniteScroll",
   inserted(el, binding, vnode) {
     const cb = binding.value;
 
@@ -131,10 +134,10 @@ export default {
     el[scope] = { el, vm, container, onScroll };
 
     if (container) {
-      container.addEventListener('scroll', onScroll);
+      container.addEventListener("scroll", onScroll);
 
       if (immediate) {
-        const observer = el[scope].observer = new MutationObserver(onScroll);
+        const observer = (el[scope].observer = new MutationObserver(onScroll));
         observer.observe(container, { childList: true, subtree: true });
         onScroll();
       }
@@ -143,8 +146,7 @@ export default {
   unbind(el) {
     const { container, onScroll } = el[scope];
     if (container) {
-      container.removeEventListener('scroll', onScroll);
+      container.removeEventListener("scroll", onScroll);
     }
-  }
+  },
 };
-

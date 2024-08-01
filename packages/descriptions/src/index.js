@@ -1,63 +1,63 @@
-import DescriptionsRow from './descriptions-row';
-import { isFunction } from 'element-ui/src/utils/types';
+import DescriptionsRow from "./descriptions-row";
+import { isFunction } from "@tenado/ui/src/utils/types";
 
 export default {
-  name: 'ElDescriptions',
+  name: "TdDescriptions",
   components: {
-    [DescriptionsRow.name]: DescriptionsRow
+    [DescriptionsRow.name]: DescriptionsRow,
   },
   props: {
     border: {
       type: Boolean,
-      default: false
+      default: false,
     },
     column: {
       type: Number,
-      default: 3
+      default: 3,
     },
     direction: {
       type: String,
-      default: 'horizontal'
+      default: "horizontal",
     },
     size: {
-      type: String
+      type: String,
       // validator: isValidComponentSize,
     },
     title: {
       type: String,
-      default: ''
+      default: "",
     },
     extra: {
       type: String,
-      default: ''
+      default: "",
     },
     labelStyle: {
-      type: Object
+      type: Object,
     },
     contentStyle: {
-      type: Object
+      type: Object,
     },
     labelClassName: {
       type: String,
-      default: ''
+      default: "",
     },
     contentClassName: {
       type: String,
-      default: ''
+      default: "",
     },
     colon: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   computed: {
     descriptionsSize() {
       return this.size || (this.$ELEMENT || {}).size;
-    }
+    },
   },
   provide() {
     return {
-      elDescriptions: this
+      elDescriptions: this,
     };
   },
   methods: {
@@ -71,7 +71,9 @@ export default {
           const v = props[k];
           const defaultValue = v.default;
           if (defaultValue !== undefined) {
-            res[k] = isFunction(defaultValue) ? defaultValue.call(vnode) : defaultValue;
+            res[k] = isFunction(defaultValue)
+              ? defaultValue.call(vnode)
+              : defaultValue;
           }
         }
         return { ...res, ...propsData };
@@ -82,11 +84,11 @@ export default {
       let componentOptions = vnode.componentOptions || {};
       const children = vnode.children || componentOptions.children || [];
       const slots = {};
-      children.forEach(child => {
+      children.forEach((child) => {
         if (!this.isEmptyElement(child)) {
-          const name = (child.data && child.data.slot) || 'default';
+          const name = (child.data && child.data.slot) || "default";
           slots[name] = slots[name] || [];
-          if (child.tag === 'template') {
+          if (child.tag === "template") {
             slots[name].push(child.children);
           } else {
             slots[name].push(child);
@@ -96,7 +98,7 @@ export default {
       return { ...slots };
     },
     isEmptyElement(c) {
-      return !(c.tag || (c.text && c.text.trim() !== ''));
+      return !(c.tag || (c.text && c.text.trim() !== ""));
     },
     filledNode(node, span, count, isLast = false) {
       if (!node.props) {
@@ -112,13 +114,17 @@ export default {
       return node;
     },
     getRows() {
-      const children = ((this.$slots.default || []).filter(vnode => vnode.tag &&
-            vnode.componentOptions && vnode.componentOptions.Ctor.options.name === 'ElDescriptionsItem'));
-      const nodes = children.map(vnode => {
+      const children = (this.$slots.default || []).filter(
+        (vnode) =>
+          vnode.tag &&
+          vnode.componentOptions &&
+          vnode.componentOptions.Ctor.options.name === "TdDescriptionsItem"
+      );
+      const nodes = children.map((vnode) => {
         return {
           props: this.getOptionProps(vnode),
           slots: this.getSlots(vnode),
-          vnode
+          vnode,
         };
       });
       const rows = [];
@@ -146,35 +152,39 @@ export default {
       });
 
       return rows;
-    }
+    },
   },
   render() {
     const { title, extra, border, descriptionsSize, $slots } = this;
     const rows = this.getRows();
 
     return (
-      <div class="el-descriptions">
-        {
-          (title || extra || $slots.title || $slots.extra)
-            ? <div class="el-descriptions__header">
-              <div class="el-descriptions__title">
-                { $slots.title ? $slots.title : title}
-              </div>
-              <div class="el-descriptions__extra">
-                { $slots.extra ? $slots.extra : extra }
-              </div>
+      <div class="td-descriptions">
+        {title || extra || $slots.title || $slots.extra ? (
+          <div class="td-descriptions__header">
+            <div class="td-descriptions__title">
+              {$slots.title ? $slots.title : title}
             </div>
-            : null
-        }
+            <div class="td-descriptions__extra">
+              {$slots.extra ? $slots.extra : extra}
+            </div>
+          </div>
+        ) : null}
 
-        <div class="el-descriptions__body">
-          <table class={['el-descriptions__table', {'is-bordered': border}, descriptionsSize ? `el-descriptions--${descriptionsSize}` : '']}>
-            {rows.map(row => (
-              <DescriptionsRow row={row}></DescriptionsRow>
+        <div class="td-descriptions__body">
+          <table
+            class={[
+              "td-descriptions__table",
+              { "is-bordered": border },
+              descriptionsSize ? `td-descriptions--${descriptionsSize}` : "",
+            ]}
+          >
+            {rows.map((row) => (
+              <DescriptionsRow row={row} />
             ))}
           </table>
         </div>
       </div>
     );
-  }
+  },
 };

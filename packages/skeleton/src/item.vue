@@ -1,22 +1,22 @@
 <template>
-  <div :class="['el-skeleton__item', `el-skeleton__${variant}`]">
+  <div :class="['td-skeleton__item', `td-skeleton__${variant}`]">
     <img-placeholder v-if="variant === 'image'" />
   </div>
 </template>
 
 <script>
-  import ImgPlaceholder from './img-placeholder';
+import ImgPlaceholder from "./img-placeholder";
 
-  export default {
-    name: 'ElSkeletonItem',
-    props: {
-      variant: {
-        type: String,
-        default: 'text'
-      }
+export default {
+  name: "TdSkeletonItem",
+  props: {
+    variant: {
+      type: String,
+      default: "text",
     },
-    components: {
-      [ImgPlaceholder.name]: ImgPlaceholder
-    }
-  };
+  },
+  components: {
+    [ImgPlaceholder.name]: ImgPlaceholder,
+  },
+};
 </script>
