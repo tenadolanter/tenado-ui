@@ -1,5 +1,5 @@
 import Vue from "vue";
-import entry from "./app";
+import entry from "./App";
 import VueRouter from "vue-router";
 import Element from "main/index.js";
 import hljs from "highlight.js";
