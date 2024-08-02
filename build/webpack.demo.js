@@ -6,10 +6,7 @@ const TerserWebpackPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerWebpackPlugin = require("css-minimizer-webpack-plugin");
 const launchEditorMiddleware = require("launch-editor-middleware");
-
 const config = require("./config");
-const loader = require("sass-loader");
-
 const isProd = process.env.NODE_ENV === "production";
 
 const webpackConfig = {
