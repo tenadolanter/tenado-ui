@@ -3,7 +3,6 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerWebpackPlugin = require("css-minimizer-webpack-plugin");
 const launchEditorMiddleware = require("launch-editor-middleware");
 const config = require("./config");
@@ -66,7 +65,7 @@ const webpackConfig = {
       {
         test: /\.(scss|css)$/,
         use: [
-          isProd ? MiniCssExtractPlugin.loader : "style-loader",
+          "style-loader",
           "css-loader",
           {
             loader: "sass-loader",
@@ -131,7 +130,6 @@ const webpackConfig = {
 };
 
 if (isProd) {
-  webpackConfig.plugins.push(new MiniCssExtractPlugin());
   webpackConfig.optimization.minimizer.push(
     new TerserWebpackPlugin({ extractComments: false }),
     new CssMinimizerWebpackPlugin()
