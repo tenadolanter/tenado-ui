@@ -107,7 +107,6 @@ const webpackConfig = {
     ],
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: "./examples/index.html",
       filename: "./index.html",
