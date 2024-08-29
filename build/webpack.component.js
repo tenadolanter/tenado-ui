@@ -53,11 +53,7 @@ const webpackConfig = {
       },
       {
         test: /\.(svg|otf|ttf|woff2?|eot|gif|png|jpe?g)(\?\S*)?$/,
-        loader: "url-loader",
-        options: {
-          limit: 10000,
-          name: path.posix.join("static", "[name].[chunkhash].[ext]"),
-        },
+        type: "asset/resource",
       },
     ],
   },

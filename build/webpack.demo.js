@@ -29,12 +29,6 @@ const webpackConfig = {
       if (!devServer) {
         throw new Error("webpack-dev-server is not defined");
       }
-      /*
-       * 编辑器类型 :此处的指令表示的时各个各个编辑器在cmd或terminal中的命令
-       * webstorm
-       * code // vscode
-       * idea
-       */
       devServer.app.use("/__open-in-editor", launchEditorMiddleware("code"));
       return middlewares;
     },
@@ -98,11 +92,7 @@ const webpackConfig = {
       },
       {
         test: /\.(svg|otf|ttf|woff2?|eot|gif|png|jpe?g)(\?\S*)?$/,
-        loader: "url-loader",
-        options: {
-          limit: 10000,
-          name: path.posix.join("static", "[name].[chunkhash].[ext]"),
-        },
+        type: "asset/resource",
       },
     ],
   },
