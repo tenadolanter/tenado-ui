@@ -47,7 +47,7 @@ import Clickoutside from "@tenado/ui/src/utils/clickoutside";
 import Emitter from "@tenado/ui/src/mixins/emitter";
 
 export default {
-  name: "ElColorPicker",
+  name: "TdColorPicker",
 
   mixins: [Emitter],
 
@@ -135,14 +135,14 @@ export default {
       const value = this.color.value;
       this.$emit("input", value);
       this.$emit("change", value);
-      this.dispatch("ElFormItem", "el.form.change", value);
+      this.dispatch("TdFormItem", "el.form.change", value);
       this.showPicker = false;
     },
     clearValue() {
       this.$emit("input", null);
       this.$emit("change", null);
       if (this.value !== null) {
-        this.dispatch("ElFormItem", "el.form.change", null);
+        this.dispatch("TdFormItem", "el.form.change", null);
       }
       this.showPanelColor = false;
       this.showPicker = false;

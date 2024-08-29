@@ -2,7 +2,7 @@ import DescriptionsRow from "./descriptions-row";
 import { isFunction } from "@tenado/ui/src/utils/types";
 
 export default {
-  name: "ElDescriptions",
+  name: "TdDescriptions",
   components: {
     [DescriptionsRow.name]: DescriptionsRow,
   },
@@ -118,7 +118,7 @@ export default {
         (vnode) =>
           vnode.tag &&
           vnode.componentOptions &&
-          vnode.componentOptions.Ctor.options.name === "ElDescriptionsItem"
+          vnode.componentOptions.Ctor.options.name === "TdDescriptionsItem"
       );
       const nodes = children.map((vnode) => {
         return {

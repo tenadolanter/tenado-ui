@@ -51,7 +51,7 @@ import Migrating from "@tenado/ui/src/mixins/migrating";
 import emitter from "@tenado/ui/src/mixins/emitter";
 
 export default {
-  name: "ElDialog",
+  name: "TdDialog",
 
   mixins: [Popup, emitter, Migrating],
 
@@ -189,8 +189,8 @@ export default {
       }
     },
     updatePopper() {
-      this.broadcast("ElSelectDropdown", "updatePopper");
-      this.broadcast("ElDropdownMenu", "updatePopper");
+      this.broadcast("TdSelectDropdown", "updatePopper");
+      this.broadcast("TdDropdownMenu", "updatePopper");
     },
     afterEnter() {
       this.$emit("opened");

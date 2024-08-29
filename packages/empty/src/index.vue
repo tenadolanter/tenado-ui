@@ -21,7 +21,7 @@ import ImgEmpty from "./img-empty.vue";
 import { t } from "@tenado/ui/src/locale";
 
 export default {
-  name: "ElEmpty",
+  name: "TdEmpty",
   components: {
     [ImgEmpty.name]: ImgEmpty,
   },

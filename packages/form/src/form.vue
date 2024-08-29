@@ -13,9 +13,9 @@
 import objectAssign from "@tenado/ui/src/utils/merge";
 
 export default {
-  name: "ElForm",
+  name: "TdForm",
 
-  componentName: "ElForm",
+  componentName: "TdForm",
 
   provide() {
     return {

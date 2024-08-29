@@ -118,9 +118,9 @@ import merge from "@tenado/ui/src/utils/merge";
 import { isKorean } from "@tenado/ui/src/utils/shared";
 
 export default {
-  name: "ElInput",
+  name: "TdInput",
 
-  componentName: "ElInput",
+  componentName: "TdInput",
 
   mixins: [emitter, Migrating],
 
@@ -275,7 +275,7 @@ export default {
     value(val) {
       this.$nextTick(this.resizeTextarea);
       if (this.validateEvent) {
-        this.dispatch("ElFormItem", "el.form.change", [val]);
+        this.dispatch("TdFormItem", "el.form.change", [val]);
       }
     },
     // native input value is set explicitly
@@ -318,7 +318,7 @@ export default {
       this.focused = false;
       this.$emit("blur", event);
       if (this.validateEvent) {
-        this.dispatch("ElFormItem", "el.form.blur", [this.value]);
+        this.dispatch("TdFormItem", "el.form.blur", [this.value]);
       }
     },
     select() {

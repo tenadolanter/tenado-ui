@@ -5,7 +5,7 @@ import { generateId } from "@tenado/ui/src/utils/util";
 import Vue from "vue";
 
 export default {
-  name: "ElTooltip",
+  name: "TdTooltip",
 
   mixins: [Popper],
 

@@ -57,7 +57,7 @@ const ObjectFit = {
 let prevOverflow = "";
 
 export default {
-  name: "ElImage",
+  name: "TdImage",
 
   mixins: [Locale],
   inheritAttrs: false,

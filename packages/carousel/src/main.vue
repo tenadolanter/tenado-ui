@@ -62,7 +62,7 @@ import {
 } from "@tenado/ui/src/utils/resize-event";
 
 export default {
-  name: "ElCarousel",
+  name: "TdCarousel",
 
   props: {
     initialIndex: {
@@ -218,7 +218,7 @@ export default {
 
     updateItems() {
       this.items = this.$children.filter(
-        (child) => child.$options.name === "ElCarouselItem"
+        (child) => child.$options.name === "TdCarouselItem"
       );
     },
 

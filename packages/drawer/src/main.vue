@@ -57,7 +57,7 @@ import Popup from "@tenado/ui/src/utils/popup";
 import emitter from "@tenado/ui/src/mixins/emitter";
 
 export default {
-  name: "ElDrawer",
+  name: "TdDrawer",
   mixins: [Popup, emitter],
   props: {
     appendToBody: {

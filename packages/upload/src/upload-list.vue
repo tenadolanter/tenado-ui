@@ -89,7 +89,7 @@ import Locale from "@tenado/ui/src/mixins/locale";
 import ElProgress from "@tenado/ui/packages/progress";
 
 export default {
-  name: "ElUploadList",
+  name: "TdUploadList",
 
   mixins: [Locale],
 

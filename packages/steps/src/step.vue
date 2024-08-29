@@ -53,7 +53,7 @@
 
 <script>
 export default {
-  name: "ElStep",
+  name: "TdStep",
 
   props: {
     title: String,

@@ -53,9 +53,9 @@ import Emitter from "@tenado/ui/src/mixins/emitter";
 import { generateId } from "@tenado/ui/src/utils/util";
 
 export default {
-  name: "ElCollapseItem",
+  name: "TdCollapseItem",
 
-  componentName: "ElCollapseItem",
+  componentName: "TdCollapseItem",
 
   mixins: [Emitter],
 
@@ -105,12 +105,12 @@ export default {
     },
     handleHeaderClick() {
       if (this.disabled) return;
-      this.dispatch("ElCollapse", "item-click", this);
+      this.dispatch("TdCollapse", "item-click", this);
       this.focusing = false;
       this.isClick = true;
     },
     handleEnterClick() {
-      this.dispatch("ElCollapse", "item-click", this);
+      this.dispatch("TdCollapse", "item-click", this);
     },
   },
 };

@@ -47,7 +47,7 @@ router.afterEach((route) => {
     const blocks = document.querySelectorAll("pre code:not(.hljs)");
     Array.prototype.forEach.call(blocks, hljs.highlightBlock);
   });
-  document.title = "Element";
+  document.title = "Tdement";
 });
 
 new Vue({

@@ -83,7 +83,7 @@ import SliderMarker from "./marker";
 import Emitter from "@tenado/ui/src/mixins/emitter";
 
 export default {
-  name: "ElSlider",
+  name: "TdSlider",
 
   mixins: [Emitter],
 
@@ -246,7 +246,7 @@ export default {
           this.firstValue = val[0];
           this.secondValue = val[1];
           if (this.valueChanged()) {
-            this.dispatch("ElFormItem", "el.form.change", [
+            this.dispatch("TdFormItem", "el.form.change", [
               this.minValue,
               this.maxValue,
             ]);
@@ -261,7 +261,7 @@ export default {
         } else {
           this.firstValue = val;
           if (this.valueChanged()) {
-            this.dispatch("ElFormItem", "el.form.change", val);
+            this.dispatch("TdFormItem", "el.form.change", val);
             this.oldValue = val;
           }
         }

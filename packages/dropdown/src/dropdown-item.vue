@@ -17,7 +17,7 @@
 import Emitter from "@tenado/ui/src/mixins/emitter";
 
 export default {
-  name: "ElDropdownItem",
+  name: "TdDropdownItem",
 
   mixins: [Emitter],
 
@@ -30,7 +30,7 @@ export default {
 
   methods: {
     handleClick(e) {
-      this.dispatch("ElDropdown", "menu-item-click", [this.command, this]);
+      this.dispatch("TdDropdown", "menu-item-click", [this.command, this]);
     },
   },
 };

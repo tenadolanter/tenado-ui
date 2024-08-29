@@ -7,7 +7,7 @@ import Migrating from "@tenado/ui/src/mixins/migrating";
 function noop() {}
 
 export default {
-  name: "ElUpload",
+  name: "TdUpload",
 
   mixins: [Migrating],
 

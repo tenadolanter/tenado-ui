@@ -11,7 +11,7 @@
 import Migrating from "@tenado/ui/src/mixins/migrating";
 
 export default {
-  name: "ElSteps",
+  name: "TdSteps",
 
   mixins: [Migrating],
 

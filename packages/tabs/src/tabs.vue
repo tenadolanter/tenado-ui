@@ -2,7 +2,7 @@
 import TabNav from "./tab-nav";
 
 export default {
-  name: "ElTabs",
+  name: "TdTabs",
 
   components: {
     TabNav,
@@ -61,7 +61,7 @@ export default {
           (vnode) =>
             vnode.tag &&
             vnode.componentOptions &&
-            vnode.componentOptions.Ctor.options.name === "ElTabPane"
+            vnode.componentOptions.Ctor.options.name === "TdTabPane"
         );
         // update indeed
         const panes = paneSlots.map(

@@ -2,9 +2,9 @@
 import Emitter from "@tenado/ui/src/mixins/emitter";
 
 export default {
-  name: "ElCheckboxGroup",
+  name: "TdCheckboxGroup",
 
-  componentName: "ElCheckboxGroup",
+  componentName: "TdCheckboxGroup",
 
   mixins: [Emitter],
 
@@ -35,7 +35,7 @@ export default {
 
   watch: {
     value(value) {
-      this.dispatch("ElFormItem", "el.form.change", [value]);
+      this.dispatch("TdFormItem", "el.form.change", [value]);
     },
   },
 };

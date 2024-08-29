@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: "ElBadge",
+  name: "TdBadge",
 
   props: {
     value: [String, Number],

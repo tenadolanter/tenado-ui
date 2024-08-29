@@ -23,9 +23,9 @@ import { getValueByPath, escapeRegexpString } from "@tenado/ui/src/utils/util";
 export default {
   mixins: [Emitter],
 
-  name: "ElOption",
+  name: "TdOption",
 
-  componentName: "ElOption",
+  componentName: "TdOption",
 
   inject: ["select"],
 
@@ -91,7 +91,7 @@ export default {
   watch: {
     currentLabel() {
       if (!this.created && !this.select.remote)
-        this.dispatch("ElSelect", "setSelected");
+        this.dispatch("TdSelect", "setSelected");
     },
     value(val, oldVal) {
       const { remote, valueKey } = this.select;
@@ -104,7 +104,7 @@ export default {
         ) {
           return;
         }
-        this.dispatch("ElSelect", "setSelected");
+        this.dispatch("TdSelect", "setSelected");
       }
     },
   },
@@ -148,7 +148,7 @@ export default {
 
     selectOptionClick() {
       if (this.disabled !== true && this.groupDisabled !== true) {
-        this.dispatch("ElSelect", "handleOptionClick", [this, true]);
+        this.dispatch("TdSelect", "handleOptionClick", [this, true]);
       }
     },
 

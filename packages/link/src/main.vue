@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: "ElLink",
+  name: "TdLink",
 
   props: {
     type: {

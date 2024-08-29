@@ -13,7 +13,7 @@
 </template>
 <script>
 export default {
-  name: "ElUploadDrag",
+  name: "TdUploadDrag",
   props: {
     disabled: Boolean,
   },

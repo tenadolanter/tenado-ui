@@ -47,7 +47,7 @@ import { isObject } from "@tenado/ui/src/utils/types";
 import Migrating from "@tenado/ui/src/mixins/migrating";
 
 export default {
-  name: "ElRate",
+  name: "TdRate",
 
   mixins: [Migrating],
 

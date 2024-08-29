@@ -70,7 +70,7 @@
 </template>
 <script>
 export default {
-  name: "ElProgress",
+  name: "TdProgress",
   props: {
     type: {
       type: String,

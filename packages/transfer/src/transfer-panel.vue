@@ -70,9 +70,9 @@ import Locale from "@tenado/ui/src/mixins/locale";
 export default {
   mixins: [Locale],
 
-  name: "ElTransferPanel",
+  name: "TdTransferPanel",
 
-  componentName: "ElTransferPanel",
+  componentName: "TdTransferPanel",
 
   components: {
     ElCheckboxGroup,
@@ -84,7 +84,7 @@ export default {
       },
       render(h) {
         const getParent = (vm) => {
-          if (vm.$options.componentName === "ElTransferPanel") {
+          if (vm.$options.componentName === "TdTransferPanel") {
             return vm;
           } else if (vm.$parent) {
             return getParent(vm.$parent);

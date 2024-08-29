@@ -1,6 +1,6 @@
 import ElCheckbox from "@tenado/ui/packages/checkbox";
 export default {
-  name: "ElTableRow",
+  name: "TdTableRow",
   props: [
     "columns",
     "row",

@@ -40,7 +40,7 @@ import emitter from "@tenado/ui/src/mixins/emitter";
 import { addClass, removeClass } from "@tenado/ui/src/utils/dom";
 
 export default {
-  name: "ElTree",
+  name: "TdTree",
 
   mixins: [emitter],
 
@@ -283,7 +283,7 @@ export default {
     },
 
     handleNodeExpand(nodeData, node, instance) {
-      this.broadcast("ElTreeNode", "tree-node-expand", node);
+      this.broadcast("TdTreeNode", "tree-node-expand", node);
       this.$emit("node-expand", nodeData, node, instance);
     },
 
@@ -386,7 +386,7 @@ export default {
     });
 
     this.$on("tree-node-drag-over", (event, treeNode) => {
-      const dropNode = findNearestComponent(event.target, "ElTreeNode");
+      const dropNode = findNearestComponent(event.target, "TdTreeNode");
       const oldDropNode = dragState.dropNode;
       if (oldDropNode && oldDropNode !== dropNode) {
         removeClass(oldDropNode.$el, "is-drop-inner");

@@ -47,7 +47,7 @@ const TYPE_CLASSES_MAP = {
   error: "td-icon-error",
 };
 export default {
-  name: "ElAlert",
+  name: "TdAlert",
 
   props: {
     title: {

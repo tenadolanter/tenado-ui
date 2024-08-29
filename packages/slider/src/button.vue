@@ -35,7 +35,7 @@
 import ElTooltip from "@tenado/ui/packages/tooltip";
 
 export default {
-  name: "ElSliderButton",
+  name: "TdSliderButton",
 
   components: {
     ElTooltip,

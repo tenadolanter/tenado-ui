@@ -57,9 +57,9 @@ import objectAssign from "@tenado/ui/src/utils/merge";
 import { noop, getPropByPath } from "@tenado/ui/src/utils/util";
 import LabelWrap from "./label-wrap";
 export default {
-  name: "ElFormItem",
+  name: "TdFormItem",
 
-  componentName: "ElFormItem",
+  componentName: "TdFormItem",
 
   mixins: [emitter],
 
@@ -147,8 +147,8 @@ export default {
     form() {
       let parent = this.$parent;
       let parentName = parent.$options.componentName;
-      while (parentName !== "ElForm") {
-        if (parentName === "ElFormItem") {
+      while (parentName !== "TdForm") {
+        if (parentName === "TdFormItem") {
           this.isNested = true;
         }
         parent = parent.$parent;
@@ -276,7 +276,7 @@ export default {
         this.validateDisabled = false;
       });
 
-      this.broadcast("ElTimeSelect", "fieldReset", this.initialValue);
+      this.broadcast("TdTimeSelect", "fieldReset", this.initialValue);
     },
     getRules() {
       let formRules = this.form.rules;
@@ -331,7 +331,7 @@ export default {
   },
   mounted() {
     if (this.prop) {
-      this.dispatch("ElForm", "el.form.addField", [this]);
+      this.dispatch("TdForm", "el.form.addField", [this]);
 
       let initialValue = this.fieldValue;
       if (Array.isArray(initialValue)) {
@@ -345,7 +345,7 @@ export default {
     }
   },
   beforeDestroy() {
-    this.dispatch("ElForm", "el.form.removeField", [this]);
+    this.dispatch("TdForm", "el.form.removeField", [this]);
   },
 };
 </script>

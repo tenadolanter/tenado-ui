@@ -19,7 +19,7 @@
 </template>
 <script>
 export default {
-  name: "ElSpinner",
+  name: "TdSpinner",
   props: {
     type: String,
     radius: {

@@ -19,7 +19,7 @@
 </template>
 <script>
 export default {
-  name: "ElBreadcrumbItem",
+  name: "TdBreadcrumbItem",
   props: {
     to: {},
     replace: Boolean,

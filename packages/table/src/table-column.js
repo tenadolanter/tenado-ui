@@ -10,7 +10,7 @@ import ElCheckbox from "@tenado/ui/packages/checkbox";
 let columnIdSeed = 1;
 
 export default {
-  name: "ElTableColumn",
+  name: "TdTableColumn",
 
   props: {
     type: {

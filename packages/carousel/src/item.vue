@@ -25,7 +25,7 @@
 import { autoprefixer } from "@tenado/ui/src/utils/util";
 const CARD_SCALE = 0.83;
 export default {
-  name: "ElCarouselItem",
+  name: "TdCarouselItem",
 
   props: {
     name: String,

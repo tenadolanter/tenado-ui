@@ -15,7 +15,7 @@
 <script>
 import { t } from "@tenado/ui/src/locale";
 export default {
-  name: "ElPageHeader",
+  name: "TdPageHeader",
 
   props: {
     title: {

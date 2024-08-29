@@ -42,9 +42,9 @@ import ElTooltip from "@tenado/ui/packages/tooltip";
 import Emitter from "@tenado/ui/src/mixins/emitter";
 
 export default {
-  name: "ElMenuItem",
+  name: "TdMenuItem",
 
-  componentName: "ElMenuItem",
+  componentName: "TdMenuItem",
 
   mixins: [Menu, Emitter],
 
@@ -105,7 +105,7 @@ export default {
     },
     handleClick() {
       if (!this.disabled) {
-        this.dispatch("ElMenu", "item-click", this);
+        this.dispatch("TdMenu", "item-click", this);
         this.$emit("click", this);
       }
     },

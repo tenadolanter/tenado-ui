@@ -193,9 +193,9 @@ import { isKorean } from "@tenado/ui/src/utils/shared";
 export default {
   mixins: [Emitter, Locale, Focus("reference"), NavigationMixin],
 
-  name: "ElSelect",
+  name: "TdSelect",
 
-  componentName: "ElSelect",
+  componentName: "TdSelect",
 
   inject: {
     elForm: {
@@ -427,13 +427,13 @@ export default {
         this.inputLength = 20;
       }
       if (!valueEquals(val, oldVal)) {
-        this.dispatch("ElFormItem", "el.form.change", val);
+        this.dispatch("TdFormItem", "el.form.change", val);
       }
     },
 
     visible(val) {
       if (!val) {
-        this.broadcast("ElSelectDropdown", "destroyPopper");
+        this.broadcast("TdSelectDropdown", "destroyPopper");
         if (this.$refs.input) {
           this.$refs.input.blur();
         }
@@ -472,7 +472,7 @@ export default {
           }
         }
       } else {
-        this.broadcast("ElSelectDropdown", "updatePopper");
+        this.broadcast("TdSelectDropdown", "updatePopper");
         if (this.filterable) {
           this.query = this.remote ? "" : this.selectedLabel;
           this.handleQueryChange(this.query);
@@ -480,8 +480,8 @@ export default {
             this.$refs.input.focus();
           } else {
             if (!this.remote) {
-              this.broadcast("ElOption", "queryChange", "");
-              this.broadcast("ElOptionGroup", "queryChange");
+              this.broadcast("TdOption", "queryChange", "");
+              this.broadcast("TdOptionGroup", "queryChange");
             }
 
             if (this.selectedLabel) {
@@ -497,7 +497,7 @@ export default {
     options() {
       if (this.$isServer) return;
       this.$nextTick(() => {
-        this.broadcast("ElSelectDropdown", "updatePopper");
+        this.broadcast("TdSelectDropdown", "updatePopper");
       });
       if (this.multiple) {
         this.resetInputHeight();
@@ -544,7 +544,7 @@ export default {
       }
       this.previousQuery = val;
       this.$nextTick(() => {
-        if (this.visible) this.broadcast("ElSelectDropdown", "updatePopper");
+        if (this.visible) this.broadcast("TdSelectDropdown", "updatePopper");
       });
       this.hoverIndex = -1;
       if (this.multiple && this.filterable) {
@@ -560,11 +560,11 @@ export default {
         this.remoteMethod(val);
       } else if (typeof this.filterMethod === "function") {
         this.filterMethod(val);
-        this.broadcast("ElOptionGroup", "queryChange");
+        this.broadcast("TdOptionGroup", "queryChange");
       } else {
         this.filteredOptionsCount = this.optionsCount;
-        this.broadcast("ElOption", "queryChange", val);
-        this.broadcast("ElOptionGroup", "queryChange");
+        this.broadcast("TdOption", "queryChange", val);
+        this.broadcast("TdOptionGroup", "queryChange");
       }
       if (
         this.defaultFirstOption &&
@@ -758,7 +758,7 @@ export default {
                 sizeInMap
               ) + "px";
         if (this.visible && this.emptyText !== false) {
-          this.broadcast("ElSelectDropdown", "updatePopper");
+          this.broadcast("TdSelectDropdown", "updatePopper");
         }
       });
     },

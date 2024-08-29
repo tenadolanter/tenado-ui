@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: "ElCard",
+  name: "TdCard",
   props: {
     header: {},
     bodyStyle: {},

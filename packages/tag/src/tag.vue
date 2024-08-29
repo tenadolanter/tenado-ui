@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: "ElTag",
+  name: "TdTag",
   props: {
     text: String,
     closable: Boolean,

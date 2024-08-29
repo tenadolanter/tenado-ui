@@ -7,9 +7,9 @@ import ElButtonGroup from "@tenado/ui/packages/button-group";
 import { generateId } from "@tenado/ui/src/utils/util";
 
 export default {
-  name: "ElDropdown",
+  name: "TdDropdown",
 
-  componentName: "ElDropdown",
+  componentName: "TdDropdown",
 
   mixins: [Emitter, Migrating],
 
@@ -91,7 +91,7 @@ export default {
 
   watch: {
     visible(val) {
-      this.broadcast("ElDropdownMenu", "visible", val);
+      this.broadcast("TdDropdownMenu", "visible", val);
       this.$emit("visible-change", val);
     },
     focusing(val) {

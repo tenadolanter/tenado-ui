@@ -188,7 +188,7 @@ const InputSizeMap = {
 };
 
 export default {
-  name: "ElCascader",
+  name: "TdCascader",
 
   directives: { Clickoutside },
 
@@ -338,7 +338,7 @@ export default {
 
         this.$emit("input", val);
         this.$emit("change", val);
-        this.dispatch("ElFormItem", "el.form.change", [val]);
+        this.dispatch("TdFormItem", "el.form.change", [val]);
       }
     },
     options: {

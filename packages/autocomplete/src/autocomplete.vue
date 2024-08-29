@@ -69,13 +69,13 @@ import { generateId } from "@tenado/ui/src/utils/util";
 import Focus from "@tenado/ui/src/mixins/focus";
 
 export default {
-  name: "ElAutocomplete",
+  name: "TdAutocomplete",
 
   mixins: [Emitter, Focus("input"), Migrating],
 
   inheritAttrs: false,
 
-  componentName: "ElAutocomplete",
+  componentName: "TdAutocomplete",
 
   components: {
     ElInput,
@@ -157,7 +157,7 @@ export default {
     suggestionVisible(val) {
       let $input = this.getInput();
       if ($input) {
-        this.broadcast("ElAutocompleteSuggestions", "visible", [
+        this.broadcast("TdAutocompleteSuggestions", "visible", [
           val,
           $input.offsetWidth,
         ]);

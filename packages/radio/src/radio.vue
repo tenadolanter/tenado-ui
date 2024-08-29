@@ -48,7 +48,7 @@
 import Emitter from "@tenado/ui/src/mixins/emitter";
 
 export default {
-  name: "ElRadio",
+  name: "TdRadio",
 
   mixins: [Emitter],
 
@@ -62,7 +62,7 @@ export default {
     },
   },
 
-  componentName: "ElRadio",
+  componentName: "TdRadio",
 
   props: {
     value: {},
@@ -82,7 +82,7 @@ export default {
     isGroup() {
       let parent = this.$parent;
       while (parent) {
-        if (parent.$options.componentName !== "ElRadioGroup") {
+        if (parent.$options.componentName !== "TdRadioGroup") {
           parent = parent.$parent;
         } else {
           this._radioGroup = parent;
@@ -97,7 +97,7 @@ export default {
       },
       set(val) {
         if (this.isGroup) {
-          this.dispatch("ElRadioGroup", "input", [val]);
+          this.dispatch("TdRadioGroup", "input", [val]);
         } else {
           this.$emit("input", val);
         }
@@ -134,7 +134,7 @@ export default {
       this.$nextTick(() => {
         this.$emit("change", this.model);
         this.isGroup &&
-          this.dispatch("ElRadioGroup", "handleChange", this.model);
+          this.dispatch("TdRadioGroup", "handleChange", this.model);
       });
     },
   },

@@ -5,7 +5,7 @@ import Locale from "@tenado/ui/src/mixins/locale";
 import { generateId } from "@tenado/ui/src/utils/util";
 
 export default {
-  name: "ElCascaderMenu",
+  name: "TdCascaderMenu",
 
   mixins: [Locale],
 

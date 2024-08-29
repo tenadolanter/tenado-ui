@@ -66,7 +66,7 @@ const weekDays = [
 const oneDay = 86400000;
 
 export default {
-  name: "ElCalendar",
+  name: "TdCalendar",
 
   mixins: [Locale],
 

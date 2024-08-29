@@ -59,7 +59,7 @@ import Focus from "@tenado/ui/src/mixins/focus";
 import Migrating from "@tenado/ui/src/mixins/migrating";
 
 export default {
-  name: "ElSwitch",
+  name: "TdSwitch",
   mixins: [Focus("input"), Migrating, emitter],
   inject: {
     elForm: {
@@ -140,7 +140,7 @@ export default {
         this.setBackgroundColor();
       }
       if (this.validateEvent) {
-        this.dispatch("ElFormItem", "el.form.change", [this.value]);
+        this.dispatch("TdFormItem", "el.form.change", [this.value]);
       }
     },
   },

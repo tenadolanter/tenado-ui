@@ -1,5 +1,5 @@
 export default {
-  name: "ElDescriptionsRow",
+  name: "TdDescriptionsRow",
   props: {
     row: {
       type: Array,

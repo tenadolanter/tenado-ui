@@ -31,7 +31,7 @@ import { addClass, removeClass } from "@tenado/ui/src/utils/dom";
 import { generateId } from "@tenado/ui/src/utils/util";
 
 export default {
-  name: "ElPopover",
+  name: "TdPopover",
 
   mixins: [Popper],
 

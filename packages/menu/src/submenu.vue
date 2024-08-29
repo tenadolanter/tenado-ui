@@ -21,9 +21,9 @@ const poperMixins = {
 };
 
 export default {
-  name: "ElSubmenu",
+  name: "TdSubmenu",
 
-  componentName: "ElSubmenu",
+  componentName: "TdSubmenu",
 
   mixins: [menuMixin, Emitter, poperMixins],
 
@@ -138,7 +138,7 @@ export default {
       let parent = this.$parent;
       while (parent && parent !== this.rootMenu) {
         if (
-          ["ElSubmenu", "ElMenuItemGroup"].indexOf(
+          ["TdSubmenu", "TdMenuItemGroup"].indexOf(
             parent.$options.componentName
           ) > -1
         ) {
@@ -180,7 +180,7 @@ export default {
       ) {
         return;
       }
-      this.dispatch("ElMenu", "submenu-click", this);
+      this.dispatch("TdMenu", "submenu-click", this);
     },
     handleMouseenter(event, showTimeout = this.showTimeout) {
       if (
@@ -198,7 +198,7 @@ export default {
       ) {
         return;
       }
-      this.dispatch("ElSubmenu", "mouse-enter-child");
+      this.dispatch("TdSubmenu", "mouse-enter-child");
       clearTimeout(this.timeout);
       this.timeout = setTimeout(() => {
         this.rootMenu.openMenu(this.index, this.indexPath);
@@ -216,14 +216,14 @@ export default {
       ) {
         return;
       }
-      this.dispatch("ElSubmenu", "mouse-leave-child");
+      this.dispatch("TdSubmenu", "mouse-leave-child");
       clearTimeout(this.timeout);
       this.timeout = setTimeout(() => {
         !this.mouseInChild && this.rootMenu.closeMenu(this.index);
       }, this.hideTimeout);
 
       if (this.appendToBody && deepDispatch) {
-        if (this.$parent.$options.name === "ElSubmenu") {
+        if (this.$parent.$options.name === "TdSubmenu") {
           this.$parent.handleMouseleave(true);
         }
       }

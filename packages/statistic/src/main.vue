@@ -34,7 +34,7 @@ import {
   reduce,
 } from "@tenado/ui/src/utils/lodash";
 export default {
-  name: "ElStatistic",
+  name: "TdStatistic",
   data() {
     return {
       disposeValue: "",

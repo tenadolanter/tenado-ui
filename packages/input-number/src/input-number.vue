@@ -55,7 +55,7 @@ import Focus from "@tenado/ui/src/mixins/focus";
 import RepeatClick from "@tenado/ui/src/directives/repeat-click";
 
 export default {
-  name: "ElInputNumber",
+  name: "TdInputNumber",
   mixins: [Focus("input")],
   inject: {
     elForm: {

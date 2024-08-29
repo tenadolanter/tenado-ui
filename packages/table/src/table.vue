@@ -281,7 +281,7 @@ import { parseHeight } from "./util";
 let tableIdSeed = 1;
 
 export default {
-  name: "ElTable",
+  name: "TdTable",
 
   mixins: [Locale, Migrating],
 

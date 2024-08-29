@@ -18,9 +18,9 @@ const keyCode = Object.freeze({
   DOWN: 40,
 });
 export default {
-  name: "ElRadioGroup",
+  name: "TdRadioGroup",
 
-  componentName: "ElRadioGroup",
+  componentName: "TdRadioGroup",
 
   inject: {
     elFormItem: {
@@ -107,7 +107,7 @@ export default {
   },
   watch: {
     value(value) {
-      this.dispatch("ElFormItem", "el.form.change", [this.value]);
+      this.dispatch("TdFormItem", "el.form.change", [this.value]);
     },
   },
 };

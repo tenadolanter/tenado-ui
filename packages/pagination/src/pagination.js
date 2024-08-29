@@ -6,7 +6,7 @@ import Locale from "@tenado/ui/src/mixins/locale";
 import { valueEquals } from "@tenado/ui/src/utils/util";
 
 export default {
-  name: "ElPagination",
+  name: "TdPagination",
 
   props: {
     pageSize: {

@@ -29,7 +29,7 @@ export default {
   components: { ElScrollbar },
   mixins: [Popper, Emitter],
 
-  componentName: "ElAutocompleteSuggestions",
+  componentName: "TdAutocompleteSuggestions",
 
   data() {
     return {
@@ -51,7 +51,7 @@ export default {
 
   methods: {
     select(item) {
-      this.dispatch("ElAutocomplete", "item-click", item);
+      this.dispatch("TdAutocomplete", "item-click", item);
     },
   },
 

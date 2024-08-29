@@ -74,7 +74,7 @@ import ElCheckboxGroup from "@tenado/ui/packages/checkbox-group";
 import ElScrollbar from "@tenado/ui/packages/scrollbar";
 
 export default {
-  name: "ElTableFilterPanel",
+  name: "TdTableFilterPanel",
 
   mixins: [Popper, Locale],
 

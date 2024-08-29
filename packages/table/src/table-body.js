@@ -14,7 +14,7 @@ import { mapStates } from "./store/helper";
 import TableRow from "./table-row.js";
 
 export default {
-  name: "ElTableBody",
+  name: "TdTableBody",
 
   mixins: [LayoutObserver],
 

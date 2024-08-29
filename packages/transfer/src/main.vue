@@ -53,7 +53,7 @@ import TransferPanel from "./transfer-panel.vue";
 import Migrating from "@tenado/ui/src/mixins/migrating";
 
 export default {
-  name: "ElTransfer",
+  name: "TdTransfer",
 
   mixins: [Emitter, Locale, Migrating],
 
@@ -170,7 +170,7 @@ export default {
 
   watch: {
     value(val) {
-      this.dispatch("ElFormItem", "el.form.change", val);
+      this.dispatch("TdFormItem", "el.form.change", val);
     },
   },
 

@@ -12,9 +12,9 @@
 import Popper from "@tenado/ui/src/utils/vue-popper";
 
 export default {
-  name: "ElSelectDropdown",
+  name: "TdSelectDropdown",
 
-  componentName: "ElSelectDropdown",
+  componentName: "TdSelectDropdown",
 
   mixins: [Popper],
 

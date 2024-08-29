@@ -29,7 +29,7 @@ import ElButton from "@tenado/ui/packages/button";
 import { t } from "@tenado/ui/src/locale";
 
 export default {
-  name: "ElPopconfirm",
+  name: "TdPopconfirm",
   props: {
     title: {
       type: String,

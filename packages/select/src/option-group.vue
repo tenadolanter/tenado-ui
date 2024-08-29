@@ -15,9 +15,9 @@ import Emitter from "@tenado/ui/src/mixins/emitter";
 export default {
   mixins: [Emitter],
 
-  name: "ElOptionGroup",
+  name: "TdOptionGroup",
 
-  componentName: "ElOptionGroup",
+  componentName: "TdOptionGroup",
 
   props: {
     label: String,
@@ -35,7 +35,7 @@ export default {
 
   watch: {
     disabled(val) {
-      this.broadcast("ElOption", "handleGroupDisabled", val);
+      this.broadcast("TdOption", "handleGroupDisabled", val);
     },
   },
 
@@ -54,7 +54,7 @@ export default {
 
   mounted() {
     if (this.disabled) {
-      this.broadcast("ElOption", "handleGroupDisabled", this.disabled);
+      this.broadcast("TdOption", "handleGroupDisabled", this.disabled);
     }
   },
 };

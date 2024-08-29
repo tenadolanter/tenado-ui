@@ -34,7 +34,7 @@ const IconMap = {
 };
 
 export default {
-  name: "ElResult",
+  name: "TdResult",
   components: {
     [IconSuccess.name]: IconSuccess,
     [IconError.name]: IconError,

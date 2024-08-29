@@ -60,7 +60,7 @@
 import Emitter from "@tenado/ui/src/mixins/emitter";
 
 export default {
-  name: "ElCheckbox",
+  name: "TdCheckbox",
 
   mixins: [Emitter],
 
@@ -73,7 +73,7 @@ export default {
     },
   },
 
-  componentName: "ElCheckbox",
+  componentName: "TdCheckbox",
 
   data() {
     return {
@@ -105,7 +105,7 @@ export default {
             (this.isLimitExceeded = true);
 
           this.isLimitExceeded === false &&
-            this.dispatch("ElCheckboxGroup", "input", [val]);
+            this.dispatch("TdCheckboxGroup", "input", [val]);
         } else {
           this.$emit("input", val);
           this.selfModel = val;
@@ -126,7 +126,7 @@ export default {
     isGroup() {
       let parent = this.$parent;
       while (parent) {
-        if (parent.$options.componentName !== "ElCheckboxGroup") {
+        if (parent.$options.componentName !== "TdCheckboxGroup") {
           parent = parent.$parent;
         } else {
           this._checkboxGroup = parent;
@@ -205,7 +205,7 @@ export default {
       this.$emit("change", value, ev);
       this.$nextTick(() => {
         if (this.isGroup) {
-          this.dispatch("ElCheckboxGroup", "change", [
+          this.dispatch("TdCheckboxGroup", "change", [
             this._checkboxGroup.value,
           ]);
         }
@@ -225,7 +225,7 @@ export default {
 
   watch: {
     value(value) {
-      this.dispatch("ElFormItem", "el.form.change", value);
+      this.dispatch("TdFormItem", "el.form.change", value);
     },
   },
 };
