@@ -56,7 +56,7 @@ const webpackConfig = {
         loader: "url-loader",
         options: {
           limit: 10000,
-          name: path.posix.join("static", "[name].[hash:7].[ext]"),
+          name: path.posix.join("static", "[name].[chunkhash].[ext]"),
         },
       },
     ],

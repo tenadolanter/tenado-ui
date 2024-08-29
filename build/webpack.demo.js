@@ -14,8 +14,8 @@ const webpackConfig = {
   output: {
     path: path.resolve(process.cwd(), "./dist"),
     publicPath: process.env.CI_ENV || "",
-    filename: "[name].[hash:7].js",
-    chunkFilename: isProd ? "[name].[hash:7].js" : "[name].js",
+    filename: "[name].[chunkhash].js",
+    chunkFilename: isProd ? "[name].[chunkhash].js" : "[name].js",
   },
   resolve: {
     extensions: [".js", ".vue", ".json"],
@@ -101,7 +101,7 @@ const webpackConfig = {
         loader: "url-loader",
         options: {
           limit: 10000,
-          name: path.posix.join("static", "[name].[hash:7].[ext]"),
+          name: path.posix.join("static", "[name].[chunkhash].[ext]"),
         },
       },
     ],
