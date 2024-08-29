@@ -2,8 +2,8 @@
   <div
     ref="reference"
     :class="[
-      'el-cascader',
-      realSize && `el-cascader--${realSize}`,
+      'td-cascader',
+      realSize && `td-cascader--${realSize}`,
       { 'is-disabled': isDisabled },
     ]"
     v-clickoutside="() => toggleDropDownVisible(false)"
@@ -29,15 +29,15 @@
         <i
           v-if="clearBtnVisible"
           key="clear"
-          class="td-input__icon el-icon-circle-close"
+          class="td-input__icon td-icon-circle-close"
           @click.stop="handleClear"
         ></i>
         <i
           v-else
           key="arrow-down"
           :class="[
-            'el-input__icon',
-            'el-icon-arrow-down',
+            'td-input__icon',
+            'td-icon-arrow-down',
             dropDownVisible && 'is-reverse',
           ]"
           @click.stop="toggleDropDownVisible()"
@@ -74,7 +74,7 @@
       <div
         v-show="dropDownVisible"
         ref="popper"
-        :class="['el-popper', 'el-cascader__dropdown', popperClass]"
+        :class="['td-popper', 'td-cascader__dropdown', popperClass]"
       >
         <td-cascader-panel
           ref="panel"
@@ -101,7 +101,7 @@
               v-for="(item, index) in suggestions"
               :key="item.uid"
               :class="[
-                'el-cascader__suggestion-item',
+                'td-cascader__suggestion-item',
                 item.checked && 'is-checked',
               ]"
               :tabindex="-1"

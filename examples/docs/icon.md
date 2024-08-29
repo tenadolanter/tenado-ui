@@ -4,7 +4,7 @@
 
 ### 使用方法
 
-直接通过设置类名为 `el-icon-iconName` 来使用即可。例如：
+直接通过设置类名为 `td-icon-iconName` 来使用即可。例如：
 
 :::demo
 
@@ -22,8 +22,8 @@
 <ul class="icon-list">
   <li v-for="name in $icon" :key="name">
     <span>
-      <i :class="'el-icon-' + name"></i>
-      <span class="icon-name">{{'el-icon-' + name}}</span>
+      <i :class="'td-icon-' + name"></i>
+      <span class="icon-name">{{'td-icon-' + name}}</span>
     </span>
   </li>
 </ul>

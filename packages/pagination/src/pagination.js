@@ -146,7 +146,7 @@ export default {
             {this.$parent.prevText ? (
               <span>{this.$parent.prevText}</span>
             ) : (
-              <i class="td-icon el-icon-arrow-left" />
+              <i class="td-icon td-icon-arrow-left" />
             )}
           </button>
         );
@@ -170,7 +170,7 @@ export default {
             {this.$parent.nextText ? (
               <span>{this.$parent.nextText}</span>
             ) : (
-              <i class="td-icon el-icon-arrow-right" />
+              <i class="td-icon td-icon-arrow-right" />
             )}
           </button>
         );

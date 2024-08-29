@@ -2,7 +2,7 @@
   <label
     class="td-radio-button"
     :class="[
-      size ? 'el-radio-button--' + size : '',
+      size ? 'td-radio-button--' + size : '',
       { 'is-active': value === label },
       { 'is-disabled': isDisabled },
       { 'is-focus': focus },

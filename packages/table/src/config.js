@@ -92,7 +92,7 @@ export const cellForced = {
       };
       return (
         <div class={classes} on-click={callback}>
-          <i class="td-icon el-icon-arrow-right" />
+          <i class="td-icon td-icon-arrow-right" />
         </div>
       );
     },

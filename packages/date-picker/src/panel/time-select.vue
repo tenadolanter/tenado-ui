@@ -9,7 +9,7 @@
       v-show="visible"
       :style="{ width: width + 'px' }"
       :class="popperClass"
-      class="td-picker-panel time-select el-popper"
+      class="td-picker-panel time-select td-popper"
     >
       <td-scrollbar noresize wrap-class="td-picker-panel__content">
         <div

@@ -31,7 +31,7 @@
         <i
           v-else
           :class="[
-            'el-icon-' + (currentStatus === 'success' ? 'check' : 'close'),
+            'td-icon-' + (currentStatus === 'success' ? 'check' : 'close'),
           ]"
           class="td-step__icon-inner is-status"
         >

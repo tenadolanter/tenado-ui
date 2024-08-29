@@ -4,7 +4,7 @@
 
 ### 基础用法
 
-:::demo 要使用它，只需要在`el-input-number`元素中使用`v-model`绑定变量即可，变量的初始值即为默认值。
+:::demo 要使用它，只需要在`td-input-number`元素中使用`v-model`绑定变量即可，变量的初始值即为默认值。
 
 ```html
 <template>

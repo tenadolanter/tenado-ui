@@ -150,7 +150,7 @@ export default {
       return (isValidData || this.loading) && this.activated;
     },
     id() {
-      return `el-autocomplete-${generateId()}`;
+      return `td-autocomplete-${generateId()}`;
     },
   },
   watch: {

@@ -14,7 +14,7 @@
     <div class="td-transfer__buttons">
       <td-button
         type="primary"
-        :class="['el-transfer__button', hasButtonTexts ? 'is-with-texts' : '']"
+        :class="['td-transfer__button', hasButtonTexts ? 'is-with-texts' : '']"
         @click.native="addToLeft"
         :disabled="rightChecked.length === 0"
       >
@@ -23,7 +23,7 @@
       </td-button>
       <td-button
         type="primary"
-        :class="['el-transfer__button', hasButtonTexts ? 'is-with-texts' : '']"
+        :class="['td-transfer__button', hasButtonTexts ? 'is-with-texts' : '']"
         @click.native="addToRight"
         :disabled="leftChecked.length === 0"
       >

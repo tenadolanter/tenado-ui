@@ -6,7 +6,7 @@
   >
     <div
       v-show="visible"
-      class="td-picker-panel el-date-picker el-popper"
+      class="td-picker-panel td-date-picker td-popper"
       :class="[
         {
           'has-sidebar': $slots.sidebar || shortcuts,
@@ -65,7 +65,7 @@
           <div
             class="td-date-picker__header"
             :class="{
-              'el-date-picker__header--bordered':
+              'td-date-picker__header--bordered':
                 currentView === 'year' || currentView === 'month',
             }"
             v-show="currentView !== 'time'"
@@ -74,14 +74,14 @@
               type="button"
               @click="prevYear"
               :aria-label="t(`el.datepicker.prevYear`)"
-              class="td-picker-panel__icon-btn el-date-picker__prev-btn el-icon-d-arrow-left"
+              class="td-picker-panel__icon-btn td-date-picker__prev-btn td-icon-d-arrow-left"
             ></button>
             <button
               type="button"
               @click="prevMonth"
               v-show="currentView === 'date'"
               :aria-label="t(`el.datepicker.prevMonth`)"
-              class="td-picker-panel__icon-btn el-date-picker__prev-btn el-icon-arrow-left"
+              class="td-picker-panel__icon-btn td-date-picker__prev-btn td-icon-arrow-left"
             ></button>
             <span
               @click="showYearPicker"
@@ -101,14 +101,14 @@
               type="button"
               @click="nextYear"
               :aria-label="t(`el.datepicker.nextYear`)"
-              class="td-picker-panel__icon-btn el-date-picker__next-btn el-icon-d-arrow-right"
+              class="td-picker-panel__icon-btn td-date-picker__next-btn td-icon-d-arrow-right"
             ></button>
             <button
               type="button"
               @click="nextMonth"
               v-show="currentView === 'date'"
               :aria-label="t(`el.datepicker.nextMonth`)"
-              class="td-picker-panel__icon-btn el-date-picker__next-btn el-icon-arrow-right"
+              class="td-picker-panel__icon-btn td-date-picker__next-btn td-icon-arrow-right"
             ></button>
           </div>
 

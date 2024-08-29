@@ -115,10 +115,10 @@ Input 为受控组件，它**总会显示 Vue 绑定值**。
 <div class="demo-input-suffix">
   slot 方式：
   <td-input placeholder="请选择日期" v-model="input3">
-    <i slot="suffix" class="td-input__icon el-icon-date"></i>
+    <i slot="suffix" class="td-input__icon td-icon-date"></i>
   </td-input>
   <td-input placeholder="请输入内容" v-model="input4">
-    <i slot="prefix" class="td-input__icon el-icon-search"></i>
+    <i slot="prefix" class="td-input__icon td-icon-search"></i>
   </td-input>
 </div>
 
@@ -505,7 +505,7 @@ Input 为受控组件，它**总会显示 Vue 绑定值**。
   placeholder="请输入内容"
   @select="handleSelect"
 >
-  <i class="td-icon-edit el-input__icon" slot="suffix" @click="handleIconClick">
+  <i class="td-icon-edit td-input__icon" slot="suffix" @click="handleIconClick">
   </i>
   <template slot-scope="{ item }">
     <div class="name">{{ item.value }}</div>

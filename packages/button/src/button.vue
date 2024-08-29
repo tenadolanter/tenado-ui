@@ -6,8 +6,8 @@
     :autofocus="autofocus"
     :type="nativeType"
     :class="[
-      type ? 'el-button--' + type : '',
-      buttonSize ? 'el-button--' + buttonSize : '',
+      type ? 'td-button--' + type : '',
+      buttonSize ? 'td-button--' + buttonSize : '',
       {
         'is-disabled': buttonDisabled,
         'is-loading': loading,

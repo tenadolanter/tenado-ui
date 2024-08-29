@@ -8,20 +8,20 @@
     >
       <div class="td-image-viewer__mask" @click.self="handleMaskClick"></div>
       <!-- CLOSE -->
-      <span class="td-image-viewer__btn el-image-viewer__close" @click="hide">
+      <span class="td-image-viewer__btn td-image-viewer__close" @click="hide">
         <i class="td-icon-close"></i>
       </span>
       <!-- ARROW -->
       <template v-if="!isSingle">
         <span
-          class="td-image-viewer__btn el-image-viewer__prev"
+          class="td-image-viewer__btn td-image-viewer__prev"
           :class="{ 'is-disabled': !infinite && isFirst }"
           @click="prev"
         >
           <i class="td-icon-arrow-left" />
         </span>
         <span
-          class="td-image-viewer__btn el-image-viewer__next"
+          class="td-image-viewer__btn td-image-viewer__next"
           :class="{ 'is-disabled': !infinite && isLast }"
           @click="next"
         >
@@ -29,7 +29,7 @@
         </span>
       </template>
       <!-- ACTIONS -->
-      <div class="td-image-viewer__btn el-image-viewer__actions">
+      <div class="td-image-viewer__btn td-image-viewer__actions">
         <div class="td-image-viewer__actions__inner">
           <i class="td-icon-zoom-out" @click="handleActions('zoomOut')"></i>
           <i class="td-icon-zoom-in" @click="handleActions('zoomIn')"></i>

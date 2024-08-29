@@ -3,14 +3,14 @@
     class="td-form-item"
     :class="[
       {
-        'el-form-item--feedback': elForm && elForm.statusIcon,
+        'td-form-item--feedback': elForm && elForm.statusIcon,
         'is-error': validateState === 'error',
         'is-validating': validateState === 'validating',
         'is-success': validateState === 'success',
         'is-required': isRequired || required,
         'is-no-asterisk': elForm && elForm.hideRequiredAsterisk,
       },
-      sizeClass ? 'el-form-item--' + sizeClass : '',
+      sizeClass ? 'td-form-item--' + sizeClass : '',
     ]"
   >
     <label-wrap
@@ -37,7 +37,7 @@
           <div
             class="td-form-item__error"
             :class="{
-              'el-form-item__error--inline':
+              'td-form-item__error--inline':
                 typeof inlineMessage === 'boolean'
                   ? inlineMessage
                   : (elForm && elForm.inlineMessage) || false,

@@ -60,7 +60,7 @@
 ```html
 <div>
   <td-link icon="td-icon-edit">编辑</td-link>
-  <td-link>查看<i class="td-icon-view el-icon--right"></i> </td-link>
+  <td-link>查看<i class="td-icon-view td-icon--right"></i> </td-link>
 </div>
 ```
 

@@ -12,7 +12,7 @@
           @mouseenter="handleButtonEnter('left')"
           @mouseleave="handleButtonLeave"
           @click.stop="throttledArrowClick(activeIndex - 1)"
-          class="td-carousel__arrow el-carousel__arrow--left"
+          class="td-carousel__arrow td-carousel__arrow--left"
         >
           <i class="td-icon-arrow-left"></i>
         </button>
@@ -27,7 +27,7 @@
           @mouseenter="handleButtonEnter('right')"
           @mouseleave="handleButtonLeave"
           @click.stop="throttledArrowClick(activeIndex + 1)"
-          class="td-carousel__arrow el-carousel__arrow--right"
+          class="td-carousel__arrow td-carousel__arrow--right"
         >
           <i class="td-icon-arrow-right"></i>
         </button>
@@ -39,8 +39,8 @@
         v-for="(item, index) in items"
         :key="index"
         :class="[
-          'el-carousel__indicator',
-          'el-carousel__indicator--' + direction,
+          'td-carousel__indicator',
+          'td-carousel__indicator--' + direction,
           { 'is-active': index === activeIndex },
         ]"
         @mouseenter="throttledIndicatorHover(index)"

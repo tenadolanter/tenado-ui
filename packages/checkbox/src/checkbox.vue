@@ -2,7 +2,7 @@
   <label
     class="td-checkbox"
     :class="[
-      border && checkboxSize ? 'el-checkbox--' + checkboxSize : '',
+      border && checkboxSize ? 'td-checkbox--' + checkboxSize : '',
       { 'is-disabled': isDisabled },
       { 'is-bordered': border },
       { 'is-checked': isChecked },

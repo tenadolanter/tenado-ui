@@ -3,20 +3,20 @@
     class="td-table"
     :class="[
       {
-        'el-table--fit': fit,
-        'el-table--striped': stripe,
-        'el-table--border': border || isGroup,
-        'el-table--hidden': isHidden,
-        'el-table--group': isGroup,
-        'el-table--fluid-height': maxHeight,
-        'el-table--scrollable-x': layout.scrollX,
-        'el-table--scrollable-y': layout.scrollY,
-        'el-table--enable-row-hover': !store.states.isComplex,
-        'el-table--enable-row-transition':
+        'td-table--fit': fit,
+        'td-table--striped': stripe,
+        'td-table--border': border || isGroup,
+        'td-table--hidden': isHidden,
+        'td-table--group': isGroup,
+        'td-table--fluid-height': maxHeight,
+        'td-table--scrollable-x': layout.scrollX,
+        'td-table--scrollable-y': layout.scrollY,
+        'td-table--enable-row-hover': !store.states.isComplex,
+        'td-table--enable-row-transition':
           (store.states.data || []).length !== 0 &&
           (store.states.data || []).length < 100,
       },
-      tableSize ? `el-table--${tableSize}` : '',
+      tableSize ? `td-table--${tableSize}` : '',
     ]"
     @mouseleave="handleMouseLeave($event)"
   >

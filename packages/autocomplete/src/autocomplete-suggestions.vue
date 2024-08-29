@@ -2,7 +2,7 @@
   <transition name="td-zoom-in-top" @after-leave="doDestroy">
     <div
       v-show="showPopper"
-      class="td-autocomplete-suggestion el-popper"
+      class="td-autocomplete-suggestion td-popper"
       :class="{ 'is-loading': !parent.hideLoading && parent.loading }"
       :style="{ width: dropdownWidth }"
       role="region"

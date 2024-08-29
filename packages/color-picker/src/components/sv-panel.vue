@@ -23,7 +23,7 @@
 import draggable from "../draggable";
 
 export default {
-  name: "el-sl-panel",
+  name: "td-sl-panel",
 
   props: {
     color: {

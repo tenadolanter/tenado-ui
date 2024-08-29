@@ -21,8 +21,8 @@
     />
     <span
       :class="[
-        'el-switch__label',
-        'el-switch__label--left',
+        'td-switch__label',
+        'td-switch__label--left',
         !checked ? 'is-active' : '',
       ]"
       v-if="inactiveIconClass || inactiveText"
@@ -40,8 +40,8 @@
     </span>
     <span
       :class="[
-        'el-switch__label',
-        'el-switch__label--right',
+        'td-switch__label',
+        'td-switch__label--right',
         checked ? 'is-active' : '',
       ]"
       v-if="activeIconClass || activeText"

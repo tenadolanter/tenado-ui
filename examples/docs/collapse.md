@@ -115,7 +115,7 @@
 <td-collapse accordion>
   <td-collapse-item>
     <template slot="title">
-      一致性 Consistency<i class="header-icon el-icon-info"></i>
+      一致性 Consistency<i class="header-icon td-icon-info"></i>
     </template>
     <div>
       与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；

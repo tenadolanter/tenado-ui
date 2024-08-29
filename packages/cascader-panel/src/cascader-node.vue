@@ -164,15 +164,15 @@ export default {
     },
 
     renderCheckIcon(h) {
-      return <i class="td-icon-check el-cascader-node__prefix" />;
+      return <i class="td-icon-check td-cascader-node__prefix" />;
     },
 
     renderLoadingIcon(h) {
-      return <i class="td-icon-loading el-cascader-node__postfix" />;
+      return <i class="td-icon-loading td-cascader-node__postfix" />;
     },
 
     renderExpandIcon(h) {
-      return <i class="td-icon-arrow-right el-cascader-node__postfix" />;
+      return <i class="td-icon-arrow-right td-cascader-node__postfix" />;
     },
 
     renderContent(h) {

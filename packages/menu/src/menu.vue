@@ -14,8 +14,8 @@ export default {
         key={ +this.collapse }
         style={{ backgroundColor: this.backgroundColor || '' }}
         class={{
-          'el-menu--horizontal': this.mode === 'horizontal',
-          'el-menu--collapse': this.collapse,
+          'td-menu--horizontal': this.mode === 'horizontal',
+          'td-menu--collapse': this.collapse,
           "td-menu": true
         }}
       >
@@ -45,7 +45,7 @@ export default {
   },
 
   components: {
-    'el-menu-collapse-transition': {
+    'td-menu-collapse-transition': {
       functional: true,
       render(createElement, context) {
         const data = {
@@ -58,28 +58,28 @@ export default {
             },
 
             enter(el) {
-              addClass(el, 'el-opacity-transition');
+              addClass(el, 'td-opacity-transition');
               el.style.opacity = 1;
             },
 
             afterEnter(el) {
-              removeClass(el, 'el-opacity-transition');
+              removeClass(el, 'td-opacity-transition');
               el.style.opacity = '';
             },
 
             beforeLeave(el) {
               if (!el.dataset) el.dataset = {};
 
-              if (hasClass(el, 'el-menu--collapse')) {
-                removeClass(el, 'el-menu--collapse');
+              if (hasClass(el, 'td-menu--collapse')) {
+                removeClass(el, 'td-menu--collapse');
                 el.dataset.oldOverflow = el.style.overflow;
                 el.dataset.scrollWidth = el.clientWidth;
-                addClass(el, 'el-menu--collapse');
+                addClass(el, 'td-menu--collapse');
               } else {
-                addClass(el, 'el-menu--collapse');
+                addClass(el, 'td-menu--collapse');
                 el.dataset.oldOverflow = el.style.overflow;
                 el.dataset.scrollWidth = el.clientWidth;
-                removeClass(el, 'el-menu--collapse');
+                removeClass(el, 'td-menu--collapse');
               }
 
               el.style.width = el.scrollWidth + 'px';

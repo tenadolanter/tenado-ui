@@ -2,7 +2,7 @@
   <div>
     <template v-if="uiLoading">
       <div
-        :class="['el-skeleton', animated ? 'is-animated' : '']"
+        :class="['td-skeleton', animated ? 'is-animated' : '']"
         v-bind="$attrs"
       >
         <template v-for="i in count">
@@ -11,7 +11,7 @@
               v-for="item in rows"
               :key="`${i}-${item}`"
               :class="{
-                'el-skeleton__paragraph': item !== 1,
+                'td-skeleton__paragraph': item !== 1,
                 'is-first': item === 1,
                 'is-last': item === rows && rows > 1,
               }"

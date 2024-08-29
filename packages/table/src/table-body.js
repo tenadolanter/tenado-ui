@@ -435,7 +435,7 @@ export default {
             <tr key={"expanded-row__" + tr.key}>
               <td
                 colspan={this.columnsCount}
-                class="td-table__cell el-table__expanded-cell"
+                class="td-table__cell td-table__expanded-cell"
               >
                 {renderExpanded(this.$createElement, {
                   row,

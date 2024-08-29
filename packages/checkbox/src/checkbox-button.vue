@@ -2,7 +2,7 @@
   <label
     class="td-checkbox-button"
     :class="[
-      size ? 'el-checkbox-button--' + size : '',
+      size ? 'td-checkbox-button--' + size : '',
       { 'is-disabled': isDisabled },
       { 'is-checked': isChecked },
       { 'is-focus': focus },

@@ -11,12 +11,12 @@
     >
       <div
         class="td-message-box"
-        :class="[customClass, center && 'el-message-box--center']"
+        :class="[customClass, center && 'td-message-box--center']"
       >
         <div class="td-message-box__header" v-if="title !== null">
           <div class="td-message-box__title">
             <div
-              :class="['el-message-box__status', icon]"
+              :class="['td-message-box__status', icon]"
               v-if="icon && center"
             ></div>
             <span>{{ title }}</span>
@@ -33,13 +33,13 @@
               handleAction(distinguishCancelAndClose ? 'close' : 'cancel')
             "
           >
-            <i class="td-message-box__close el-icon-close"></i>
+            <i class="td-message-box__close td-icon-close"></i>
           </button>
         </div>
         <div class="td-message-box__content">
           <div class="td-message-box__container">
             <div
-              :class="['el-message-box__status', icon]"
+              :class="['td-message-box__status', icon]"
               v-if="icon && !center && message !== ''"
             ></div>
             <div class="td-message-box__message" v-if="message !== ''">
@@ -156,12 +156,12 @@ export default {
     icon() {
       const { type, iconClass } = this;
       return (
-        iconClass || (type && typeMap[type] ? `el-icon-${typeMap[type]}` : "")
+        iconClass || (type && typeMap[type] ? `td-icon-${typeMap[type]}` : "")
       );
     },
 
     confirmButtonClasses() {
-      return `el-button--primary ${this.confirmButtonClass}`;
+      return `td-button--primary ${this.confirmButtonClass}`;
     },
     cancelButtonClasses() {
       return `${this.cancelButtonClass}`;

@@ -1,7 +1,7 @@
 <template>
   <div
     class="td-slider"
-    :class="{ 'is-vertical': vertical, 'el-slider--with-input': showInput }"
+    :class="{ 'is-vertical': vertical, 'td-slider--with-input': showInput }"
     role="slider"
     :aria-valuemin="min"
     :aria-valuemax="max"
@@ -58,7 +58,7 @@
           <div
             v-for="(item, key) in markList"
             :style="getStopStyle(item.position)"
-            class="td-slider__stop el-slider__marks-stop"
+            class="td-slider__stop td-slider__marks-stop"
             :key="key"
           ></div>
         </div>

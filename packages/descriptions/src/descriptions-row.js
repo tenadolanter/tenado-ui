@@ -31,8 +31,8 @@ export default {
               return (
                 <th
                   class={{
-                    "el-descriptions-item__cell": true,
-                    "el-descriptions-item__label": true,
+                    "td-descriptions-item__cell": true,
+                    "td-descriptions-item__label": true,
                     "has-colon": elDescriptions.border
                       ? false
                       : elDescriptions.colon,
@@ -52,8 +52,8 @@ export default {
               return (
                 <td
                   class={[
-                    "el-descriptions-item__cell",
-                    "el-descriptions-item__content",
+                    "td-descriptions-item__cell",
+                    "td-descriptions-item__content",
                     item.contentClassName,
                   ]}
                   style={item.contentStyle}
@@ -75,8 +75,8 @@ export default {
               return [
                 <th
                   class={{
-                    "el-descriptions-item__cell": true,
-                    "el-descriptions-item__label": true,
+                    "td-descriptions-item__cell": true,
+                    "td-descriptions-item__label": true,
                     "is-bordered-label": elDescriptions.border,
                     [item.labelClassName]: true,
                   }}
@@ -87,8 +87,8 @@ export default {
                 </th>,
                 <td
                   class={[
-                    "el-descriptions-item__cell",
-                    "el-descriptions-item__content",
+                    "td-descriptions-item__cell",
+                    "td-descriptions-item__content",
                     item.contentClassName,
                   ]}
                   style={item.contentStyle}
@@ -108,13 +108,13 @@ export default {
           {row.map((item) => {
             return (
               <td
-                class="td-descriptions-item el-descriptions-item__cell"
+                class="td-descriptions-item td-descriptions-item__cell"
                 colSpan={item.props.span}
               >
                 <div class="td-descriptions-item__container">
                   <span
                     class={{
-                      "el-descriptions-item__label": true,
+                      "td-descriptions-item__label": true,
                       "has-colon": elDescriptions.colon,
                       [item.labelClassName]: true,
                     }}
@@ -124,7 +124,7 @@ export default {
                   </span>
                   <span
                     class={[
-                      "el-descriptions-item__content",
+                      "td-descriptions-item__content",
                       item.contentClassName,
                     ]}
                     style={item.contentStyle}

@@ -2,7 +2,7 @@
   <transition name="td-zoom-in-top" @after-leave="$emit('dodestroy')">
     <div
       v-show="visible"
-      class="td-time-range-picker el-picker-panel el-popper"
+      class="td-time-range-picker td-picker-panel td-popper"
       :class="popperClass"
     >
       <div class="td-time-range-picker__content">
@@ -12,7 +12,7 @@
           </div>
           <div
             :class="{ 'has-seconds': showSeconds, 'is-arrow': arrowControl }"
-            class="td-time-range-picker__body el-time-panel__content"
+            class="td-time-range-picker__body td-time-panel__content"
           >
             <time-spinner
               ref="minSpinner"
@@ -32,7 +32,7 @@
           </div>
           <div
             :class="{ 'has-seconds': showSeconds, 'is-arrow': arrowControl }"
-            class="td-time-range-picker__body el-time-panel__content"
+            class="td-time-range-picker__body td-time-panel__content"
           >
             <time-spinner
               ref="maxSpinner"

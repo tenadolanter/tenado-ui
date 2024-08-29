@@ -31,8 +31,8 @@
         @click.stop="handleExpandIconClick"
         :class="[
           { 'is-leaf': node.isLeaf, expanded: !node.isLeaf && expanded },
-          'el-tree-node__expand-icon',
-          tree.iconClass ? tree.iconClass : 'el-icon-caret-right',
+          'td-tree-node__expand-icon',
+          tree.iconClass ? tree.iconClass : 'td-icon-caret-right',
         ]"
       >
       </span>
@@ -47,7 +47,7 @@
       </td-checkbox>
       <span
         v-if="node.loading"
-        class="td-tree-node__loading-icon el-icon-loading"
+        class="td-tree-node__loading-icon td-icon-loading"
       >
       </span>
       <node-content :node="node"></node-content>

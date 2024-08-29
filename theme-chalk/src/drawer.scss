@@ -1,7 +1,7 @@
 @import "mixins/mixins";
 @import "common/var";
 
-@keyframes el-drawer-fade-in {
+@keyframes td-drawer-fade-in {
   0% {
     opacity: 0;
   }
@@ -210,9 +210,9 @@ $directions: rtl, ltr, ttb, btt;
 }
 
 .td-drawer-fade-enter-active {
-  animation: el-drawer-fade-in 0.3s;
+  animation: td-drawer-fade-in 0.3s;
 }
 
 .td-drawer-fade-leave-active {
-  animation: el-drawer-fade-in 0.3s reverse;
+  animation: td-drawer-fade-in 0.3s reverse;
 }

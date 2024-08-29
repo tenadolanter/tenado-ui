@@ -11,7 +11,7 @@
 ```html
 <td-dropdown>
   <span class="td-dropdown-link">
-    下拉菜单<i class="td-icon-arrow-down el-icon--right"></i>
+    下拉菜单<i class="td-icon-arrow-down td-icon--right"></i>
   </span>
   <td-dropdown-menu slot="dropdown">
     <td-dropdown-item>黄金糕</td-dropdown-item>
@@ -44,7 +44,7 @@
 ```html
 <td-dropdown>
   <td-button type="primary">
-    更多菜单<i class="td-icon-arrow-down el-icon--right"></i>
+    更多菜单<i class="td-icon-arrow-down td-icon--right"></i>
   </td-button>
   <td-dropdown-menu slot="dropdown">
     <td-dropdown-item>黄金糕</td-dropdown-item>
@@ -102,7 +102,7 @@
     <span class="demonstration">hover 激活</span>
     <td-dropdown>
       <span class="td-dropdown-link">
-        下拉菜单<i class="td-icon-arrow-down el-icon--right"></i>
+        下拉菜单<i class="td-icon-arrow-down td-icon--right"></i>
       </span>
       <td-dropdown-menu slot="dropdown">
         <td-dropdown-item icon="td-icon-plus">黄金糕</td-dropdown-item>
@@ -119,7 +119,7 @@
     <span class="demonstration">click 激活</span>
     <td-dropdown trigger="click">
       <span class="td-dropdown-link">
-        下拉菜单<i class="td-icon-arrow-down el-icon--right"></i>
+        下拉菜单<i class="td-icon-arrow-down td-icon--right"></i>
       </span>
       <td-dropdown-menu slot="dropdown">
         <td-dropdown-item icon="td-icon-plus">黄金糕</td-dropdown-item>
@@ -162,7 +162,7 @@
 ```html
 <td-dropdown :hide-on-click="false">
   <span class="td-dropdown-link">
-    下拉菜单<i class="td-icon-arrow-down el-icon--right"></i>
+    下拉菜单<i class="td-icon-arrow-down td-icon--right"></i>
   </span>
   <td-dropdown-menu slot="dropdown">
     <td-dropdown-item>黄金糕</td-dropdown-item>
@@ -195,7 +195,7 @@
 ```html
 <td-dropdown @command="handleCommand">
   <span class="td-dropdown-link">
-    下拉菜单<i class="td-icon-arrow-down el-icon--right"></i>
+    下拉菜单<i class="td-icon-arrow-down td-icon--right"></i>
   </span>
   <td-dropdown-menu slot="dropdown">
     <td-dropdown-item command="a">黄金糕</td-dropdown-item>

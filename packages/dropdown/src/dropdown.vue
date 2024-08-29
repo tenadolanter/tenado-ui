@@ -221,7 +221,7 @@ export default {
         this.triggerElm.setAttribute(
           "class",
           (this.triggerElm.getAttribute("class") || "") +
-            " el-dropdown-selfdefine"
+            " td-dropdown-selfdefine"
         ); // 控制
       }
     },
@@ -310,7 +310,7 @@ export default {
             class="td-dropdown__caret-button"
             disabled={disabled}
           >
-            <i class="td-dropdown__icon el-icon-arrow-down" />
+            <i class="td-dropdown__icon td-icon-arrow-down" />
           </td-button>
         </td-button-group>
       );

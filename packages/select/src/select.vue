@@ -1,7 +1,7 @@
 <template>
   <div
     class="td-select"
-    :class="[selectSize ? 'el-select--' + selectSize : '']"
+    :class="[selectSize ? 'td-select--' + selectSize : '']"
     @click.stop="toggleMenu"
     v-clickoutside="handleClose"
   >
@@ -114,14 +114,14 @@
         <i
           v-show="!showClose"
           :class="[
-            'el-select__caret',
-            'el-input__icon',
-            'el-icon-' + iconClass,
+            'td-select__caret',
+            'td-input__icon',
+            'td-icon-' + iconClass,
           ]"
         ></i>
         <i
           v-if="showClose"
-          class="td-select__caret el-input__icon el-icon-circle-close"
+          class="td-select__caret td-input__icon td-icon-circle-close"
           @click="handleClearClick"
         ></i>
       </template>

@@ -1,16 +1,16 @@
 <template>
   <div
     :class="[
-      type === 'textarea' ? 'el-textarea' : 'el-input',
-      inputSize ? 'el-input--' + inputSize : '',
+      type === 'textarea' ? 'td-textarea' : 'td-input',
+      inputSize ? 'td-input--' + inputSize : '',
       {
         'is-disabled': inputDisabled,
         'is-exceed': inputExceed,
-        'el-input-group': $slots.prepend || $slots.append,
-        'el-input-group--append': $slots.append,
-        'el-input-group--prepend': $slots.prepend,
-        'el-input--prefix': $slots.prefix || prefixIcon,
-        'el-input--suffix':
+        'td-input-group': $slots.prepend || $slots.append,
+        'td-input-group--append': $slots.append,
+        'td-input-group--prepend': $slots.prepend,
+        'td-input--prefix': $slots.prefix || prefixIcon,
+        'td-input--suffix':
           $slots.suffix || suffixIcon || clearable || showPassword,
       },
     ]"
@@ -56,13 +56,13 @@
           </template>
           <i
             v-if="showClear"
-            class="td-input__icon el-icon-circle-close el-input__clear"
+            class="td-input__icon td-icon-circle-close td-input__clear"
             @mousedown.prevent
             @click="clear"
           ></i>
           <i
             v-if="showPwdVisible"
-            class="td-input__icon el-icon-view el-input__clear"
+            class="td-input__icon td-icon-view td-input__clear"
             @click="handlePasswordVisible"
           ></i>
           <span v-if="isWordLimitVisible" class="td-input__count">
@@ -74,7 +74,7 @@
         <i
           class="td-input__icon"
           v-if="validateState"
-          :class="['el-input__validateIcon', validateIcon]"
+          :class="['td-input__validateIcon', validateIcon]"
         >
         </i>
       </span>

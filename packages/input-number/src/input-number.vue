@@ -2,8 +2,8 @@
   <div
     @dragstart.prevent
     :class="[
-      'el-input-number',
-      inputNumberSize ? 'el-input-number--' + inputNumberSize : '',
+      'td-input-number',
+      inputNumberSize ? 'td-input-number--' + inputNumberSize : '',
       { 'is-disabled': inputNumberDisabled },
       { 'is-without-controls': !controls },
       { 'is-controls-right': controlsAtRight },
@@ -17,7 +17,7 @@
       :class="{ 'is-disabled': minDisabled }"
       @keydown.enter="decrease"
     >
-      <i :class="`el-icon-${controlsAtRight ? 'arrow-down' : 'minus'}`"></i>
+      <i :class="`td-icon-${controlsAtRight ? 'arrow-down' : 'minus'}`"></i>
     </span>
     <span
       class="td-input-number__increase"
@@ -27,7 +27,7 @@
       :class="{ 'is-disabled': maxDisabled }"
       @keydown.enter="increase"
     >
-      <i :class="`el-icon-${controlsAtRight ? 'arrow-up' : 'plus'}`"></i>
+      <i :class="`td-icon-${controlsAtRight ? 'arrow-up' : 'plus'}`"></i>
     </span>
     <td-input
       ref="input"

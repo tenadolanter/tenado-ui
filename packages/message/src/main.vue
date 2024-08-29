@@ -2,8 +2,8 @@
   <transition name="td-message-fade" @after-leave="handleAfterLeave">
     <div
       :class="[
-        'el-message',
-        type && !iconClass ? `el-message--${type}` : '',
+        'td-message',
+        type && !iconClass ? `td-message--${type}` : '',
         center ? 'is-center' : '',
         showClose ? 'is-closable' : '',
         customClass,
@@ -24,7 +24,7 @@
       </slot>
       <i
         v-if="showClose"
-        class="td-message__closeBtn el-icon-close"
+        class="td-message__closeBtn td-icon-close"
         @click="close"
       ></i>
     </div>
@@ -61,7 +61,7 @@ export default {
   computed: {
     typeClass() {
       return this.type && !this.iconClass
-        ? `el-message__icon el-icon-${typeMap[this.type]}`
+        ? `td-message__icon td-icon-${typeMap[this.type]}`
         : "";
     },
     positionStyle() {

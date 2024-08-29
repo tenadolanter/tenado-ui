@@ -34,10 +34,10 @@ export default {
   render(h) {
     const { type, tagSize, hit, effect } = this;
     const classes = [
-      "el-tag",
-      type ? `el-tag--${type}` : "",
-      tagSize ? `el-tag--${tagSize}` : "",
-      effect ? `el-tag--${effect}` : "",
+      "td-tag",
+      type ? `td-tag--${type}` : "",
+      tagSize ? `td-tag--${tagSize}` : "",
+      effect ? `td-tag--${effect}` : "",
       hit && "is-hit",
     ];
     const tagEl = (
@@ -48,7 +48,7 @@ export default {
       >
         {this.$slots.default}
         {this.closable && (
-          <i class="td-tag__close el-icon-close" on-click={this.handleClose} />
+          <i class="td-tag__close td-icon-close" on-click={this.handleClose} />
         )}
       </span>
     );

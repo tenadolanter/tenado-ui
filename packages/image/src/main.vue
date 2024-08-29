@@ -15,8 +15,8 @@
       :src="src"
       :style="imageStyle"
       :class="{
-        'el-image__inner--center': alignCenter,
-        'el-image__preview': preview,
+        'td-image__inner--center': alignCenter,
+        'td-image__preview': preview,
       }"
     />
     <template v-if="preview">

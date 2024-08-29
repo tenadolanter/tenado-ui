@@ -7,7 +7,7 @@
         v-text="content"
         class="td-badge__content"
         :class="[
-          type ? 'el-badge__content--' + type : null,
+          type ? 'td-badge__content--' + type : null,
           {
             'is-fixed': $slots.default,
             'is-dot': isDot,

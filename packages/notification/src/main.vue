@@ -1,7 +1,7 @@
 <template>
   <transition name="td-notification-fade">
     <div
-      :class="['el-notification', customClass, horizontalClass]"
+      :class="['td-notification', customClass, horizontalClass]"
       v-show="visible"
       :style="positionStyle"
       @mouseenter="clearTimer()"
@@ -27,7 +27,7 @@
           </slot>
         </div>
         <div
-          class="td-notification__closeBtn el-icon-close"
+          class="td-notification__closeBtn td-icon-close"
           v-if="showClose"
           @click.stop="close"
         ></div>
@@ -68,7 +68,7 @@ export default {
   computed: {
     typeClass() {
       return this.type && typeMap[this.type]
-        ? `el-icon-${typeMap[this.type]}`
+        ? `td-icon-${typeMap[this.type]}`
         : "";
     },
 

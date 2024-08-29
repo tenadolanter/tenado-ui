@@ -4,7 +4,7 @@ Element 内应用在部分组件的过渡动画，你也可以直接使用。在
 
 ### fade 淡入淡出
 
-:::demo 提供 `el-fade-in-linear` 和 `el-fade-in` 两种效果。
+:::demo 提供 `td-fade-in-linear` 和 `td-fade-in` 两种效果。
 
 ```html
 <template>
@@ -50,7 +50,7 @@ Element 内应用在部分组件的过渡动画，你也可以直接使用。在
 
 ### zoom 缩放
 
-:::demo 提供 `el-zoom-in-center`，`el-zoom-in-top` 和 `el-zoom-in-bottom` 三种效果。
+:::demo 提供 `td-zoom-in-center`，`td-zoom-in-top` 和 `td-zoom-in-bottom` 三种效果。
 
 ```html
 <template>
@@ -101,7 +101,7 @@ Element 内应用在部分组件的过渡动画，你也可以直接使用。在
 
 ### collapse 展开折叠
 
-使用 `el-collapse-transition` 组件实现折叠展开效果。
+使用 `td-collapse-transition` 组件实现折叠展开效果。
 
 :::demo
 

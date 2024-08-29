@@ -2,7 +2,7 @@
   <label
     class="td-radio"
     :class="[
-      border && radioSize ? 'el-radio--' + radioSize : '',
+      border && radioSize ? 'td-radio--' + radioSize : '',
       { 'is-disabled': isDisabled },
       { 'is-focus': focus },
       { 'is-bordered': border },

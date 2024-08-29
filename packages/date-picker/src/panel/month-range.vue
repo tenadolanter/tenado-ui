@@ -2,7 +2,7 @@
   <transition name="td-zoom-in-top" @after-leave="$emit('dodestroy')">
     <div
       v-show="visible"
-      class="td-picker-panel el-date-range-picker el-popper"
+      class="td-picker-panel td-date-range-picker td-popper"
       :class="[
         {
           'has-sidebar': $slots.sidebar || shortcuts,
@@ -25,13 +25,13 @@
         </div>
         <div class="td-picker-panel__body">
           <div
-            class="td-picker-panel__content el-date-range-picker__content is-left"
+            class="td-picker-panel__content td-date-range-picker__content is-left"
           >
             <div class="td-date-range-picker__header">
               <button
                 type="button"
                 @click="leftPrevYear"
-                class="td-picker-panel__icon-btn el-icon-d-arrow-left"
+                class="td-picker-panel__icon-btn td-icon-d-arrow-left"
               ></button>
               <button
                 type="button"
@@ -39,7 +39,7 @@
                 @click="leftNextYear"
                 :disabled="!enableYearArrow"
                 :class="{ 'is-disabled': !enableYearArrow }"
-                class="td-picker-panel__icon-btn el-icon-d-arrow-right"
+                class="td-picker-panel__icon-btn td-icon-d-arrow-right"
               ></button>
               <div>{{ leftLabel }}</div>
             </div>
@@ -57,7 +57,7 @@
             </month-table>
           </div>
           <div
-            class="td-picker-panel__content el-date-range-picker__content is-right"
+            class="td-picker-panel__content td-date-range-picker__content is-right"
           >
             <div class="td-date-range-picker__header">
               <button
@@ -66,12 +66,12 @@
                 @click="rightPrevYear"
                 :disabled="!enableYearArrow"
                 :class="{ 'is-disabled': !enableYearArrow }"
-                class="td-picker-panel__icon-btn el-icon-d-arrow-left"
+                class="td-picker-panel__icon-btn td-icon-d-arrow-left"
               ></button>
               <button
                 type="button"
                 @click="rightNextYear"
-                class="td-picker-panel__icon-btn el-icon-d-arrow-right"
+                class="td-picker-panel__icon-btn td-icon-d-arrow-right"
               ></button>
               <div>{{ rightLabel }}</div>
             </div>

@@ -1,7 +1,7 @@
 <template>
   <td-input
     class="td-date-editor"
-    :class="'el-date-editor--' + type"
+    :class="'td-date-editor--' + type"
     :readonly="
       !editable ||
         readonly ||
@@ -44,10 +44,10 @@
     </i>
   </td-input>
   <div
-    class="td-date-editor el-range-editor el-input__inner"
+    class="td-date-editor td-range-editor td-input__inner"
     :class="[
-      'el-date-editor--' + type,
-      pickerSize ? `el-range-editor--${pickerSize}` : '',
+      'td-date-editor--' + type,
+      pickerSize ? `td-range-editor--${pickerSize}` : '',
       pickerDisabled ? 'is-disabled' : '',
       pickerVisible ? 'is-active' : '',
     ]"
@@ -59,7 +59,7 @@
     v-clickoutside="handleClose"
     v-else
   >
-    <i :class="['el-input__icon', 'el-range__icon', triggerClass]"></i>
+    <i :class="['td-input__icon', 'td-range__icon', triggerClass]"></i>
     <input
       autocomplete="off"
       :placeholder="startPlaceholder"
@@ -93,7 +93,7 @@
       @click="handleClickIcon"
       v-if="haveTrigger"
       :class="[showClose ? '' + clearIcon : '']"
-      class="td-input__icon el-range__close-icon"
+      class="td-input__icon td-range__close-icon"
     >
     </i>
   </div>

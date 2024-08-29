@@ -195,14 +195,14 @@ export default {
     } = this;
     const data = {
       class: {
-        "el-upload": true,
+        "td-upload": true,
       },
       on: {
         click: handleClick,
         keydown: handleKeydown,
       },
     };
-    data.class[`el-upload--${listType}`] = true;
+    data.class[`td-upload--${listType}`] = true;
     return (
       <div {...data} tabindex="0">
         {drag ? (

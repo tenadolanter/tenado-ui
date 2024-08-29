@@ -23,7 +23,7 @@
 import draggable from "../draggable";
 
 export default {
-  name: "el-color-alpha-slider",
+  name: "td-color-alpha-slider",
 
   props: {
     color: {

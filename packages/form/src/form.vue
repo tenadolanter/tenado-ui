@@ -2,8 +2,8 @@
   <form
     class="td-form"
     :class="[
-      labelPosition ? 'el-form--label-' + labelPosition : '',
-      { 'el-form--inline': inline },
+      labelPosition ? 'td-form--label-' + labelPosition : '',
+      { 'td-form--inline': inline },
     ]"
   >
     <slot></slot>

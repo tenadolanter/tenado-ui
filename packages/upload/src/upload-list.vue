@@ -2,8 +2,8 @@
   <transition-group
     tag="ul"
     :class="[
-      'el-upload-list',
-      'el-upload-list--' + listType,
+      'td-upload-list',
+      'td-upload-list--' + listType,
       { 'is-disabled': disabled },
     ]"
     name="td-list"
@@ -11,7 +11,7 @@
     <li
       v-for="file in files"
       :class="[
-        'el-upload-list__item',
+        'td-upload-list__item',
         'is-' + file.status,
         focusing ? 'focusing' : '',
       ]"
@@ -38,9 +38,9 @@
         <label class="td-upload-list__item-status-label">
           <i
             :class="{
-              'el-icon-upload-success': true,
-              'el-icon-circle-check': listType === 'text',
-              'el-icon-check':
+              'td-icon-upload-success': true,
+              'td-icon-circle-check': listType === 'text',
+              'td-icon-check':
                 ['picture-card', 'picture'].indexOf(listType) > -1,
             }"
           ></i>

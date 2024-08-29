@@ -29,7 +29,7 @@
           class="td-alert__closebtn"
           :class="{
             'is-customed': closeText !== '',
-            'el-icon-close': closeText === '',
+            'td-icon-close': closeText === '',
           }"
           v-show="closable"
           @click="close()"
@@ -42,9 +42,9 @@
 
 <script type="text/babel">
 const TYPE_CLASSES_MAP = {
-  success: "el-icon-success",
-  warning: "el-icon-warning",
-  error: "el-icon-error",
+  success: "td-icon-success",
+  warning: "td-icon-warning",
+  error: "td-icon-error",
 };
 export default {
   name: "ElAlert",
@@ -96,11 +96,11 @@ export default {
 
   computed: {
     typeClass() {
-      return `el-alert--${this.type}`;
+      return `td-alert--${this.type}`;
     },
 
     iconClass() {
-      return TYPE_CLASSES_MAP[this.type] || "el-icon-info";
+      return TYPE_CLASSES_MAP[this.type] || "td-icon-info";
     },
 
     isBigIcon() {

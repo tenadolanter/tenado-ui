@@ -12,7 +12,7 @@
     </p>
 
     <div
-      :class="['el-transfer-panel__body', hasFooter ? 'is-with-footer' : '']"
+      :class="['td-transfer-panel__body', hasFooter ? 'is-with-footer' : '']"
     >
       <td-input
         class="td-transfer-panel__filter"
@@ -25,7 +25,7 @@
       >
         <i
           slot="prefix"
-          :class="['el-input__icon', 'el-icon-' + inputIcon]"
+          :class="['td-input__icon', 'td-icon-' + inputIcon]"
           @click="clearQuery"
         ></i>
       </td-input>

@@ -101,7 +101,7 @@
 <td-button type="primary" icon="td-icon-delete"></td-button>
 <td-button type="primary" icon="td-icon-search">搜索</td-button>
 <td-button type="primary"
-  >上传<i class="td-icon-upload el-icon--right"></i
+  >上传<i class="td-icon-upload td-icon--right"></i
 ></td-button>
 ```
 
@@ -117,7 +117,7 @@
 <td-button-group>
   <td-button type="primary" icon="td-icon-arrow-left">上一页</td-button>
   <td-button type="primary"
-    >下一页<i class="td-icon-arrow-right el-icon--right"></i
+    >下一页<i class="td-icon-arrow-right td-icon--right"></i
   ></td-button>
 </td-button-group>
 <td-button-group>

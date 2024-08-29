@@ -7,7 +7,7 @@
     <div class="td-drawer__wrapper" tabindex="-1" v-show="visible">
       <div
         class="td-drawer__container"
-        :class="visible && 'el-drawer__open'"
+        :class="visible && 'td-drawer__open'"
         @click.self="handleWrapperClick"
         role="document"
         tabindex="-1"
@@ -40,7 +40,7 @@
               v-if="showClose"
               @click="closeDrawer"
             >
-              <i class="td-dialog__close el-icon el-icon-close"></i>
+              <i class="td-dialog__close td-icon td-icon-close"></i>
             </button>
           </header>
           <section class="td-drawer__body" v-if="rendered">

@@ -1,9 +1,9 @@
 <template>
   <div
     :class="[
-      'el-color-picker',
+      'td-color-picker',
       colorDisabled ? 'is-disabled' : '',
-      colorSize ? `el-color-picker--${colorSize}` : '',
+      colorSize ? `td-color-picker--${colorSize}` : '',
     ]"
     v-clickoutside="hide"
   >
@@ -17,18 +17,18 @@
           }"
         ></span>
         <span
-          class="td-color-picker__empty el-icon-close"
+          class="td-color-picker__empty td-icon-close"
           v-if="!value && !showPanelColor"
         ></span>
       </span>
       <span
-        class="td-color-picker__icon el-icon-arrow-down"
+        class="td-color-picker__icon td-icon-arrow-down"
         v-show="value || showPanelColor"
       ></span>
     </div>
     <picker-dropdown
       ref="dropdown"
-      :class="['el-color-picker__panel', popperClass || '']"
+      :class="['td-color-picker__panel', popperClass || '']"
       v-model="showPicker"
       @pick="confirmValue"
       @clear="clearValue"

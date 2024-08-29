@@ -16,7 +16,7 @@
 import draggable from "../draggable";
 
 export default {
-  name: "el-color-hue-slider",
+  name: "td-color-hue-slider",
 
   props: {
     color: {

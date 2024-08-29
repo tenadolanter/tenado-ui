@@ -293,7 +293,7 @@ export default {
         <div
           ref="menu"
           v-show={opened}
-          class={[`el-menu--${mode}`, popperClass]}
+          class={[`td-menu--${mode}`, popperClass]}
           on-mouseenter={($event) => this.handleMouseenter($event, 100)}
           on-mouseleave={() => this.handleMouseleave(true)}
           on-focus={($event) => this.handleMouseenter($event, 100)}
@@ -301,8 +301,8 @@ export default {
           <ul
             role="menu"
             class={[
-              "td-menu el-menu--popup",
-              `el-menu--popup-${currentPlacement}`,
+              "td-menu td-menu--popup",
+              `td-menu--popup-${currentPlacement}`,
             ]}
             style={{ backgroundColor: rootMenu.backgroundColor || "" }}
           >
@@ -316,7 +316,7 @@ export default {
       <td-collapse-transition>
         <ul
           role="menu"
-          class="td-menu el-menu--inline"
+          class="td-menu td-menu--inline"
           v-show={opened}
           style={{ backgroundColor: rootMenu.backgroundColor || "" }}
         >

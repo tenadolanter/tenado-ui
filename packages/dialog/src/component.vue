@@ -15,8 +15,8 @@
         aria-modal="true"
         :aria-label="title || 'dialog'"
         :class="[
-          'el-dialog',
-          { 'is-fullscreen': fullscreen, 'el-dialog--center': center },
+          'td-dialog',
+          { 'is-fullscreen': fullscreen, 'td-dialog--center': center },
           customClass,
         ]"
         ref="dialog"
@@ -33,7 +33,7 @@
             v-if="showClose"
             @click="handleClose"
           >
-            <i class="td-dialog__close el-icon el-icon-close"></i>
+            <i class="td-dialog__close td-icon td-icon-close"></i>
           </button>
         </div>
         <div class="td-dialog__body" v-if="rendered"><slot></slot></div>

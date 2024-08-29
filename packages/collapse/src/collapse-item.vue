@@ -6,14 +6,14 @@
     <div
       role="tab"
       :aria-expanded="isActive"
-      :aria-controls="`el-collapse-content-${id}`"
-      :aria-describedby="`el-collapse-content-${id}`"
+      :aria-controls="`td-collapse-content-${id}`"
+      :aria-describedby="`td-collapse-content-${id}`"
     >
       <div
         class="td-collapse-item__header"
         @click="handleHeaderClick"
         role="button"
-        :id="`el-collapse-head-${id}`"
+        :id="`td-collapse-head-${id}`"
         :tabindex="disabled ? undefined : 0"
         @keyup.space.enter.stop="handleEnterClick"
         :class="{
@@ -25,7 +25,7 @@
       >
         <slot name="title">{{ title }}</slot>
         <i
-          class="td-collapse-item__arrow el-icon-arrow-right"
+          class="td-collapse-item__arrow td-icon-arrow-right"
           :class="{ 'is-active': isActive }"
         >
         </i>
@@ -37,8 +37,8 @@
         v-show="isActive"
         role="tabpanel"
         :aria-hidden="!isActive"
-        :aria-labelledby="`el-collapse-head-${id}`"
-        :id="`el-collapse-content-${id}`"
+        :aria-labelledby="`td-collapse-head-${id}`"
+        :id="`td-collapse-content-${id}`"
       >
         <div class="td-collapse-item__content">
           <slot></slot>

@@ -1,7 +1,7 @@
 <template>
   <span class="td-breadcrumb__item">
     <span
-      :class="['el-breadcrumb__inner', to ? 'is-link' : '']"
+      :class="['td-breadcrumb__inner', to ? 'is-link' : '']"
       ref="link"
       role="link"
     >

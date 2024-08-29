@@ -1,8 +1,8 @@
 <template>
   <a
     :class="[
-      'el-link',
-      type ? `el-link--${type}` : '',
+      'td-link',
+      type ? `td-link--${type}` : '',
       disabled && 'is-disabled',
       underline && !disabled && 'is-underline',
     ]"

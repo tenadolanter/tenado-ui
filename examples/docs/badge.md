@@ -24,7 +24,7 @@
 
 <td-dropdown trigger="click">
   <span class="td-dropdown-link">
-    点我查看<i class="td-icon-caret-bottom el-icon--right"></i>
+    点我查看<i class="td-icon-caret-bottom td-icon--right"></i>
   </span>
   <td-dropdown-menu slot="dropdown">
     <td-dropdown-item class="clearfix">

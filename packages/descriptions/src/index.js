@@ -176,7 +176,7 @@ export default {
             class={[
               "td-descriptions__table",
               { "is-bordered": border },
-              descriptionsSize ? `el-descriptions--${descriptionsSize}` : "",
+              descriptionsSize ? `td-descriptions--${descriptionsSize}` : "",
             ]}
           >
             {rows.map((row) => (

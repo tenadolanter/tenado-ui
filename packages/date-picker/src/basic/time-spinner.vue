@@ -71,11 +71,11 @@
       >
         <i
           v-repeat-click="decrease"
-          class="td-time-spinner__arrow el-icon-arrow-up"
+          class="td-time-spinner__arrow td-icon-arrow-up"
         ></i>
         <i
           v-repeat-click="increase"
-          class="td-time-spinner__arrow el-icon-arrow-down"
+          class="td-time-spinner__arrow td-icon-arrow-down"
         ></i>
         <ul class="td-time-spinner__list" ref="hours">
           <li
@@ -99,11 +99,11 @@
       >
         <i
           v-repeat-click="decrease"
-          class="td-time-spinner__arrow el-icon-arrow-up"
+          class="td-time-spinner__arrow td-icon-arrow-up"
         ></i>
         <i
           v-repeat-click="increase"
-          class="td-time-spinner__arrow el-icon-arrow-down"
+          class="td-time-spinner__arrow td-icon-arrow-down"
         ></i>
         <ul class="td-time-spinner__list" ref="minutes">
           <li
@@ -123,11 +123,11 @@
       >
         <i
           v-repeat-click="decrease"
-          class="td-time-spinner__arrow el-icon-arrow-up"
+          class="td-time-spinner__arrow td-icon-arrow-up"
         ></i>
         <i
           v-repeat-click="increase"
-          class="td-time-spinner__arrow el-icon-arrow-down"
+          class="td-time-spinner__arrow td-icon-arrow-down"
         ></i>
         <ul class="td-time-spinner__list" ref="seconds">
           <li

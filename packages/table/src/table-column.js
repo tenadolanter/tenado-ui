@@ -193,7 +193,7 @@ export default {
             style: {},
           };
           if (column.showOverflowTooltip) {
-            props.class += " el-tooltip";
+            props.class += " td-tooltip";
             props.style = {
               width: (data.column.realWidth || data.column.width) - 1 + "px",
             };

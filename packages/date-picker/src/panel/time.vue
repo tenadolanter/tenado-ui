@@ -1,6 +1,6 @@
 <template>
   <transition name="td-zoom-in-top" @after-leave="$emit('dodestroy')">
-    <div v-show="visible" class="td-time-panel el-popper" :class="popperClass">
+    <div v-show="visible" class="td-time-panel td-popper" :class="popperClass">
       <div
         class="td-time-panel__content"
         :class="{ 'has-seconds': showSeconds }"

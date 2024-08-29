@@ -2,7 +2,7 @@
   <div
     class="td-tree"
     :class="{
-      'el-tree--highlight-current': highlightCurrent,
+      'td-tree--highlight-current': highlightCurrent,
       'is-dragging': !!dragState.draggingNode,
       'is-drop-not-allow': !dragState.allowDrop,
       'is-drop-inner': dragState.dropType === 'inner',

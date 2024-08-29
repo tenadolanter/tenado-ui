@@ -6,8 +6,8 @@
       @after-leave="handleAfterLeave"
     >
       <div
-        class="td-popover el-popper"
-        :class="[popperClass, content && 'el-popover--plain']"
+        class="td-popover td-popper"
+        :class="[popperClass, content && 'td-popover--plain']"
         ref="popper"
         v-show="!disabled && showPopper"
         :style="{ width: width + 'px' }"
@@ -75,7 +75,7 @@ export default {
 
   computed: {
     tooltipId() {
-      return `el-popover-${generateId()}`;
+      return `td-popover-${generateId()}`;
     },
   },
   watch: {

@@ -57,7 +57,7 @@ export default {
 
   data() {
     return {
-      tooltipId: `el-tooltip-${generateId()}`,
+      tooltipId: `td-tooltip-${generateId()}`,
       timeoutPending: null,
       focusing: false,
     };

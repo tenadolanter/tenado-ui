@@ -4,7 +4,7 @@
     class="td-carousel__item"
     :class="{
       'is-active': active,
-      'el-carousel__item--card': $parent.type === 'card',
+      'td-carousel__item--card': $parent.type === 'card',
       'is-in-stage': inStage,
       'is-hover': hover,
       'is-animating': animating,

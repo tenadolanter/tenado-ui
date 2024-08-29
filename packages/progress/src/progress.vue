@@ -2,11 +2,11 @@
   <div
     class="td-progress"
     :class="[
-      'el-progress--' + type,
+      'td-progress--' + type,
       status ? 'is-' + status : '',
       {
-        'el-progress--without-text': !showText,
-        'el-progress--text-inside': textInside,
+        'td-progress--without-text': !showText,
+        'td-progress--text-inside': textInside,
       },
     ]"
     role="progressbar"
@@ -196,14 +196,14 @@ export default {
     },
     iconClass() {
       if (this.status === "warning") {
-        return "el-icon-warning";
+        return "td-icon-warning";
       }
       if (this.type === "line") {
         return this.status === "success"
-          ? "el-icon-circle-check"
-          : "el-icon-circle-close";
+          ? "td-icon-circle-check"
+          : "td-icon-circle-close";
       } else {
-        return this.status === "success" ? "el-icon-check" : "el-icon-close";
+        return this.status === "success" ? "td-icon-check" : "td-icon-close";
       }
     },
     progressTextSize() {

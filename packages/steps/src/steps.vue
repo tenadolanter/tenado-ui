@@ -1,7 +1,7 @@
 <template>
   <div
     class="td-steps"
-    :class="[!simple && 'el-steps--' + direction, simple && 'el-steps--simple']"
+    :class="[!simple && 'td-steps--' + direction, simple && 'td-steps--simple']"
   >
     <slot></slot>
   </div>

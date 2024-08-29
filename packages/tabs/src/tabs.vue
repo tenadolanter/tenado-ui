@@ -163,7 +163,7 @@ export default {
       ref: "nav",
     };
     const header = (
-      <div class={["el-tabs__header", `is-${tabPosition}`]}>
+      <div class={["td-tabs__header", `is-${tabPosition}`]}>
         {newButton}
         <tab-nav {...navData} />
       </div>
@@ -173,10 +173,10 @@ export default {
     return (
       <div
         class={{
-          "el-tabs": true,
-          "el-tabs--card": type === "card",
-          [`el-tabs--${tabPosition}`]: true,
-          "el-tabs--border-card": type === "border-card",
+          "td-tabs": true,
+          "td-tabs--card": type === "card",
+          [`td-tabs--${tabPosition}`]: true,
+          "td-tabs--border-card": type === "border-card",
         }}
       >
         {tabPosition !== "bottom" ? [header, panels] : [panels, header]}

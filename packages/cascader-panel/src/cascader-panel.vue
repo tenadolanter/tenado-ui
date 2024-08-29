@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['el-cascader-panel', border && 'is-bordered']"
+    :class="['td-cascader-panel', border && 'is-bordered']"
     @keydown="handleKeyDown"
   >
     <cascader-menu
