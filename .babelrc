@@ -18,9 +18,9 @@
         [
           "module-resolver",
           {
-            "root": ["element-ui"],
+            "root": ["@tenado/ui"],
             "alias": {
-              "element-ui/src": "element-ui/lib"
+              "@tenado/ui/src": "@tenado/ui/lib"
             }
           }
         ]

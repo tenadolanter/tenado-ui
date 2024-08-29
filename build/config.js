@@ -11,23 +11,23 @@ var transitionList = fs.readdirSync(
 var externals = {};
 
 Object.keys(Components).forEach(function(key) {
-  externals[`element-ui/packages/${key}`] = `element-ui/lib/${key}`;
+  externals[`@tenado/ui/packages/${key}`] = `@tenado/ui/lib/${key}`;
 });
 
-externals["element-ui/src/locale"] = "element-ui/lib/locale";
+externals["@tenado/ui/src/locale"] = "@tenado/ui/lib/locale";
 utilsList.forEach(function(file) {
   file = path.basename(file, ".js");
-  externals[`element-ui/src/utils/${file}`] = `element-ui/lib/utils/${file}`;
+  externals[`@tenado/ui/src/utils/${file}`] = `@tenado/ui/lib/utils/${file}`;
 });
 mixinsList.forEach(function(file) {
   file = path.basename(file, ".js");
-  externals[`element-ui/src/mixins/${file}`] = `element-ui/lib/mixins/${file}`;
+  externals[`@tenado/ui/src/mixins/${file}`] = `@tenado/ui/lib/mixins/${file}`;
 });
 transitionList.forEach(function(file) {
   file = path.basename(file, ".js");
   externals[
-    `element-ui/src/transitions/${file}`
-  ] = `element-ui/lib/transitions/${file}`;
+    `@tenado/ui/src/transitions/${file}`
+  ] = `@tenado/ui/lib/transitions/${file}`;
 });
 
 externals = [
@@ -47,7 +47,7 @@ exports.alias = {
   packages: path.resolve(__dirname, "../packages"),
   examples: path.resolve(__dirname, "../examples"),
   "theme-chalk": path.resolve(__dirname, "../theme-chalk"),
-  "element-ui": path.resolve(__dirname, "../"),
+  "@tenado/ui": path.resolve(__dirname, "../"),
 };
 
 exports.vue = {

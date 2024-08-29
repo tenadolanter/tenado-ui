@@ -1,6 +1,11 @@
 <template>
   <transition name="viewer-fade">
-    <div tabindex="-1" ref="el-image-viewer__wrapper" class="el-image-viewer__wrapper" :style="{ 'z-index': viewerZIndex }">
+    <div
+      tabindex="-1"
+      ref="el-image-viewer__wrapper"
+      class="el-image-viewer__wrapper"
+      :style="{ 'z-index': viewerZIndex }"
+    >
       <div class="el-image-viewer__mask" @click.self="handleMaskClick"></div>
       <!-- CLOSE -->
       <span class="el-image-viewer__btn el-image-viewer__close" @click="hide">
@@ -11,14 +16,16 @@
         <span
           class="el-image-viewer__btn el-image-viewer__prev"
           :class="{ 'is-disabled': !infinite && isFirst }"
-          @click="prev">
-          <i class="el-icon-arrow-left"/>
+          @click="prev"
+        >
+          <i class="el-icon-arrow-left" />
         </span>
         <span
           class="el-image-viewer__btn el-image-viewer__next"
           :class="{ 'is-disabled': !infinite && isLast }"
-          @click="next">
-          <i class="el-icon-arrow-right"/>
+          @click="next"
+        >
+          <i class="el-icon-arrow-right" />
         </span>
       </template>
       <!-- ACTIONS -->
@@ -29,8 +36,14 @@
           <i class="el-image-viewer__actions__divider"></i>
           <i :class="mode.icon" @click="toggleMode"></i>
           <i class="el-image-viewer__actions__divider"></i>
-          <i class="el-icon-refresh-left" @click="handleActions('anticlocelise')"></i>
-          <i class="el-icon-refresh-right" @click="handleActions('clocelise')"></i>
+          <i
+            class="el-icon-refresh-left"
+            @click="handleActions('anticlocelise')"
+          ></i>
+          <i
+            class="el-icon-refresh-right"
+            @click="handleActions('clocelise')"
+          ></i>
         </div>
       </div>
       <!-- CANVAS -->
@@ -45,62 +58,63 @@
           :style="imgStyle"
           @load="handleImgLoad"
           @error="handleImgError"
-          @mousedown="handleMouseDown">
+          @mousedown="handleMouseDown"
+        />
       </div>
     </div>
   </transition>
 </template>
 
 <script>
-import { on, off } from 'element-ui/src/utils/dom';
-import { rafThrottle, isFirefox } from 'element-ui/src/utils/util';
-import { PopupManager } from 'element-ui/src/utils/popup';
+import { on, off } from "@tenado/ui/src/utils/dom";
+import { rafThrottle, isFirefox } from "@tenado/ui/src/utils/util";
+import { PopupManager } from "@tenado/ui/src/utils/popup";
 
 const Mode = {
   CONTAIN: {
-    name: 'contain',
-    icon: 'el-icon-full-screen'
+    name: "contain",
+    icon: "el-icon-full-screen",
   },
   ORIGINAL: {
-    name: 'original',
-    icon: 'el-icon-c-scale-to-original'
-  }
+    name: "original",
+    icon: "el-icon-c-scale-to-original",
+  },
 };
 
-const mousewheelEventName = isFirefox() ? 'DOMMouseScroll' : 'mousewheel';
+const mousewheelEventName = isFirefox() ? "DOMMouseScroll" : "mousewheel";
 
 export default {
-  name: 'elImageViewer',
+  name: "elImageViewer",
 
   props: {
     urlList: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     zIndex: {
       type: Number,
-      default: 2000
+      default: 2000,
     },
     onSwitch: {
       type: Function,
-      default: () => {}
+      default: () => {},
     },
     onClose: {
       type: Function,
-      default: () => {}
+      default: () => {},
     },
     initialIndex: {
       type: Number,
-      default: 0
+      default: 0,
     },
     appendToBody: {
       type: Boolean,
-      default: true
+      default: true,
     },
     maskClosable: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
 
   data() {
@@ -115,8 +129,8 @@ export default {
         deg: 0,
         offsetX: 0,
         offsetY: 0,
-        enableTransition: false
-      }
+        enableTransition: false,
+      },
     };
   },
   computed: {
@@ -136,35 +150,35 @@ export default {
       const { scale, deg, offsetX, offsetY, enableTransition } = this.transform;
       const style = {
         transform: `scale(${scale}) rotate(${deg}deg)`,
-        transition: enableTransition ? 'transform .3s' : '',
-        'margin-left': `${offsetX}px`,
-        'margin-top': `${offsetY}px`
+        transition: enableTransition ? "transform .3s" : "",
+        "margin-left": `${offsetX}px`,
+        "margin-top": `${offsetY}px`,
       };
       if (this.mode === Mode.CONTAIN) {
-        style.maxWidth = style.maxHeight = '100%';
+        style.maxWidth = style.maxHeight = "100%";
       }
       return style;
     },
     viewerZIndex() {
       const nextZIndex = PopupManager.nextZIndex();
       return this.zIndex > nextZIndex ? this.zIndex : nextZIndex;
-    }
+    },
   },
   watch: {
     index: {
       handler: function(val) {
         this.reset();
         this.onSwitch(val);
-      }
+      },
     },
     currentImg(val) {
-      this.$nextTick(_ => {
+      this.$nextTick((_) => {
         const $img = this.$refs.img[0];
         if (!$img.complete) {
           this.loading = true;
         }
       });
-    }
+    },
   },
   methods: {
     hide() {
@@ -172,7 +186,7 @@ export default {
       this.onClose();
     },
     deviceSupportInstall() {
-      this._keyDownHandler = e => {
+      this._keyDownHandler = (e) => {
         e.stopPropagation();
         const keyCode = e.keyCode;
         switch (keyCode) {
@@ -190,7 +204,7 @@ export default {
             break;
           // UP_ARROW
           case 38:
-            this.handleActions('zoomIn');
+            this.handleActions("zoomIn");
             break;
           // RIGHT_ARROW
           case 39:
@@ -198,29 +212,29 @@ export default {
             break;
           // DOWN_ARROW
           case 40:
-            this.handleActions('zoomOut');
+            this.handleActions("zoomOut");
             break;
         }
       };
-      this._mouseWheelHandler = rafThrottle(e => {
+      this._mouseWheelHandler = rafThrottle((e) => {
         const delta = e.wheelDelta ? e.wheelDelta : -e.detail;
         if (delta > 0) {
-          this.handleActions('zoomIn', {
+          this.handleActions("zoomIn", {
             zoomRate: 0.015,
-            enableTransition: false
+            enableTransition: false,
           });
         } else {
-          this.handleActions('zoomOut', {
+          this.handleActions("zoomOut", {
             zoomRate: 0.015,
-            enableTransition: false
+            enableTransition: false,
           });
         }
       });
-      on(document, 'keydown', this._keyDownHandler);
+      on(document, "keydown", this._keyDownHandler);
       on(document, mousewheelEventName, this._mouseWheelHandler);
     },
     deviceSupportUninstall() {
-      off(document, 'keydown', this._keyDownHandler);
+      off(document, "keydown", this._keyDownHandler);
       off(document, mousewheelEventName, this._mouseWheelHandler);
       this._keyDownHandler = null;
       this._mouseWheelHandler = null;
@@ -230,7 +244,7 @@ export default {
     },
     handleImgError(e) {
       this.loading = false;
-      e.target.alt = '加载失败';
+      e.target.alt = "加载失败";
     },
     handleMouseDown(e) {
       if (this.loading || e.button !== 0) return;
@@ -238,13 +252,13 @@ export default {
       const { offsetX, offsetY } = this.transform;
       const startX = e.pageX;
       const startY = e.pageY;
-      this._dragHandler = rafThrottle(ev => {
+      this._dragHandler = rafThrottle((ev) => {
         this.transform.offsetX = offsetX + ev.pageX - startX;
         this.transform.offsetY = offsetY + ev.pageY - startY;
       });
-      on(document, 'mousemove', this._dragHandler);
-      on(document, 'mouseup', ev => {
-        off(document, 'mousemove', this._dragHandler);
+      on(document, "mousemove", this._dragHandler);
+      on(document, "mouseup", (ev) => {
+        off(document, "mousemove", this._dragHandler);
       });
 
       e.preventDefault();
@@ -260,7 +274,7 @@ export default {
         deg: 0,
         offsetX: 0,
         offsetY: 0,
-        enableTransition: false
+        enableTransition: false,
       };
     },
     toggleMode() {
@@ -289,27 +303,29 @@ export default {
         zoomRate: 0.2,
         rotateDeg: 90,
         enableTransition: true,
-        ...options
+        ...options,
       };
       const { transform } = this;
       switch (action) {
-        case 'zoomOut':
+        case "zoomOut":
           if (transform.scale > 0.2) {
-            transform.scale = parseFloat((transform.scale - zoomRate).toFixed(3));
+            transform.scale = parseFloat(
+              (transform.scale - zoomRate).toFixed(3)
+            );
           }
           break;
-        case 'zoomIn':
+        case "zoomIn":
           transform.scale = parseFloat((transform.scale + zoomRate).toFixed(3));
           break;
-        case 'clocelise':
+        case "clocelise":
           transform.deg += rotateDeg;
           break;
-        case 'anticlocelise':
+        case "anticlocelise":
           transform.deg -= rotateDeg;
           break;
       }
       transform.enableTransition = enableTransition;
-    }
+    },
   },
   mounted() {
     this.deviceSupportInstall();
@@ -318,13 +334,13 @@ export default {
     }
     // add tabindex then wrapper can be focusable via Javascript
     // focus wrapper so arrow key can't cause inner scroll behavior underneath
-    this.$refs['el-image-viewer__wrapper'].focus();
+    this.$refs["el-image-viewer__wrapper"].focus();
   },
   destroyed() {
     // if appendToBody is true, remove DOM node after destroy
     if (this.appendToBody && this.$el && this.$el.parentNode) {
       this.$el.parentNode.removeChild(this.$el);
     }
-  }
+  },
 };
 </script>

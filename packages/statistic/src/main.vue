@@ -1,6 +1,6 @@
 <template>
   <div class="el-statistic">
-    <div class="head" v-if="title||$slots.title">
+    <div class="head" v-if="title || $slots.title">
       <slot name="title">
         <span class="title">
           {{ title }}
@@ -8,15 +8,15 @@
       </slot>
     </div>
     <div class="con">
-      <span class="prefix" v-if="prefix||$slots.prefix">
-        <slot name="prefix" >
+      <span class="prefix" v-if="prefix || $slots.prefix">
+        <slot name="prefix">
           {{ prefix }}
         </slot>
       </span>
       <span class="number" :style="valueStyle">
         <slot name="formatter"> {{ disposeValue }}</slot>
       </span>
-      <span class="suffix" v-if="suffix||$slots.suffix">
+      <span class="suffix" v-if="suffix || $slots.suffix">
         <slot name="suffix">
           {{ suffix }}
         </slot>
@@ -26,63 +26,69 @@
 </template>
 
 <script>
-import { isNumber, chain, multiply, padStart, reduce} from 'element-ui/src/utils/lodash';
+import {
+  isNumber,
+  chain,
+  multiply,
+  padStart,
+  reduce,
+} from "@tenado/ui/src/utils/lodash";
 export default {
-  name: 'ElStatistic',
+  name: "ElStatistic",
   data() {
     return {
-      disposeValue: '',
+      disposeValue: "",
       timeTask: null,
-      REFRESH_INTERVAL: 1000 / 30
+      REFRESH_INTERVAL: 1000 / 30,
     };
   },
   props: {
     decimalSeparator: {
       type: String,
-      default: '.'
+      default: ".",
     },
     groupSeparator: {
       type: String,
-      default: ''
+      default: "",
     },
     precision: {
       type: Number,
-      default: null
+      default: null,
     },
     value: {
       type: [String, Number, Date],
-      default: ''
+      default: "",
     },
     prefix: {
       type: String,
-      default: ''
+      default: "",
     },
     suffix: {
       type: String,
-      default: ''
+      default: "",
     },
     title: {
       type: [String, Number],
-      default: ''
+      default: "",
     },
     timeIndices: {
       type: Boolean,
-      default: false
+      default: false,
     },
     valueStyle: {
       type: Object,
       default: function() {
         return {};
-      }
+      },
     },
     format: {
       type: String,
-      default: 'HH:mm:ss:SSS'
+      default: "HH:mm:ss:SSS",
     },
     rate: {
       type: Number,
-      default: 1000
-    }
+      default: 1000,
+    },
   },
   created() {
     this.branch();
@@ -96,21 +102,24 @@ export default {
     },
     mulriple() {
       this.dispose();
-    }
+    },
   },
   methods: {
     branch() {
-      let { timeIndices, countDown, dispose} = this;
+      let { timeIndices, countDown, dispose } = this;
       if (timeIndices) {
         countDown(this.value.valueOf() || this.value);
       } else {
         dispose();
       }
     },
-    magnification(num, mulriple = 1000, groupSeparator = ',') {
+    magnification(num, mulriple = 1000, groupSeparator = ",") {
       // magnification factor
-      const level = String(mulriple).length ;
-      return num.replace(new RegExp(`(\\d)(?=(\\d{${level - 1}})+$)`, 'g'), `$1${groupSeparator}`);
+      const level = String(mulriple).length;
+      return num.replace(
+        new RegExp(`(\\d)(?=(\\d{${level - 1}})+$)`, "g"),
+        `$1${groupSeparator}`
+      );
     },
     dispose() {
       let { value, rate, groupSeparator } = this;
@@ -118,12 +127,14 @@ export default {
       if (this.precision) {
         value = value.toFixed(this.precision);
       }
-      let [integer, decimal] = String(value).split('.');
+      let [integer, decimal] = String(value).split(".");
       // 1000 multiplying power
       if (groupSeparator) {
         integer = this.magnification(integer, rate, groupSeparator);
       }
-      let result = `${integer}${decimal ? this.decimalSeparator + decimal : ''}`;
+      let result = `${integer}${
+        decimal ? this.decimalSeparator + decimal : ""
+      }`;
       this.disposeValue = result;
       return result;
     },
@@ -142,24 +153,29 @@ export default {
       return this.disposeValue;
     },
     formatTimeStr: function(time) {
-      let {format} = this;
+      let { format } = this;
       const escapeRegex = /\[[^\]]*]/g;
-      const keepList = (format.match(escapeRegex) || []).map(str => str.slice(1, -1));
+      const keepList = (format.match(escapeRegex) || []).map((str) =>
+        str.slice(1, -1)
+      );
       const timeUnits = [
-        ['Y', 1000 * 60 * 60 * 24 * 365], // years
-        ['M', 1000 * 60 * 60 * 24 * 30], // months
-        ['D', 1000 * 60 * 60 * 24], // days
-        ['H', 1000 * 60 * 60], // hours
-        ['m', 1000 * 60], // minutes
-        ['s', 1000], // seconds
-        ['S', 1] // million seconds
+        ["Y", 1000 * 60 * 60 * 24 * 365], // years
+        ["M", 1000 * 60 * 60 * 24 * 30], // months
+        ["D", 1000 * 60 * 60 * 24], // days
+        ["H", 1000 * 60 * 60], // hours
+        ["m", 1000 * 60], // minutes
+        ["s", 1000], // seconds
+        ["S", 1], // million seconds
       ];
       let formatText = reduce(
         timeUnits,
         (con, item) => {
           const name = item[0];
-          return con.replace(new RegExp(`${name}+`, 'g'), (match) => {
-            let sum = chain(time).divide(item[1]).floor(0).value();
+          return con.replace(new RegExp(`${name}+`, "g"), (match) => {
+            let sum = chain(time)
+              .divide(item[1])
+              .floor(0)
+              .value();
             time -= multiply(sum, item[1]);
             return padStart(String(sum), String(match).length, 0);
           });
@@ -176,29 +192,35 @@ export default {
     stopTime(time) {
       let result = true; // stop
       if (time) {
-        this.$emit('change', time);
+        this.$emit("change", time);
         result = false;
       } else {
         result = true;
         this.suspend(true);
-        this.$emit('finish', true);
+        this.$emit("finish", true);
       }
       return result;
     },
     countDown(timeVlaue) {
-      let {REFRESH_INTERVAL, timeTask, diffDate, formatTimeStr, stopTime, suspend } = this;
+      let {
+        REFRESH_INTERVAL,
+        timeTask,
+        diffDate,
+        formatTimeStr,
+        stopTime,
+        suspend,
+      } = this;
       if (timeTask) return;
       let than = this;
-      this.timeTask = setInterval(()=> {
+      this.timeTask = setInterval(() => {
         let diffTiem = diffDate(timeVlaue, Date.now());
         than.disposeValue = formatTimeStr(diffTiem);
         stopTime(diffTiem);
       }, REFRESH_INTERVAL);
-      this.$once('hook:beforeDestroy', () => {
+      this.$once("hook:beforeDestroy", () => {
         suspend(true);
       });
-
-    }
-  }
+    },
+  },
 };
 </script>

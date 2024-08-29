@@ -139,7 +139,7 @@ if (isProd) {
     cacheGroups: {
       vendor: {
         test: /\/src\//,
-        name: "element-ui",
+        name: "@tenado/ui",
         chunks: "all",
       },
     },

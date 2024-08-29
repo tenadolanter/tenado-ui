@@ -1,8 +1,8 @@
 const defaults = {
   title: null,
-  message: '',
-  type: '',
-  iconClass: '',
+  message: "",
+  type: "",
+  iconClass: "",
   showInput: false,
   showClose: true,
   modalFade: true,
@@ -11,42 +11,42 @@ const defaults = {
   closeOnPressEscape: true,
   closeOnHashChange: true,
   inputValue: null,
-  inputPlaceholder: '',
-  inputType: 'text',
+  inputPlaceholder: "",
+  inputType: "text",
   inputPattern: null,
   inputValidator: null,
-  inputErrorMessage: '',
+  inputErrorMessage: "",
   showConfirmButton: true,
   showCancelButton: false,
-  confirmButtonPosition: 'right',
+  confirmButtonPosition: "right",
   confirmButtonHighlight: false,
   cancelButtonHighlight: false,
-  confirmButtonText: '',
-  cancelButtonText: '',
-  confirmButtonClass: '',
-  cancelButtonClass: '',
-  customClass: '',
+  confirmButtonText: "",
+  cancelButtonText: "",
+  confirmButtonClass: "",
+  cancelButtonClass: "",
+  customClass: "",
   beforeClose: null,
   dangerouslyUseHTMLString: false,
   center: false,
   roundButton: false,
-  distinguishCancelAndClose: false
+  distinguishCancelAndClose: false,
 };
 
-import Vue from 'vue';
-import msgboxVue from './main.vue';
-import merge from 'element-ui/src/utils/merge';
-import { isVNode } from 'element-ui/src/utils/vdom';
+import Vue from "vue";
+import msgboxVue from "./main.vue";
+import merge from "@tenado/ui/src/utils/merge";
+import { isVNode } from "@tenado/ui/src/utils/vdom";
 
 const MessageBoxConstructor = Vue.extend(msgboxVue);
 
 let currentMsg, instance;
 let msgQueue = [];
 
-const defaultCallback = action => {
+const defaultCallback = (action) => {
   if (currentMsg) {
     let callback = currentMsg.callback;
-    if (typeof callback === 'function') {
+    if (typeof callback === "function") {
       if (instance.showInput) {
         callback(instance.inputValue, action);
       } else {
@@ -54,13 +54,16 @@ const defaultCallback = action => {
       }
     }
     if (currentMsg.resolve) {
-      if (action === 'confirm') {
+      if (action === "confirm") {
         if (instance.showInput) {
           currentMsg.resolve({ value: instance.inputValue, action });
         } else {
           currentMsg.resolve(action);
         }
-      } else if (currentMsg.reject && (action === 'cancel' || action === 'close')) {
+      } else if (
+        currentMsg.reject &&
+        (action === "cancel" || action === "close")
+      ) {
         currentMsg.reject(action);
       }
     }
@@ -69,7 +72,7 @@ const defaultCallback = action => {
 
 const initInstance = () => {
   instance = new MessageBoxConstructor({
-    el: document.createElement('div')
+    el: document.createElement("div"),
   });
 
   instance.callback = defaultCallback;
@@ -79,7 +82,7 @@ const showNextMsg = () => {
   if (!instance) {
     initInstance();
   }
-  instance.action = '';
+  instance.action = "";
 
   if (!instance.visible || instance.closeTimer) {
     if (msgQueue.length > 0) {
@@ -106,7 +109,13 @@ const showNextMsg = () => {
       } else {
         delete instance.$slots.default;
       }
-      ['modal', 'showClose', 'closeOnClickModal', 'closeOnPressEscape', 'closeOnHashChange'].forEach(prop => {
+      [
+        "modal",
+        "showClose",
+        "closeOnClickModal",
+        "closeOnPressEscape",
+        "closeOnHashChange",
+      ].forEach((prop) => {
         if (instance[prop] === undefined) {
           instance[prop] = true;
         }
@@ -122,24 +131,25 @@ const showNextMsg = () => {
 
 const MessageBox = function(options, callback) {
   if (Vue.prototype.$isServer) return;
-  if (typeof options === 'string' || isVNode(options)) {
+  if (typeof options === "string" || isVNode(options)) {
     options = {
-      message: options
+      message: options,
     };
-    if (typeof arguments[1] === 'string') {
+    if (typeof arguments[1] === "string") {
       options.title = arguments[1];
     }
   } else if (options.callback && !callback) {
     callback = options.callback;
   }
 
-  if (typeof Promise !== 'undefined') {
-    return new Promise((resolve, reject) => { // eslint-disable-line
+  if (typeof Promise !== "undefined") {
+    return new Promise((resolve, reject) => {
+      // eslint-disable-line
       msgQueue.push({
         options: merge({}, defaults, MessageBox.defaults, options),
         callback: callback,
         resolve: resolve,
-        reject: reject
+        reject: reject,
       });
 
       showNextMsg();
@@ -147,62 +157,77 @@ const MessageBox = function(options, callback) {
   } else {
     msgQueue.push({
       options: merge({}, defaults, MessageBox.defaults, options),
-      callback: callback
+      callback: callback,
     });
 
     showNextMsg();
   }
 };
 
-MessageBox.setDefaults = defaults => {
+MessageBox.setDefaults = (defaults) => {
   MessageBox.defaults = defaults;
 };
 
 MessageBox.alert = (message, title, options) => {
-  if (typeof title === 'object') {
+  if (typeof title === "object") {
     options = title;
-    title = '';
+    title = "";
   } else if (title === undefined) {
-    title = '';
+    title = "";
   }
-  return MessageBox(merge({
-    title: title,
-    message: message,
-    $type: 'alert',
-    closeOnPressEscape: false,
-    closeOnClickModal: false
-  }, options));
+  return MessageBox(
+    merge(
+      {
+        title: title,
+        message: message,
+        $type: "alert",
+        closeOnPressEscape: false,
+        closeOnClickModal: false,
+      },
+      options
+    )
+  );
 };
 
 MessageBox.confirm = (message, title, options) => {
-  if (typeof title === 'object') {
+  if (typeof title === "object") {
     options = title;
-    title = '';
+    title = "";
   } else if (title === undefined) {
-    title = '';
+    title = "";
   }
-  return MessageBox(merge({
-    title: title,
-    message: message,
-    $type: 'confirm',
-    showCancelButton: true
-  }, options));
+  return MessageBox(
+    merge(
+      {
+        title: title,
+        message: message,
+        $type: "confirm",
+        showCancelButton: true,
+      },
+      options
+    )
+  );
 };
 
 MessageBox.prompt = (message, title, options) => {
-  if (typeof title === 'object') {
+  if (typeof title === "object") {
     options = title;
-    title = '';
+    title = "";
   } else if (title === undefined) {
-    title = '';
+    title = "";
   }
-  return MessageBox(merge({
-    title: title,
-    message: message,
-    showCancelButton: true,
-    showInput: true,
-    $type: 'prompt'
-  }, options));
+  return MessageBox(
+    merge(
+      {
+        title: title,
+        message: message,
+        showCancelButton: true,
+        showInput: true,
+        $type: "prompt",
+      },
+      options
+    )
+  );
 };
 
 MessageBox.close = () => {

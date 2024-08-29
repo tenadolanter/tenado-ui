@@ -1,5 +1,5 @@
-import { once, on } from 'element-ui/src/utils/dom';
-import { isMac } from 'element-ui/src/utils/util';
+import { once, on } from "@tenado/ui/src/utils/dom";
+import { isMac } from "@tenado/ui/src/utils/util";
 
 export default {
   bind(el, binding, vnode) {
@@ -15,12 +15,12 @@ export default {
       interval = null;
     };
 
-    on(el, 'mousedown', (e) => {
+    on(el, "mousedown", (e) => {
       if (e.button !== 0) return;
       startTime = Date.now();
-      once(document, 'mouseup', clear);
+      once(document, "mouseup", clear);
       clearInterval(interval);
       interval = setInterval(handler, maxIntervals);
     });
-  }
+  },
 };
