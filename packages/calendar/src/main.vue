@@ -48,8 +48,8 @@
 <script>
 import Locale from "@tenado/ui/src/mixins/locale";
 import fecha from "@tenado/ui/src/utils/date";
-import ElButton from "@tenado/ui/packages/button";
-import ElButtonGroup from "@tenado/ui/packages/button-group";
+import TdButton from "@tenado/ui/packages/button";
+import TdButtonGroup from "@tenado/ui/packages/button-group";
 import DateTable from "./date-table";
 import { validateRangeInOneMonth } from "@tenado/ui/src/utils/date-util";
 
@@ -72,8 +72,8 @@ export default {
 
   components: {
     DateTable,
-    ElButton,
-    ElButtonGroup,
+    TdButton,
+    TdButtonGroup,
   },
 
   props: {

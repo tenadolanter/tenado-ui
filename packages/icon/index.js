@@ -1,8 +1,8 @@
-import ElIcon from './src/icon.vue';
+import TdIcon from "./src/icon.vue";
 
 /* istanbul ignore next */
-ElIcon.install = function(Vue) {
-  Vue.component(ElIcon.name, ElIcon);
+TdIcon.install = function(Vue) {
+  Vue.component(TdIcon.name, TdIcon);
 };
 
-export default ElIcon;
+export default TdIcon;

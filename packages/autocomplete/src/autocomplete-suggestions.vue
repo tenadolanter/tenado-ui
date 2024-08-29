@@ -23,10 +23,11 @@
 <script>
 import Popper from "@tenado/ui/src/utils/vue-popper";
 import Emitter from "@tenado/ui/src/mixins/emitter";
-import ElScrollbar from "@tenado/ui/packages/scrollbar";
+import TdScrollbar from "@tenado/ui/packages/scrollbar";
 
 export default {
-  components: { ElScrollbar },
+  name: "TdAutocompleteSuggestions",
+  components: { TdScrollbar },
   mixins: [Popper, Emitter],
 
   componentName: "TdAutocompleteSuggestions",

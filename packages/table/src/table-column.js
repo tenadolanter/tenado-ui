@@ -5,7 +5,7 @@ import {
   treeCellPrefix,
 } from "./config";
 import { mergeOptions, parseWidth, parseMinWidth, compose } from "./util";
-import ElCheckbox from "@tenado/ui/packages/checkbox";
+import TdCheckbox from "@tenado/ui/packages/checkbox";
 
 let columnIdSeed = 1;
 
@@ -267,7 +267,7 @@ export default {
   },
 
   components: {
-    ElCheckbox,
+    TdCheckbox,
   },
 
   beforeCreate() {

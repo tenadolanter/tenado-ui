@@ -1,9 +1,8 @@
-import ElCol from './src/col';
+import TdCol from "./src/col";
 
 /* istanbul ignore next */
-ElCol.install = function(Vue) {
-  Vue.component(ElCol.name, ElCol);
+TdCol.install = function(Vue) {
+  Vue.component(TdCol.name, TdCol);
 };
 
-export default ElCol;
-
+export default TdCol;

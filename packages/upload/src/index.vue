@@ -1,7 +1,7 @@
 <script>
 import UploadList from "./upload-list";
 import Upload from "./upload";
-import ElProgress from "@tenado/ui/packages/progress";
+import TdProgress from "@tenado/ui/packages/progress";
 import Migrating from "@tenado/ui/src/mixins/migrating";
 
 function noop() {}
@@ -12,7 +12,7 @@ export default {
   mixins: [Migrating],
 
   components: {
-    ElProgress,
+    TdProgress,
     UploadList,
     Upload,
   },

@@ -69,9 +69,9 @@ import { PopupManager } from "@tenado/ui/src/utils/popup";
 import Locale from "@tenado/ui/src/mixins/locale";
 import Clickoutside from "@tenado/ui/src/utils/clickoutside";
 import Dropdown from "./dropdown";
-import ElCheckbox from "@tenado/ui/packages/checkbox";
-import ElCheckboxGroup from "@tenado/ui/packages/checkbox-group";
-import ElScrollbar from "@tenado/ui/packages/scrollbar";
+import TdCheckbox from "@tenado/ui/packages/checkbox";
+import TdCheckboxGroup from "@tenado/ui/packages/checkbox-group";
+import TdScrollbar from "@tenado/ui/packages/scrollbar";
 
 export default {
   name: "TdTableFilterPanel",
@@ -83,9 +83,9 @@ export default {
   },
 
   components: {
-    ElCheckbox,
-    ElCheckboxGroup,
-    ElScrollbar,
+    TdCheckbox,
+    TdCheckboxGroup,
+    TdScrollbar,
   },
 
   props: {

@@ -206,8 +206,8 @@ import {
 } from "@tenado/ui/src/utils/date-util";
 import Clickoutside from "@tenado/ui/src/utils/clickoutside";
 import Locale from "@tenado/ui/src/mixins/locale";
-import ElInput from "@tenado/ui/packages/input";
-import ElButton from "@tenado/ui/packages/button";
+import TdInput from "@tenado/ui/packages/input";
+import TdButton from "@tenado/ui/packages/button";
 import TimePicker from "./time";
 import YearTable from "../basic/year-table";
 import MonthTable from "../basic/month-table";
@@ -630,8 +630,8 @@ export default {
     YearTable,
     MonthTable,
     DateTable,
-    ElInput,
-    ElButton,
+    TdInput,
+    TdButton,
   },
 
   data() {

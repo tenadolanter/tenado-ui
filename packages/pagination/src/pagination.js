@@ -1,7 +1,7 @@
 import Pager from "./pager.vue";
-import ElSelect from "@tenado/ui/packages/select";
-import ElOption from "@tenado/ui/packages/option";
-import ElInput from "@tenado/ui/packages/input";
+import TdSelect from "@tenado/ui/packages/select";
+import TdOption from "@tenado/ui/packages/option";
+import TdInput from "@tenado/ui/packages/input";
 import Locale from "@tenado/ui/src/mixins/locale";
 import { valueEquals } from "@tenado/ui/src/utils/util";
 
@@ -221,8 +221,8 @@ export default {
       },
 
       components: {
-        ElSelect,
-        ElOption,
+        TdSelect,
+        TdOption,
       },
 
       methods: {
@@ -240,7 +240,7 @@ export default {
     Jumper: {
       mixins: [Locale],
 
-      components: { ElInput },
+      components: { TdInput },
 
       data() {
         return {

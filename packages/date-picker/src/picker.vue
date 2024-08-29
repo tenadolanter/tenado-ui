@@ -110,7 +110,7 @@ import {
 } from "@tenado/ui/src/utils/date-util";
 import Popper from "@tenado/ui/src/utils/vue-popper";
 import Emitter from "@tenado/ui/src/mixins/emitter";
-import ElInput from "@tenado/ui/packages/input";
+import TdInput from "@tenado/ui/packages/input";
 import merge from "@tenado/ui/src/utils/merge";
 
 const NewPopper = {
@@ -443,7 +443,7 @@ export default {
     },
   },
 
-  components: { ElInput },
+  components: { TdInput },
 
   directives: { Clickoutside },
 

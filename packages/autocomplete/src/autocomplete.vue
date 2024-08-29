@@ -60,9 +60,9 @@
 </template>
 <script>
 import debounce from "throttle-debounce/debounce";
-import ElInput from "@tenado/ui/packages/input";
+import TdInput from "@tenado/ui/packages/input";
 import Clickoutside from "@tenado/ui/src/utils/clickoutside";
-import ElAutocompleteSuggestions from "./autocomplete-suggestions.vue";
+import TdAutocompleteSuggestions from "./autocomplete-suggestions.vue";
 import Emitter from "@tenado/ui/src/mixins/emitter";
 import Migrating from "@tenado/ui/src/mixins/migrating";
 import { generateId } from "@tenado/ui/src/utils/util";
@@ -78,8 +78,8 @@ export default {
   componentName: "TdAutocomplete",
 
   components: {
-    ElInput,
-    ElAutocompleteSuggestions,
+    TdInput,
+    TdAutocompleteSuggestions,
   },
 
   directives: { Clickoutside },

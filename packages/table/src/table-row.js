@@ -1,4 +1,4 @@
-import ElCheckbox from "@tenado/ui/packages/checkbox";
+import TdCheckbox from "@tenado/ui/packages/checkbox";
 export default {
   name: "TdTableRow",
   props: [
@@ -22,7 +22,7 @@ export default {
     "fixed",
   ],
   components: {
-    ElCheckbox,
+    TdCheckbox,
   },
   render() {
     const {

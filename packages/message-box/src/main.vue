@@ -100,8 +100,8 @@
 <script type="text/babel">
 import Popup from "@tenado/ui/src/utils/popup";
 import Locale from "@tenado/ui/src/mixins/locale";
-import ElInput from "@tenado/ui/packages/input";
-import ElButton from "@tenado/ui/packages/button";
+import TdInput from "@tenado/ui/packages/input";
+import TdButton from "@tenado/ui/packages/button";
 import { addClass, removeClass } from "@tenado/ui/src/utils/dom";
 import { t } from "@tenado/ui/src/locale";
 import Dialog from "@tenado/ui/src/utils/aria-dialog";
@@ -148,8 +148,8 @@ export default {
   },
 
   components: {
-    ElInput,
-    ElButton,
+    TdInput,
+    TdButton,
   },
 
   computed: {

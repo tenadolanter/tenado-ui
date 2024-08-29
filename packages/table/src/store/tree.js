@@ -1,4 +1,4 @@
-import { walkTreeNode, getRowIdentity } from '../util';
+import { walkTreeNode, getRowIdentity } from "../util";
 
 export default {
   data() {
@@ -12,9 +12,9 @@ export default {
         indent: 16,
         lazy: false,
         lazyTreeNodeMap: {},
-        lazyColumnIdentifier: 'hasChildren',
-        childrenColumnName: 'children'
-      }
+        lazyColumnIdentifier: "hasChildren",
+        childrenColumnName: "children",
+      },
     };
   },
 
@@ -34,10 +34,10 @@ export default {
       const keys = Object.keys(lazyTreeNodeMap);
       const res = {};
       if (!keys.length) return res;
-      keys.forEach(key => {
+      keys.forEach((key) => {
         if (lazyTreeNodeMap[key].length) {
           const item = { children: [] };
-          lazyTreeNodeMap[key].forEach(row => {
+          lazyTreeNodeMap[key].forEach((row) => {
             const currentRowKey = getRowIdentity(row, rowKey);
             item.children.push(currentRowKey);
             if (row[lazyColumnIdentifier] && !res[currentRowKey]) {
@@ -48,12 +48,12 @@ export default {
         }
       });
       return res;
-    }
+    },
   },
 
   watch: {
-    normalizedData: 'updateTreeData',
-    normalizedLazyNode: 'updateTreeData'
+    normalizedData: "updateTreeData",
+    normalizedLazyNode: "updateTreeData",
   },
 
   methods: {
@@ -62,7 +62,7 @@ export default {
         childrenColumnName,
         lazyColumnIdentifier,
         rowKey,
-        lazy
+        lazy,
       } = this.states;
       const res = {};
       walkTreeNode(
@@ -71,15 +71,15 @@ export default {
           const parentId = getRowIdentity(parent, rowKey);
           if (Array.isArray(children)) {
             res[parentId] = {
-              children: children.map(row => getRowIdentity(row, rowKey)),
-              level
+              children: children.map((row) => getRowIdentity(row, rowKey)),
+              level,
             };
           } else if (lazy) {
             // 当 children 不存在且 lazy 为 true，该节点即为懒加载的节点
             res[parentId] = {
               children: [],
               lazy: true,
-              level
+              level,
             };
           }
         },
@@ -99,7 +99,7 @@ export default {
           treeData: oldTreeData,
           defaultExpandAll,
           expandRowKeys,
-          lazy
+          lazy,
         } = this.states;
         const rootLazyRowKeys = [];
         const getExpanded = (oldValue, key) => {
@@ -109,7 +109,7 @@ export default {
           return !!((oldValue && oldValue.expanded) || included);
         };
         // 合并 expanded 与 display，确保数据刷新后，状态不变
-        keys.forEach(key => {
+        keys.forEach((key) => {
           const oldValue = oldTreeData[key];
           const newValue = { ...nested[key] };
           newValue.expanded = getExpanded(oldValue, key);
@@ -124,13 +124,13 @@ export default {
         // 根据懒加载数据更新 treeData
         const lazyKeys = Object.keys(normalizedLazyNode);
         if (lazy && lazyKeys.length && rootLazyRowKeys.length) {
-          lazyKeys.forEach(key => {
+          lazyKeys.forEach((key) => {
             const oldValue = oldTreeData[key];
             const lazyNodeChildren = normalizedLazyNode[key].children;
             if (rootLazyRowKeys.indexOf(key) !== -1) {
               // 懒加载的 root 节点，更新一下原有的数据，原来的 children 一定是空数组
               if (newTreeData[key].children.length !== 0) {
-                throw new Error('[ElTable]children must be an empty array.');
+                throw new Error("[TdTable]children must be an empty array.");
               }
               newTreeData[key].children = lazyNodeChildren;
             } else {
@@ -141,7 +141,7 @@ export default {
                 loading: !!loading,
                 expanded: getExpanded(oldValue, key),
                 children: lazyNodeChildren,
-                level: ''
+                level: "",
               };
             }
           });
@@ -162,12 +162,12 @@ export default {
       const { rowKey, treeData } = this.states;
       const id = getRowIdentity(row, rowKey);
       const data = id && treeData[id];
-      if (id && data && ('expanded' in data)) {
+      if (id && data && "expanded" in data) {
         const oldExpanded = data.expanded;
-        expanded = typeof expanded === 'undefined' ? !data.expanded : expanded;
+        expanded = typeof expanded === "undefined" ? !data.expanded : expanded;
         treeData[id].expanded = expanded;
         if (oldExpanded !== expanded) {
-          this.table.$emit('expand-change', row, expanded);
+          this.table.$emit("expand-change", row, expanded);
         }
         this.updateTableScrollY();
       }
@@ -178,7 +178,7 @@ export default {
       const { lazy, treeData, rowKey } = this.states;
       const id = getRowIdentity(row, rowKey);
       const data = treeData[id];
-      if (lazy && data && 'loaded' in data && !data.loaded) {
+      if (lazy && data && "loaded" in data && !data.loaded) {
         this.loadData(row, id, data);
       } else {
         this.toggleTreeExpansion(row);
@@ -190,9 +190,9 @@ export default {
       const { treeData: rawTreeData } = this.states;
       if (load && !rawTreeData[key].loaded) {
         rawTreeData[key].loading = true;
-        load(row, treeNode, data => {
+        load(row, treeNode, (data) => {
           if (!Array.isArray(data)) {
-            throw new Error('[ElTable] data must be an array');
+            throw new Error("[TdTable] data must be an array");
           }
           const { lazyTreeNodeMap, treeData } = this.states;
           treeData[key].loading = false;
@@ -201,9 +201,9 @@ export default {
           if (data.length) {
             this.$set(lazyTreeNodeMap, key, data);
           }
-          this.table.$emit('expand-change', row, true);
+          this.table.$emit("expand-change", row, true);
         });
       }
-    }
-  }
+    },
+  },
 };

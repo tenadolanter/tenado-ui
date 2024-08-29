@@ -1,6 +1,6 @@
 import Vue from "vue";
 import { hasClass, addClass, removeClass } from "@tenado/ui/src/utils/dom";
-import ElCheckbox from "@tenado/ui/packages/checkbox";
+import TdCheckbox from "@tenado/ui/packages/checkbox";
 import FilterPanel from "./filter-panel.vue";
 import LayoutObserver from "./layout-observer";
 import { mapStates } from "./store/helper";
@@ -208,7 +208,7 @@ export default {
   },
 
   components: {
-    ElCheckbox,
+    TdCheckbox,
   },
 
   computed: {

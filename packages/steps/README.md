@@ -16,20 +16,20 @@ npm i element-steps -D
 
 ```javascript
 import Vue from "vue";
-import ElStep from "element-steps";
+import TdStep from "element-steps";
 import "element-theme-chalk/dist/step.css";
 
-Vue.use(ElStep);
+Vue.use(TdStep);
 ```
 
 or
 
 ```javascript
 import Vue from "vue";
-import { ElSteps, ElStep } from "element-steps";
+import { TdSteps, TdStep } from "element-steps";
 
-Vue.component("td-steps", ElSteps);
-Vue.component("td-step", ElStep);
+Vue.component("td-steps", TdSteps);
+Vue.component("td-step", TdStep);
 ```
 
 ### Steps Attributes

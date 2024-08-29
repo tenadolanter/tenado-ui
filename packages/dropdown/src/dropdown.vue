@@ -2,8 +2,8 @@
 import Clickoutside from "@tenado/ui/src/utils/clickoutside";
 import Emitter from "@tenado/ui/src/mixins/emitter";
 import Migrating from "@tenado/ui/src/mixins/migrating";
-import ElButton from "@tenado/ui/packages/button";
-import ElButtonGroup from "@tenado/ui/packages/button-group";
+import TdButton from "@tenado/ui/packages/button";
+import TdButtonGroup from "@tenado/ui/packages/button-group";
 import { generateId } from "@tenado/ui/src/utils/util";
 
 export default {
@@ -16,8 +16,8 @@ export default {
   directives: { Clickoutside },
 
   components: {
-    ElButton,
-    ElButtonGroup,
+    TdButton,
+    TdButtonGroup,
   },
 
   provide() {

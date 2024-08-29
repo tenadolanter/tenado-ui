@@ -1,5 +1,5 @@
 <script>
-import ElScrollbar from "@tenado/ui/packages/scrollbar";
+import TdScrollbar from "@tenado/ui/packages/scrollbar";
 import CascaderNode from "./cascader-node.vue";
 import Locale from "@tenado/ui/src/mixins/locale";
 import { generateId } from "@tenado/ui/src/utils/util";
@@ -12,7 +12,7 @@ export default {
   inject: ["panel"],
 
   components: {
-    ElScrollbar,
+    TdScrollbar,
     CascaderNode,
   },
 

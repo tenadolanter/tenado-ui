@@ -105,8 +105,8 @@ import {
 import Clickoutside from "@tenado/ui/src/utils/clickoutside";
 import Locale from "@tenado/ui/src/mixins/locale";
 import MonthTable from "../basic/month-table";
-import ElInput from "@tenado/ui/packages/input";
-import ElButton from "@tenado/ui/packages/button";
+import TdInput from "@tenado/ui/packages/input";
+import TdButton from "@tenado/ui/packages/button";
 
 const calcDefaultValue = (defaultValue) => {
   if (Array.isArray(defaultValue)) {
@@ -319,6 +319,6 @@ export default {
     },
   },
 
-  components: { MonthTable, ElInput, ElButton },
+  components: { MonthTable, TdInput, TdButton },
 };
 </script>

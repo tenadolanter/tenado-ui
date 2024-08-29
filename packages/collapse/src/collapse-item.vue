@@ -48,7 +48,7 @@
   </div>
 </template>
 <script>
-import ElCollapseTransition from "@tenado/ui/src/transitions/collapse-transition";
+import TdCollapseTransition from "@tenado/ui/src/transitions/collapse-transition";
 import Emitter from "@tenado/ui/src/mixins/emitter";
 import { generateId } from "@tenado/ui/src/utils/util";
 
@@ -59,7 +59,7 @@ export default {
 
   mixins: [Emitter],
 
-  components: { ElCollapseTransition },
+  components: { TdCollapseTransition },
 
   data() {
     return {

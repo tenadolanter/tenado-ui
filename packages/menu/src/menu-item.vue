@@ -38,7 +38,7 @@
 </template>
 <script>
 import Menu from "./menu-mixin";
-import ElTooltip from "@tenado/ui/packages/tooltip";
+import TdTooltip from "@tenado/ui/packages/tooltip";
 import Emitter from "@tenado/ui/src/mixins/emitter";
 
 export default {
@@ -48,7 +48,7 @@ export default {
 
   mixins: [Menu, Emitter],
 
-  components: { ElTooltip },
+  components: { TdTooltip },
 
   props: {
     index: {

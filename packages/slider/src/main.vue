@@ -77,7 +77,7 @@
 </template>
 
 <script type="text/babel">
-import ElInputNumber from "@tenado/ui/packages/input-number";
+import TdInputNumber from "@tenado/ui/packages/input-number";
 import SliderButton from "./button.vue";
 import SliderMarker from "./marker";
 import Emitter from "@tenado/ui/src/mixins/emitter";
@@ -158,7 +158,7 @@ export default {
   },
 
   components: {
-    ElInputNumber,
+    TdInputNumber,
     SliderButton,
     SliderMarker,
   },

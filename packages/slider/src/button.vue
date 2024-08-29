@@ -32,13 +32,13 @@
 </template>
 
 <script>
-import ElTooltip from "@tenado/ui/packages/tooltip";
+import TdTooltip from "@tenado/ui/packages/tooltip";
 
 export default {
   name: "TdSliderButton",
 
   components: {
-    ElTooltip,
+    TdTooltip,
   },
 
   props: {

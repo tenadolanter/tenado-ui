@@ -169,11 +169,11 @@
 import Emitter from "@tenado/ui/src/mixins/emitter";
 import Focus from "@tenado/ui/src/mixins/focus";
 import Locale from "@tenado/ui/src/mixins/locale";
-import ElInput from "@tenado/ui/packages/input";
-import ElSelectMenu from "./select-dropdown.vue";
-import ElOption from "./option.vue";
-import ElTag from "@tenado/ui/packages/tag";
-import ElScrollbar from "@tenado/ui/packages/scrollbar";
+import TdInput from "@tenado/ui/packages/input";
+import TdSelectMenu from "./select-dropdown.vue";
+import TdOption from "./option.vue";
+import TdTag from "@tenado/ui/packages/tag";
+import TdScrollbar from "@tenado/ui/packages/scrollbar";
 import debounce from "throttle-debounce/debounce";
 import Clickoutside from "@tenado/ui/src/utils/clickoutside";
 import {
@@ -302,11 +302,11 @@ export default {
   },
 
   components: {
-    ElInput,
-    ElSelectMenu,
-    ElOption,
-    ElTag,
-    ElScrollbar,
+    TdInput,
+    TdSelectMenu,
+    TdOption,
+    TdTag,
+    TdScrollbar,
   },
 
   directives: { Clickoutside },

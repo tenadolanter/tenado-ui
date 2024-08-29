@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import ElPopover from "@tenado/ui/packages/popover";
-import ElButton from "@tenado/ui/packages/button";
+import TdPopover from "@tenado/ui/packages/popover";
+import TdButton from "@tenado/ui/packages/button";
 import { t } from "@tenado/ui/src/locale";
 
 export default {
@@ -62,8 +62,8 @@ export default {
     },
   },
   components: {
-    ElPopover,
-    ElButton,
+    TdPopover,
+    TdButton,
   },
   data() {
     return {

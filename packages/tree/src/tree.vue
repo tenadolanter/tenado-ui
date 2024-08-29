@@ -34,7 +34,7 @@
 <script>
 import TreeStore from "./model/tree-store";
 import { getNodeKey, findNearestComponent } from "./model/util";
-import ElTreeNode from "./tree-node.vue";
+import TdTreeNode from "./tree-node.vue";
 import { t } from "@tenado/ui/src/locale";
 import emitter from "@tenado/ui/src/mixins/emitter";
 import { addClass, removeClass } from "@tenado/ui/src/utils/dom";
@@ -45,7 +45,7 @@ export default {
   mixins: [emitter],
 
   components: {
-    ElTreeNode,
+    TdTreeNode,
   },
 
   data() {

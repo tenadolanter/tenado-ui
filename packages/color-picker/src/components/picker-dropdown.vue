@@ -55,8 +55,8 @@ import AlphaSlider from "./alpha-slider";
 import Predefine from "./predefine";
 import Popper from "@tenado/ui/src/utils/vue-popper";
 import Locale from "@tenado/ui/src/mixins/locale";
-import ElInput from "@tenado/ui/packages/input";
-import ElButton from "@tenado/ui/packages/button";
+import TdInput from "@tenado/ui/packages/input";
+import TdButton from "@tenado/ui/packages/button";
 
 export default {
   name: "td-color-picker-dropdown",
@@ -67,8 +67,8 @@ export default {
     SvPanel,
     HueSlider,
     AlphaSlider,
-    ElInput,
-    ElButton,
+    TdInput,
+    TdButton,
     Predefine,
   },
 

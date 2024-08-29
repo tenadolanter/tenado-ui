@@ -86,7 +86,7 @@
 </template>
 <script>
 import Locale from "@tenado/ui/src/mixins/locale";
-import ElProgress from "@tenado/ui/packages/progress";
+import TdProgress from "@tenado/ui/packages/progress";
 
 export default {
   name: "TdUploadList",
@@ -98,7 +98,7 @@ export default {
       focusing: false,
     };
   },
-  components: { ElProgress },
+  components: { TdProgress },
 
   props: {
     files: {

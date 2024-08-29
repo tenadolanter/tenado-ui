@@ -1,8 +1,8 @@
-import ElButtonGroup from '../button/src/button-group';
+import TdButtonGroup from "../button/src/button-group";
 
 /* istanbul ignore next */
-ElButtonGroup.install = function(Vue) {
-  Vue.component(ElButtonGroup.name, ElButtonGroup);
+TdButtonGroup.install = function(Vue) {
+  Vue.component(TdButtonGroup.name, TdButtonGroup);
 };
 
-export default ElButtonGroup;
+export default TdButtonGroup;

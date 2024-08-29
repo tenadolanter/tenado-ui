@@ -76,8 +76,8 @@
 </template>
 
 <script type="text/jsx">
-import ElCollapseTransition from '@tenado/ui/src/transitions/collapse-transition';
-import ElCheckbox from '@tenado/ui/packages/checkbox';
+import TdCollapseTransition from '@tenado/ui/src/transitions/collapse-transition';
+import TdCheckbox from '@tenado/ui/packages/checkbox';
 import emitter from '@tenado/ui/src/mixins/emitter';
 import { getNodeKey } from './model/util';
 
@@ -107,8 +107,8 @@ export default {
   },
 
   components: {
-    ElCollapseTransition,
-    ElCheckbox,
+    TdCollapseTransition,
+    TdCheckbox,
     NodeContent: {
       props: {
         node: {

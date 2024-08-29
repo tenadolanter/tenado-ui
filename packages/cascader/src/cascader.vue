@@ -128,10 +128,10 @@ import Clickoutside from "@tenado/ui/src/utils/clickoutside";
 import Emitter from "@tenado/ui/src/mixins/emitter";
 import Locale from "@tenado/ui/src/mixins/locale";
 import Migrating from "@tenado/ui/src/mixins/migrating";
-import ElInput from "@tenado/ui/packages/input";
-import ElTag from "@tenado/ui/packages/tag";
-import ElScrollbar from "@tenado/ui/packages/scrollbar";
-import ElCascaderPanel from "@tenado/ui/packages/cascader-panel";
+import TdInput from "@tenado/ui/packages/input";
+import TdTag from "@tenado/ui/packages/tag";
+import TdScrollbar from "@tenado/ui/packages/scrollbar";
+import TdCascaderPanel from "@tenado/ui/packages/cascader-panel";
 import AriaUtils from "@tenado/ui/src/utils/aria-utils";
 import { t } from "@tenado/ui/src/locale";
 import { isEqual, isEmpty, kebabCase } from "@tenado/ui/src/utils/util";
@@ -204,10 +204,10 @@ export default {
   },
 
   components: {
-    ElInput,
-    ElTag,
-    ElScrollbar,
-    ElCascaderPanel,
+    TdInput,
+    TdTag,
+    TdScrollbar,
+    TdCascaderPanel,
   },
 
   props: {

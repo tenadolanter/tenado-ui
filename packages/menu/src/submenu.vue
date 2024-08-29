@@ -1,5 +1,5 @@
 <script>
-import ElCollapseTransition from "@tenado/ui/src/transitions/collapse-transition";
+import TdCollapseTransition from "@tenado/ui/src/transitions/collapse-transition";
 import menuMixin from "./menu-mixin";
 import Emitter from "@tenado/ui/src/mixins/emitter";
 import Popper from "@tenado/ui/src/utils/vue-popper";
@@ -27,7 +27,7 @@ export default {
 
   mixins: [menuMixin, Emitter, poperMixins],
 
-  components: { ElCollapseTransition },
+  components: { TdCollapseTransition },
 
   props: {
     index: {

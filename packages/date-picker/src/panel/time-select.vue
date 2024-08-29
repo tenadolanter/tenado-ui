@@ -32,7 +32,7 @@
 </template>
 
 <script type="text/babel">
-import ElScrollbar from "@tenado/ui/packages/scrollbar";
+import TdScrollbar from "@tenado/ui/packages/scrollbar";
 import scrollIntoView from "@tenado/ui/src/utils/scroll-into-view";
 
 const parseTime = function(time) {
@@ -91,7 +91,7 @@ const nextTime = function(time, step) {
 };
 
 export default {
-  components: { ElScrollbar },
+  components: { TdScrollbar },
 
   watch: {
     value(val) {

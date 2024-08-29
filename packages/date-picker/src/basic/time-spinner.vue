@@ -150,11 +150,11 @@ import {
   getRangeMinutes,
   modifyTime,
 } from "@tenado/ui/src/utils/date-util";
-import ElScrollbar from "@tenado/ui/packages/scrollbar";
+import TdScrollbar from "@tenado/ui/packages/scrollbar";
 import RepeatClick from "@tenado/ui/src/directives/repeat-click";
 
 export default {
-  components: { ElScrollbar },
+  components: { TdScrollbar },
 
   directives: {
     repeatClick: RepeatClick,

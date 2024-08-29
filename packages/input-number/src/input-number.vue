@@ -50,7 +50,7 @@
   </div>
 </template>
 <script>
-import ElInput from "@tenado/ui/packages/input";
+import TdInput from "@tenado/ui/packages/input";
 import Focus from "@tenado/ui/src/mixins/focus";
 import RepeatClick from "@tenado/ui/src/directives/repeat-click";
 
@@ -69,7 +69,7 @@ export default {
     repeatClick: RepeatClick,
   },
   components: {
-    ElInput,
+    TdInput,
   },
   props: {
     step: {

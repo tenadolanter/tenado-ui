@@ -262,7 +262,7 @@
 </template>
 
 <script type="text/babel">
-import ElCheckbox from "@tenado/ui/packages/checkbox";
+import TdCheckbox from "@tenado/ui/packages/checkbox";
 import { debounce, throttle } from "throttle-debounce";
 import {
   addResizeListener,
@@ -395,7 +395,7 @@ export default {
     TableHeader,
     TableFooter,
     TableBody,
-    ElCheckbox,
+    TdCheckbox,
   },
 
   methods: {

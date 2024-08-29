@@ -1,6 +1,6 @@
 <script>
-import ElCheckbox from "@tenado/ui/packages/checkbox";
-import ElRadio from "@tenado/ui/packages/radio";
+import TdCheckbox from "@tenado/ui/packages/checkbox";
+import TdRadio from "@tenado/ui/packages/radio";
 import { isEqual } from "@tenado/ui/src/utils/util";
 
 const stopPropagation = (e) => e.stopPropagation();
@@ -9,8 +9,8 @@ export default {
   inject: ["panel"],
 
   components: {
-    ElCheckbox,
-    ElRadio,
+    TdCheckbox,
+    TdRadio,
   },
 
   props: {

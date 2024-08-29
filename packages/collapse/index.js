@@ -1,9 +1,8 @@
-import ElCollapse from './src/collapse';
+import TdCollapse from "./src/collapse";
 
 /* istanbul ignore next */
-ElCollapse.install = function(Vue) {
-  Vue.component(ElCollapse.name, ElCollapse);
+TdCollapse.install = function(Vue) {
+  Vue.component(TdCollapse.name, TdCollapse);
 };
 
-export default ElCollapse;
-
+export default TdCollapse;

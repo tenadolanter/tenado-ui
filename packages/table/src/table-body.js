@@ -6,8 +6,8 @@ import {
   removeClass,
   addClass,
 } from "@tenado/ui/src/utils/dom";
-import ElCheckbox from "@tenado/ui/packages/checkbox";
-import ElTooltip from "@tenado/ui/packages/tooltip";
+import TdCheckbox from "@tenado/ui/packages/checkbox";
+import TdTooltip from "@tenado/ui/packages/tooltip";
 import debounce from "throttle-debounce/debounce";
 import LayoutObserver from "./layout-observer";
 import { mapStates } from "./store/helper";
@@ -19,8 +19,8 @@ export default {
   mixins: [LayoutObserver],
 
   components: {
-    ElCheckbox,
-    ElTooltip,
+    TdCheckbox,
+    TdTooltip,
     TableRow,
   },
 

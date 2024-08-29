@@ -62,9 +62,9 @@
 </template>
 
 <script>
-import ElCheckboxGroup from "@tenado/ui/packages/checkbox-group";
-import ElCheckbox from "@tenado/ui/packages/checkbox";
-import ElInput from "@tenado/ui/packages/input";
+import TdCheckboxGroup from "@tenado/ui/packages/checkbox-group";
+import TdCheckbox from "@tenado/ui/packages/checkbox";
+import TdInput from "@tenado/ui/packages/input";
 import Locale from "@tenado/ui/src/mixins/locale";
 
 export default {
@@ -75,9 +75,9 @@ export default {
   componentName: "TdTransferPanel",
 
   components: {
-    ElCheckboxGroup,
-    ElCheckbox,
-    ElInput,
+    TdCheckboxGroup,
+    TdCheckbox,
+    TdInput,
     OptionContent: {
       props: {
         option: Object,

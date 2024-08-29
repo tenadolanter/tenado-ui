@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import ElButton from "@tenado/ui/packages/button";
+import TdButton from "@tenado/ui/packages/button";
 import Emitter from "@tenado/ui/src/mixins/emitter";
 import Locale from "@tenado/ui/src/mixins/locale";
 import TransferPanel from "./transfer-panel.vue";
@@ -59,7 +59,7 @@ export default {
 
   components: {
     TransferPanel,
-    ElButton,
+    TdButton,
   },
 
   props: {

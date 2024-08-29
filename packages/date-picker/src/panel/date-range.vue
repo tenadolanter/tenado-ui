@@ -242,8 +242,8 @@ import Clickoutside from "@tenado/ui/src/utils/clickoutside";
 import Locale from "@tenado/ui/src/mixins/locale";
 import TimePicker from "./time";
 import DateTable from "../basic/date-table";
-import ElInput from "@tenado/ui/packages/input";
-import ElButton from "@tenado/ui/packages/button";
+import TdInput from "@tenado/ui/packages/input";
+import TdButton from "@tenado/ui/packages/button";
 
 const calcDefaultValue = (defaultValue) => {
   if (Array.isArray(defaultValue)) {
@@ -809,6 +809,6 @@ export default {
     },
   },
 
-  components: { TimePicker, DateTable, ElInput, ElButton },
+  components: { TimePicker, DateTable, TdInput, TdButton },
 };
 </script>
