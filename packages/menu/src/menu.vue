@@ -5,7 +5,7 @@ import Menubar from '@tenado/ui/src/utils/menu/aria-menubar';
 import { addClass, removeClass, hasClass } from '@tenado/ui/src/utils/dom';
 
 export default {
-  name: 'ElMenu',
+  name: 'TdMenu',
 
   render (h) {
     const component = (
@@ -34,7 +34,7 @@ export default {
     }
   },
 
-  componentName: 'ElMenu',
+  componentName: 'TdMenu',
 
   mixins: [emitter, Migrating],
 
@@ -154,7 +154,7 @@ export default {
 
     collapse(value) {
       if (value) this.openedMenus = [];
-      this.broadcast('ElSubmenu', 'toggle-collapse', value);
+      this.broadcast('TdSubmenu', 'toggle-collapse', value);
     }
   },
   methods: {

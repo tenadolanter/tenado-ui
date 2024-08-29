@@ -82,9 +82,9 @@ import emitter from '@tenado/ui/src/mixins/emitter';
 import { getNodeKey } from './model/util';
 
 export default {
-  name: 'ElTreeNode',
+  name: 'TdTreeNode',
 
-  componentName: 'ElTreeNode',
+  componentName: 'TdTreeNode',
 
   mixins: [emitter],
 
@@ -220,7 +220,7 @@ export default {
     },
 
     handleChildNodeExpand(nodeData, node, instance) {
-      this.broadcast('ElTreeNode', 'tree-node-expand', node);
+      this.broadcast('TdTreeNode', 'tree-node-expand', node);
       this.tree.$emit('node-expand', nodeData, node, instance);
     },
 

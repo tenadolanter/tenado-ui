@@ -16,7 +16,7 @@
   >
     <td-tooltip
       v-if="
-        parentMenu.$options.componentName === 'ElMenu' &&
+        parentMenu.$options.componentName === 'TdMenu' &&
           rootMenu.collapse &&
           $slots.title
       "
