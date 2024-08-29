@@ -31,7 +31,7 @@ export default {
     },
     transition: {
       type: String,
-      default: "el-fade-in-linear",
+      default: "td-fade-in-linear",
     },
     popperOptions: {
       default() {
@@ -93,7 +93,7 @@ export default {
             aria-hidden={this.disabled || !this.showPopper ? "true" : "false"}
             v-show={!this.disabled && this.showPopper}
             class={[
-              "el-tooltip__popper",
+              "td-tooltip__popper",
               "is-" + this.effect,
               this.popperClass,
             ]}
@@ -177,9 +177,9 @@ export default {
 
     addTooltipClass(prev) {
       if (!prev) {
-        return "el-tooltip";
+        return "td-tooltip";
       } else {
-        return "el-tooltip " + prev.replace("el-tooltip", "");
+        return "td-tooltip " + prev.replace("td-tooltip", "");
       }
     },
 

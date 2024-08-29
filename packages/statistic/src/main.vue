@@ -1,5 +1,5 @@
 <template>
-  <div class="el-statistic">
+  <div class="td-statistic">
     <div class="head" v-if="title || $slots.title">
       <slot name="title">
         <span class="title">

@@ -1,7 +1,7 @@
 <template>
-  <transition name="el-zoom-in-top" @after-leave="doDestroy">
-    <div class="el-color-dropdown" v-show="showPopper">
-      <div class="el-color-dropdown__main-wrapper">
+  <transition name="td-zoom-in-top" @after-leave="doDestroy">
+    <div class="td-color-dropdown" v-show="showPopper">
+      <div class="td-color-dropdown__main-wrapper">
         <hue-slider
           ref="hue"
           :color="color"
@@ -16,33 +16,33 @@
         :color="color"
         :colors="predefine"
       ></predefine>
-      <div class="el-color-dropdown__btns">
-        <span class="el-color-dropdown__value">
-          <el-input
+      <div class="td-color-dropdown__btns">
+        <span class="td-color-dropdown__value">
+          <td-input
             v-model="customInput"
             @keyup.native.enter="handleConfirm"
             @blur="handleConfirm"
             :validate-event="false"
             size="mini"
           >
-          </el-input>
+          </td-input>
         </span>
-        <el-button
+        <td-button
           size="mini"
           type="text"
-          class="el-color-dropdown__link-btn"
+          class="td-color-dropdown__link-btn"
           @click="$emit('clear')"
         >
           {{ t("el.colorpicker.clear") }}
-        </el-button>
-        <el-button
+        </td-button>
+        <td-button
           plain
           size="mini"
-          class="el-color-dropdown__btn"
+          class="td-color-dropdown__btn"
           @click="confirmValue"
         >
           {{ t("el.colorpicker.confirm") }}
-        </el-button>
+        </td-button>
       </div>
     </div>
   </transition>
@@ -59,7 +59,7 @@ import ElInput from "@tenado/ui/packages/input";
 import ElButton from "@tenado/ui/packages/button";
 
 export default {
-  name: "el-color-picker-dropdown",
+  name: "td-color-picker-dropdown",
 
   mixins: [Popper, Locale],
 

@@ -4,7 +4,7 @@
     @mouseenter.stop="handleMouseEnter"
     @mouseleave.stop="handleMouseLeave"
   >
-    <div class="el-carousel__container" :style="{ height: height }">
+    <div class="td-carousel__container" :style="{ height: height }">
       <transition v-if="arrowDisplay" name="carousel-arrow-left">
         <button
           type="button"
@@ -12,9 +12,9 @@
           @mouseenter="handleButtonEnter('left')"
           @mouseleave="handleButtonLeave"
           @click.stop="throttledArrowClick(activeIndex - 1)"
-          class="el-carousel__arrow el-carousel__arrow--left"
+          class="td-carousel__arrow el-carousel__arrow--left"
         >
-          <i class="el-icon-arrow-left"></i>
+          <i class="td-icon-arrow-left"></i>
         </button>
       </transition>
       <transition v-if="arrowDisplay" name="carousel-arrow-right">
@@ -27,9 +27,9 @@
           @mouseenter="handleButtonEnter('right')"
           @mouseleave="handleButtonLeave"
           @click.stop="throttledArrowClick(activeIndex + 1)"
-          class="el-carousel__arrow el-carousel__arrow--right"
+          class="td-carousel__arrow el-carousel__arrow--right"
         >
-          <i class="el-icon-arrow-right"></i>
+          <i class="td-icon-arrow-right"></i>
         </button>
       </transition>
       <slot></slot>
@@ -46,7 +46,7 @@
         @mouseenter="throttledIndicatorHover(index)"
         @click.stop="handleIndicatorClick(index)"
       >
-        <button class="el-carousel__button">
+        <button class="td-carousel__button">
           <span v-if="hasLabel">{{ item.label }}</span>
         </button>
       </li>
@@ -125,23 +125,23 @@ export default {
     },
 
     carouselClasses() {
-      const classes = ["el-carousel", "el-carousel--" + this.direction];
+      const classes = ["td-carousel", "td-carousel--" + this.direction];
       if (this.type === "card") {
-        classes.push("el-carousel--card");
+        classes.push("td-carousel--card");
       }
       return classes;
     },
 
     indicatorsClasses() {
       const classes = [
-        "el-carousel__indicators",
-        "el-carousel__indicators--" + this.direction,
+        "td-carousel__indicators",
+        "td-carousel__indicators--" + this.direction,
       ];
       if (this.hasLabel) {
-        classes.push("el-carousel__indicators--labels");
+        classes.push("td-carousel__indicators--labels");
       }
       if (this.indicatorPosition === "outside" || this.type === "card") {
-        classes.push("el-carousel__indicators--outside");
+        classes.push("td-carousel__indicators--outside");
       }
       return classes;
     },

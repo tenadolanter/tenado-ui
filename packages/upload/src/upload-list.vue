@@ -6,7 +6,7 @@
       'el-upload-list--' + listType,
       { 'is-disabled': disabled },
     ]"
-    name="el-list"
+    name="td-list"
   >
     <li
       v-for="file in files"
@@ -24,7 +24,7 @@
     >
       <slot :file="file">
         <img
-          class="el-upload-list__item-thumbnail"
+          class="td-upload-list__item-thumbnail"
           v-if="
             file.status !== 'uploading' &&
               ['picture-card', 'picture'].indexOf(listType) > -1
@@ -32,10 +32,10 @@
           :src="file.url"
           alt=""
         />
-        <a class="el-upload-list__item-name" @click="handleClick(file)">
-          <i class="el-icon-document"></i>{{ file.name }}
+        <a class="td-upload-list__item-name" @click="handleClick(file)">
+          <i class="td-icon-document"></i>{{ file.name }}
         </a>
-        <label class="el-upload-list__item-status-label">
+        <label class="td-upload-list__item-status-label">
           <i
             :class="{
               'el-icon-upload-success': true,
@@ -46,38 +46,38 @@
           ></i>
         </label>
         <i
-          class="el-icon-close"
+          class="td-icon-close"
           v-if="!disabled"
           @click="$emit('remove', file)"
         ></i>
-        <i class="el-icon-close-tip" v-if="!disabled">{{
+        <i class="td-icon-close-tip" v-if="!disabled">{{
           t("el.upload.deleteTip")
         }}</i>
         <!--因为close按钮只在li:focus的时候 display, li blur后就不存在了，所以键盘导航时永远无法 focus到 close按钮上-->
-        <el-progress
+        <td-progress
           v-if="file.status === 'uploading'"
           :type="listType === 'picture-card' ? 'circle' : 'line'"
           :stroke-width="listType === 'picture-card' ? 6 : 2"
           :percentage="parsePercentage(file.percentage)"
         >
-        </el-progress>
+        </td-progress>
         <span
-          class="el-upload-list__item-actions"
+          class="td-upload-list__item-actions"
           v-if="listType === 'picture-card'"
         >
           <span
-            class="el-upload-list__item-preview"
+            class="td-upload-list__item-preview"
             v-if="handlePreview && listType === 'picture-card'"
             @click="handlePreview(file)"
           >
-            <i class="el-icon-zoom-in"></i>
+            <i class="td-icon-zoom-in"></i>
           </span>
           <span
             v-if="!disabled"
-            class="el-upload-list__item-delete"
+            class="td-upload-list__item-delete"
             @click="$emit('remove', file)"
           >
-            <i class="el-icon-delete"></i>
+            <i class="td-icon-delete"></i>
           </span>
         </span>
       </slot>

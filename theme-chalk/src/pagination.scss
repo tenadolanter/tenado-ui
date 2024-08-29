@@ -10,7 +10,7 @@
   font-weight: bold;
   @include utils-clearfix;
 
-  span:not([class*=suffix]),
+  span:not([class*="suffix"]),
   button {
     display: inline-block;
     font-size: $--pagination-font-size;
@@ -21,23 +21,23 @@
     box-sizing: border-box;
   }
 
-  .el-input__inner {
+  .td-input__inner {
     text-align: center;
     -moz-appearance: textfield;
     line-height: normal;
   }
 
   // pagesize 的下拉 icon
-  .el-input__suffix {
+  .td-input__suffix {
     right: 0;
-    transform: scale(.8);
+    transform: scale(0.8);
   }
 
-  .el-select .el-input {
+  .td-select .td-input {
     width: 100px;
     margin: 0 5px;
 
-    .el-input__inner {
+    .td-input__inner {
       padding-right: 25px;
       border-radius: $--pagination-border-radius;
     }
@@ -72,7 +72,7 @@
     margin: 0;
     color: $--pagination-button-color;
 
-    .el-icon {
+    .td-icon {
       display: block;
       font-size: 12px;
       font-weight: bold;
@@ -84,10 +84,10 @@
   }
 
   .btn-next {
-    padding-left: 12px;    
+    padding-left: 12px;
   }
 
-  .el-pager li.disabled {
+  .td-pager li.disabled {
     color: $--color-text-placeholder;
     cursor: not-allowed;
   }
@@ -95,10 +95,10 @@
   @include m(small) {
     .btn-prev,
     .btn-next,
-    .el-pager li,
-    .el-pager li.btn-quicknext,
-    .el-pager li.btn-quickprev,
-    .el-pager li:last-child {
+    .td-pager li,
+    .td-pager li.btn-quicknext,
+    .td-pager li.btn-quickprev,
+    .td-pager li:last-child {
       border-color: transparent;
       font-size: 12px;
       line-height: 22px;
@@ -115,7 +115,7 @@
       line-height: 24px;
     }
 
-    span:not([class*=suffix]),
+    span:not([class*="suffix"]),
     button {
       height: 22px;
       line-height: 22px;
@@ -123,7 +123,7 @@
 
     @include e(editor) {
       height: 22px;
-      &.el-input .el-input__inner {
+      &.td-input .td-input__inner {
         height: 22px;
       }
     }
@@ -134,7 +134,7 @@
     font-weight: normal;
     color: $--color-text-regular;
 
-    .el-input .el-input__inner {
+    .td-input .td-input__inner {
       font-size: $--pagination-font-size;
       padding-left: 8px;
 
@@ -155,7 +155,7 @@
     font-weight: normal;
     color: $--color-text-regular;
 
-    .el-input__inner {
+    .td-input__inner {
       padding: 0 3px;
     }
   }
@@ -168,22 +168,22 @@
     line-height: 18px;
     padding: 0 2px;
     height: $--pagination-button-height;
-      
+
     text-align: center;
     margin: 0 2px;
     box-sizing: border-box;
     border-radius: $--pagination-border-radius;
 
-    &.el-input {
+    &.td-input {
       width: 50px;
     }
 
-    &.el-input .el-input__inner {
+    &.td-input .td-input__inner {
       height: $--pagination-button-height;
     }
 
-    .el-input__inner::-webkit-inner-spin-button,
-    .el-input__inner::-webkit-outer-spin-button {
+    .td-input__inner::-webkit-inner-spin-button,
+    .td-input__inner::-webkit-outer-spin-button {
       -webkit-appearance: none;
       margin: 0;
     }
@@ -192,7 +192,7 @@
   @include when(background) {
     .btn-prev,
     .btn-next,
-    .el-pager li {
+    .td-pager li {
       margin: 0 5px;
       background-color: $--color-info-lighter;
       color: $--color-text-regular;
@@ -204,7 +204,8 @@
       }
     }
 
-    .btn-prev, .btn-next {
+    .btn-prev,
+    .btn-next {
       padding: 0;
 
       &:disabled {
@@ -212,7 +213,7 @@
       }
     }
 
-    .el-pager li:not(.disabled) {
+    .td-pager li:not(.disabled) {
       &:hover {
         color: $--pagination-hover-color;
       }
@@ -223,10 +224,10 @@
       }
     }
 
-    &.el-pagination--small {
+    &.td-pagination--small {
       .btn-prev,
       .btn-next,
-      .el-pager li {
+      .td-pager li {
         margin: 0 3px;
         min-width: 22px;
       }

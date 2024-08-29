@@ -1,8 +1,8 @@
 <template>
-  <transition name="el-zoom-in-top" @after-leave="$emit('dodestroy')">
+  <transition name="td-zoom-in-top" @after-leave="$emit('dodestroy')">
     <div
       v-show="visible"
-      class="el-picker-panel el-date-range-picker el-popper"
+      class="td-picker-panel el-date-range-picker el-popper"
       :class="[
         {
           'has-sidebar': $slots.sidebar || shortcuts,
@@ -11,12 +11,12 @@
         popperClass,
       ]"
     >
-      <div class="el-picker-panel__body-wrapper">
-        <slot name="sidebar" class="el-picker-panel__sidebar"></slot>
-        <div class="el-picker-panel__sidebar" v-if="shortcuts">
+      <div class="td-picker-panel__body-wrapper">
+        <slot name="sidebar" class="td-picker-panel__sidebar"></slot>
+        <div class="td-picker-panel__sidebar" v-if="shortcuts">
           <button
             type="button"
-            class="el-picker-panel__shortcut"
+            class="td-picker-panel__shortcut"
             v-for="(shortcut, key) in shortcuts"
             :key="key"
             @click="handleShortcutClick(shortcut)"
@@ -24,28 +24,28 @@
             {{ shortcut.text }}
           </button>
         </div>
-        <div class="el-picker-panel__body">
-          <div class="el-date-range-picker__time-header" v-if="showTime">
-            <span class="el-date-range-picker__editors-wrap">
-              <span class="el-date-range-picker__time-picker-wrap">
-                <el-input
+        <div class="td-picker-panel__body">
+          <div class="td-date-range-picker__time-header" v-if="showTime">
+            <span class="td-date-range-picker__editors-wrap">
+              <span class="td-date-range-picker__time-picker-wrap">
+                <td-input
                   size="small"
                   :disabled="rangeState.selecting"
                   ref="minInput"
                   :placeholder="t('el.datepicker.startDate')"
-                  class="el-date-range-picker__editor"
+                  class="td-date-range-picker__editor"
                   :value="minVisibleDate"
                   @input="(val) => handleDateInput(val, 'min')"
                   @change="(val) => handleDateChange(val, 'min')"
                 />
               </span>
               <span
-                class="el-date-range-picker__time-picker-wrap"
+                class="td-date-range-picker__time-picker-wrap"
                 v-clickoutside="handleMinTimeClose"
               >
-                <el-input
+                <td-input
                   size="small"
-                  class="el-date-range-picker__editor"
+                  class="td-date-range-picker__editor"
                   :disabled="rangeState.selecting"
                   :placeholder="t('el.datepicker.startTime')"
                   :value="minVisibleTime"
@@ -63,12 +63,12 @@
                 </time-picker>
               </span>
             </span>
-            <span class="el-icon-arrow-right"></span>
-            <span class="el-date-range-picker__editors-wrap is-right">
-              <span class="el-date-range-picker__time-picker-wrap">
-                <el-input
+            <span class="td-icon-arrow-right"></span>
+            <span class="td-date-range-picker__editors-wrap is-right">
+              <span class="td-date-range-picker__time-picker-wrap">
+                <td-input
                   size="small"
-                  class="el-date-range-picker__editor"
+                  class="td-date-range-picker__editor"
                   :disabled="rangeState.selecting"
                   :placeholder="t('el.datepicker.endDate')"
                   :value="maxVisibleDate"
@@ -78,12 +78,12 @@
                 />
               </span>
               <span
-                class="el-date-range-picker__time-picker-wrap"
+                class="td-date-range-picker__time-picker-wrap"
                 v-clickoutside="handleMaxTimeClose"
               >
-                <el-input
+                <td-input
                   size="small"
-                  class="el-date-range-picker__editor"
+                  class="td-date-range-picker__editor"
                   :disabled="rangeState.selecting"
                   :placeholder="t('el.datepicker.endTime')"
                   :value="maxVisibleTime"
@@ -104,18 +104,18 @@
             </span>
           </div>
           <div
-            class="el-picker-panel__content el-date-range-picker__content is-left"
+            class="td-picker-panel__content el-date-range-picker__content is-left"
           >
-            <div class="el-date-range-picker__header">
+            <div class="td-date-range-picker__header">
               <button
                 type="button"
                 @click="leftPrevYear"
-                class="el-picker-panel__icon-btn el-icon-d-arrow-left"
+                class="td-picker-panel__icon-btn el-icon-d-arrow-left"
               ></button>
               <button
                 type="button"
                 @click="leftPrevMonth"
-                class="el-picker-panel__icon-btn el-icon-arrow-left"
+                class="td-picker-panel__icon-btn el-icon-arrow-left"
               ></button>
               <button
                 type="button"
@@ -123,7 +123,7 @@
                 v-if="unlinkPanels"
                 :disabled="!enableYearArrow"
                 :class="{ 'is-disabled': !enableYearArrow }"
-                class="el-picker-panel__icon-btn el-icon-d-arrow-right"
+                class="td-picker-panel__icon-btn el-icon-d-arrow-right"
               ></button>
               <button
                 type="button"
@@ -131,7 +131,7 @@
                 v-if="unlinkPanels"
                 :disabled="!enableMonthArrow"
                 :class="{ 'is-disabled': !enableMonthArrow }"
-                class="el-picker-panel__icon-btn el-icon-arrow-right"
+                class="td-picker-panel__icon-btn el-icon-arrow-right"
               ></button>
               <div>{{ leftLabel }}</div>
             </div>
@@ -151,16 +151,16 @@
             </date-table>
           </div>
           <div
-            class="el-picker-panel__content el-date-range-picker__content is-right"
+            class="td-picker-panel__content el-date-range-picker__content is-right"
           >
-            <div class="el-date-range-picker__header">
+            <div class="td-date-range-picker__header">
               <button
                 type="button"
                 @click="rightPrevYear"
                 v-if="unlinkPanels"
                 :disabled="!enableYearArrow"
                 :class="{ 'is-disabled': !enableYearArrow }"
-                class="el-picker-panel__icon-btn el-icon-d-arrow-left"
+                class="td-picker-panel__icon-btn el-icon-d-arrow-left"
               ></button>
               <button
                 type="button"
@@ -168,17 +168,17 @@
                 v-if="unlinkPanels"
                 :disabled="!enableMonthArrow"
                 :class="{ 'is-disabled': !enableMonthArrow }"
-                class="el-picker-panel__icon-btn el-icon-arrow-left"
+                class="td-picker-panel__icon-btn el-icon-arrow-left"
               ></button>
               <button
                 type="button"
                 @click="rightNextYear"
-                class="el-picker-panel__icon-btn el-icon-d-arrow-right"
+                class="td-picker-panel__icon-btn el-icon-d-arrow-right"
               ></button>
               <button
                 type="button"
                 @click="rightNextMonth"
-                class="el-picker-panel__icon-btn el-icon-arrow-right"
+                class="td-picker-panel__icon-btn el-icon-arrow-right"
               ></button>
               <div>{{ rightLabel }}</div>
             </div>
@@ -199,24 +199,24 @@
           </div>
         </div>
       </div>
-      <div class="el-picker-panel__footer" v-if="showTime">
-        <el-button
+      <div class="td-picker-panel__footer" v-if="showTime">
+        <td-button
           size="mini"
           type="text"
-          class="el-picker-panel__link-btn"
+          class="td-picker-panel__link-btn"
           @click="handleClear"
         >
           {{ t("el.datepicker.clear") }}
-        </el-button>
-        <el-button
+        </td-button>
+        <td-button
           plain
           size="mini"
-          class="el-picker-panel__link-btn"
+          class="td-picker-panel__link-btn"
           :disabled="btnDisabled"
           @click="handleConfirm(false)"
         >
           {{ t("el.datepicker.confirm") }}
-        </el-button>
+        </td-button>
       </div>
     </div>
   </transition>

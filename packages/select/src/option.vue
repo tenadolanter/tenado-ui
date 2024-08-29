@@ -2,7 +2,7 @@
   <li
     @mouseenter="hoverItem"
     @click.stop="selectOptionClick"
-    class="el-select-dropdown__item"
+    class="td-select-dropdown__item"
     v-show="visible"
     :class="{
       selected: itemSelected,

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="el-form-item"
+    class="td-form-item"
     :class="[
       {
         'el-form-item--feedback': elForm && elForm.statusIcon,
@@ -19,23 +19,23 @@
     >
       <label
         :for="labelFor"
-        class="el-form-item__label"
+        class="td-form-item__label"
         :style="labelStyle"
         v-if="label || $slots.label"
       >
         <slot name="label">{{ label + form.labelSuffix }}</slot>
       </label>
     </label-wrap>
-    <div class="el-form-item__content" :style="contentStyle">
+    <div class="td-form-item__content" :style="contentStyle">
       <slot></slot>
-      <transition name="el-zoom-in-top">
+      <transition name="td-zoom-in-top">
         <slot
           v-if="validateState === 'error' && showMessage && form.showMessage"
           name="error"
           :error="validateMessage"
         >
           <div
-            class="el-form-item__error"
+            class="td-form-item__error"
             :class="{
               'el-form-item__error--inline':
                 typeof inlineMessage === 'boolean'

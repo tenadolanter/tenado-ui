@@ -16,7 +16,7 @@ export default {
         class={{
           'el-menu--horizontal': this.mode === 'horizontal',
           'el-menu--collapse': this.collapse,
-          "el-menu": true
+          "td-menu": true
         }}
       >
         { this.$slots.default }
@@ -25,9 +25,9 @@ export default {
 
     if (this.collapseTransition) {
       return (
-        <el-menu-collapse-transition>
+        <td-menu-collapse-transition>
           { component }
-        </el-menu-collapse-transition>
+        </td-menu-collapse-transition>
       );
     } else {
       return component;

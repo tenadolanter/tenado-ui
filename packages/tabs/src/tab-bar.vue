@@ -1,6 +1,6 @@
 <template>
   <div
-    class="el-tabs__active-bar"
+    class="td-tabs__active-bar"
     :class="`is-${rootTabs.tabPosition}`"
     :style="barStyle"
   ></div>

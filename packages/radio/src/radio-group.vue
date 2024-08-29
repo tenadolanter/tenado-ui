@@ -1,7 +1,7 @@
 <template>
   <component
     :is="_elTag"
-    class="el-radio-group"
+    class="td-radio-group"
     role="radiogroup"
     @keydown="handleKeydown"
   >

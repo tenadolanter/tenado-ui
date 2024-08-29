@@ -1,8 +1,8 @@
 <template>
-  <transition name="el-zoom-in-top" @after-leave="$emit('dodestroy')">
-    <div v-show="visible" class="el-time-panel el-popper" :class="popperClass">
+  <transition name="td-zoom-in-top" @after-leave="$emit('dodestroy')">
+    <div v-show="visible" class="td-time-panel el-popper" :class="popperClass">
       <div
-        class="el-time-panel__content"
+        class="td-time-panel__content"
         :class="{ 'has-seconds': showSeconds }"
       >
         <time-spinner
@@ -16,17 +16,17 @@
         >
         </time-spinner>
       </div>
-      <div class="el-time-panel__footer">
+      <div class="td-time-panel__footer">
         <button
           type="button"
-          class="el-time-panel__btn cancel"
+          class="td-time-panel__btn cancel"
           @click="handleCancel"
         >
           {{ t("el.datepicker.cancel") }}
         </button>
         <button
           type="button"
-          class="el-time-panel__btn"
+          class="td-time-panel__btn"
           :class="{ confirm: !disabled }"
           @click="handleConfirm()"
         >

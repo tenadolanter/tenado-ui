@@ -159,22 +159,22 @@ export default {
     const rows = this.getRows();
 
     return (
-      <div class="el-descriptions">
+      <div class="td-descriptions">
         {title || extra || $slots.title || $slots.extra ? (
-          <div class="el-descriptions__header">
-            <div class="el-descriptions__title">
+          <div class="td-descriptions__header">
+            <div class="td-descriptions__title">
               {$slots.title ? $slots.title : title}
             </div>
-            <div class="el-descriptions__extra">
+            <div class="td-descriptions__extra">
               {$slots.extra ? $slots.extra : extra}
             </div>
           </div>
         ) : null}
 
-        <div class="el-descriptions__body">
+        <div class="td-descriptions__body">
           <table
             class={[
-              "el-descriptions__table",
+              "td-descriptions__table",
               { "is-bordered": border },
               descriptionsSize ? `el-descriptions--${descriptionsSize}` : "",
             ]}

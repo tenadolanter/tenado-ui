@@ -1,22 +1,22 @@
 <template>
-  <transition name="el-zoom-in-top" @after-leave="doDestroy">
+  <transition name="td-zoom-in-top" @after-leave="doDestroy">
     <div
       v-show="showPopper"
-      class="el-autocomplete-suggestion el-popper"
+      class="td-autocomplete-suggestion el-popper"
       :class="{ 'is-loading': !parent.hideLoading && parent.loading }"
       :style="{ width: dropdownWidth }"
       role="region"
     >
-      <el-scrollbar
+      <td-scrollbar
         tag="ul"
-        wrap-class="el-autocomplete-suggestion__wrap"
-        view-class="el-autocomplete-suggestion__list"
+        wrap-class="td-autocomplete-suggestion__wrap"
+        view-class="td-autocomplete-suggestion__list"
       >
         <li v-if="!parent.hideLoading && parent.loading">
-          <i class="el-icon-loading"></i>
+          <i class="td-icon-loading"></i>
         </li>
         <slot v-else> </slot>
-      </el-scrollbar>
+      </td-scrollbar>
     </div>
   </transition>
 </template>
@@ -67,7 +67,7 @@ export default {
       this.$parent.$refs.input.$refs.input ||
       this.$parent.$refs.input.$refs.textarea;
     this.referenceList = this.$el.querySelector(
-      ".el-autocomplete-suggestion__list"
+      ".td-autocomplete-suggestion__list"
     );
     this.referenceList.setAttribute("role", "listbox");
     this.referenceList.setAttribute("id", this.id);

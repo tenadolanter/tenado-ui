@@ -1,5 +1,5 @@
 .demo-block.demo-tag {
-  .el-tag + .el-tag {
+  .td-tag + .td-tag {
     margin-left: 10px;
   }
 
@@ -27,7 +27,7 @@
       color: #606266;
     }
 
-    &+.tag-group  {
+    & + .tag-group {
       margin-top: 10px;
     }
   }

@@ -1,6 +1,6 @@
 <template>
-  <el-input
-    class="el-date-editor"
+  <td-input
+    class="td-date-editor"
     :class="'el-date-editor--' + type"
     :readonly="
       !editable ||
@@ -29,22 +29,22 @@
   >
     <i
       slot="prefix"
-      class="el-input__icon"
+      class="td-input__icon"
       :class="triggerClass"
       @click="handleFocus"
     >
     </i>
     <i
       slot="suffix"
-      class="el-input__icon"
+      class="td-input__icon"
       @click="handleClickIcon"
       :class="[showClose ? '' + clearIcon : '']"
       v-if="haveTrigger"
     >
     </i>
-  </el-input>
+  </td-input>
   <div
-    class="el-date-editor el-range-editor el-input__inner"
+    class="td-date-editor el-range-editor el-input__inner"
     :class="[
       'el-date-editor--' + type,
       pickerSize ? `el-range-editor--${pickerSize}` : '',
@@ -71,10 +71,10 @@
       @input="handleStartInput"
       @change="handleStartChange"
       @focus="handleFocus"
-      class="el-range-input"
+      class="td-range-input"
     />
     <slot name="range-separator">
-      <span class="el-range-separator">{{ rangeSeparator }}</span>
+      <span class="td-range-separator">{{ rangeSeparator }}</span>
     </slot>
     <input
       autocomplete="off"
@@ -87,13 +87,13 @@
       @input="handleEndInput"
       @change="handleEndChange"
       @focus="handleFocus"
-      class="el-range-input"
+      class="td-range-input"
     />
     <i
       @click="handleClickIcon"
       v-if="haveTrigger"
       :class="[showClose ? '' + clearIcon : '']"
-      class="el-input__icon el-range__close-icon"
+      class="td-input__icon el-range__close-icon"
     >
     </i>
   </div>
@@ -405,7 +405,7 @@ export default {
     prefixIcon: String,
     clearIcon: {
       type: String,
-      default: "el-icon-circle-close",
+      default: "td-icon-circle-close",
     },
     name: {
       default: "",
@@ -537,7 +537,7 @@ export default {
     triggerClass() {
       return (
         this.prefixIcon ||
-        (this.type.indexOf("time") !== -1 ? "el-icon-time" : "el-icon-date")
+        (this.type.indexOf("time") !== -1 ? "td-icon-time" : "td-icon-date")
       );
     },
 

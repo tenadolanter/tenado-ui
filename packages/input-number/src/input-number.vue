@@ -10,7 +10,7 @@
     ]"
   >
     <span
-      class="el-input-number__decrease"
+      class="td-input-number__decrease"
       role="button"
       v-if="controls"
       v-repeat-click="decrease"
@@ -20,7 +20,7 @@
       <i :class="`el-icon-${controlsAtRight ? 'arrow-down' : 'minus'}`"></i>
     </span>
     <span
-      class="el-input-number__increase"
+      class="td-input-number__increase"
       role="button"
       v-if="controls"
       v-repeat-click="increase"
@@ -29,7 +29,7 @@
     >
       <i :class="`el-icon-${controlsAtRight ? 'arrow-up' : 'plus'}`"></i>
     </span>
-    <el-input
+    <td-input
       ref="input"
       :value="displayValue"
       :placeholder="placeholder"
@@ -46,7 +46,7 @@
       @input="handleInput"
       @change="handleInputChange"
     >
-    </el-input>
+    </td-input>
   </div>
 </template>
 <script>

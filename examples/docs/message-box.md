@@ -14,7 +14,7 @@
 
 ```html
 <template>
-  <el-button type="text" @click="open">点击打开 Message Box</el-button>
+  <td-button type="text" @click="open">点击打开 Message Box</td-button>
 </template>
 
 <script>
@@ -46,7 +46,7 @@
 
 ```html
 <template>
-  <el-button type="text" @click="open">点击打开 Message Box</el-button>
+  <td-button type="text" @click="open">点击打开 Message Box</td-button>
 </template>
 
 <script>
@@ -86,7 +86,7 @@
 
 ```html
 <template>
-  <el-button type="text" @click="open">点击打开 Message Box</el-button>
+  <td-button type="text" @click="open">点击打开 Message Box</td-button>
 </template>
 
 <script>
@@ -127,7 +127,7 @@
 
 ```html
 <template>
-  <el-button type="text" @click="open">点击打开 Message Box</el-button>
+  <td-button type="text" @click="open">点击打开 Message Box</td-button>
 </template>
 
 <script>
@@ -184,7 +184,7 @@
 
 ```html
 <template>
-  <el-button type="text" @click="open">点击打开 Message Box</el-button>
+  <td-button type="text" @click="open">点击打开 Message Box</td-button>
 </template>
 
 <script>
@@ -214,7 +214,7 @@
 
 ```html
 <template>
-  <el-button type="text" @click="open">点击打开 Message Box</el-button>
+  <td-button type="text" @click="open">点击打开 Message Box</td-button>
 </template>
 
 <script>
@@ -259,7 +259,7 @@
 
 ```html
 <template>
-  <el-button type="text" @click="open">点击打开 Message Box</el-button>
+  <td-button type="text" @click="open">点击打开 Message Box</td-button>
 </template>
 
 <script>

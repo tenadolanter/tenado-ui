@@ -7,22 +7,22 @@
     ]"
     v-clickoutside="hide"
   >
-    <div class="el-color-picker__mask" v-if="colorDisabled"></div>
-    <div class="el-color-picker__trigger" @click="handleTrigger">
-      <span class="el-color-picker__color" :class="{ 'is-alpha': showAlpha }">
+    <div class="td-color-picker__mask" v-if="colorDisabled"></div>
+    <div class="td-color-picker__trigger" @click="handleTrigger">
+      <span class="td-color-picker__color" :class="{ 'is-alpha': showAlpha }">
         <span
-          class="el-color-picker__color-inner"
+          class="td-color-picker__color-inner"
           :style="{
             backgroundColor: displayedColor,
           }"
         ></span>
         <span
-          class="el-color-picker__empty el-icon-close"
+          class="td-color-picker__empty el-icon-close"
           v-if="!value && !showPanelColor"
         ></span>
       </span>
       <span
-        class="el-color-picker__icon el-icon-arrow-down"
+        class="td-color-picker__icon el-icon-arrow-down"
         v-show="value || showPanelColor"
       ></span>
     </div>

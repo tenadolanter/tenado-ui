@@ -1,6 +1,6 @@
 <template>
   <div
-    class="el-table"
+    class="td-table"
     :class="[
       {
         'el-table--fit': fit,
@@ -24,7 +24,7 @@
     <div
       v-if="showHeader"
       v-mousewheel="handleHeaderFooterMousewheel"
-      class="el-table__header-wrapper"
+      class="td-table__header-wrapper"
       ref="headerWrapper"
     >
       <table-header
@@ -39,7 +39,7 @@
       </table-header>
     </div>
     <div
-      class="el-table__body-wrapper"
+      class="td-table__body-wrapper"
       ref="bodyWrapper"
       :class="[
         layout.scrollX ? `is-scrolling-${scrollPosition}` : 'is-scrolling-none',
@@ -60,17 +60,17 @@
       </table-body>
       <div
         v-if="!data || data.length === 0"
-        class="el-table__empty-block"
+        class="td-table__empty-block"
         ref="emptyBlock"
         :style="emptyBlockStyle"
       >
-        <span class="el-table__empty-text">
+        <span class="td-table__empty-text">
           <slot name="empty">{{ emptyText || t("el.table.emptyText") }}</slot>
         </span>
       </div>
       <div
         v-if="$slots.append"
-        class="el-table__append-wrapper"
+        class="td-table__append-wrapper"
         ref="appendWrapper"
       >
         <slot name="append"></slot>
@@ -80,7 +80,7 @@
       v-if="showSummary"
       v-show="data && data.length > 0"
       v-mousewheel="handleHeaderFooterMousewheel"
-      class="el-table__footer-wrapper"
+      class="td-table__footer-wrapper"
       ref="footerWrapper"
     >
       <table-footer
@@ -98,7 +98,7 @@
     <div
       v-if="fixedColumns.length > 0"
       v-mousewheel="handleFixedMousewheel"
-      class="el-table__fixed"
+      class="td-table__fixed"
       ref="fixedWrapper"
       :style="[
         {
@@ -109,7 +109,7 @@
     >
       <div
         v-if="showHeader"
-        class="el-table__fixed-header-wrapper"
+        class="td-table__fixed-header-wrapper"
         ref="fixedHeaderWrapper"
       >
         <table-header
@@ -123,7 +123,7 @@
         ></table-header>
       </div>
       <div
-        class="el-table__fixed-body-wrapper"
+        class="td-table__fixed-body-wrapper"
         ref="fixedBodyWrapper"
         :style="[
           {
@@ -146,14 +146,14 @@
         </table-body>
         <div
           v-if="$slots.append"
-          class="el-table__append-gutter"
+          class="td-table__append-gutter"
           :style="{ height: layout.appendHeight + 'px' }"
         ></div>
       </div>
       <div
         v-if="showSummary"
         v-show="data && data.length > 0"
-        class="el-table__fixed-footer-wrapper"
+        class="td-table__fixed-footer-wrapper"
         ref="fixedFooterWrapper"
       >
         <table-footer
@@ -171,7 +171,7 @@
     <div
       v-if="rightFixedColumns.length > 0"
       v-mousewheel="handleFixedMousewheel"
-      class="el-table__fixed-right"
+      class="td-table__fixed-right"
       ref="rightFixedWrapper"
       :style="[
         {
@@ -185,7 +185,7 @@
     >
       <div
         v-if="showHeader"
-        class="el-table__fixed-header-wrapper"
+        class="td-table__fixed-header-wrapper"
         ref="rightFixedHeaderWrapper"
       >
         <table-header
@@ -199,7 +199,7 @@
         ></table-header>
       </div>
       <div
-        class="el-table__fixed-body-wrapper"
+        class="td-table__fixed-body-wrapper"
         ref="rightFixedBodyWrapper"
         :style="[
           {
@@ -222,14 +222,14 @@
         </table-body>
         <div
           v-if="$slots.append"
-          class="el-table__append-gutter"
+          class="td-table__append-gutter"
           :style="{ height: layout.appendHeight + 'px' }"
         ></div>
       </div>
       <div
         v-if="showSummary"
         v-show="data && data.length > 0"
-        class="el-table__fixed-footer-wrapper"
+        class="td-table__fixed-footer-wrapper"
         ref="rightFixedFooterWrapper"
       >
         <table-footer
@@ -246,7 +246,7 @@
     </div>
     <div
       v-if="rightFixedColumns.length > 0"
-      class="el-table__fixed-right-patch"
+      class="td-table__fixed-right-patch"
       ref="rightFixedPatch"
       :style="{
         width: layout.scrollY ? layout.gutterWidth + 'px' : '0',
@@ -254,7 +254,7 @@
       }"
     ></div>
     <div
-      class="el-table__column-resize-proxy"
+      class="td-table__column-resize-proxy"
       ref="resizeProxy"
       v-show="resizeProxyVisible"
     ></div>
@@ -729,7 +729,7 @@ export default {
   },
 
   created() {
-    this.tableId = "el-table_" + tableIdSeed++;
+    this.tableId = "td-table_" + tableIdSeed++;
     this.debouncedUpdateLayout = debounce(50, () => this.doLayout());
   },
 

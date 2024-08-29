@@ -12,7 +12,7 @@
     @click="() => toggleDropDownVisible(readonly ? undefined : true)"
     @keydown="handleKeyDown"
   >
-    <el-input
+    <td-input
       ref="input"
       v-model="multiple ? presentText : inputValue"
       :size="realSize"
@@ -29,7 +29,7 @@
         <i
           v-if="clearBtnVisible"
           key="clear"
-          class="el-input__icon el-icon-circle-close"
+          class="td-input__icon el-icon-circle-close"
           @click.stop="handleClear"
         ></i>
         <i
@@ -43,10 +43,10 @@
           @click.stop="toggleDropDownVisible()"
         ></i>
       </template>
-    </el-input>
+    </td-input>
 
-    <div v-if="multiple" class="el-cascader__tags">
-      <el-tag
+    <div v-if="multiple" class="td-cascader__tags">
+      <td-tag
         v-for="tag in presentTags"
         :key="tag.key"
         type="info"
@@ -57,12 +57,12 @@
         @close="deleteTag(tag)"
       >
         <span>{{ tag.text }}</span>
-      </el-tag>
+      </td-tag>
       <input
         v-if="filterable && !isDisabled"
         v-model.trim="inputValue"
         type="text"
-        class="el-cascader__search-input"
+        class="td-cascader__search-input"
         :placeholder="presentTags.length ? '' : placeholder"
         @input="(e) => handleInput(inputValue, e)"
         @click.stop="toggleDropDownVisible(true)"
@@ -70,13 +70,13 @@
       />
     </div>
 
-    <transition name="el-zoom-in-top" @after-leave="handleDropdownLeave">
+    <transition name="td-zoom-in-top" @after-leave="handleDropdownLeave">
       <div
         v-show="dropDownVisible"
         ref="popper"
         :class="['el-popper', 'el-cascader__dropdown', popperClass]"
       >
-        <el-cascader-panel
+        <td-cascader-panel
           ref="panel"
           v-show="!filtering"
           v-model="checkedValue"
@@ -86,14 +86,14 @@
           :render-label="$scopedSlots.default"
           @expand-change="handleExpandChange"
           @close="toggleDropDownVisible(false)"
-        ></el-cascader-panel>
-        <el-scrollbar
+        ></td-cascader-panel>
+        <td-scrollbar
           ref="suggestionPanel"
           v-if="filterable"
           v-show="filtering"
           tag="ul"
-          class="el-cascader__suggestion-panel"
-          view-class="el-cascader__suggestion-list"
+          class="td-cascader__suggestion-panel"
+          view-class="td-cascader__suggestion-list"
           @keydown.native="handleSuggestionKeyDown"
         >
           <template v-if="suggestions.length">
@@ -108,15 +108,15 @@
               @click="handleSuggestionClick(index)"
             >
               <span>{{ item.text }}</span>
-              <i v-if="item.checked" class="el-icon-check"></i>
+              <i v-if="item.checked" class="td-icon-check"></i>
             </li>
           </template>
           <slot v-else name="empty">
-            <li class="el-cascader__empty-text">
+            <li class="td-cascader__empty-text">
               {{ t("el.cascader.noMatch") }}
             </li>
           </slot>
-        </el-scrollbar>
+        </td-scrollbar>
       </div>
     </transition>
   </div>
@@ -485,12 +485,12 @@ export default {
 
         if (filtering && suggestionPanel) {
           firstNode = suggestionPanel.$el.querySelector(
-            ".el-cascader__suggestion-item"
+            ".td-cascader__suggestion-item"
           );
         } else {
-          const firstMenu = popper.querySelector(".el-cascader-menu");
+          const firstMenu = popper.querySelector(".td-cascader-menu");
           firstNode = firstMenu.querySelector(
-            '.el-cascader-node[tabindex="-1"]'
+            '.td-cascader-node[tabindex="-1"]'
           );
         }
 
@@ -660,16 +660,16 @@ export default {
       if (this.$isServer || !$el) return;
 
       const { suggestionPanel } = this.$refs;
-      const inputInner = $el.querySelector(".el-input__inner");
+      const inputInner = $el.querySelector(".td-input__inner");
 
       if (!inputInner) return;
 
-      const tags = $el.querySelector(".el-cascader__tags");
+      const tags = $el.querySelector(".td-cascader__tags");
       let suggestionPanelEl = null;
 
       if (suggestionPanel && (suggestionPanelEl = suggestionPanel.$el)) {
         const suggestionList = suggestionPanelEl.querySelector(
-          ".el-cascader__suggestion-list"
+          ".td-cascader__suggestion-list"
         );
         suggestionList.style.minWidth = inputInner.offsetWidth + "px";
       }

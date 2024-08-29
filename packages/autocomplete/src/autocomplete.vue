@@ -1,13 +1,13 @@
 <template>
   <div
-    class="el-autocomplete"
+    class="td-autocomplete"
     v-clickoutside="close"
     aria-haspopup="listbox"
     role="combobox"
     :aria-expanded="suggestionVisible"
     :aria-owns="id"
   >
-    <el-input
+    <td-input
       ref="input"
       v-bind="[$props, $attrs]"
       @input="handleInput"
@@ -32,8 +32,8 @@
       <template slot="suffix" v-if="$slots.suffix">
         <slot name="suffix"></slot>
       </template>
-    </el-input>
-    <el-autocomplete-suggestions
+    </td-input>
+    <td-autocomplete-suggestions
       visible-arrow
       :class="[popperClass ? popperClass : '']"
       :popper-options="popperOptions"
@@ -55,7 +55,7 @@
           {{ item[valueKey] }}
         </slot>
       </li>
-    </el-autocomplete-suggestions>
+    </td-autocomplete-suggestions>
   </div>
 </template>
 <script>
@@ -259,10 +259,10 @@ export default {
         index = this.suggestions.length - 1;
       }
       const suggestion = this.$refs.suggestions.$el.querySelector(
-        ".el-autocomplete-suggestion__wrap"
+        ".td-autocomplete-suggestion__wrap"
       );
       const suggestionList = suggestion.querySelectorAll(
-        ".el-autocomplete-suggestion__list li"
+        ".td-autocomplete-suggestion__list li"
       );
 
       let highlightItem = suggestionList[index];

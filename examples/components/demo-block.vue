@@ -203,7 +203,7 @@ export default {
     },
 
     iconClass() {
-      return this.isExpanded ? "el-icon-caret-top" : "el-icon-caret-bottom";
+      return this.isExpanded ? "td-icon-caret-top" : "td-icon-caret-bottom";
     },
 
     controlText() {
@@ -237,7 +237,7 @@ export default {
       }
       setTimeout(() => {
         this.scrollParent = document.querySelector(
-          ".page-component__scroll > .el-scrollbar__wrap"
+          ".page-component__scroll > .td-scrollbar__wrap"
         );
         this.scrollParent &&
           this.scrollParent.addEventListener("scroll", this.scrollHandler);

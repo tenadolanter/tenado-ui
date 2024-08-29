@@ -80,10 +80,10 @@ export default {
     let template = (
       <div
         class={[
-          "el-pagination",
+          "td-pagination",
           {
             "is-background": this.background,
-            "el-pagination--small": this.small,
+            "td-pagination--small": this.small,
           },
         ]}
       />
@@ -106,7 +106,7 @@ export default {
       total: <total />,
     };
     const components = layout.split(",").map((item) => item.trim());
-    const rightWrapper = <div class="el-pagination__rightwrapper" />;
+    const rightWrapper = <div class="td-pagination__rightwrapper" />;
     let haveRightWrapper = false;
 
     template.children = template.children || [];
@@ -146,7 +146,7 @@ export default {
             {this.$parent.prevText ? (
               <span>{this.$parent.prevText}</span>
             ) : (
-              <i class="el-icon el-icon-arrow-left" />
+              <i class="td-icon el-icon-arrow-left" />
             )}
           </button>
         );
@@ -170,7 +170,7 @@ export default {
             {this.$parent.nextText ? (
               <span>{this.$parent.nextText}</span>
             ) : (
-              <i class="el-icon el-icon-arrow-right" />
+              <i class="td-icon el-icon-arrow-right" />
             )}
           </button>
         );
@@ -201,8 +201,8 @@ export default {
 
       render(h) {
         return (
-          <span class="el-pagination__sizes">
-            <el-select
+          <span class="td-pagination__sizes">
+            <td-select
               value={this.$parent.internalPageSize}
               popperClass={this.$parent.popperClass || ""}
               size="mini"
@@ -210,12 +210,12 @@ export default {
               disabled={this.$parent.disabled}
             >
               {this.pageSizes.map((item) => (
-                <el-option
+                <td-option
                   value={item}
                   label={item + this.t("el.pagination.pagesize")}
                 />
               ))}
-            </el-select>
+            </td-select>
           </span>
         );
       },
@@ -277,10 +277,10 @@ export default {
 
       render(h) {
         return (
-          <span class="el-pagination__jump">
+          <span class="td-pagination__jump">
             {this.t("el.pagination.goto")}
-            <el-input
-              class="el-pagination__editor is-in-pagination"
+            <td-input
+              class="td-pagination__editor is-in-pagination"
               min={1}
               max={this.$parent.internalPageCount}
               value={
@@ -305,7 +305,7 @@ export default {
 
       render(h) {
         return typeof this.$parent.total === "number" ? (
-          <span class="el-pagination__total">
+          <span class="td-pagination__total">
             {this.t("el.pagination.total", { total: this.$parent.total })}
           </span>
         ) : (

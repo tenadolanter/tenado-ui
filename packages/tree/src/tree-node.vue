@@ -1,6 +1,6 @@
 <template>
   <div
-    class="el-tree-node"
+    class="td-tree-node"
     @click.stop="handleClick"
     @contextmenu="($event) => this.handleContextMenu($event)"
     v-show="node.visible"
@@ -24,7 +24,7 @@
     ref="node"
   >
     <div
-      class="el-tree-node__content"
+      class="td-tree-node__content"
       :style="{ 'padding-left': (node.level - 1) * tree.indent + 'px' }"
     >
       <span
@@ -36,7 +36,7 @@
         ]"
       >
       </span>
-      <el-checkbox
+      <td-checkbox
         v-if="showCheckbox"
         v-model="node.checked"
         :indeterminate="node.indeterminate"
@@ -44,23 +44,23 @@
         @click.native.stop
         @change="handleCheckChange"
       >
-      </el-checkbox>
+      </td-checkbox>
       <span
         v-if="node.loading"
-        class="el-tree-node__loading-icon el-icon-loading"
+        class="td-tree-node__loading-icon el-icon-loading"
       >
       </span>
       <node-content :node="node"></node-content>
     </div>
-    <el-collapse-transition>
+    <td-collapse-transition>
       <div
-        class="el-tree-node__children"
+        class="td-tree-node__children"
         v-if="!renderAfterExpand || childNodeRendered"
         v-show="expanded"
         role="group"
         :aria-expanded="expanded"
       >
-        <el-tree-node
+        <td-tree-node
           :render-content="renderContent"
           v-for="child in node.childNodes"
           :render-after-expand="renderAfterExpand"
@@ -69,9 +69,9 @@
           :node="child"
           @node-expand="handleChildNodeExpand"
         >
-        </el-tree-node>
+        </td-tree-node>
       </div>
-    </el-collapse-transition>
+    </td-collapse-transition>
   </div>
 </template>
 
@@ -125,7 +125,7 @@ export default {
             ? parent.renderContent.call(parent._renderProxy, h, { _self: tree.$vnode.context, node, data, store })
             : tree.$scopedSlots.default
               ? tree.$scopedSlots.default({ node, data })
-              : <span class="el-tree-node__label">{ node.label }</span>
+              : <span class="td-tree-node__label">{ node.label }</span>
         );
       }
     }

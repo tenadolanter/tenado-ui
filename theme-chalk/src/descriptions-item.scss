@@ -1,18 +1,18 @@
-@import 'mixins/mixins';
-@import 'common/var';
+@import "mixins/mixins";
+@import "common/var";
 
 @include b(descriptions-item) {
   vertical-align: top;
-  
+
   @include e(container) {
     display: flex;
 
-    .el-descriptions-item__label,
-    .el-descriptions-item__content {
+    .td-descriptions-item__label,
+    .td-descriptions-item__content {
       display: inline-flex;
       align-items: baseline;
     }
-    .el-descriptions-item__content {
+    .td-descriptions-item__content {
       flex: 1;
     }
   }
@@ -20,7 +20,7 @@
   @include e(label) {
     &.has-colon {
       &::after {
-        content: ':';
+        content: ":";
         position: relative;
         top: -0.5px;
       }

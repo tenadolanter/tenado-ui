@@ -1,18 +1,18 @@
 <template>
   <div
-    class="el-select"
+    class="td-select"
     :class="[selectSize ? 'el-select--' + selectSize : '']"
     @click.stop="toggleMenu"
     v-clickoutside="handleClose"
   >
     <div
-      class="el-select__tags"
+      class="td-select__tags"
       v-if="multiple"
       ref="tags"
       :style="{ 'max-width': inputWidth - 32 + 'px', width: '100%' }"
     >
       <span v-if="collapseTags && selected.length">
-        <el-tag
+        <td-tag
           :closable="!selectDisabled"
           :size="collapseTagSize"
           :hit="selected[0].hitState"
@@ -20,22 +20,22 @@
           @close="deleteTag($event, selected[0])"
           disable-transitions
         >
-          <span class="el-select__tags-text">{{
+          <span class="td-select__tags-text">{{
             selected[0].currentLabel
           }}</span>
-        </el-tag>
-        <el-tag
+        </td-tag>
+        <td-tag
           v-if="selected.length > 1"
           :closable="false"
           :size="collapseTagSize"
           type="info"
           disable-transitions
         >
-          <span class="el-select__tags-text">+ {{ selected.length - 1 }}</span>
-        </el-tag>
+          <span class="td-select__tags-text">+ {{ selected.length - 1 }}</span>
+        </td-tag>
       </span>
       <transition-group @after-leave="resetInputHeight" v-if="!collapseTags">
-        <el-tag
+        <td-tag
           v-for="item in selected"
           :key="getValueKey(item)"
           :closable="!selectDisabled"
@@ -45,13 +45,13 @@
           @close="deleteTag($event, item)"
           disable-transitions
         >
-          <span class="el-select__tags-text">{{ item.currentLabel }}</span>
-        </el-tag>
+          <span class="td-select__tags-text">{{ item.currentLabel }}</span>
+        </td-tag>
       </transition-group>
 
       <input
         type="text"
-        class="el-select__input"
+        class="td-select__input"
         :class="[selectSize ? `is-${selectSize}` : '']"
         :disabled="selectDisabled"
         :autocomplete="autoComplete || autocomplete"
@@ -79,7 +79,7 @@
         ref="input"
       />
     </div>
-    <el-input
+    <td-input
       ref="reference"
       v-model="selectedLabel"
       type="text"
@@ -121,34 +121,34 @@
         ></i>
         <i
           v-if="showClose"
-          class="el-select__caret el-input__icon el-icon-circle-close"
+          class="td-select__caret el-input__icon el-icon-circle-close"
           @click="handleClearClick"
         ></i>
       </template>
-    </el-input>
+    </td-input>
     <transition
-      name="el-zoom-in-top"
+      name="td-zoom-in-top"
       @before-enter="handleMenuEnter"
       @after-leave="doDestroy"
     >
-      <el-select-menu
+      <td-select-menu
         ref="popper"
         :append-to-body="popperAppendToBody"
         v-show="visible && emptyText !== false"
       >
-        <el-scrollbar
+        <td-scrollbar
           tag="ul"
-          wrap-class="el-select-dropdown__wrap"
-          view-class="el-select-dropdown__list"
+          wrap-class="td-select-dropdown__wrap"
+          view-class="td-select-dropdown__list"
           ref="scrollbar"
           :class="{
             'is-empty': !allowCreate && query && filteredOptionsCount === 0,
           }"
           v-show="options.length > 0 && !loading"
         >
-          <el-option :value="query" created v-if="showNewOption"> </el-option>
+          <td-option :value="query" created v-if="showNewOption"> </td-option>
           <slot></slot>
-        </el-scrollbar>
+        </td-scrollbar>
         <template
           v-if="
             emptyText &&
@@ -156,11 +156,11 @@
           "
         >
           <slot name="empty" v-if="$slots.empty"></slot>
-          <p class="el-select-dropdown__empty" v-else>
+          <p class="td-select-dropdown__empty" v-else>
             {{ emptyText }}
           </p>
         </template>
-      </el-select-menu>
+      </td-select-menu>
     </transition>
   </div>
 </template>
@@ -580,7 +580,7 @@ export default {
         Array.isArray(option) && option[0] ? option[0].$el : option.$el;
       if (this.$refs.popper && target) {
         const menu = this.$refs.popper.$el.querySelector(
-          ".el-select-dropdown__wrap"
+          ".td-select-dropdown__wrap"
         );
         scrollIntoView(menu, target);
       }

@@ -1,26 +1,26 @@
 <template>
-  <el-popover v-bind="$attrs" v-model="visible" trigger="click">
-    <div class="el-popconfirm">
-      <p class="el-popconfirm__main">
+  <td-popover v-bind="$attrs" v-model="visible" trigger="click">
+    <div class="td-popconfirm">
+      <p class="td-popconfirm__main">
         <i
           v-if="!hideIcon"
           :class="icon"
-          class="el-popconfirm__icon"
+          class="td-popconfirm__icon"
           :style="{ color: iconColor }"
         ></i>
         {{ title }}
       </p>
-      <div class="el-popconfirm__action">
-        <el-button size="mini" :type="cancelButtonType" @click="cancel">
+      <div class="td-popconfirm__action">
+        <td-button size="mini" :type="cancelButtonType" @click="cancel">
           {{ displayCancelButtonText }}
-        </el-button>
-        <el-button size="mini" :type="confirmButtonType" @click="confirm">
+        </td-button>
+        <td-button size="mini" :type="confirmButtonType" @click="confirm">
           {{ displayConfirmButtonText }}
-        </el-button>
+        </td-button>
       </div>
     </div>
     <slot name="reference" slot="reference"></slot>
-  </el-popover>
+  </td-popover>
 </template>
 
 <script>
@@ -50,7 +50,7 @@ export default {
     },
     icon: {
       type: String,
-      default: "el-icon-question",
+      default: "td-icon-question",
     },
     iconColor: {
       type: String,

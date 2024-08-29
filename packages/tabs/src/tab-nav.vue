@@ -235,16 +235,16 @@ export default {
     const scrollBtn = scrollable
       ? [
           <span
-            class={["el-tabs__nav-prev", scrollable.prev ? "" : "is-disabled"]}
+            class={["td-tabs__nav-prev", scrollable.prev ? "" : "is-disabled"]}
             on-click={scrollPrev}
           >
-            <i class="el-icon-arrow-left" />
+            <i class="td-icon-arrow-left" />
           </span>,
           <span
-            class={["el-tabs__nav-next", scrollable.next ? "" : "is-disabled"]}
+            class={["td-tabs__nav-next", scrollable.next ? "" : "is-disabled"]}
             on-click={scrollNext}
           >
-            <i class="el-icon-arrow-right" />
+            <i class="td-icon-arrow-right" />
           </span>,
         ]
       : null;
@@ -257,7 +257,7 @@ export default {
 
       const btnClose = closable ? (
         <span
-          class="el-icon-close"
+          class="td-icon-close"
           on-click={(ev) => {
             onTabRemove(pane, ev);
           }}
@@ -269,7 +269,7 @@ export default {
       return (
         <div
           class={{
-            "el-tabs__item": true,
+            "td-tabs__item": true,
             [`is-${this.rootTabs.tabPosition}`]: true,
             "is-active": pane.active,
             "is-disabled": pane.disabled,
@@ -308,16 +308,16 @@ export default {
     return (
       <div
         class={[
-          "el-tabs__nav-wrap",
+          "td-tabs__nav-wrap",
           scrollable ? "is-scrollable" : "",
           `is-${this.rootTabs.tabPosition}`,
         ]}
       >
         {scrollBtn}
-        <div class={["el-tabs__nav-scroll"]} ref="navScroll">
+        <div class={["td-tabs__nav-scroll"]} ref="navScroll">
           <div
             class={[
-              "el-tabs__nav",
+              "td-tabs__nav",
               `is-${this.rootTabs.tabPosition}`,
               stretch &&
               ["top", "bottom"].indexOf(this.rootTabs.tabPosition) !== -1

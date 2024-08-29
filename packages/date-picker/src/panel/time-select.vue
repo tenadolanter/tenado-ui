@@ -1,6 +1,6 @@
 <template>
   <transition
-    name="el-zoom-in-top"
+    name="td-zoom-in-top"
     @before-enter="handleMenuEnter"
     @after-leave="$emit('dodestroy')"
   >
@@ -9,9 +9,9 @@
       v-show="visible"
       :style="{ width: width + 'px' }"
       :class="popperClass"
-      class="el-picker-panel time-select el-popper"
+      class="td-picker-panel time-select el-popper"
     >
-      <el-scrollbar noresize wrap-class="el-picker-panel__content">
+      <td-scrollbar noresize wrap-class="td-picker-panel__content">
         <div
           class="time-select-item"
           v-for="item in items"
@@ -26,7 +26,7 @@
         >
           {{ item.value }}
         </div>
-      </el-scrollbar>
+      </td-scrollbar>
     </div>
   </transition>
 </template>
@@ -112,7 +112,7 @@ export default {
     },
 
     scrollToOption(selector = ".selected") {
-      const menu = this.$refs.popper.querySelector(".el-picker-panel__content");
+      const menu = this.$refs.popper.querySelector(".td-picker-panel__content");
       scrollIntoView(menu, menu.querySelector(selector));
     },
 

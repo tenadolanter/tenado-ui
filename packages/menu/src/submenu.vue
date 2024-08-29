@@ -76,7 +76,7 @@ export default {
         : this.popperAppendToBody;
     },
     menuTransitionName() {
-      return this.rootMenu.collapse ? "el-zoom-in-left" : "el-zoom-in-top";
+      return this.rootMenu.collapse ? "td-zoom-in-left" : "td-zoom-in-top";
     },
     opened() {
       return this.rootMenu.openedMenus.indexOf(this.index) > -1;
@@ -301,7 +301,7 @@ export default {
           <ul
             role="menu"
             class={[
-              "el-menu el-menu--popup",
+              "td-menu el-menu--popup",
               `el-menu--popup-${currentPlacement}`,
             ]}
             style={{ backgroundColor: rootMenu.backgroundColor || "" }}
@@ -313,28 +313,28 @@ export default {
     );
 
     const inlineMenu = (
-      <el-collapse-transition>
+      <td-collapse-transition>
         <ul
           role="menu"
-          class="el-menu el-menu--inline"
+          class="td-menu el-menu--inline"
           v-show={opened}
           style={{ backgroundColor: rootMenu.backgroundColor || "" }}
         >
           {$slots.default}
         </ul>
-      </el-collapse-transition>
+      </td-collapse-transition>
     );
 
     const submenuTitleIcon =
       (rootMenu.mode === "horizontal" && isFirstLevel) ||
       (rootMenu.mode === "vertical" && !rootMenu.collapse)
-        ? "el-icon-arrow-down"
-        : "el-icon-arrow-right";
+        ? "td-icon-arrow-down"
+        : "td-icon-arrow-right";
 
     return (
       <li
         class={{
-          "el-submenu": true,
+          "td-submenu": true,
           "is-active": active,
           "is-opened": opened,
           "is-disabled": disabled,
@@ -347,7 +347,7 @@ export default {
         on-focus={this.handleMouseenter}
       >
         <div
-          class="el-submenu__title"
+          class="td-submenu__title"
           ref="submenu-title"
           on-click={this.handleClick}
           on-mouseenter={this.handleTitleMouseenter}
@@ -355,7 +355,7 @@ export default {
           style={[paddingStyle, titleStyle, { backgroundColor }]}
         >
           {$slots.title}
-          <i class={["el-submenu__icon-arrow", submenuTitleIcon]} />
+          <i class={["td-submenu__icon-arrow", submenuTitleIcon]} />
         </div>
         {this.isMenuPopup ? popupMenu : inlineMenu}
       </li>

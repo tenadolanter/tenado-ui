@@ -1,6 +1,6 @@
 <template>
   <label
-    class="el-checkbox"
+    class="td-checkbox"
     :class="[
       border && checkboxSize ? 'el-checkbox--' + checkboxSize : '',
       { 'is-disabled': isDisabled },
@@ -10,7 +10,7 @@
     :id="id"
   >
     <span
-      class="el-checkbox__input"
+      class="td-checkbox__input"
       :class="{
         'is-disabled': isDisabled,
         'is-checked': isChecked,
@@ -21,10 +21,10 @@
       :role="indeterminate ? 'checkbox' : false"
       :aria-checked="indeterminate ? 'mixed' : false"
     >
-      <span class="el-checkbox__inner"></span>
+      <span class="td-checkbox__inner"></span>
       <input
         v-if="trueLabel || falseLabel"
-        class="el-checkbox__original"
+        class="td-checkbox__original"
         type="checkbox"
         :aria-hidden="indeterminate ? 'true' : 'false'"
         :name="name"
@@ -38,7 +38,7 @@
       />
       <input
         v-else
-        class="el-checkbox__original"
+        class="td-checkbox__original"
         type="checkbox"
         :aria-hidden="indeterminate ? 'true' : 'false'"
         :disabled="isDisabled"
@@ -50,7 +50,7 @@
         @blur="focus = false"
       />
     </span>
-    <span class="el-checkbox__label" v-if="$slots.default || label">
+    <span class="td-checkbox__label" v-if="$slots.default || label">
       <slot></slot>
       <template v-if="!$slots.default">{{ label }}</template>
     </span>

@@ -1,27 +1,27 @@
 <template>
-  <transition name="el-zoom-in-top">
+  <transition name="td-zoom-in-top">
     <div
-      class="el-table-filter"
+      class="td-table-filter"
       v-if="multiple"
       v-clickoutside="handleOutsideClick"
       v-show="showPopper"
     >
-      <div class="el-table-filter__content">
-        <el-scrollbar wrap-class="el-table-filter__wrap">
-          <el-checkbox-group
-            class="el-table-filter__checkbox-group"
+      <div class="td-table-filter__content">
+        <td-scrollbar wrap-class="td-table-filter__wrap">
+          <td-checkbox-group
+            class="td-table-filter__checkbox-group"
             v-model="filteredValue"
           >
-            <el-checkbox
+            <td-checkbox
               v-for="filter in filters"
               :key="filter.value"
               :label="filter.value"
-              >{{ filter.text }}</el-checkbox
+              >{{ filter.text }}</td-checkbox
             >
-          </el-checkbox-group>
-        </el-scrollbar>
+          </td-checkbox-group>
+        </td-scrollbar>
       </div>
-      <div class="el-table-filter__bottom">
+      <div class="td-table-filter__bottom">
         <button
           @click="handleConfirm"
           :class="{ 'is-disabled': filteredValue.length === 0 }"
@@ -33,14 +33,14 @@
       </div>
     </div>
     <div
-      class="el-table-filter"
+      class="td-table-filter"
       v-else
       v-clickoutside="handleOutsideClick"
       v-show="showPopper"
     >
-      <ul class="el-table-filter__list">
+      <ul class="td-table-filter__list">
         <li
-          class="el-table-filter__list-item"
+          class="td-table-filter__list-item"
           :class="{
             'is-active': filterValue === undefined || filterValue === null,
           }"
@@ -49,7 +49,7 @@
           {{ t("el.table.clearFilter") }}
         </li>
         <li
-          class="el-table-filter__list-item"
+          class="td-table-filter__list-item"
           v-for="filter in filters"
           :label="filter.value"
           :key="filter.value"

@@ -2,7 +2,7 @@
 .page-component__scroll {
   height: 100%;
 
-  > .el-scrollbar__wrap {
+  > .td-scrollbar__wrap {
     overflow-x: auto;
   }
 }
@@ -22,7 +22,7 @@
     bottom: 0;
     transition: padding-top 0.3s;
 
-    > .el-scrollbar__wrap {
+    > .td-scrollbar__wrap {
       height: 100%;
       overflow-x: auto;
     }
@@ -130,22 +130,22 @@
 }
 </style>
 <template>
-  <el-scrollbar class="page-component__scroll" ref="componentScrollBar">
+  <td-scrollbar class="page-component__scroll" ref="componentScrollBar">
     <div class="page-container page-component">
-      <el-scrollbar class="page-component__nav">
+      <td-scrollbar class="page-component__nav">
         <side-nav :data="navsData"></side-nav>
-      </el-scrollbar>
+      </td-scrollbar>
       <div class="page-component__content">
         <router-view class="content"></router-view>
       </div>
-      <el-backtop
+      <td-backtop
         v-if="showBackToTop"
-        target=".page-component__scroll .el-scrollbar__wrap"
+        target=".page-component__scroll .td-scrollbar__wrap"
         :right="100"
         :bottom="150"
-      ></el-backtop>
+      ></td-backtop>
     </div>
-  </el-scrollbar>
+  </td-scrollbar>
 </template>
 <script>
 import bus from "../bus";
@@ -224,7 +224,7 @@ export default {
   mounted() {
     this.componentScrollBar = this.$refs.componentScrollBar;
     this.componentScrollBox = this.componentScrollBar.$el.querySelector(
-      ".el-scrollbar__wrap"
+      ".td-scrollbar__wrap"
     );
     this.throttledScrollHandler = throttle(300, this.handleScroll);
     this.componentScrollBox.addEventListener(

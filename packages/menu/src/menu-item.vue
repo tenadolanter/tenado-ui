@@ -1,6 +1,6 @@
 <template>
   <li
-    class="el-menu-item"
+    class="td-menu-item"
     role="menuitem"
     tabindex="-1"
     :style="[paddingStyle, itemStyle, { backgroundColor }]"
@@ -14,7 +14,7 @@
     @blur="onMouseLeave"
     @mouseleave="onMouseLeave"
   >
-    <el-tooltip
+    <td-tooltip
       v-if="
         parentMenu.$options.componentName === 'ElMenu' &&
           rootMenu.collapse &&
@@ -29,7 +29,7 @@
       >
         <slot></slot>
       </div>
-    </el-tooltip>
+    </td-tooltip>
     <template v-else>
       <slot></slot>
       <slot name="title"></slot>

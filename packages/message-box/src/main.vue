@@ -1,7 +1,7 @@
 <template>
   <transition name="msgbox-fade">
     <div
-      class="el-message-box__wrapper"
+      class="td-message-box__wrapper"
       tabindex="-1"
       v-show="visible"
       @click.self="handleWrapperClick"
@@ -10,11 +10,11 @@
       :aria-label="title || 'dialog'"
     >
       <div
-        class="el-message-box"
+        class="td-message-box"
         :class="[customClass, center && 'el-message-box--center']"
       >
-        <div class="el-message-box__header" v-if="title !== null">
-          <div class="el-message-box__title">
+        <div class="td-message-box__header" v-if="title !== null">
+          <div class="td-message-box__title">
             <div
               :class="['el-message-box__status', icon]"
               v-if="icon && center"
@@ -23,7 +23,7 @@
           </div>
           <button
             type="button"
-            class="el-message-box__headerbtn"
+            class="td-message-box__headerbtn"
             aria-label="Close"
             v-if="showClose"
             @click="
@@ -33,32 +33,32 @@
               handleAction(distinguishCancelAndClose ? 'close' : 'cancel')
             "
           >
-            <i class="el-message-box__close el-icon-close"></i>
+            <i class="td-message-box__close el-icon-close"></i>
           </button>
         </div>
-        <div class="el-message-box__content">
-          <div class="el-message-box__container">
+        <div class="td-message-box__content">
+          <div class="td-message-box__container">
             <div
               :class="['el-message-box__status', icon]"
               v-if="icon && !center && message !== ''"
             ></div>
-            <div class="el-message-box__message" v-if="message !== ''">
+            <div class="td-message-box__message" v-if="message !== ''">
               <slot>
                 <p v-if="!dangerouslyUseHTMLString">{{ message }}</p>
                 <p v-else v-html="message"></p>
               </slot>
             </div>
           </div>
-          <div class="el-message-box__input" v-show="showInput">
-            <el-input
+          <div class="td-message-box__input" v-show="showInput">
+            <td-input
               v-model="inputValue"
               :type="inputType"
               @keydown.enter.native="handleInputEnter"
               :placeholder="inputPlaceholder"
               ref="input"
-            ></el-input>
+            ></td-input>
             <div
-              class="el-message-box__errormsg"
+              class="td-message-box__errormsg"
               :style="{
                 visibility: !!editorErrorMessage ? 'visible' : 'hidden',
               }"
@@ -67,8 +67,8 @@
             </div>
           </div>
         </div>
-        <div class="el-message-box__btns">
-          <el-button
+        <div class="td-message-box__btns">
+          <td-button
             :loading="cancelButtonLoading"
             :class="[cancelButtonClasses]"
             v-if="showCancelButton"
@@ -78,8 +78,8 @@
             @keydown.enter="handleAction('cancel')"
           >
             {{ cancelButtonText || t("el.messagebox.cancel") }}
-          </el-button>
-          <el-button
+          </td-button>
+          <td-button
             :loading="confirmButtonLoading"
             ref="confirm"
             :class="[confirmButtonClasses]"
@@ -90,7 +90,7 @@
             @keydown.enter="handleAction('confirm')"
           >
             {{ confirmButtonText || t("el.messagebox.confirm") }}
-          </el-button>
+          </td-button>
         </div>
       </div>
     </div>
@@ -249,9 +249,9 @@ export default {
       return true;
     },
     getFirstFocus() {
-      const btn = this.$el.querySelector(".el-message-box__btns .el-button");
+      const btn = this.$el.querySelector(".td-message-box__btns .td-button");
       const title = this.$el.querySelector(
-        ".el-message-box__btns .el-message-box__title"
+        ".td-message-box__btns .td-message-box__title"
       );
       return btn || title;
     },

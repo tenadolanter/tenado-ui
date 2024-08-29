@@ -1,6 +1,6 @@
 <template>
   <div
-    class="el-switch"
+    class="td-switch"
     :class="{ 'is-disabled': switchDisabled, 'is-checked': checked }"
     role="switch"
     :aria-checked="checked"
@@ -8,7 +8,7 @@
     @click.prevent="switchValue"
   >
     <input
-      class="el-switch__input"
+      class="td-switch__input"
       type="checkbox"
       @change="handleChange"
       ref="input"
@@ -33,7 +33,7 @@
       }}</span>
     </span>
     <span
-      class="el-switch__core"
+      class="td-switch__core"
       ref="core"
       :style="{ width: coreWidth + 'px' }"
     >

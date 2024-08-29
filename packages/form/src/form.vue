@@ -1,6 +1,6 @@
 <template>
   <form
-    class="el-form"
+    class="td-form"
     :class="[
       labelPosition ? 'el-form--label-' + labelPosition : '',
       { 'el-form--inline': inline },

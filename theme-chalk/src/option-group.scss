@@ -17,7 +17,7 @@
       padding-bottom: 24px;
 
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         display: block;
         left: $gap;
@@ -36,7 +36,7 @@
     line-height: $--select-group-height;
   }
 
-  & .el-select-dropdown__item {
+  & .td-select-dropdown__item {
     padding-left: $gap;
   }
 }

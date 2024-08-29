@@ -1,25 +1,25 @@
 <template>
-  <div class="el-calendar">
-    <div class="el-calendar__header">
-      <div class="el-calendar__title">
+  <div class="td-calendar">
+    <div class="td-calendar__header">
+      <div class="td-calendar__title">
         {{ i18nDate }}
       </div>
-      <div class="el-calendar__button-group" v-if="validatedRange.length === 0">
-        <el-button-group>
-          <el-button type="plain" size="mini" @click="selectDate('prev-month')">
+      <div class="td-calendar__button-group" v-if="validatedRange.length === 0">
+        <td-button-group>
+          <td-button type="plain" size="mini" @click="selectDate('prev-month')">
             {{ t("el.datepicker.prevMonth") }}
-          </el-button>
-          <el-button type="plain" size="mini" @click="selectDate('today')">
+          </td-button>
+          <td-button type="plain" size="mini" @click="selectDate('today')">
             {{ t("el.datepicker.today") }}
-          </el-button>
-          <el-button type="plain" size="mini" @click="selectDate('next-month')">
+          </td-button>
+          <td-button type="plain" size="mini" @click="selectDate('next-month')">
             {{ t("el.datepicker.nextMonth") }}
-          </el-button>
-        </el-button-group>
+          </td-button>
+        </td-button-group>
       </div>
     </div>
     <div
-      class="el-calendar__body"
+      class="td-calendar__body"
       v-if="validatedRange.length === 0"
       key="no-range"
     >
@@ -30,7 +30,7 @@
         @pick="pickDay"
       />
     </div>
-    <div v-else class="el-calendar__body" key="has-range">
+    <div v-else class="td-calendar__body" key="has-range">
       <date-table
         v-for="(range, index) in validatedRange"
         :key="index"

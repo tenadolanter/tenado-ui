@@ -1,8 +1,17 @@
 @import "mixins/mixins";
 @import "common/var";
 
-@mixin genTheme($backgroundColorWeight, $borderColorWeight, $fontColorWeight, $hoverColorWeight) {
-  background-color: mix($--tag-primary-color, $--color-white, $backgroundColorWeight);
+@mixin genTheme(
+  $backgroundColorWeight,
+  $borderColorWeight,
+  $fontColorWeight,
+  $hoverColorWeight
+) {
+  background-color: mix(
+    $--tag-primary-color,
+    $--color-white,
+    $backgroundColorWeight
+  );
   border-color: mix($--tag-primary-color, $--color-white, $borderColorWeight);
   color: mix($--tag-primary-color, $--color-white, $fontColorWeight);
 
@@ -10,16 +19,24 @@
     border-color: $--tag-primary-color;
   }
 
-  .el-tag__close {
+  .td-tag__close {
     color: mix($--tag-primary-color, $--color-white, $fontColorWeight);
     &:hover {
       color: $--color-white;
-      background-color: mix($--tag-primary-color, $--color-white, $hoverColorWeight);
+      background-color: mix(
+        $--tag-primary-color,
+        $--color-white,
+        $hoverColorWeight
+      );
     }
   }
 
-  &.el-tag--info {
-    background-color: mix($--tag-info-color, $--color-white, $backgroundColorWeight);
+  &.td-tag--info {
+    background-color: mix(
+      $--tag-info-color,
+      $--color-white,
+      $backgroundColorWeight
+    );
     border-color: mix($--tag-info-color, $--color-white, $borderColorWeight);
     color: mix($--tag-info-color, $--color-white, $fontColorWeight);
 
@@ -27,17 +44,25 @@
       border-color: $--tag-info-color;
     }
 
-    .el-tag__close {
+    .td-tag__close {
       color: mix($--tag-info-color, $--color-white, $fontColorWeight);
       &:hover {
         color: $--color-white;
-        background-color: mix($--tag-info-color, $--color-white, $hoverColorWeight);
+        background-color: mix(
+          $--tag-info-color,
+          $--color-white,
+          $hoverColorWeight
+        );
       }
     }
   }
 
-  &.el-tag--success {
-    background-color: mix($--tag-success-color, $--color-white, $backgroundColorWeight);
+  &.td-tag--success {
+    background-color: mix(
+      $--tag-success-color,
+      $--color-white,
+      $backgroundColorWeight
+    );
     border-color: mix($--tag-success-color, $--color-white, $borderColorWeight);
     color: mix($--tag-success-color, $--color-white, $fontColorWeight);
 
@@ -45,17 +70,25 @@
       border-color: $--tag-success-color;
     }
 
-    .el-tag__close {
+    .td-tag__close {
       color: mix($--tag-success-color, $--color-white, $fontColorWeight);
       &:hover {
         color: $--color-white;
-        background-color: mix($--tag-success-color, $--color-white, $hoverColorWeight);
+        background-color: mix(
+          $--tag-success-color,
+          $--color-white,
+          $hoverColorWeight
+        );
       }
     }
   }
 
-  &.el-tag--warning {
-    background-color: mix($--tag-warning-color, $--color-white, $backgroundColorWeight);
+  &.td-tag--warning {
+    background-color: mix(
+      $--tag-warning-color,
+      $--color-white,
+      $backgroundColorWeight
+    );
     border-color: mix($--tag-warning-color, $--color-white, $borderColorWeight);
     color: mix($--tag-warning-color, $--color-white, $fontColorWeight);
 
@@ -63,17 +96,25 @@
       border-color: $--tag-warning-color;
     }
 
-    .el-tag__close {
+    .td-tag__close {
       color: mix($--tag-warning-color, $--color-white, $fontColorWeight);
       &:hover {
         color: $--color-white;
-        background-color: mix($--tag-warning-color, $--color-white, $hoverColorWeight);
+        background-color: mix(
+          $--tag-warning-color,
+          $--color-white,
+          $hoverColorWeight
+        );
       }
     }
   }
 
-  &.el-tag--danger {
-    background-color: mix($--tag-danger-color, $--color-white, $backgroundColorWeight);
+  &.td-tag--danger {
+    background-color: mix(
+      $--tag-danger-color,
+      $--color-white,
+      $backgroundColorWeight
+    );
     border-color: mix($--tag-danger-color, $--color-white, $borderColorWeight);
     color: mix($--tag-danger-color, $--color-white, $fontColorWeight);
 
@@ -81,11 +122,15 @@
       border-color: $--tag-danger-color;
     }
 
-    .el-tag__close {
+    .td-tag__close {
       color: mix($--tag-danger-color, $--color-white, $fontColorWeight);
       &:hover {
         color: $--color-white;
-        background-color: mix($--tag-danger-color, $--color-white, $hoverColorWeight);
+        background-color: mix(
+          $--tag-danger-color,
+          $--color-white,
+          $hoverColorWeight
+        );
       }
     }
   }
@@ -105,7 +150,7 @@
   box-sizing: border-box;
   white-space: nowrap;
 
-  .el-icon-close {
+  .td-icon-close {
     border-radius: 50%;
     text-align: center;
     position: relative;
@@ -135,8 +180,8 @@
     height: 28px;
     line-height: 26px;
 
-    .el-icon-close {
-      transform: scale(.8);
+    .td-icon-close {
+      transform: scale(0.8);
     }
   }
 
@@ -145,8 +190,8 @@
     padding: 0 8px;
     line-height: 22px;
 
-    .el-icon-close {
-      transform: scale(.8);
+    .td-icon-close {
+      transform: scale(0.8);
     }
   }
 
@@ -155,9 +200,9 @@
     padding: 0 5px;
     line-height: 19px;
 
-    .el-icon-close {
+    .td-icon-close {
       margin-left: -3px;
-      transform: scale(.7);
+      transform: scale(0.7);
     }
   }
 }

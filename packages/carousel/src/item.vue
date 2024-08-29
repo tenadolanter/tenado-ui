@@ -1,7 +1,7 @@
 <template>
   <div
     v-show="ready"
-    class="el-carousel__item"
+    class="td-carousel__item"
     :class="{
       'is-active': active,
       'el-carousel__item--card': $parent.type === 'card',
@@ -15,7 +15,7 @@
     <div
       v-if="$parent.type === 'card'"
       v-show="!active"
-      class="el-carousel__mask"
+      class="td-carousel__mask"
     ></div>
     <slot></slot>
   </div>

@@ -1,14 +1,14 @@
 <template>
-  <div class="el-image">
+  <div class="td-image">
     <slot v-if="loading" name="placeholder">
-      <div class="el-image__placeholder"></div>
+      <div class="td-image__placeholder"></div>
     </slot>
     <slot v-else-if="error" name="error">
-      <div class="el-image__error">{{ t("el.image.error") }}</div>
+      <div class="td-image__error">{{ t("el.image.error") }}</div>
     </slot>
     <img
       v-else
-      class="el-image__inner"
+      class="td-image__inner"
       v-bind="$attrs"
       v-on="$listeners"
       @click="clickHandler"

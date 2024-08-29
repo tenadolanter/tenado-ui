@@ -49,7 +49,7 @@ const getSibling = (el, distance) => {
   const { parentNode } = el;
   if (parentNode) {
     const siblings = parentNode.querySelectorAll(
-      '.el-cascader-node[tabindex="-1"]'
+      '.td-cascader-node[tabindex="-1"]'
     );
     const index = Array.prototype.indexOf.call(siblings, el);
     return siblings[index + distance] || null;
@@ -251,7 +251,7 @@ export default {
           const preMenu = this.$refs.menu[getMenuIndex(target) - 1];
           if (preMenu) {
             const expandedNode = preMenu.$el.querySelector(
-              '.el-cascader-node[aria-expanded="true"]'
+              '.td-cascader-node[aria-expanded="true"]'
             );
             focusNode(expandedNode);
           }
@@ -260,7 +260,7 @@ export default {
           const nextMenu = this.$refs.menu[getMenuIndex(target) + 1];
           if (nextMenu) {
             const firstNode = nextMenu.$el.querySelector(
-              '.el-cascader-node[tabindex="-1"]'
+              '.td-cascader-node[tabindex="-1"]'
             );
             focusNode(firstNode);
           }
@@ -360,10 +360,10 @@ export default {
       menus.forEach((menu) => {
         const menuElement = menu.$el;
         if (menuElement) {
-          const container = menuElement.querySelector(".el-scrollbar__wrap");
+          const container = menuElement.querySelector(".td-scrollbar__wrap");
           const activeNode =
-            menuElement.querySelector(".el-cascader-node.is-active") ||
-            menuElement.querySelector(".el-cascader-node.in-active-path");
+            menuElement.querySelector(".td-cascader-node.is-active") ||
+            menuElement.querySelector(".td-cascader-node.in-active-path");
           scrollIntoView(container, activeNode);
         }
       });

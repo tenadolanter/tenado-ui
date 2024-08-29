@@ -10,8 +10,8 @@
 
 ```html
 <template>
-  <el-button :plain="true" @click="open">打开消息提示</el-button>
-  <el-button :plain="true" @click="openVn">VNode</el-button>
+  <td-button :plain="true" @click="open">打开消息提示</td-button>
+  <td-button :plain="true" @click="openVn">VNode</td-button>
 </template>
 
 <script>
@@ -45,10 +45,10 @@
 
 ```html
 <template>
-  <el-button :plain="true" @click="open2">成功</el-button>
-  <el-button :plain="true" @click="open3">警告</el-button>
-  <el-button :plain="true" @click="open1">消息</el-button>
-  <el-button :plain="true" @click="open4">错误</el-button>
+  <td-button :plain="true" @click="open2">成功</td-button>
+  <td-button :plain="true" @click="open3">警告</td-button>
+  <td-button :plain="true" @click="open1">消息</td-button>
+  <td-button :plain="true" @click="open4">错误</td-button>
 </template>
 
 <script>
@@ -89,10 +89,10 @@
 
 ```html
 <template>
-  <el-button :plain="true" @click="open1">消息</el-button>
-  <el-button :plain="true" @click="open2">成功</el-button>
-  <el-button :plain="true" @click="open3">警告</el-button>
-  <el-button :plain="true" @click="open4">错误</el-button>
+  <td-button :plain="true" @click="open1">消息</td-button>
+  <td-button :plain="true" @click="open2">成功</td-button>
+  <td-button :plain="true" @click="open3">警告</td-button>
+  <td-button :plain="true" @click="open4">错误</td-button>
 </template>
 
 <script>
@@ -143,7 +143,7 @@
 
 ```html
 <template>
-  <el-button :plain="true" @click="openCenter">文字居中</el-button>
+  <td-button :plain="true" @click="openCenter">文字居中</td-button>
 </template>
 
 <script>
@@ -170,7 +170,7 @@
 
 ```html
 <template>
-  <el-button :plain="true" @click="openHTML">使用 HTML 片段</el-button>
+  <td-button :plain="true" @click="openHTML">使用 HTML 片段</td-button>
 </template>
 
 <script>

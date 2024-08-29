@@ -1,5 +1,5 @@
 <template>
-  <div class="el-transfer">
+  <div class="td-transfer">
     <transfer-panel
       v-bind="$props"
       ref="leftPanel"
@@ -11,25 +11,25 @@
     >
       <slot name="left-footer"></slot>
     </transfer-panel>
-    <div class="el-transfer__buttons">
-      <el-button
+    <div class="td-transfer__buttons">
+      <td-button
         type="primary"
         :class="['el-transfer__button', hasButtonTexts ? 'is-with-texts' : '']"
         @click.native="addToLeft"
         :disabled="rightChecked.length === 0"
       >
-        <i class="el-icon-arrow-left"></i>
+        <i class="td-icon-arrow-left"></i>
         <span v-if="buttonTexts[0] !== undefined">{{ buttonTexts[0] }}</span>
-      </el-button>
-      <el-button
+      </td-button>
+      <td-button
         type="primary"
         :class="['el-transfer__button', hasButtonTexts ? 'is-with-texts' : '']"
         @click.native="addToRight"
         :disabled="leftChecked.length === 0"
       >
         <span v-if="buttonTexts[1] !== undefined">{{ buttonTexts[1] }}</span>
-        <i class="el-icon-arrow-right"></i>
-      </el-button>
+        <i class="td-icon-arrow-right"></i>
+      </td-button>
     </div>
     <transfer-panel
       v-bind="$props"

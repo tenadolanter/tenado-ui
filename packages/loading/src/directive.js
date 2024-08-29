@@ -55,8 +55,8 @@ loadingDirective.install = (Vue) => {
             binding.modifiers.fullscreen || binding.modifiers.body
               ? document.body
               : el;
-          removeClass(target, "el-loading-parent--relative");
-          removeClass(target, "el-loading-parent--hidden");
+          removeClass(target, "td-loading-parent--relative");
+          removeClass(target, "td-loading-parent--hidden");
           el.instance.hiding = false;
         },
         300,
@@ -81,10 +81,10 @@ loadingDirective.install = (Vue) => {
         el.originalPosition !== "fixed" &&
         el.originalPosition !== "sticky"
       ) {
-        addClass(parent, "el-loading-parent--relative");
+        addClass(parent, "td-loading-parent--relative");
       }
       if (binding.modifiers.fullscreen && binding.modifiers.lock) {
-        addClass(parent, "el-loading-parent--hidden");
+        addClass(parent, "td-loading-parent--hidden");
       }
       el.domVisible = true;
 

@@ -1,5 +1,5 @@
 .demo-block.demo-skeleton {
-  .el-card {
+  .td-card {
     margin-bottom: 16px;
   }
 
@@ -37,7 +37,7 @@
   .clearfix:before,
   .clearfix:after {
     display: table;
-    content: '';
+    content: "";
   }
 
   .clearfix:after {

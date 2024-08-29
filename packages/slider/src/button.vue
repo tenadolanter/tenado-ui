@@ -1,6 +1,6 @@
 <template>
   <div
-    class="el-slider__button-wrapper"
+    class="td-slider__button-wrapper"
     @mouseenter="handleMouseEnter"
     @mouseleave="handleMouseLeave"
     @mousedown="onButtonDown"
@@ -16,7 +16,7 @@
     @keydown.down.prevent="onLeftKeyDown"
     @keydown.up.prevent="onRightKeyDown"
   >
-    <el-tooltip
+    <td-tooltip
       placement="top"
       ref="tooltip"
       :popper-class="tooltipClass"
@@ -24,10 +24,10 @@
     >
       <span slot="content">{{ formatValue }}</span>
       <div
-        class="el-slider__button"
+        class="td-slider__button"
         :class="{ hover: hovering, dragging: dragging }"
       ></div>
-    </el-tooltip>
+    </td-tooltip>
   </div>
 </template>
 

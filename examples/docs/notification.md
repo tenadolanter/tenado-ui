@@ -10,12 +10,12 @@
 
 ```html
 <template>
-  <el-button plain @click="open1">
+  <td-button plain @click="open1">
     可自动关闭
-  </el-button>
-  <el-button plain @click="open2">
+  </td-button>
+  <td-button plain @click="open2">
     不会自动关闭
-  </el-button>
+  </td-button>
 </template>
 
 <script>
@@ -56,18 +56,18 @@
 
 ```html
 <template>
-  <el-button plain @click="open1">
+  <td-button plain @click="open1">
     成功
-  </el-button>
-  <el-button plain @click="open2">
+  </td-button>
+  <td-button plain @click="open2">
     警告
-  </el-button>
-  <el-button plain @click="open3">
+  </td-button>
+  <td-button plain @click="open3">
     消息
-  </el-button>
-  <el-button plain @click="open4">
+  </td-button>
+  <td-button plain @click="open4">
     错误
-  </el-button>
+  </td-button>
 </template>
 
 <script>
@@ -117,18 +117,18 @@
 
 ```html
 <template>
-  <el-button plain @click="open1">
+  <td-button plain @click="open1">
     右上角
-  </el-button>
-  <el-button plain @click="open2">
+  </td-button>
+  <td-button plain @click="open2">
     右下角
-  </el-button>
-  <el-button plain @click="open3">
+  </td-button>
+  <td-button plain @click="open3">
     左下角
-  </el-button>
-  <el-button plain @click="open4">
+  </td-button>
+  <td-button plain @click="open4">
     左上角
-  </el-button>
+  </td-button>
 </template>
 
 <script>
@@ -179,9 +179,9 @@
 
 ```html
 <template>
-  <el-button plain @click="open">
+  <td-button plain @click="open">
     偏移的消息
-  </el-button>
+  </td-button>
 </template>
 
 <script>
@@ -209,9 +209,9 @@
 
 ```html
 <template>
-  <el-button plain @click="open">
+  <td-button plain @click="open">
     使用 HTML 片段
-  </el-button>
+  </td-button>
 </template>
 
 <script>
@@ -243,9 +243,9 @@
 
 ```html
 <template>
-  <el-button plain @click="open">
+  <td-button plain @click="open">
     隐藏关闭按钮
-  </el-button>
+  </td-button>
 </template>
 
 <script>

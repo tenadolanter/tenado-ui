@@ -6,7 +6,7 @@
       @after-leave="handleAfterLeave"
     >
       <div
-        class="el-popover el-popper"
+        class="td-popover el-popper"
         :class="[popperClass, content && 'el-popover--plain']"
         ref="popper"
         v-show="!disabled && showPopper"
@@ -15,11 +15,11 @@
         :id="tooltipId"
         :aria-hidden="disabled || !showPopper ? 'true' : 'false'"
       >
-        <div class="el-popover__title" v-if="title" v-text="title"></div>
+        <div class="td-popover__title" v-if="title" v-text="title"></div>
         <slot>{{ content }}</slot>
       </div>
     </transition>
-    <span class="el-popover__reference-wrapper" ref="wrapper">
+    <span class="td-popover__reference-wrapper" ref="wrapper">
       <slot name="reference"></slot>
     </span>
   </span>
@@ -97,7 +97,7 @@ export default {
     }
     // 可访问性
     if (reference) {
-      addClass(reference, "el-popover__reference");
+      addClass(reference, "td-popover__reference");
       reference.setAttribute("aria-describedby", this.tooltipId);
       reference.setAttribute("tabindex", this.tabindex); // tab序列
       popper.setAttribute("tabindex", 0);

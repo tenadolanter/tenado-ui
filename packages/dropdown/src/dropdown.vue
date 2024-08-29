@@ -95,7 +95,7 @@ export default {
       this.$emit("visible-change", val);
     },
     focusing(val) {
-      const selfDefine = this.$el.querySelector(".el-dropdown-selfdefine");
+      const selfDefine = this.$el.querySelector(".td-dropdown-selfdefine");
       if (selfDefine) {
         // 自定义
         if (val) {
@@ -294,25 +294,25 @@ export default {
     let triggerElm = null;
     if (splitButton) {
       triggerElm = (
-        <el-button-group>
-          <el-button
+        <td-button-group>
+          <td-button
             type={type}
             size={dropdownSize}
             nativeOn-click={handleMainButtonClick}
             disabled={disabled}
           >
             {this.$slots.default}
-          </el-button>
-          <el-button
+          </td-button>
+          <td-button
             ref="trigger"
             type={type}
             size={dropdownSize}
-            class="el-dropdown__caret-button"
+            class="td-dropdown__caret-button"
             disabled={disabled}
           >
-            <i class="el-dropdown__icon el-icon-arrow-down" />
-          </el-button>
-        </el-button-group>
+            <i class="td-dropdown__icon el-icon-arrow-down" />
+          </td-button>
+        </td-button-group>
       );
     } else {
       triggerElm = this.$slots.default;
@@ -326,7 +326,7 @@ export default {
     const menuElm = disabled ? null : this.$slots.dropdown;
 
     return (
-      <div class="el-dropdown" v-clickoutside={hide} aria-disabled={disabled}>
+      <div class="td-dropdown" v-clickoutside={hide} aria-disabled={disabled}>
         {triggerElm}
         {menuElm}
       </div>

@@ -1,6 +1,6 @@
 <template>
   <label
-    class="el-checkbox-button"
+    class="td-checkbox-button"
     :class="[
       size ? 'el-checkbox-button--' + size : '',
       { 'is-disabled': isDisabled },
@@ -13,7 +13,7 @@
   >
     <input
       v-if="trueLabel || falseLabel"
-      class="el-checkbox-button__original"
+      class="td-checkbox-button__original"
       type="checkbox"
       :name="name"
       :disabled="isDisabled"
@@ -26,7 +26,7 @@
     />
     <input
       v-else
-      class="el-checkbox-button__original"
+      class="td-checkbox-button__original"
       type="checkbox"
       :name="name"
       :disabled="isDisabled"
@@ -38,7 +38,7 @@
     />
 
     <span
-      class="el-checkbox-button__inner"
+      class="td-checkbox-button__inner"
       v-if="$slots.default || label"
       :style="isChecked ? activeStyle : null"
     >

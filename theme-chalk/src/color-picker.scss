@@ -51,10 +51,15 @@
   @include e(bar) {
     position: relative;
     background: linear-gradient(
-      to right, #f00 0%,
-      #ff0 17%, #0f0 33%,
-      #0ff 50%, #00f 67%,
-      #f0f 83%, #f00 100%);
+      to right,
+      #f00 0%,
+      #ff0 17%,
+      #0f0 33%,
+      #0ff 50%,
+      #00f 67%,
+      #f0f 83%,
+      #f00 100%
+    );
     height: 100%;
   }
 
@@ -78,15 +83,20 @@
     height: 180px;
     padding: 2px 0;
 
-    .el-color-hue-slider__bar {
+    .td-color-hue-slider__bar {
       background: linear-gradient(
-        to bottom, #f00 0%,
-        #ff0 17%, #0f0 33%,
-        #0ff 50%, #00f 67%,
-        #f0f 83%, #f00 100%);
+        to bottom,
+        #f00 0%,
+        #ff0 17%,
+        #0f0 33%,
+        #0ff 50%,
+        #00f 67%,
+        #f0f 83%,
+        #f00 100%
+      );
     }
 
-    .el-color-hue-slider__thumb {
+    .td-color-hue-slider__thumb {
       left: 0;
       top: 0;
       width: 100%;
@@ -100,7 +110,7 @@
   width: 280px;
   height: 180px;
 
-  @include e(('white', 'black')) {
+  @include e(("white", "black")) {
     position: absolute;
     top: 0;
     left: 0;
@@ -108,12 +118,12 @@
     bottom: 0;
   }
 
-  @include e('white') {
-    background: linear-gradient(to right, #fff, rgba(255,255,255,0));
+  @include e("white") {
+    background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
   }
 
-  @include e('black') {
-    background: linear-gradient(to top, #000, rgba(0,0,0,0));
+  @include e("black") {
+    background: linear-gradient(to top, #000, rgba(0, 0, 0, 0));
   }
 
   @include e(cursor) {
@@ -123,7 +133,8 @@
       cursor: head;
       width: 4px;
       height: 4px;
-      box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,0.3), 0 0 1px 2px rgba(0,0,0,0.4);
+      box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0, 0, 0, 0.3),
+        0 0 1px 2px rgba(0, 0, 0, 0.4);
       border-radius: 50%;
       transform: translate(-2px, -2px);
     }
@@ -140,8 +151,10 @@
   @include e(bar) {
     position: relative;
     background: linear-gradient(
-      to right, rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 1) 100%);
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
     height: 100%;
   }
 
@@ -164,13 +177,15 @@
     width: 20px;
     height: 180px;
 
-    .el-color-alpha-slider__bar {
+    .td-color-alpha-slider__bar {
       background: linear-gradient(
-        to bottom, rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 1) 100%);
+        to bottom,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 1) 100%
+      );
     }
 
-    .el-color-alpha-slider__thumb {
+    .td-color-alpha-slider__thumb {
       left: 0;
       top: 0;
       width: 100%;
@@ -245,7 +260,7 @@
   height: 40px;
 
   @include when(disabled) {
-    .el-color-picker__trigger {
+    .td-color-picker__trigger {
       cursor: not-allowed;
     }
   }
@@ -253,12 +268,12 @@
   @include m(medium) {
     height: 36px;
 
-    .el-color-picker__trigger {
+    .td-color-picker__trigger {
       height: 36px;
       width: 36px;
     }
 
-    .el-color-picker__mask {
+    .td-color-picker__mask {
       height: 34px;
       width: 34px;
     }
@@ -267,18 +282,18 @@
   @include m(small) {
     height: 32px;
 
-    .el-color-picker__trigger {
+    .td-color-picker__trigger {
       height: 32px;
       width: 32px;
     }
 
-    .el-color-picker__mask {
+    .td-color-picker__mask {
       height: 30px;
       width: 30px;
     }
 
-    .el-color-picker__icon,
-    .el-color-picker__empty {
+    .td-color-picker__icon,
+    .td-color-picker__empty {
       transform: translate3d(-50%, -50%, 0) scale(0.8);
     }
   }
@@ -286,18 +301,18 @@
   @include m(mini) {
     height: 28px;
 
-    .el-color-picker__trigger {
+    .td-color-picker__trigger {
       height: 28px;
       width: 28px;
     }
 
-    .el-color-picker__mask {
+    .td-color-picker__mask {
       height: 26px;
       width: 26px;
     }
 
-    .el-color-picker__icon,
-    .el-color-picker__empty {
+    .td-color-picker__icon,
+    .td-color-picker__empty {
       transform: translate3d(-50%, -50%, 0) scale(0.8);
     }
   }
@@ -311,7 +326,7 @@
     left: 1px;
     z-index: 1;
     cursor: not-allowed;
-    background-color: rgba(255, 255, 255, .7);
+    background-color: rgba(255, 255, 255, 0.7);
   }
 
   @include e(trigger) {

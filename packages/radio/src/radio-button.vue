@@ -1,6 +1,6 @@
 <template>
   <label
-    class="el-radio-button"
+    class="td-radio-button"
     :class="[
       size ? 'el-radio-button--' + size : '',
       { 'is-active': value === label },
@@ -14,7 +14,7 @@
     @keydown.space.stop.prevent="value = isDisabled ? value : label"
   >
     <input
-      class="el-radio-button__orig-radio"
+      class="td-radio-button__orig-radio"
       :value="label"
       type="radio"
       v-model="value"
@@ -27,7 +27,7 @@
       autocomplete="off"
     />
     <span
-      class="el-radio-button__inner"
+      class="td-radio-button__inner"
       :style="value === label ? activeStyle : null"
       @keydown.stop
     >

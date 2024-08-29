@@ -1,21 +1,21 @@
 <template>
-  <div class="el-transfer-panel">
-    <p class="el-transfer-panel__header">
-      <el-checkbox
+  <div class="td-transfer-panel">
+    <p class="td-transfer-panel__header">
+      <td-checkbox
         v-model="allChecked"
         @change="handleAllCheckedChange"
         :indeterminate="isIndeterminate"
       >
         {{ title }}
         <span>{{ checkedSummary }}</span>
-      </el-checkbox>
+      </td-checkbox>
     </p>
 
     <div
       :class="['el-transfer-panel__body', hasFooter ? 'is-with-footer' : '']"
     >
-      <el-input
-        class="el-transfer-panel__filter"
+      <td-input
+        class="td-transfer-panel__filter"
         v-model="query"
         size="small"
         :placeholder="placeholder"
@@ -28,34 +28,34 @@
           :class="['el-input__icon', 'el-icon-' + inputIcon]"
           @click="clearQuery"
         ></i>
-      </el-input>
-      <el-checkbox-group
+      </td-input>
+      <td-checkbox-group
         v-model="checked"
         v-show="!hasNoMatch && data.length > 0"
         :class="{ 'is-filterable': filterable }"
-        class="el-transfer-panel__list"
+        class="td-transfer-panel__list"
       >
-        <el-checkbox
-          class="el-transfer-panel__item"
+        <td-checkbox
+          class="td-transfer-panel__item"
           :label="item[keyProp]"
           :disabled="item[disabledProp]"
           :key="item[keyProp]"
           v-for="item in filteredData"
         >
           <option-content :option="item"></option-content>
-        </el-checkbox>
-      </el-checkbox-group>
-      <p class="el-transfer-panel__empty" v-show="hasNoMatch">
+        </td-checkbox>
+      </td-checkbox-group>
+      <p class="td-transfer-panel__empty" v-show="hasNoMatch">
         {{ t("el.transfer.noMatch") }}
       </p>
       <p
-        class="el-transfer-panel__empty"
+        class="td-transfer-panel__empty"
         v-show="data.length === 0 && !hasNoMatch"
       >
         {{ t("el.transfer.noData") }}
       </p>
     </div>
-    <p class="el-transfer-panel__footer" v-if="hasFooter">
+    <p class="td-transfer-panel__footer" v-if="hasFooter">
       <slot></slot>
     </p>
   </div>

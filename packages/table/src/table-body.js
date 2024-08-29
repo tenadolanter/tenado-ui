@@ -39,7 +39,7 @@ export default {
   render(h) {
     const data = this.data || [];
     return (
-      <table class="el-table__body" cellspacing="0" cellpadding="0" border="0">
+      <table class="td-table__body" cellspacing="0" cellpadding="0" border="0">
         <colgroup>
           {this.columns.map((column) => (
             <col name={column.id} key={column.id} />
@@ -49,7 +49,7 @@ export default {
           {data.reduce((acc, row) => {
             return acc.concat(this.wrappedRowRender(row, acc.length));
           }, [])}
-          <el-tooltip
+          <td-tooltip
             effect={this.table.tooltipEffect}
             placement="top"
             ref="tooltip"
@@ -97,7 +97,7 @@ export default {
         raf = (fn) => setTimeout(fn, 16);
       }
       raf(() => {
-        const rows = this.$el.querySelectorAll(".el-table__row");
+        const rows = this.$el.querySelectorAll(".td-table__row");
         const oldRow = rows[oldVal];
         const newRow = rows[newVal];
         if (oldRow) {
@@ -179,7 +179,7 @@ export default {
 
     getRowClass(row, rowIndex) {
       let selection = this.store.states.selection;
-      const classes = ["el-table__row"];
+      const classes = ["td-table__row"];
       if (
         this.table.highlightCurrentRow &&
         row === this.store.states.currentRow
@@ -196,7 +196,7 @@ export default {
       }
 
       if (this.stripe && rowIndex % 2 === 1) {
-        classes.push("el-table__row--striped");
+        classes.push("td-table__row--striped");
       }
       const rowClassName = this.table.rowClassName;
       if (typeof rowClassName === "string") {
@@ -251,7 +251,7 @@ export default {
         );
       }
 
-      classes.push("el-table__cell");
+      classes.push("td-table__cell");
 
       return classes.join(" ");
     },
@@ -284,7 +284,7 @@ export default {
 
       // 判断是否text-overflow, 如果是就显示tooltip
       const cellChild = event.target.querySelector(".cell");
-      if (!(hasClass(cellChild, "el-tooltip") && cellChild.childNodes.length)) {
+      if (!(hasClass(cellChild, "td-tooltip") && cellChild.childNodes.length)) {
         return;
       }
       // use range width instead of scrollWidth to determine whether the text is overflowing
@@ -370,7 +370,7 @@ export default {
       const rowClasses = this.getRowClass(row, $index);
       let display = true;
       if (treeRowData) {
-        rowClasses.push("el-table__row--level-" + treeRowData.level);
+        rowClasses.push("td-table__row--level-" + treeRowData.level);
         display = treeRowData.display;
       }
       // 指令 v-show 会覆盖 row-style 中 display
@@ -435,7 +435,7 @@ export default {
             <tr key={"expanded-row__" + tr.key}>
               <td
                 colspan={this.columnsCount}
-                class="el-table__cell el-table__expanded-cell"
+                class="td-table__cell el-table__expanded-cell"
               >
                 {renderExpanded(this.$createElement, {
                   row,

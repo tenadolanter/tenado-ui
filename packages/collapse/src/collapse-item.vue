@@ -1,6 +1,6 @@
 <template>
   <div
-    class="el-collapse-item"
+    class="td-collapse-item"
     :class="{ 'is-active': isActive, 'is-disabled': disabled }"
   >
     <div
@@ -10,7 +10,7 @@
       :aria-describedby="`el-collapse-content-${id}`"
     >
       <div
-        class="el-collapse-item__header"
+        class="td-collapse-item__header"
         @click="handleHeaderClick"
         role="button"
         :id="`el-collapse-head-${id}`"
@@ -25,26 +25,26 @@
       >
         <slot name="title">{{ title }}</slot>
         <i
-          class="el-collapse-item__arrow el-icon-arrow-right"
+          class="td-collapse-item__arrow el-icon-arrow-right"
           :class="{ 'is-active': isActive }"
         >
         </i>
       </div>
     </div>
-    <el-collapse-transition>
+    <td-collapse-transition>
       <div
-        class="el-collapse-item__wrap"
+        class="td-collapse-item__wrap"
         v-show="isActive"
         role="tabpanel"
         :aria-hidden="!isActive"
         :aria-labelledby="`el-collapse-head-${id}`"
         :id="`el-collapse-content-${id}`"
       >
-        <div class="el-collapse-item__content">
+        <div class="td-collapse-item__content">
           <slot></slot>
         </div>
       </div>
-    </el-collapse-transition>
+    </td-collapse-transition>
   </div>
 </template>
 <script>

@@ -9,14 +9,14 @@
   color: $--color-text-regular;
   font-size: $--font-size-base;
 
-  .el-button-group {
+  .td-button-group {
     display: block;
-    .el-button {
+    .td-button {
       float: none;
     }
   }
 
-  & .el-dropdown__caret-button {
+  & .td-dropdown__caret-button {
     padding-left: 5px;
     padding-right: 5px;
     position: relative;
@@ -25,7 +25,7 @@
     &::before {
       $gap: 5px;
 
-      content: '';
+      content: "";
       position: absolute;
       display: block;
       width: 1px;
@@ -35,7 +35,7 @@
       background: mix(white, transparent, 50%);
     }
 
-    &.el-button--default::before {
+    &.td-button--default::before {
       background: mix($--button-default-border-color, transparent, 50%);
     }
 
@@ -46,7 +46,7 @@
       }
     }
 
-    & .el-dropdown__icon {
+    & .td-dropdown__icon {
       padding-left: 0;
     }
   }
@@ -55,8 +55,10 @@
     margin: 0 3px;
   }
 
-  .el-dropdown-selfdefine { // 自定义
-    &:focus:active, &:focus:not(.focusing) {
+  .td-dropdown-selfdefine {
+    // 自定义
+    &:focus:active,
+    &:focus:not(.focusing) {
       outline-width: 0;
     }
   }
@@ -88,7 +90,8 @@
     color: $--color-text-regular;
     cursor: pointer;
     outline: none;
-    &:not(.is-disabled):hover, &:focus {
+    &:not(.is-disabled):hover,
+    &:focus {
       background-color: $--dropdown-menuItem-hover-fill;
       color: $--dropdown-menuItem-hover-color;
     }
@@ -105,7 +108,7 @@
       border-top: 1px solid $--border-color-lighter;
 
       &:before {
-        content: '';
+        content: "";
         height: $divided-offset;
         display: block;
         margin: 0 -20px;
@@ -128,7 +131,7 @@
       padding: 0 17px;
       font-size: 14px;
 
-      &.el-dropdown-menu__item--divided {
+      &.td-dropdown-menu__item--divided {
         $divided-offset: 6px;
         margin-top: $divided-offset;
 
@@ -148,7 +151,7 @@
       padding: 0 15px;
       font-size: 13px;
 
-      &.el-dropdown-menu__item--divided {
+      &.td-dropdown-menu__item--divided {
         $divided-offset: 4px;
         margin-top: $divided-offset;
 
@@ -168,7 +171,7 @@
       padding: 0 10px;
       font-size: 12px;
 
-      &.el-dropdown-menu__item--divided {
+      &.td-dropdown-menu__item--divided {
         $divided-offset: 3px;
         margin-top: $divided-offset;
 

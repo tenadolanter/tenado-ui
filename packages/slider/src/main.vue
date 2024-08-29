@@ -1,6 +1,6 @@
 <template>
   <div
-    class="el-slider"
+    class="td-slider"
     :class="{ 'is-vertical': vertical, 'el-slider--with-input': showInput }"
     role="slider"
     :aria-valuemin="min"
@@ -8,10 +8,10 @@
     :aria-orientation="vertical ? 'vertical' : 'horizontal'"
     :aria-disabled="sliderDisabled"
   >
-    <el-input-number
+    <td-input-number
       v-model="firstValue"
       v-if="showInput && !range"
-      class="el-slider__input"
+      class="td-slider__input"
       ref="input"
       @change="emitChange"
       :step="step"
@@ -22,15 +22,15 @@
       :debounce="debounce"
       :size="inputSize"
     >
-    </el-input-number>
+    </td-input-number>
     <div
-      class="el-slider__runway"
+      class="td-slider__runway"
       :class="{ 'show-input': showInput, disabled: sliderDisabled }"
       :style="runwayStyle"
       @click="onSliderClick"
       ref="slider"
     >
-      <div class="el-slider__bar" :style="barStyle"></div>
+      <div class="td-slider__bar" :style="barStyle"></div>
       <slider-button
         :vertical="vertical"
         v-model="firstValue"
@@ -47,7 +47,7 @@
       >
       </slider-button>
       <div
-        class="el-slider__stop"
+        class="td-slider__stop"
         v-for="(item, key) in stops"
         :key="key"
         :style="getStopStyle(item)"
@@ -58,11 +58,11 @@
           <div
             v-for="(item, key) in markList"
             :style="getStopStyle(item.position)"
-            class="el-slider__stop el-slider__marks-stop"
+            class="td-slider__stop el-slider__marks-stop"
             :key="key"
           ></div>
         </div>
-        <div class="el-slider__marks">
+        <div class="td-slider__marks">
           <slider-marker
             :mark="item.mark"
             v-for="(item, key) in markList"

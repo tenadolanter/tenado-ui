@@ -1,18 +1,19 @@
 <template>
-  <div class="el-badge">
+  <div class="td-badge">
     <slot></slot>
-    <transition name="el-zoom-in-center">
+    <transition name="td-zoom-in-center">
       <sup
         v-show="!hidden && (content || content === 0 || isDot)"
         v-text="content"
-        class="el-badge__content"
+        class="td-badge__content"
         :class="[
           type ? 'el-badge__content--' + type : null,
           {
             'is-fixed': $slots.default,
-            'is-dot': isDot
-          }
-        ]">
+            'is-dot': isDot,
+          },
+        ]"
+      >
       </sup>
     </transition>
   </div>
@@ -20,7 +21,7 @@
 
 <script>
 export default {
-  name: 'ElBadge',
+  name: "ElBadge",
 
   props: {
     value: [String, Number],
@@ -30,9 +31,11 @@ export default {
     type: {
       type: String,
       validator(val) {
-        return ['primary', 'success', 'warning', 'info', 'danger'].indexOf(val) > -1;
-      }
-    }
+        return (
+          ["primary", "success", "warning", "info", "danger"].indexOf(val) > -1
+        );
+      },
+    },
   },
 
   computed: {
@@ -42,12 +45,12 @@ export default {
       const value = this.value;
       const max = this.max;
 
-      if (typeof value === 'number' && typeof max === 'number') {
+      if (typeof value === "number" && typeof max === "number") {
         return max < value ? `${max}+` : value;
       }
 
       return value;
-    }
-  }
+    },
+  },
 };
 </script>

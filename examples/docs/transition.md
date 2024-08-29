@@ -9,14 +9,14 @@ Element 内应用在部分组件的过渡动画，你也可以直接使用。在
 ```html
 <template>
   <div>
-    <el-button @click="show = !show">Click Me</el-button>
+    <td-button @click="show = !show">Click Me</td-button>
 
     <div style="display: flex; margin-top: 20px; height: 100px;">
-      <transition name="el-fade-in-linear">
-        <div v-show="show" class="transition-box">.el-fade-in-linear</div>
+      <transition name="td-fade-in-linear">
+        <div v-show="show" class="transition-box">.td-fade-in-linear</div>
       </transition>
-      <transition name="el-fade-in">
-        <div v-show="show" class="transition-box">.el-fade-in</div>
+      <transition name="td-fade-in">
+        <div v-show="show" class="transition-box">.td-fade-in</div>
       </transition>
     </div>
   </div>
@@ -55,19 +55,19 @@ Element 内应用在部分组件的过渡动画，你也可以直接使用。在
 ```html
 <template>
   <div>
-    <el-button @click="show2 = !show2">Click Me</el-button>
+    <td-button @click="show2 = !show2">Click Me</td-button>
 
     <div style="display: flex; margin-top: 20px; height: 100px;">
-      <transition name="el-zoom-in-center">
-        <div v-show="show2" class="transition-box">.el-zoom-in-center</div>
+      <transition name="td-zoom-in-center">
+        <div v-show="show2" class="transition-box">.td-zoom-in-center</div>
       </transition>
 
-      <transition name="el-zoom-in-top">
-        <div v-show="show2" class="transition-box">.el-zoom-in-top</div>
+      <transition name="td-zoom-in-top">
+        <div v-show="show2" class="transition-box">.td-zoom-in-top</div>
       </transition>
 
-      <transition name="el-zoom-in-bottom">
-        <div v-show="show2" class="transition-box">.el-zoom-in-bottom</div>
+      <transition name="td-zoom-in-bottom">
+        <div v-show="show2" class="transition-box">.td-zoom-in-bottom</div>
       </transition>
     </div>
   </div>
@@ -108,15 +108,15 @@ Element 内应用在部分组件的过渡动画，你也可以直接使用。在
 ```html
 <template>
   <div>
-    <el-button @click="show3 = !show3">Click Me</el-button>
+    <td-button @click="show3 = !show3">Click Me</td-button>
 
     <div style="margin-top: 20px; height: 200px;">
-      <el-collapse-transition>
+      <td-collapse-transition>
         <div v-show="show3">
           <div class="transition-box">el-collapse-transition</div>
           <div class="transition-box">el-collapse-transition</div>
         </div>
-      </el-collapse-transition>
+      </td-collapse-transition>
     </div>
   </div>
 </template>

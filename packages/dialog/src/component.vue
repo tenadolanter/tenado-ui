@@ -6,7 +6,7 @@
   >
     <div
       v-show="visible"
-      class="el-dialog__wrapper"
+      class="td-dialog__wrapper"
       @click.self="handleWrapperClick"
     >
       <div
@@ -22,22 +22,22 @@
         ref="dialog"
         :style="style"
       >
-        <div class="el-dialog__header">
+        <div class="td-dialog__header">
           <slot name="title">
-            <span class="el-dialog__title">{{ title }}</span>
+            <span class="td-dialog__title">{{ title }}</span>
           </slot>
           <button
             type="button"
-            class="el-dialog__headerbtn"
+            class="td-dialog__headerbtn"
             aria-label="Close"
             v-if="showClose"
             @click="handleClose"
           >
-            <i class="el-dialog__close el-icon el-icon-close"></i>
+            <i class="td-dialog__close el-icon el-icon-close"></i>
           </button>
         </div>
-        <div class="el-dialog__body" v-if="rendered"><slot></slot></div>
-        <div class="el-dialog__footer" v-if="$slots.footer">
+        <div class="td-dialog__body" v-if="rendered"><slot></slot></div>
+        <div class="td-dialog__footer" v-if="$slots.footer">
           <slot name="footer"></slot>
         </div>
       </div>

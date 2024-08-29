@@ -132,7 +132,7 @@ export default {
       }
 
       return (
-        <el-checkbox
+        <td-checkbox
           value={node.checked}
           indeterminate={node.indeterminate}
           disabled={isDisabled}
@@ -150,7 +150,7 @@ export default {
       }
 
       return (
-        <el-radio
+        <td-radio
           value={checkedValue}
           label={value}
           disabled={isDisabled}
@@ -159,20 +159,20 @@ export default {
         >
           {/* add an empty element to avoid render label */}
           <span />
-        </el-radio>
+        </td-radio>
       );
     },
 
     renderCheckIcon(h) {
-      return <i class="el-icon-check el-cascader-node__prefix" />;
+      return <i class="td-icon-check el-cascader-node__prefix" />;
     },
 
     renderLoadingIcon(h) {
-      return <i class="el-icon-loading el-cascader-node__postfix" />;
+      return <i class="td-icon-loading el-cascader-node__postfix" />;
     },
 
     renderExpandIcon(h) {
-      return <i class="el-icon-arrow-right el-cascader-node__postfix" />;
+      return <i class="td-icon-arrow-right el-cascader-node__postfix" />;
     },
 
     renderContent(h) {
@@ -180,7 +180,7 @@ export default {
       const render = panel.renderLabelFn;
       const vnode = render ? render({ node, data: node.data }) : null;
 
-      return <span class="el-cascader-node__label">{vnode || node.label}</span>;
+      return <span class="td-cascader-node__label">{vnode || node.label}</span>;
     },
   },
 
@@ -221,7 +221,7 @@ export default {
         aria-expanded={inActivePath}
         tabindex={disabled ? null : -1}
         class={{
-          "el-cascader-node": true,
+          "td-cascader-node": true,
           "is-selectable": checkStrictly,
           "in-active-path": inActivePath,
           "in-checked-path": inCheckedPath,

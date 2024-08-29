@@ -14,7 +14,7 @@
 @include b(loading-mask) {
   position: absolute;
   z-index: 2000;
-  background-color: rgba(255, 255, 255, .9);
+  background-color: rgba(255, 255, 255, 0.9);
   margin: 0;
   top: 0;
   right: 0;
@@ -25,7 +25,7 @@
   @include when(fullscreen) {
     position: fixed;
 
-    .el-loading-spinner {
+    .td-loading-spinner {
       margin-top: #{- $--loading-fullscreen-spinner-size / 2};
 
       .circular {
@@ -43,7 +43,7 @@
   text-align: center;
   position: absolute;
 
-  .el-loading-text {
+  .td-loading-text {
     color: $--color-primary;
     margin: 3px 0;
     font-size: 14px;
@@ -69,8 +69,8 @@
   }
 }
 
-.el-loading-fade-enter,
-.el-loading-fade-leave-active {
+.td-loading-fade-enter,
+.td-loading-fade-leave-active {
   opacity: 0;
 }
 
