@@ -20,10 +20,10 @@
 ### 图标集合
 
 <ul class="icon-list">
-  <li v-for="name in $icon" :key="name">
+  <li v-for="icon in $icon" :key="icon.name">
     <span>
-      <i :class="'td-icon-' + name"></i>
-      <span class="icon-name">{{'td-icon-' + name}}</span>
+      <i :class="'td-icon-' + icon.name"></i>
+      <span class="icon-name">{{'td-icon-' + icon.name}}</span>
     </span>
   </li>
 </ul>
