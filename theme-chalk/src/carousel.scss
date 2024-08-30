@@ -125,7 +125,7 @@
         $--carousel-indicator-padding-vertical;
       .td-carousel__button {
         width: $--carousel-indicator-height;
-        height: #{$--carousel-indicator-width / 2};
+        height: calc($--carousel-indicator-width / 2);
       }
     }
 
