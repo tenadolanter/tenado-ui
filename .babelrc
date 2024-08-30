@@ -20,7 +20,7 @@
           {
             "root": ["@tenado/ui"],
             "alias": {
-              "@tenado/ui/src": "@tenado/ui/lib"
+              "@tenado/ui/src": "./src"
             }
           }
         ]
