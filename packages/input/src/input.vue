@@ -62,7 +62,7 @@
           ></i>
           <i
             v-if="showPwdVisible"
-            class="td-input__icon td-icon-view td-input__clear"
+            class="td-input__icon td-icon-eye td-input__clear"
             @click="handlePasswordVisible"
           ></i>
           <span v-if="isWordLimitVisible" class="td-input__count">

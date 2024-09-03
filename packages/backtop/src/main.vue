@@ -10,7 +10,7 @@
       class="td-backtop"
     >
       <slot>
-        <td-icon name="caret-top"></td-icon>
+        <td-icon name="d-arrow-up"></td-icon>
       </slot>
     </div>
   </transition>

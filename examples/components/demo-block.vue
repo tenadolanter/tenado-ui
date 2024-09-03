@@ -203,7 +203,7 @@ export default {
     },
 
     iconClass() {
-      return this.isExpanded ? "td-icon-caret-top" : "td-icon-caret-bottom";
+      return this.isExpanded ? "td-icon-d-arrow-up" : "td-icon-d-arrow-down";
     },
 
     controlText() {
