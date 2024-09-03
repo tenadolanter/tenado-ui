@@ -26,9 +26,6 @@
   "license": "MIT",
   "unpkg": "lib/index.js",
   "style": "lib/theme-chalk/index.css",
-  "peerDependencies": {
-    "@tenado/icons": "*"
-  },
   "dependencies": {
     "async-validator": "~1.8.1",
     "deepmerge": "^1.2.0",
@@ -38,7 +35,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.24.8",
-    "@tenado/icons": "^1.0.7",
+    "@tenado/icons": "^1.0.9",
     "@vue/babel-preset-app": "^5.0.8",
     "@vue/component-compiler-utils": "^2.6.0",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
