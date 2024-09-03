@@ -5,11 +5,8 @@
   "main": "lib/index.js",
   "files": [
     "lib",
-    "src",
-    "packages",
     "types"
   ],
-  "typings": "types/index.d.ts",
   "scripts": {
     "dev": "npm run build:file && cross-env NODE_ENV=development webpack-dev-server --config build/webpack.demo.js",
     "clean": "rimraf lib && rimraf packages/*/lib",
@@ -24,8 +21,6 @@
     "components"
   ],
   "license": "MIT",
-  "unpkg": "lib/index.js",
-  "style": "lib/theme-chalk/index.css",
   "dependencies": {
     "async-validator": "~1.8.1",
     "deepmerge": "^1.2.0",
