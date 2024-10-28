@@ -151,7 +151,7 @@ Element 内应用在部分组件的过渡动画，你也可以直接使用。在
 
 ```js
 // fade/zoom 等
-import "@tenado/ui/lib/theme-chalk/base.css";
+import "@tenado/ui/lib/theme/base.css";
 // collapse 展开折叠
 import CollapseTransition from "@tenado/ui/lib/transitions/collapse-transition";
 import Vue from "vue";

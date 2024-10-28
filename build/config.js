@@ -46,7 +46,7 @@ exports.alias = {
   main: path.resolve(__dirname, "../src"),
   packages: path.resolve(__dirname, "../packages"),
   examples: path.resolve(__dirname, "../examples"),
-  "theme-chalk": path.resolve(__dirname, "../theme-chalk"),
+  theme: path.resolve(__dirname, "../theme"),
   "@tenado/ui": path.resolve(__dirname, "../"),
 };
 

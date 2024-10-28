@@ -1,7 +1,7 @@
 var fs = require("fs");
 var path = require("path");
 var Components = require("../../components.json");
-var themes = ["theme-chalk"];
+var themes = ["theme"];
 Components = Object.keys(Components);
 var basepath = path.resolve(__dirname, "../../");
 

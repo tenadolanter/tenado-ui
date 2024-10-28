@@ -16,7 +16,7 @@ npm i @tenado/ui -S
 <!-- 引入样式 -->
 <link
   rel="stylesheet"
-  href="https://unpkg.com/@tenado/ui/lib/theme-chalk/index.css"
+  href="https://unpkg.com/@tenado/ui/lib/theme/index.css"
 />
 <!-- 引入组件库 -->
 <script src="https://unpkg.com/@tenado/ui/lib/index.js"></script>

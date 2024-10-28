@@ -17,7 +17,7 @@ npm i element-steps -D
 ```javascript
 import Vue from "vue";
 import TdStep from "element-steps";
-import "element-theme-chalk/dist/step.css";
+import "element-theme/dist/step.css";
 
 Vue.use(TdStep);
 ```

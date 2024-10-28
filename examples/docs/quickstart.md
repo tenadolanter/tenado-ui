@@ -13,7 +13,7 @@
 ```javascript
 import Vue from "vue";
 import ElementUI from "@tenado/ui";
-import "@tenado/ui/lib/theme-chalk/index.css";
+import "@tenado/ui/lib/theme/index.css";
 import App from "./App.vue";
 
 Vue.use(ElementUI);
@@ -46,7 +46,7 @@ npm install babel-plugin-component -D
       "component",
       {
         "libraryName": "@tenado/ui",
-        "styleLibraryName": "theme-chalk"
+        "styleLibraryName": "theme"
       }
     ]
   ]

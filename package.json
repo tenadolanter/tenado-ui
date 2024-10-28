@@ -5,13 +5,14 @@
   "main": "lib/index.js",
   "files": [
     "lib",
-    "types"
+    "types",
+    "theme"
   ],
   "scripts": {
     "dev": "npm run build:file && cross-env NODE_ENV=development webpack-dev-server --config build/webpack.demo.js",
     "clean": "rimraf lib && rimraf packages/*/lib",
     "build:file": "node build/bin/iconInit.js & node build/bin/build-entry.js",
-    "build:theme": "node build/bin/gen-cssfile && gulp build --gulpfile theme-chalk/gulpfile.js && cp-cli theme-chalk/lib lib/theme-chalk",
+    "build:theme": "node build/bin/gen-cssfile && gulp build --gulpfile theme/gulpfile.js && cp-cli theme/lib lib/theme",
     "build:utils": "cross-env BABEL_ENV=utils babel src --out-dir lib --ignore src/index.js",
     "build:docs": "npm run build:file && npm run build:theme && cross-env NODE_ENV=production webpack --config build/webpack.demo.js",
     "build:lib": "npm run clean && npm run build:file && webpack --config build/webpack.conf.js && webpack --config build/webpack.component.js && npm run build:utils && npm run build:theme"
