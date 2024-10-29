@@ -7,7 +7,7 @@
   border-radius: $--border-radius-base;
   border-width: $--border-width-base;
   border-style: $--border-style-base;
-  border-color: $--border-color-lighter;
+  border-color: var(--td-border-color-lighter);
   position: fixed;
   left: 50%;
   top: 20px;
@@ -35,34 +35,34 @@
 
   @include m(info) {
     .td-message__content {
-      color: $--message-info-font-color;
+      color: var(--td-color-info);
     }
   }
 
   @include m(success) {
-    background-color: $--color-success-lighter;
-    border-color: $--color-success-light;
+    background-color: var(--td-color-success-light-9);
+    border-color: var(--td-color-success-light-8);
 
     .td-message__content {
-      color: $--message-success-font-color;
+      color: var(--td-color-success);
     }
   }
 
   @include m(warning) {
-    background-color: $--color-warning-lighter;
-    border-color: $--color-warning-light;
+    background-color: var(--td-color-warning-light-9);
+    border-color: var(--td-color-warning-light-8);
 
     .td-message__content {
-      color: $--message-warning-font-color;
+      color: var(--td-color-warning);
     }
   }
 
   @include m(error) {
-    background-color: $--color-danger-lighter;
-    border-color: $--color-danger-light;
+    background-color: var(--td-color-danger-light-9);
+    border-color: var(--td-color-danger-light-8);
 
     .td-message__content {
-      color: $--message-danger-font-color;
+      color: var(--td-color-danger);
     }
   }
 
@@ -85,31 +85,31 @@
     right: 15px;
     transform: translateY(-50%);
     cursor: pointer;
-    color: $--message-close-icon-color;
+    color: var(--td-color-text-placeholder);
     font-size: $--message-close-size;
 
     &:focus {
       outline-width: 0;
     }
     &:hover {
-      color: $--message-close-hover-color;
+      color: var(--td-color-text-secondary);
     }
   }
 
   & .td-icon-success {
-    color: $--message-success-font-color;
+    color: var(--td-color-success);
   }
 
   & .td-icon-error {
-    color: $--message-danger-font-color;
+    color: var(--td-color-danger);
   }
 
   & .td-icon-info {
-    color: $--message-info-font-color;
+    color: var(--td-color-info);
   }
 
   & .td-icon-warning {
-    color: $--message-warning-font-color;
+    color: var(--td-color-warning);
   }
 }
 

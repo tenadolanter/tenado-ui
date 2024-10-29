@@ -1,2 +1,137 @@
 @import "common/transition.scss";
 @import "icon.scss";
+
+:root {
+  // 基础样式
+  --td-color-primary: #409eff;
+  --td-color-success: #67c23a;
+  --td-color-warning: #e6a23c;
+  --td-color-danger: #f56c6c;
+  --td-color-info: #909399;
+
+  --td-color-text-primary: #303133;
+  --td-color-text-regular: #606266;
+  --td-color-text-secondary: #909399;
+  --td-color-text-placeholder: #c0c4cc;
+
+  --td-border-color-base: #dcdfe6;
+  --td-border-color-light: #e4e7ed;
+  --td-border-color-lighter: #ebeef5;
+  --td-border-color-extra-light: #f2f6fc;
+
+  --td-background-color-base: #f5f7fa;
+
+  // 衍生样式
+  // mix('#ffffff', var(--td-color-primary), 0.1)
+  --td-color-primary-light-1: #53a8ff;
+  // mix('#ffffff', var(--td-color-primary), 0.2)
+  --td-color-primary-light-2: #66b1ff;
+  // mix('#ffffff', var(--td-color-primary), 0.3)
+  --td-color-primary-light-3: #79bbff;
+  // mix('#ffffff', var(--td-color-primary), 0.4)
+  --td-color-primary-light-4: #8cc5ff;
+  // mix('#ffffff', var(--td-color-primary), 0.5)
+  --td-color-primary-light-5: #a0cfff;
+  // mix('#ffffff', var(--td-color-primary), 0.6)
+  --td-color-primary-light-6: #b3d8ff;
+  // mix('#ffffff', var(--td-color-primary), 0.7)
+  --td-color-primary-light-7: #c6e2ff;
+  // mix('#ffffff', var(--td-color-primary), 0.8)
+  --td-color-primary-light-8: #d9ecff;
+  // mix('#ffffff', var(--td-color-primary), 0.9)
+  --td-color-primary-light-9: #ecf5ff;
+  // mix('#000000', var(--td-color-primary), 0.1)
+  --td-color-primary-dark-1: #3a8ee6;
+
+  // mix('#ffffff', var(--td-color-success), 0.2)
+  --td-color-success-light-1: #76c84e;
+  // mix('#ffffff', var(--td-color-success), 0.2)
+  --td-color-success-light-2: #85ce61;
+  // mix('#ffffff', var(--td-color-success), 0.3)
+  --td-color-success-light-3: #95d475;
+  // mix('#ffffff', var(--td-color-success), 0.4)
+  --td-color-success-light-4: #a4da89;
+  // mix('#ffffff', var(--td-color-success), 0.5)
+  --td-color-success-light-5: #b3e19d;
+  // mix('#ffffff', var(--td-color-success), 0.6)
+  --td-color-success-light-6: #c2e7b0;
+  // mix('#ffffff', var(--td-color-success), 0.7)
+  --td-color-success-light-7: #d1edc4;
+  // mix('#ffffff', var(--td-color-success), 0.8)
+  --td-color-success-light-8: #e1f3d8;
+  // mix('#ffffff', var(--td-color-success), 0.9)
+  --td-color-success-light-9: #f0f9eb;
+  // mix('#000000', var(--td-color-success), 0.1)
+  --td-color-success-dark-1: #5daf34;
+
+  // mix('#ffffff', var(--td-color-danger), 0.1)
+  --td-color-danger-light-1: #f67b7b;
+  // mix('#ffffff', var(--td-color-danger), 0.2)
+  --td-color-danger-light-2: #f78989;
+  // mix('#ffffff', var(--td-color-danger), 0.3)
+  --td-color-danger-light-3: #f89898;
+  // mix('#ffffff', var(--td-color-danger), 0.4)
+  --td-color-danger-light-4: #f9a7a7;
+  // mix('#ffffff', var(--td-color-danger), 0.5)
+  --td-color-danger-light-5: #fab6b6;
+  // mix('#ffffff', var(--td-color-danger), 0.7)
+  --td-color-danger-light-7: #fcd3d3;
+  // mix('#ffffff', var(--td-color-danger), 0.6)
+  --td-color-danger-light-6: #fbc4c4;
+  // mix('#ffffff', var(--td-color-danger), 0.8)
+  --td-color-danger-light-8: #fde2e2;
+  // mix('#ffffff', var(--td-color-danger), 0.9)
+  --td-color-danger-light-9: #fef0f0;
+  // mix('#000000', var(--td-color-danger), 0.1)
+  --td-color-danger-dark-1: #dd6161;
+
+  // mix('#ffffff', var(--td-color-warning), 0.1)
+  --td-color-warning-light-1: #e9ab50;
+  // mix('#ffffff', var(--td-color-warning), 0.2)
+  --td-color-warning-light-2: #ebb563;
+  // mix('#ffffff', var(--td-color-warning), 0.4)
+  --td-color-warning-light-3: #eebe77;
+  // mix('#ffffff', var(--td-color-warning), 0.4)
+  --td-color-warning-light-4: #f0c78a;
+  // mix('#ffffff', var(--td-color-warning), 0.5)
+  --td-color-warning-light-5: #f3d19e;
+  // mix('#ffffff', var(--td-color-warning), 0.6)
+  --td-color-warning-light-6: #f5dab1;
+  // mix('#ffffff', var(--td-color-warning), 0.7)
+  --td-color-warning-light-7: #f8e3c5;
+  // mix('#ffffff', var(--td-color-warning), 0.8)
+  --td-color-warning-light-8: #faecd8;
+  // mix('#ffffff', var(--td-color-warning), 0.9)
+  --td-color-warning-light-9: #fdf6ec;
+  // mix('#000000', var(--td-color-warning), 0.1)
+  --td-color-warning-dark-1: #cf9236;
+
+  // mix('#ffffff', var(--td-color-info), 0.1)
+  --td-color-info-light-1: #9b9ea3;
+  // mix('#ffffff', var(--td-color-info), 0.2)
+  --td-color-info-light-2: #a6a9ad;
+  // mix('#ffffff', var(--td-color-info), 0.3)
+  --td-color-info-light-3: #b1b3b8;
+  // mix('#ffffff', var(--td-color-info), 0.4)
+  --td-color-info-light-4: #bcbec2;
+  // mix('#ffffff', var(--td-color-info), 0.5)
+  --td-color-info-light-5: #c8c9cc;
+  // mix('#ffffff', var(--td-color-info), 0.6)
+  --td-color-info-light-6: #d3d4d6;
+  // mix('#ffffff', var(--td-color-info), 0.7)
+  --td-color-info-light-7: #dedfe0;
+  // mix('#ffffff', var(--td-color-info), 0.8)
+  --td-color-info-light-8: #e9e9eb;
+  // mix('#ffffff', var(--td-color-info), 0.9)
+  --td-color-info-light-9: #f4f4f5;
+  // mix('#000000', var(--td-color-info), 0.1)
+  --td-color-info-dark-1: #82848a;
+
+  // mix(var(--td-border-color-base), transparent, 0.5)
+  --td-border-color-base-transparent-5: "#DCDDE6";
+
+  // rgba(var(--td-color-text-secondary), 0.3)
+  --td-color-text-secondary-alpha-3: "rgba(144, 147, 153, 0.3)";
+  // rgba(var(--td-color-text-secondary), 0.5)
+  --td-color-text-secondary-alpha-5: "rgba(144, 147, 153, 0.5)";
+}

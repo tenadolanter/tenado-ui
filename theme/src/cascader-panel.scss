@@ -10,7 +10,7 @@
   font-size: $--cascader-menu-font-size;
 
   @include when(bordered) {
-    border: $--cascader-menu-border;
+    border: solid 1px var(--td-border-color-light);
     border-radius: $--cascader-menu-radius;
   }
 }
@@ -18,8 +18,8 @@
 @include b(cascader-menu) {
   min-width: 180px;
   box-sizing: border-box;
-  color: $--cascader-menu-font-color;
-  border-right: $--cascader-menu-border;
+  color: var(--td-color-text-regular);
+  border-right: solid 1px var(--td-border-color-light);
 
   &:last-child {
     border-right: none;
@@ -56,7 +56,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: $--cascader-color-empty;
+    color: var(--td-color-text-placeholder);
   }
 }
 
@@ -70,13 +70,13 @@
   outline: none;
 
   &.is-selectable.in-active-path {
-    color: $--cascader-menu-font-color;
+    color: var(--td-color-text-regular);
   }
 
   &.in-active-path,
   &.is-selectable.in-checked-path,
   &.is-active {
-    color: $--cascader-menu-selected-font-color;
+    color: var(--td-color-primary);
     font-weight: bold;
   }
 
@@ -84,12 +84,12 @@
     cursor: pointer;
     &:hover,
     &:focus {
-      background: $--cascader-node-background-hover;
+      background: var(--td-background-color-base);
     }
   }
 
   @include when(disabled) {
-    color: $--cascader-node-color-disabled;
+    color: var(--td-color-text-placeholder);
     cursor: not-allowed;
   }
 

@@ -7,10 +7,10 @@
   background: $--popover-background-color;
   min-width: 150px;
   border-radius: 4px;
-  border: 1px solid $--popover-border-color;
+  border: 1px solid var(--td-border-color-lighter);
   padding: $--popover-padding;
   z-index: $--index-popper;
-  color: $--color-text-regular;
+  color: var(--td-color-text-regular);
   line-height: 1.4;
   text-align: justify;
   font-size: $--popover-font-size;
@@ -22,19 +22,21 @@
   }
 
   @include e(title) {
-    color: $--popover-title-font-color;
+    color: var(--td-color-text-primary);
     font-size: $--popover-title-font-size;
     line-height: 1;
     margin-bottom: 12px;
   }
 
   @include e(reference) {
-    &:focus:not(.focusing), &:focus:hover {
+    &:focus:not(.focusing),
+    &:focus:hover {
       outline-width: 0;
     }
   }
 
-  &:focus:active, &:focus {
+  &:focus:active,
+  &:focus {
     outline-width: 0;
   }
 }

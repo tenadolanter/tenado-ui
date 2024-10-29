@@ -8,7 +8,7 @@
 
   @include e(text) {
     font-size: 14px;
-    color: $--color-text-regular;
+    color: var(--td-color-text-regular);
     display: inline-block;
     vertical-align: middle;
     margin-left: 10px;
@@ -60,31 +60,31 @@
 
   @include when(success) {
     .td-progress-bar__inner {
-      background-color: $--color-success;
+      background-color: var(--td-color-success);
     }
 
     .td-progress__text {
-      color: $--color-success;
+      color: var(--td-color-success);
     }
   }
 
   @include when(warning) {
     .td-progress-bar__inner {
-      background-color: $--color-warning;
+      background-color: var(--td-color-warning);
     }
 
     .td-progress__text {
-      color: $--color-warning;
+      color: var(--td-color-warning);
     }
   }
 
   @include when(exception) {
     .td-progress-bar__inner {
-      background-color: $--color-danger;
+      background-color: var(--td-color-danger);
     }
 
     .td-progress__text {
-      color: $--color-danger;
+      color: var(--td-color-danger);
     }
   }
 }
@@ -100,7 +100,7 @@
   @include e(outer) {
     height: 6px;
     border-radius: 100px;
-    background-color: $--border-color-lighter;
+    background-color: var(--td-border-color-lighter);
     overflow: hidden;
     position: relative;
     vertical-align: middle;
@@ -110,7 +110,7 @@
     left: 0;
     top: 0;
     height: 100%;
-    background-color: $--color-primary;
+    background-color: var(--td-color-primary);
     text-align: right;
     border-radius: 100px;
     line-height: 1;

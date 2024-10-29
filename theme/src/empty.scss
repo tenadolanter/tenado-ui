@@ -35,7 +35,7 @@
     p {
       margin: 0;
       font-size: $--font-size-base;
-      color: $--color-text-secondary;
+      color: var(--td-color-text-secondary);
     }
   }
 

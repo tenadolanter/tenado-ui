@@ -19,7 +19,7 @@
       right: -20px;
       top: 50%;
       transform: translateY(-50%);
-      background-color: $--border-color-base;
+      background-color: var(--td-border-color-base);
     }
 
     .td-icon-back {
@@ -36,6 +36,6 @@
 
   @include e(content) {
     font-size: 18px;
-    color: $--color-text-primary;
+    color: var(--td-color-text-primary);
   }
 }

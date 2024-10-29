@@ -15,7 +15,7 @@
   text-align: center;
   .head {
     margin-bottom: 4px;
-    color: $--color-text-regular;
+    color: var(--td-color-text-regular);
     font-size: $--font-size-small;
   }
 
@@ -24,7 +24,7 @@
     display: flex;
     justify-content: $statistic-justify;
     align-items: $statistic-align;
-    color: $--color-text-primary;
+    color: var(--td-color-text-primary);
     .number {
       font-size: $--font-size-extra-large;
       padding: 0 4px;

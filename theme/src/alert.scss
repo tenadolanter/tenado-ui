@@ -17,7 +17,7 @@
 
   @include when(light) {
     .td-alert__closebtn {
-      color: $--color-text-placeholder;
+      color: var(--td-color-text-placeholder);
     }
   }
 
@@ -36,64 +36,64 @@
 
   @include m(success) {
     &.is-light {
-      background-color: $--alert-success-color;
-      color: $--color-success;
+      background-color: var(--td-color-success-light-9);
+      color: var(--td-color-success);
 
       .td-alert__description {
-        color: $--color-success;
+        color: var(--td-color-success);
       }
     }
 
     &.is-dark {
-      background-color: $--color-success;
+      background-color: var(--td-color-success);
       color: $--color-white;
     }
   }
 
   @include m(info) {
     &.is-light {
-      background-color: $--alert-info-color;
-      color: $--color-info;
+      background-color: var(--td-color-info-light-9);
+      color: var(--td-color-info);
     }
 
     &.is-dark {
-      background-color: $--color-info;
+      background-color: var(--td-color-info);
       color: $--color-white;
     }
 
     .td-alert__description {
-      color: $--color-info;
+      color: var(--td-color-info);
     }
   }
 
   @include m(warning) {
     &.is-light {
-      background-color: $--alert-warning-color;
-      color: $--color-warning;
+      background-color: var(--td-color-warning-light-9);
+      color: var(--td-color-warning);
 
       .td-alert__description {
-        color: $--color-warning;
+        color: var(--td-color-warning);
       }
     }
 
     &.is-dark {
-      background-color: $--color-warning;
+      background-color: var(--td-color-warning);
       color: $--color-white;
     }
   }
 
   @include m(error) {
     &.is-light {
-      background-color: $--alert-danger-color;
-      color: $--color-danger;
+      background-color: var(--td-color-danger-light-9);
+      color: var(--td-color-danger);
 
       .td-alert__description {
-        color: $--color-danger;
+        color: var(--td-color-danger);
       }
     }
 
     &.is-dark {
-      background-color: $--color-danger;
+      background-color: var(--td-color-danger);
       color: $--color-white;
     }
   }

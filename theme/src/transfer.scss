@@ -21,7 +21,7 @@
     padding: 10px;
     border-radius: 50%;
     color: $--color-white;
-    background-color: $--color-primary;
+    background-color: var(--td-color-primary);
     font-size: 0;
 
     @include when(with-texts) {
@@ -29,14 +29,16 @@
     }
 
     @include when(disabled) {
-      border: $--border-base;
-      background-color: $--background-color-base;
-      color: $--color-text-placeholder;
+      border: $--border-width-base $--border-style-base
+        var(--td-border-color-base);
+      background-color: var(--td-background-color-base);
+      color: var(--td-color-text-placeholder);
 
       &:hover {
-        border: $--border-base;
-        background-color: $--background-color-base;
-        color: $--color-text-placeholder;
+        border: $--border-width-base $--border-style-base
+          var(--td-border-color-base);
+        background-color: var(--td-background-color-base);
+        color: var(--td-color-text-placeholder);
       }
     }
 
@@ -60,7 +62,7 @@
 }
 
 @include b(transfer-panel) {
-  border: 1px solid $--transfer-border-color;
+  border: 1px solid var(--td-border-color-lighter);
   border-radius: $--transfer-border-radius;
   overflow: hidden;
   background: $--color-white;
@@ -104,11 +106,11 @@
     }
 
     &.td-checkbox {
-      color: $--color-text-regular;
+      color: var(--td-color-text-regular);
     }
 
     &:hover {
-      color: $--color-primary;
+      color: var(--td-color-primary);
     }
 
     &.td-checkbox .td-checkbox__label {
@@ -156,10 +158,10 @@
   .td-transfer-panel__header {
     height: $--transfer-panel-header-height;
     line-height: $--transfer-panel-header-height;
-    background: $--transfer-panel-header-background-color;
+    background: var(--td-background-color-base);
     margin: 0;
     padding-left: 15px;
-    border-bottom: 1px solid $--transfer-border-color;
+    border-bottom: 1px solid var(--td-border-color-lighter);
     box-sizing: border-box;
     color: $--color-black;
 
@@ -169,13 +171,13 @@
 
       .td-checkbox__label {
         font-size: 16px;
-        color: $--color-text-primary;
+        color: var(--td-color-text-primary);
         font-weight: normal;
 
         span {
           position: absolute;
           right: 15px;
-          color: $--color-text-secondary;
+          color: var(--td-color-text-secondary);
           font-size: 12px;
           font-weight: normal;
         }
@@ -188,7 +190,7 @@
     background: $--color-white;
     margin: 0;
     padding: 0;
-    border-top: 1px solid $--transfer-border-color;
+    border-top: 1px solid var(--td-border-color-lighter);
     position: absolute;
     bottom: 0;
     left: 0;
@@ -198,7 +200,7 @@
 
     .td-checkbox {
       padding-left: 20px;
-      color: $--color-text-regular;
+      color: var(--td-color-text-regular);
     }
   }
 
@@ -207,7 +209,7 @@
     height: $--transfer-item-height;
     line-height: $--transfer-item-height;
     padding: 6px 15px 0;
-    color: $--color-text-secondary;
+    color: var(--td-color-text-secondary);
     text-align: center;
   }
 

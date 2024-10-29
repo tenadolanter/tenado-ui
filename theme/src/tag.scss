@@ -1,150 +1,101 @@
 @import "mixins/mixins";
 @import "common/var";
 
-@mixin genTheme(
-  $backgroundColorWeight,
-  $borderColorWeight,
-  $fontColorWeight,
-  $hoverColorWeight
-) {
-  background-color: mix(
-    $--tag-primary-color,
-    $--color-white,
-    $backgroundColorWeight
-  );
-  border-color: mix($--tag-primary-color, $--color-white, $borderColorWeight);
-  color: mix($--tag-primary-color, $--color-white, $fontColorWeight);
+@include b(tag) {
+  background-color: var(--td-color-primary-light-9);
+  border-color: var(--td-color-primary-light-7);
+  color: var(--td-color-primary);
 
   @include when(hit) {
-    border-color: $--tag-primary-color;
+    border-color: var(--td-color-primary);
   }
 
   .td-tag__close {
-    color: mix($--tag-primary-color, $--color-white, $fontColorWeight);
+    color: var(--td-color-primary);
     &:hover {
       color: $--color-white;
-      background-color: mix(
-        $--tag-primary-color,
-        $--color-white,
-        $hoverColorWeight
-      );
+      background-color: var(--td-color-primary);
     }
   }
 
   &.td-tag--info {
-    background-color: mix(
-      $--tag-info-color,
-      $--color-white,
-      $backgroundColorWeight
-    );
-    border-color: mix($--tag-info-color, $--color-white, $borderColorWeight);
-    color: mix($--tag-info-color, $--color-white, $fontColorWeight);
+    background-color: var(--td-color-info-light-9);
+    border-color: var(--td-color-info-light-7);
+    color: var(--td-color-info);
 
     @include when(hit) {
-      border-color: $--tag-info-color;
+      border-color: var(--td-color-info);
     }
 
     .td-tag__close {
-      color: mix($--tag-info-color, $--color-white, $fontColorWeight);
+      color: var(--td-color-info);
       &:hover {
         color: $--color-white;
-        background-color: mix(
-          $--tag-info-color,
-          $--color-white,
-          $hoverColorWeight
-        );
+        background-color: var(--td-color-info);
       }
     }
   }
 
   &.td-tag--success {
-    background-color: mix(
-      $--tag-success-color,
-      $--color-white,
-      $backgroundColorWeight
-    );
-    border-color: mix($--tag-success-color, $--color-white, $borderColorWeight);
-    color: mix($--tag-success-color, $--color-white, $fontColorWeight);
+    background-color: var(--td-color-success-light-9);
+    border-color: var(--td-color-success-light-7);
+    color: var(--td-color-success);
 
     @include when(hit) {
-      border-color: $--tag-success-color;
+      border-color: $--color-success;
     }
 
     .td-tag__close {
-      color: mix($--tag-success-color, $--color-white, $fontColorWeight);
+      color: var(--td-color-success);
       &:hover {
         color: $--color-white;
-        background-color: mix(
-          $--tag-success-color,
-          $--color-white,
-          $hoverColorWeight
-        );
+        background-color: var(--td-color-success);
       }
     }
   }
 
   &.td-tag--warning {
-    background-color: mix(
-      $--tag-warning-color,
-      $--color-white,
-      $backgroundColorWeight
-    );
-    border-color: mix($--tag-warning-color, $--color-white, $borderColorWeight);
-    color: mix($--tag-warning-color, $--color-white, $fontColorWeight);
+    background-color: var(--td-color-warning-light-9);
+    border-color: var(--td-color-warning-light-7);
+    color: var(--td-color-warning);
 
     @include when(hit) {
-      border-color: $--tag-warning-color;
+      border-color: var(--td-color-warning);
     }
 
     .td-tag__close {
-      color: mix($--tag-warning-color, $--color-white, $fontColorWeight);
+      color: var(--td-color-warning);
       &:hover {
         color: $--color-white;
-        background-color: mix(
-          $--tag-warning-color,
-          $--color-white,
-          $hoverColorWeight
-        );
+        background-color: var(--td-color-warning);
       }
     }
   }
 
   &.td-tag--danger {
-    background-color: mix(
-      $--tag-danger-color,
-      $--color-white,
-      $backgroundColorWeight
-    );
-    border-color: mix($--tag-danger-color, $--color-white, $borderColorWeight);
-    color: mix($--tag-danger-color, $--color-white, $fontColorWeight);
+    background-color: var(--td-color-danger-light-9);
+    border-color: var(--td-color-danger-light-7);
+    color: var(--td-color-danger);
 
     @include when(hit) {
-      border-color: $--tag-danger-color;
+      border-color: var(--td-color-danger);
     }
 
     .td-tag__close {
-      color: mix($--tag-danger-color, $--color-white, $fontColorWeight);
+      color: var(--td-color-danger);
       &:hover {
         color: $--color-white;
-        background-color: mix(
-          $--tag-danger-color,
-          $--color-white,
-          $hoverColorWeight
-        );
+        background-color: var(--td-color-danger);
       }
     }
   }
-}
-
-@include b(tag) {
-  @include genTheme(10%, 20%, 100%, 100%);
   & {
     display: inline-block;
     height: 32px;
     padding: $--tag-padding;
     line-height: 30px;
     font-size: $--tag-font-size;
-    color: $--tag-primary-color;
+    color: var(--td-color-primary);
     border-width: 1px;
     border-style: solid;
     border-radius: $--tag-border-radius;
@@ -171,11 +122,183 @@
   }
 
   @include m(dark) {
-    @include genTheme(100%, 100%, 0%, 80%);
+    background-color: var(--td-color-primary);
+    border-color: var(--td-color-primary);
+    color: $--color-white;
+
+    @include when(hit) {
+      border-color: var(--td-color-primary);
+    }
+
+    .td-tag__close {
+      color: $--color-white;
+      &:hover {
+        color: $--color-white;
+        background-color: var(--td-color-primary-light-2);
+      }
+    }
+
+    &.td-tag--info {
+      background-color: var(--td-color-info);
+      border-color: var(--td-color-info);
+      color: $--color-white;
+
+      @include when(hit) {
+        border-color: var(--td-color-info);
+      }
+
+      .td-tag__close {
+        color: $--color-white;
+        &:hover {
+          color: $--color-white;
+          background-color: var(--td-color-info-light-2);
+        }
+      }
+    }
+
+    &.td-tag--success {
+      background-color: var(--td-color-success);
+      border-color: var(--td-color-success);
+      color: $--color-white;
+
+      @include when(hit) {
+        border-color: $--color-success;
+      }
+
+      .td-tag__close {
+        color: $--color-white;
+        &:hover {
+          color: $--color-white;
+          background-color: var(--td-color-success-light-2);
+        }
+      }
+    }
+
+    &.td-tag--warning {
+      background-color: var(--td-color-warning);
+      border-color: var(--td-color-warning);
+      color: $--color-white;
+
+      @include when(hit) {
+        border-color: var(--td-color-warning);
+      }
+
+      .td-tag__close {
+        color: $--color-white;
+        &:hover {
+          color: $--color-white;
+          background-color: var(--td-color-warning-light-2);
+        }
+      }
+    }
+
+    &.td-tag--danger {
+      background-color: var(--td-color-danger);
+      border-color: var(--td-color-danger);
+      color: $--color-white;
+
+      @include when(hit) {
+        border-color: var(--td-color-danger);
+      }
+
+      .td-tag__close {
+        color: $--color-white;
+        &:hover {
+          color: $--color-white;
+          background-color: var(--td-color-danger-light-2);
+        }
+      }
+    }
   }
 
   @include m(plain) {
-    @include genTheme(0%, 40%, 100%, 100%);
+    background-color: $--color-white;
+    border-color: var(--td-color-primary-light-6);
+    color: var(--td-color-primary);
+
+    @include when(hit) {
+      border-color: var(--td-color-primary);
+    }
+
+    .td-tag__close {
+      color: var(--td-color-primary);
+      &:hover {
+        color: $--color-white;
+        background-color: var(--td-color-primary);
+      }
+    }
+
+    &.td-tag--info {
+      background-color: $--color-white;
+      border-color: var(--td-color-info-light-6);
+      color: var(--td-color-info);
+
+      @include when(hit) {
+        border-color: var(--td-color-info);
+      }
+
+      .td-tag__close {
+        color: var(--td-color-info);
+        &:hover {
+          color: $--color-white;
+          background-color: var(--td-color-info);
+        }
+      }
+    }
+
+    &.td-tag--success {
+      background-color: $--color-white;
+      border-color: var(--td-color-success-light-6);
+      color: var(--td-color-success);
+
+      @include when(hit) {
+        border-color: $--color-success;
+      }
+
+      .td-tag__close {
+        color: var(--td-color-success);
+        &:hover {
+          color: $--color-white;
+          background-color: var(--td-color-success);
+        }
+      }
+    }
+
+    &.td-tag--warning {
+      background-color: $--color-white;
+      border-color: var(--td-color-warning-light-6);
+      color: var(--td-color-warning);
+
+      @include when(hit) {
+        border-color: var(--td-color-warning);
+      }
+
+      .td-tag__close {
+        color: var(--td-color-warning);
+        &:hover {
+          color: $--color-white;
+          background-color: var(--td-color-warning);
+        }
+      }
+    }
+
+    &.td-tag--danger {
+      background-color: $--color-white;
+      border-color: var(--td-color-danger-light-6);
+      color: var(--td-color-danger);
+
+      @include when(hit) {
+        border-color: var(--td-color-danger);
+      }
+
+      .td-tag__close {
+        color: var(--td-color-danger);
+        &:hover {
+          color: $--color-white;
+          background-color: var(--td-color-danger);
+        }
+      }
+    }
   }
 
   @include m(medium) {

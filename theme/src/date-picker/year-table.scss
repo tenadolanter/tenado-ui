@@ -6,7 +6,7 @@
   border-collapse: collapse;
 
   .td-icon {
-    color: $--datepicker-icon-color;
+    color: var(--td-color-text-primary);
   }
 
   td {
@@ -16,18 +16,18 @@
 
     &.today {
       .cell {
-        color: $--color-primary;
+        color: var(--td-color-primary);
         font-weight: bold;
       }
     }
 
     &.disabled .cell {
-      background-color: $--background-color-base;
+      background-color: var(--td-background-color-base);
       cursor: not-allowed;
-      color: $--color-text-placeholder;
+      color: var(--td-color-text-placeholder);
 
       &:hover {
-        color: $--color-text-placeholder;
+        color: var(--td-color-text-placeholder);
       }
     }
 
@@ -36,16 +36,16 @@
       height: 32px;
       display: block;
       line-height: 32px;
-      color: $--datepicker-font-color;
+      color: var(--td-color-text-regular);
       margin: 0 auto;
 
       &:hover {
-        color: $--datepicker-hover-font-color;
+        color: var(--td-color-primary);
       }
     }
 
     &.current:not(.disabled) .cell {
-      color: $--datepicker-active-color;
+      color: var(--td-color-primary);
     }
   }
 }

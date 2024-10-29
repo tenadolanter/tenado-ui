@@ -13,10 +13,11 @@
     white-space: nowrap;
     vertical-align: middle;
     background: $--button-default-background-color;
-    border: $--border-base;
+    border: $--border-width-base $--border-style-base
+      var(--td-border-color-base);
     font-weight: $--button-font-weight;
     border-left: 0;
-    color: $--button-default-font-color;
+    color: var(--td-color-text-regular);
     -webkit-appearance: none;
     text-align: center;
     box-sizing: border-box;
@@ -34,7 +35,7 @@
     );
 
     &:hover {
-      color: $--color-primary;
+      color: var(--td-color-primary);
     }
 
     & [class*="td-icon-"] {
@@ -48,7 +49,8 @@
 
   &:first-child {
     .td-radio-button__inner {
-      border-left: $--border-base;
+      border-left: $--border-width-base $--border-style-base
+        var(--td-border-color-base);
       border-radius: $--border-radius-base 0 0 $--border-radius-base;
       box-shadow: none !important;
     }
@@ -63,23 +65,23 @@
     &:checked {
       & + .td-radio-button__inner {
         color: $--radio-button-checked-font-color;
-        background-color: $--radio-button-checked-background-color;
-        border-color: $--radio-button-checked-border-color;
-        box-shadow: -1px 0 0 0 $--radio-button-checked-border-color;
+        background-color: var(--td-color-primary);
+        border-color: var(--td-color-primary);
+        box-shadow: -1px 0 0 0 var(--td-color-primary);
       }
     }
 
     &:disabled {
       & + .td-radio-button__inner {
-        color: $--button-disabled-font-color;
+        color: var(--td-color-text-placeholder);
         cursor: not-allowed;
         background-image: none;
         background-color: $--button-disabled-background-color;
-        border-color: $--button-disabled-border-color;
+        border-color: var(--td-border-color-lighter);
         box-shadow: none;
       }
       &:checked + .td-radio-button__inner {
-        background-color: $--radio-button-disabled-checked-fill;
+        background-color: var(--td-border-color-extra-light);
       }
     }
   }
@@ -129,6 +131,6 @@
 
   &:focus:not(.is-focus):not(:active):not(.is-disabled) {
     /*获得焦点时 样式提醒*/
-    box-shadow: 0 0 2px 2px $--radio-button-checked-border-color;
+    box-shadow: 0 0 2px 2px var(--td-color-primary);
   }
 }

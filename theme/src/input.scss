@@ -16,29 +16,30 @@
     box-sizing: border-box;
     width: 100%;
     font-size: inherit;
-    color: $--input-font-color;
+    color: var(--td-color-text-regular);
     background-color: $--input-background-color;
     background-image: none;
-    border: $--input-border;
+    border: $--border-width-base $--border-style-base
+      var(--td-border-color-base);
     border-radius: $--input-border-radius;
     transition: $--border-transition-base;
 
     &::placeholder {
-      color: $--input-placeholder-color;
+      color: var(--td-color-text-placeholder);
     }
 
     &:hover {
-      border-color: $--input-hover-border;
+      border-color: var(--td-color-text-placeholder);
     }
 
     &:focus {
       outline: none;
-      border-color: $--input-focus-border;
+      border-color: var(--td-color-primary);
     }
   }
 
   & .td-input__count {
-    color: $--color-info;
+    color: var(--td-color-info);
     background: $--color-white;
     position: absolute;
     font-size: 12px;
@@ -48,24 +49,24 @@
 
   @include when(disabled) {
     .td-textarea__inner {
-      background-color: $--input-disabled-fill;
-      border-color: $--input-disabled-border;
-      color: $--input-disabled-color;
+      background-color: var(--td-background-color-base);
+      border-color: var(--td-border-color-light);
+      color: var(--td-color-text-placeholder);
       cursor: not-allowed;
 
       &::placeholder {
-        color: $--input-disabled-placeholder-color;
+        color: var(--td-color-text-placeholder);
       }
     }
   }
 
   @include when(exceed) {
     .td-textarea__inner {
-      border-color: $--color-danger;
+      border-color: var(--td-color-danger);
     }
 
     .td-input__count {
-      color: $--color-danger;
+      color: var(--td-color-danger);
     }
   }
 }
@@ -78,13 +79,13 @@
   @include scroll-bar;
 
   & .td-input__clear {
-    color: $--input-icon-color;
+    color: var(--td-color-text-placeholder);
     font-size: $--input-font-size;
     cursor: pointer;
     transition: $--color-transition-base;
 
     &:hover {
-      color: $--input-clear-hover-color;
+      color: var(--td-color-text-secondary);
     }
   }
 
@@ -92,7 +93,7 @@
     height: 100%;
     display: inline-flex;
     align-items: center;
-    color: $--color-info;
+    color: var(--td-color-info);
     font-size: 12px;
 
     .td-input__count-inner {
@@ -108,9 +109,10 @@
     background-color: $--input-background-color;
     background-image: none;
     border-radius: $--input-border-radius;
-    border: $--input-border;
+    border: $--border-width-base $--border-style-base
+      var(--td-border-color-base);
     box-sizing: border-box;
-    color: $--input-font-color;
+    color: var(--td-color-text-regular);
     display: inline-block;
     font-size: inherit;
     height: $--input-height;
@@ -125,16 +127,16 @@
     }
 
     &::placeholder {
-      color: $--input-placeholder-color;
+      color: var(--td-color-text-placeholder);
     }
 
     &:hover {
-      border-color: $--input-hover-border;
+      border-color: var(--td-color-text-placeholder);
     }
 
     &:focus {
       outline: none;
-      border-color: $--input-focus-border;
+      border-color: var(--td-color-primary);
     }
   }
 
@@ -144,7 +146,7 @@
     right: 5px;
     top: 0;
     text-align: center;
-    color: $--input-icon-color;
+    color: var(--td-color-text-placeholder);
     transition: all 0.3s;
     pointer-events: none;
   }
@@ -159,7 +161,7 @@
     left: 5px;
     top: 0;
     text-align: center;
-    color: $--input-icon-color;
+    color: var(--td-color-text-placeholder);
     transition: all 0.3s;
   }
 
@@ -186,19 +188,19 @@
   @include when(active) {
     .td-input__inner {
       outline: none;
-      border-color: $--input-focus-border;
+      border-color: var(--td-color-primary);
     }
   }
 
   @include when(disabled) {
     .td-input__inner {
-      background-color: $--input-disabled-fill;
-      border-color: $--input-disabled-border;
-      color: $--input-disabled-color;
+      background-color: var(--td-background-color-base);
+      border-color: var(--td-border-color-light);
+      color: var(--td-color-text-placeholder);
       cursor: not-allowed;
 
       &::placeholder {
-        color: $--input-disabled-placeholder-color;
+        color: var(--td-color-text-placeholder);
       }
     }
 
@@ -209,12 +211,12 @@
 
   @include when(exceed) {
     .td-input__inner {
-      border-color: $--color-danger;
+      border-color: var(--td-color-danger);
     }
 
     .td-input__suffix {
       .td-input__count {
-        color: $--color-danger;
+        color: var(--td-color-danger);
       }
     }
   }
@@ -282,12 +284,13 @@
   }
 
   @include e((append, prepend)) {
-    background-color: $--background-color-base;
-    color: $--color-info;
+    background-color: var(--td-background-color-base);
+    color: var(--td-color-info);
     vertical-align: middle;
     display: table-cell;
     position: relative;
-    border: $--border-base;
+    border: $--border-width-base $--border-style-base
+      var(--td-border-color-base);
     border-radius: $--input-border-radius;
     padding: 0 20px;
     width: 1px;

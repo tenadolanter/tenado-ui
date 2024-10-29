@@ -25,7 +25,7 @@
     }
 
     &.selected {
-      box-shadow: 0 0 3px 2px $--color-primary;
+      box-shadow: 0 0 3px 2px var(--td-color-primary);
     }
 
     > div {
@@ -236,14 +236,14 @@
       cursor: not-allowed;
     }
     &:hover {
-      color: $--color-primary;
-      border-color: $--color-primary;
+      color: var(--td-color-primary);
+      border-color: var(--td-color-primary);
     }
   }
 
   @include e(link-btn) {
     cursor: pointer;
-    color: $--color-primary;
+    color: var(--td-color-primary);
     text-decoration: none;
     padding: 15px;
     font-size: 12px;
@@ -392,7 +392,7 @@
     padding: 6px;
     box-sizing: content-box;
     background-color: $--color-white;
-    border: 1px solid $--border-color-lighter;
+    border: 1px solid var(--td-border-color-lighter);
     border-radius: $--border-radius-base;
     box-shadow: $--dropdown-menu-box-shadow;
   }

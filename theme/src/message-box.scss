@@ -11,7 +11,7 @@
   vertical-align: middle;
   background-color: $--color-white;
   border-radius: $--msgbox-border-radius;
-  border: 1px solid $--border-color-lighter;
+  border: 1px solid var(--td-border-color-lighter);
   font-size: $--messagebox-font-size;
   box-shadow: $--box-shadow-light;
   text-align: left;
@@ -46,7 +46,7 @@
     margin-bottom: 0;
     font-size: $--messagebox-font-size;
     line-height: 1;
-    color: $--messagebox-title-color;
+    color: var(--td-color-text-primary);
   }
 
   @include e(headerbtn) {
@@ -61,20 +61,20 @@
     cursor: pointer;
 
     .td-message-box__close {
-      color: $--color-info;
+      color: var(--td-color-info);
     }
 
     &:focus,
     &:hover {
       .td-message-box__close {
-        color: $--color-primary;
+        color: var(--td-color-primary);
       }
     }
   }
 
   @include e(content) {
     padding: 10px $--msgbox-padding-primary;
-    color: $--messagebox-content-color;
+    color: var(--td-color-text-regular);
     font-size: $--messagebox-content-font-size;
   }
 
@@ -86,9 +86,9 @@
     padding-top: 15px;
 
     & input.invalid {
-      border-color: $--color-danger;
+      border-color: var(--td-color-danger);
       &:focus {
-        border-color: $--color-danger;
+        border-color: var(--td-color-danger);
       }
     }
   }
@@ -110,19 +110,19 @@
     }
 
     &.td-icon-success {
-      color: $--messagebox-success-color;
+      color: var(--td-color-success);
     }
 
     &.td-icon-info {
-      color: $--messagebox-info-color;
+      color: var(--td-color-info);
     }
 
     &.td-icon-warning {
-      color: $--messagebox-warning-color;
+      color: var(--td-color-warning);
     }
 
     &.td-icon-error {
-      color: $--messagebox-danger-color;
+      color: var(--td-color-danger);
     }
   }
 
@@ -136,7 +136,7 @@
   }
 
   @include e(errormsg) {
-    color: $--color-danger;
+    color: var(--td-color-danger);
     font-size: $--messagebox-error-font-size;
     min-height: 18px;
     margin-top: 2px;

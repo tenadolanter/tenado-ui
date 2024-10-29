@@ -1,5 +1,5 @@
-@import 'mixins/mixins';
-@import 'common/var';
+@import "mixins/mixins";
+@import "common/var";
 
 @include b(result) {
   display: flex;
@@ -23,7 +23,7 @@
     p {
       margin: 0;
       font-size: $--result-title-font-size;
-      color: $--color-text-primary;
+      color: var(--td-color-text-primary);
       line-height: 1.3;
     }
   }
@@ -34,7 +34,7 @@
     p {
       margin: 0;
       font-size: $--font-size-base;
-      color: $--color-text-regular;
+      color: var(--td-color-text-regular);
       line-height: 1.3;
     }
   }
@@ -44,18 +44,18 @@
   }
 
   .icon-success {
-    fill: $--result-success-color;
+    fill: var(--td-color-success);
   }
 
   .icon-error {
-    fill: $--result-danger-color;
+    fill: var(--td-color-danger);
   }
 
   .icon-info {
-    fill: $--result-info-color;
+    fill: var(--td-color-info);
   }
 
   .icon-warning {
-    fill: $--result-warning-color;
+    fill: var(--td-color-warning);
   }
 }

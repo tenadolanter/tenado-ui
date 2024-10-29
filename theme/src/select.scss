@@ -18,7 +18,7 @@
 
   &:hover {
     .td-input__inner {
-      border-color: $--select-border-color-hover;
+      border-color: var(--td-color-text-placeholder);
     }
   }
 
@@ -27,13 +27,13 @@
     padding-right: 35px;
 
     &:focus {
-      border-color: $--select-input-focus-border-color;
+      border-color: var(--td-color-primary);
     }
   }
 
   .td-input {
     & .td-select__caret {
-      color: $--select-input-color;
+      color: var(--td-color-text-placeholder);
       font-size: $--select-input-font-size;
       transition: transform 0.3s;
       transform: rotateZ(180deg);
@@ -48,11 +48,11 @@
         text-align: center;
         transform: rotateZ(180deg);
         border-radius: $--border-radius-circle;
-        color: $--select-input-color;
+        color: var(--td-color-text-placeholder);
         transition: $--color-transition-base;
 
         &:hover {
-          color: $--select-close-hover-color;
+          color: var(--td-color-text-secondary);
         }
       }
     }
@@ -62,13 +62,13 @@
         cursor: not-allowed;
 
         &:hover {
-          border-color: $--select-disabled-border;
+          border-color: var(--td-border-color-light);
         }
       }
     }
 
     &.is-focus .td-input__inner {
-      border-color: $--select-input-focus-border-color;
+      border-color: var(--td-color-primary);
     }
   }
 
@@ -97,12 +97,12 @@
     top: 8px;
     z-index: $--index-top;
     right: 25px;
-    color: $--select-input-color;
+    color: var(--td-color-text-placeholder);
     line-height: 18px;
     font-size: $--select-input-font-size;
 
     &:hover {
-      color: $--select-close-hover-color;
+      color: var(--td-color-text-secondary);
     }
   }
 
@@ -133,13 +133,13 @@
     align-items: center;
 
     &__close.td-icon-close {
-      background-color: $--color-text-placeholder;
+      background-color: var(--td-color-text-placeholder);
       top: 0;
       color: $--color-white;
       flex-shrink: 0;
 
       &:hover {
-        background-color: $--color-text-secondary;
+        background-color: var(--td-color-text-secondary);
       }
 
       &::before {

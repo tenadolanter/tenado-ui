@@ -5,7 +5,8 @@
   height: $--rate-height;
   line-height: 1;
 
-  &:focus, &:active {
+  &:focus,
+  &:active {
     outline-width: 0;
   }
 
@@ -21,8 +22,8 @@
     display: inline-block;
     font-size: $--rate-icon-size;
     margin-right: $--rate-icon-margin;
-    color: $--rate-icon-color;
-    transition: .3s;
+    color: var(--td-color-text-placeholder);
+    transition: 0.3s;
     &.hover {
       transform: scale(1.15);
     }

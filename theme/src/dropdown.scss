@@ -6,7 +6,7 @@
 @include b(dropdown) {
   display: inline-block;
   position: relative;
-  color: $--color-text-regular;
+  color: var(--td-color-text-regular);
   font-size: $--font-size-base;
 
   .td-button-group {
@@ -36,7 +36,7 @@
     }
 
     &.td-button--default::before {
-      background: mix($--button-default-border-color, transparent, 50%);
+      background: var(--td-border-color-base-transparent-5);
     }
 
     &:hover {
@@ -77,7 +77,7 @@
   padding: 10px 0;
   margin: 5px 0;
   background-color: $--color-white;
-  border: 1px solid $--border-color-lighter;
+  border: 1px solid var(--td-border-color-lighter);
   border-radius: $--border-radius-base;
   box-shadow: $--dropdown-menu-box-shadow;
 
@@ -87,13 +87,13 @@
     padding: 0 20px;
     margin: 0;
     font-size: $--font-size-base;
-    color: $--color-text-regular;
+    color: var(--td-color-text-regular);
     cursor: pointer;
     outline: none;
     &:not(.is-disabled):hover,
     &:focus {
-      background-color: $--dropdown-menuItem-hover-fill;
-      color: $--dropdown-menuItem-hover-color;
+      background-color: var(--td-color-primary-light-9);
+      color: var(--td-color-primary-light-2);
     }
 
     i {
@@ -105,7 +105,7 @@
 
       position: relative;
       margin-top: $divided-offset;
-      border-top: 1px solid $--border-color-lighter;
+      border-top: 1px solid var(--td-border-color-lighter);
 
       &:before {
         content: "";

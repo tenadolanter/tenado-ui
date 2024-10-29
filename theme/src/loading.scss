@@ -44,7 +44,7 @@
   position: absolute;
 
   .td-loading-text {
-    color: $--color-primary;
+    color: var(--td-color-primary);
     margin: 3px 0;
     font-size: 14px;
   }
@@ -60,12 +60,12 @@
     stroke-dasharray: 90, 150;
     stroke-dashoffset: 0;
     stroke-width: 2;
-    stroke: $--color-primary;
+    stroke: var(--td-color-primary);
     stroke-linecap: round;
   }
 
   i {
-    color: $--color-primary;
+    color: var(--td-color-primary);
   }
 }
 

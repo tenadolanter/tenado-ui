@@ -7,7 +7,7 @@
   padding: $--notification-padding;
   border-radius: $--notification-radius;
   box-sizing: border-box;
-  border: 1px solid $--notification-border-color;
+  border: 1px solid var(--td-border-color-lighter);
   position: fixed;
   background-color: $--color-white;
   box-shadow: $--notification-shadow;
@@ -31,7 +31,7 @@
   @include e(title) {
     font-weight: bold;
     font-size: $--notification-title-font-size;
-    color: $--notification-title-color;
+    color: var(--td-color-text-primary);
     margin: 0;
   }
 
@@ -39,7 +39,7 @@
     font-size: $--notification-content-font-size;
     line-height: 21px;
     margin: 6px 0 0 0;
-    color: $--notification-content-color;
+    color: var(--td-color-text-regular);
     text-align: justify;
 
     p {
@@ -58,28 +58,28 @@
     top: 18px;
     right: 15px;
     cursor: pointer;
-    color: $--notification-close-color;
+    color: var(--td-color-text-secondary);
     font-size: $--notification-close-font-size;
 
     &:hover {
-      color: $--notification-close-hover-color;
+      color: var(--td-color-text-regular);
     }
   }
 
   .td-icon-success {
-    color: $--notification-success-icon-color;
+    color: var(--td-color-success);
   }
 
   .td-icon-error {
-    color: $--notification-danger-icon-color;
+    color: var(--td-color-danger);
   }
 
   .td-icon-info {
-    color: $--notification-info-icon-color;
+    color: var(--td-color-info);
   }
 
   .td-icon-warning {
-    color: $--notification-warning-icon-color;
+    color: var(--td-color-warning);
   }
 }
 

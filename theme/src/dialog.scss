@@ -47,13 +47,13 @@
     font-size: $--message-close-size;
 
     .td-dialog__close {
-      color: $--color-info;
+      color: var(--td-color-info);
     }
 
     &:focus,
     &:hover {
       .td-dialog__close {
-        color: $--color-primary;
+        color: var(--td-color-primary);
       }
     }
   }
@@ -61,12 +61,12 @@
   @include e(title) {
     line-height: $--dialog-font-line-height;
     font-size: $--dialog-title-font-size;
-    color: $--color-text-primary;
+    color: var(--td-color-text-primary);
   }
 
   @include e(body) {
     padding: ($--dialog-padding-primary + 10px) $--dialog-padding-primary;
-    color: $--color-text-regular;
+    color: var(--td-color-text-regular);
     font-size: $--dialog-content-font-size;
     word-break: break-all;
   }

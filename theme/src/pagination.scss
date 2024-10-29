@@ -6,7 +6,7 @@
 @include b(pagination) {
   white-space: nowrap;
   padding: 2px 5px;
-  color: $--pagination-font-color;
+  color: var(--td-color-text-primary);
   font-weight: bold;
   @include utils-clearfix;
 
@@ -53,11 +53,11 @@
     }
 
     &:hover {
-      color: $--pagination-hover-color;
+      color: var(--td-color-primary);
     }
 
     &:disabled {
-      color: $--pagination-button-disabled-color;
+      color: var(--td-color-text-placeholder);
       background-color: $--pagination-button-disabled-background-color;
       cursor: not-allowed;
     }
@@ -70,7 +70,7 @@
     background-color: $--pagination-background-color;
     cursor: pointer;
     margin: 0;
-    color: $--pagination-button-color;
+    color: var(--td-color-text-primary);
 
     .td-icon {
       display: block;
@@ -88,7 +88,7 @@
   }
 
   .td-pager li.disabled {
-    color: $--color-text-placeholder;
+    color: var(--td-color-text-placeholder);
     cursor: not-allowed;
   }
 
@@ -132,14 +132,14 @@
   @include e(sizes) {
     margin: 0 10px 0 0;
     font-weight: normal;
-    color: $--color-text-regular;
+    color: var(--td-color-text-regular);
 
     .td-input .td-input__inner {
       font-size: $--pagination-font-size;
       padding-left: 8px;
 
       &:hover {
-        border-color: $--pagination-hover-color;
+        border-color: var(--td-color-primary);
       }
     }
   }
@@ -147,13 +147,13 @@
   @include e(total) {
     margin-right: 10px;
     font-weight: normal;
-    color: $--color-text-regular;
+    color: var(--td-color-text-regular);
   }
 
   @include e(jump) {
     margin-left: 24px;
     font-weight: normal;
-    color: $--color-text-regular;
+    color: var(--td-color-text-regular);
 
     .td-input__inner {
       padding: 0 3px;
@@ -194,13 +194,13 @@
     .btn-next,
     .td-pager li {
       margin: 0 5px;
-      background-color: $--color-info-lighter;
-      color: $--color-text-regular;
+      background-color: var(--td-color-info-light-9);
+      color: var(--td-color-text-regular);
       min-width: 30px;
       border-radius: 2px;
 
       &.disabled {
-        color: $--color-text-placeholder;
+        color: var(--td-color-text-placeholder);
       }
     }
 
@@ -209,17 +209,17 @@
       padding: 0;
 
       &:disabled {
-        color: $--color-text-placeholder;
+        color: var(--td-color-text-placeholder);
       }
     }
 
     .td-pager li:not(.disabled) {
       &:hover {
-        color: $--pagination-hover-color;
+        color: var(--td-color-primary);
       }
 
       &.active {
-        background-color: $--color-primary;
+        background-color: var(--td-color-primary);
         color: $--color-white;
       }
     }
@@ -265,10 +265,10 @@
     &.btn-quicknext,
     &.btn-quickprev {
       line-height: 28px;
-      color: $--pagination-button-color;
+      color: var(--td-color-text-primary);
 
       &.disabled {
-        color: $--color-text-placeholder;
+        color: var(--td-color-text-placeholder);
       }
     }
 
@@ -285,11 +285,11 @@
     }
 
     &:hover {
-      color: $--pagination-hover-color;
+      color: var(--td-color-primary);
     }
 
     &.active {
-      color: $--pagination-hover-color;
+      color: var(--td-color-primary);
       cursor: default;
     }
   }

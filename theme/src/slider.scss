@@ -11,7 +11,7 @@
     width: 100%;
     height: $--slider-height;
     margin: $--slider-margin;
-    background-color: $--slider-runway-background-color;
+    background-color: var(--td-border-color-light);
     border-radius: $--slider-border-radius;
     position: relative;
     cursor: pointer;
@@ -26,11 +26,11 @@
       cursor: default;
 
       .td-slider__bar {
-        background-color: $--slider-disable-color;
+        background-color: var(--td-color-text-placeholder);
       }
 
       .td-slider__button {
-        border-color: $--slider-disable-color;
+        border-color: var(--td-color-text-placeholder);
       }
 
       .td-slider__button-wrapper {
@@ -83,7 +83,7 @@
 
   @include e(bar) {
     height: $--slider-height;
-    background-color: $--slider-main-background-color;
+    background-color: var(--td-color-primary);
     border-top-left-radius: $--slider-border-radius;
     border-bottom-left-radius: $--slider-border-radius;
     position: absolute;
@@ -120,7 +120,7 @@
   @include e(button) {
     width: $--slider-button-size;
     height: $--slider-button-size;
-    border: solid 2px $--slider-main-background-color;
+    border: solid 2px var(--td-color-primary);
     background-color: $--color-white;
     border-radius: 50%;
     transition: 0.2s;
@@ -161,7 +161,7 @@
       position: absolute;
       transform: translateX(-50%);
       font-size: 14px;
-      color: $--color-info;
+      color: var(--td-color-info);
       margin-top: 15px;
     }
   }
@@ -204,7 +204,8 @@
         .td-input-number__increase {
           top: $--input-small-height;
           margin-top: -1px;
-          border: $--input-border;
+          border: $--border-width-base $--border-style-base
+            var(--td-border-color-base);
           line-height: 20px;
           box-sizing: border-box;
           transition: $--border-transition-base;
@@ -225,13 +226,13 @@
         &:hover {
           .td-input-number__decrease,
           .td-input-number__increase {
-            border-color: $--input-hover-border;
+            border-color: var(--td-color-text-placeholder);
           }
         }
         &:active {
           .td-input-number__decrease,
           .td-input-number__increase {
-            border-color: $--input-focus-border;
+            border-color: var(--td-color-primary);
           }
         }
       }

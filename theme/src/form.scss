@@ -97,7 +97,7 @@
     vertical-align: middle;
     float: left;
     font-size: $--form-label-font-size;
-    color: $--color-text-regular;
+    color: var(--td-color-text-regular);
     line-height: 40px;
     padding: 0 12px 0 0;
     box-sizing: border-box;
@@ -113,7 +113,7 @@
     }
   }
   @include e(error) {
-    color: $--color-danger;
+    color: var(--td-color-danger);
     font-size: 12px;
     line-height: 1;
     padding-top: 4px;
@@ -135,7 +135,7 @@
       & > .td-form-item__label:before,
       & .td-form-item__label-wrap > .td-form-item__label:before {
         content: "*";
-        color: $--color-danger;
+        color: var(--td-color-danger);
         margin-right: 4px;
       }
     }
@@ -146,7 +146,7 @@
     & .td-textarea__inner {
       &,
       &:focus {
-        border-color: $--color-danger;
+        border-color: var(--td-color-danger);
       }
     }
     & .td-input-group__append,
@@ -156,7 +156,7 @@
       }
     }
     .td-input__validateIcon {
-      color: $--color-danger;
+      color: var(--td-color-danger);
     }
   }
 

@@ -24,7 +24,7 @@
         right: $gap;
         bottom: 12px;
         height: 1px;
-        background: $--border-color-light;
+        background: var(--td-border-color-light);
       }
     }
   }
@@ -32,7 +32,7 @@
   @include e(title) {
     padding-left: $gap;
     font-size: $--select-group-font-size;
-    color: $--select-group-color;
+    color: var(--td-color-info);
     line-height: $--select-group-height;
   }
 

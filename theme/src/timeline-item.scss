@@ -15,7 +15,7 @@
     position: absolute;
     left: 4px;
     height: 100%;
-    border-left: 2px solid $--timeline-node-color;
+    border-left: 2px solid var(--td-border-color-light);
   }
 
   @include e(icon) {
@@ -25,7 +25,7 @@
 
   @include e(node) {
     position: absolute;
-    background-color: $--timeline-node-color;
+    background-color: var(--td-border-color-light);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -43,19 +43,19 @@
     }
 
     @include m(primary) {
-      background-color: $--color-primary;
+      background-color: var(--td-color-primary);
     }
     @include m(success) {
-      background-color: $--color-success;
+      background-color: var(--td-color-success);
     }
     @include m(warning) {
-      background-color: $--color-warning;
+      background-color: var(--td-color-warning);
     }
     @include m(danger) {
-      background-color: $--color-danger;
+      background-color: var(--td-color-danger);
     }
     @include m(info) {
-      background-color: $--color-info;
+      background-color: var(--td-color-info);
     }
   }
 
@@ -67,11 +67,11 @@
   }
 
   @include e(content) {
-    color: $--color-text-primary;
+    color: var(--td-color-text-primary);
   }
 
   @include e(timestamp) {
-    color: $--color-text-secondary;
+    color: var(--td-color-text-secondary);
     line-height: 1;
     font-size: $--font-size-small;
 

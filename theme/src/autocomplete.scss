@@ -14,7 +14,7 @@
   margin: 5px 0;
   box-shadow: $--box-shadow-light;
   border-radius: $--border-radius-base;
-  border: 1px solid $--border-color-light;
+  border: 1px solid var(--td-border-color-light);
   box-sizing: border-box;
   background-color: $--color-white;
 
@@ -34,7 +34,7 @@
     margin: 0;
     line-height: 34px;
     cursor: pointer;
-    color: $--color-text-regular;
+    color: var(--td-color-text-regular);
     font-size: $--font-size-base;
     list-style: none;
     white-space: nowrap;
@@ -42,11 +42,11 @@
     text-overflow: ellipsis;
 
     &:hover {
-      background-color: $--select-option-hover-background;
+      background-color: var(--td-background-color-base);
     }
 
     &.highlighted {
-      background-color: $--select-option-hover-background;
+      background-color: var(--td-background-color-base);
     }
 
     &.divider {

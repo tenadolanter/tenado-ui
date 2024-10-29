@@ -1,14 +1,6 @@
 @import "mixins/mixins";
 @import "common/var";
 
-$typeMap: (
-  primary: $--link-primary-font-color,
-  danger: $--link-danger-font-color,
-  success: $--link-success-font-color,
-  warning: $--link-warning-font-color,
-  info: $--link-info-font-color,
-);
-
 @include b(link) {
   display: inline-flex;
   flex-direction: row;
@@ -31,7 +23,7 @@ $typeMap: (
       right: 0;
       height: 0;
       bottom: 0;
-      border-bottom: 1px solid $--link-default-active-color;
+      border-bottom: 1px solid var(--td-color-primary);
     }
   }
 
@@ -46,34 +38,99 @@ $typeMap: (
   }
 
   &.td-link--default {
-    color: $--link-default-font-color;
+    color: var(--td-color-text-regular);
     &:hover {
-      color: $--link-default-active-color;
+      color: var(--td-color-primary);
     }
     &:after {
-      border-color: $--link-default-active-color;
+      border-color: var(--td-color-primary);
     }
     @include when(disabled) {
-      color: $--link-disabled-font-color;
+      color: var(--td-color-text-placeholder);
     }
   }
-
-  @each $type, $primaryColor in $typeMap {
-    &.td-link--#{$type} {
-      color: $primaryColor;
-      &:hover {
-        color: mix($primaryColor, $--color-white, 80%);
+  &.td-link--primary {
+    color: var(--td-color-primary);
+    &:hover {
+      color: var(--td-color-primary-light-2);
+    }
+    &:after {
+      border-color: var(--td-color-primary);
+    }
+    @include when(disabled) {
+      color: var(--td-color-primary-light-5);
+    }
+    @include when(underline) {
+      &:hover:after {
+        border-color: var(--td-color-primary);
       }
-      &:after {
-        border-color: $primaryColor;
+    }
+  }
+  &.td-link--danger {
+    color: var(--td-color-danger);
+    &:hover {
+      color: var(--td-color-danger-light-2);
+    }
+    &:after {
+      border-color: var(--td-color-danger);
+    }
+    @include when(disabled) {
+      color: var(--td-color-danger-light-5);
+    }
+    @include when(underline) {
+      &:hover:after {
+        border-color: var(--td-color-danger);
       }
-      @include when(disabled) {
-        color: mix($primaryColor, $--color-white, 50%);
+    }
+  }
+  &.td-link--success {
+    color: var(--td-color-success);
+    &:hover {
+      color: var(--td-color-success-light-2);
+    }
+    &:after {
+      border-color: var(--td-color-success);
+    }
+    @include when(disabled) {
+      color: var(--td-color-success-light-5);
+    }
+    @include when(underline) {
+      &:hover:after {
+        border-color: var(--td-color-success);
       }
-      @include when(underline) {
-        &:hover:after {
-          border-color: $primaryColor;
-        }
+    }
+  }
+  &.td-link--warning {
+    color: var(--td-color-warning);
+    &:hover {
+      color: var(--td-color-warning-light-2);
+    }
+    &:after {
+      border-color: var(--td-color-warning);
+    }
+    @include when(disabled) {
+      color: var(--td-color-warning-light-5);
+    }
+    @include when(underline) {
+      &:hover:after {
+        border-color: var(--td-color-warning);
+      }
+    }
+  }
+  &.td-link--info {
+    color: var(--td-color-info);
+    &:hover {
+      color: var(--td-color-info-light-2);
+    }
+    &:after {
+      border-color: var(--td-color-info);
+    }
+    @include when(disabled) {
+      color: var(--td-color-info-light-5);
+    }
+    @include when(underline) {
+      &:hover:after {
+        border-color: var(--td-color-info);
       }
     }
   }

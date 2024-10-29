@@ -21,17 +21,17 @@
 }
 
 .time-select-item.selected:not(.disabled) {
-  color: $--color-primary;
+  color: var(--td-color-primary);
   font-weight: bold;
 }
 
 .time-select-item.disabled {
-  color: $--datepicker-border-color;
+  color: var(--td-border-color-light);
   cursor: not-allowed;
 }
 
 .time-select-item:hover {
-  background-color: $--background-color-base;
+  background-color: var(--td-background-color-base);
   font-weight: bold;
   cursor: pointer;
 }

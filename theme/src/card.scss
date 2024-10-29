@@ -3,10 +3,10 @@
 
 @include b(card) {
   border-radius: $--card-border-radius;
-  border: 1px solid $--card-border-color;
+  border: 1px solid var(--td-border-color-lighter);
   background-color: $--color-white;
   overflow: hidden;
-  color: $--color-text-primary;
+  color: var(--td-color-text-primary);
   transition: 0.3s;
 
   @include when(always-shadow) {
@@ -22,7 +22,7 @@
 
   @include e(header) {
     padding: #{$--card-padding - 2 $--card-padding};
-    border-bottom: 1px solid $--card-border-color;
+    border-bottom: 1px solid var(--td-border-color-lighter);
     box-sizing: border-box;
   }
 

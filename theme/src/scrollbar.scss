@@ -34,11 +34,11 @@
     height: 0;
     cursor: pointer;
     border-radius: inherit;
-    background-color: $--scrollbar-background-color;
+    background-color: var(--td-color-text-secondary-alpha-3);
     transition: 0.3s background-color;
 
     &:hover {
-      background-color: $--scrollbar-hover-background-color;
+      background-color: var(--td-color-text-secondary-alpha-5);
     }
   }
 
