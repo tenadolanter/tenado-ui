@@ -148,7 +148,7 @@
     }
 
     &:hover {
-      color: #409eff;
+      color: var(--td-color-primary);
       background-color: #f9fafc;
     }
 

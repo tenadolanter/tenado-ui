@@ -7,12 +7,12 @@ import routes from "./route.config";
 import demoBlock from "./components/demo-block";
 import SideNav from "./components/side-nav";
 
+import "@tenado/icons/lib/index.min.css";
 import "theme/src/index.scss";
 import "./demo-styles/index.scss";
 import "./assets/styles/common.css";
-import "./assets/styles/fonts/style.css";
-import "@tenado/icons/lib/index.min.css";
 import icon from "@tenado/icons/lib/config.json";
+import theme from "./theme.js";
 
 Vue.use(Element);
 Vue.use(VueRouter);
@@ -35,6 +35,8 @@ Vue.mixin({
 });
 
 Vue.prototype.$icon = icon; // Icon 列表页用
+
+Vue.prototype.$theme = theme;
 
 const router = new VueRouter({
   mode: "hash",

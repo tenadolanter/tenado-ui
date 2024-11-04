@@ -92,7 +92,7 @@
     overflow: hidden;
   }
   .avatar-uploader .td-upload:hover {
-    border-color: #409eff;
+    border-color: var(--td-color-primary);
   }
   .avatar-uploader-icon {
     font-size: 28px;

@@ -120,5 +120,5 @@
 }
 
 .td-tree--highlight-current .td-tree-node.is-current > .td-tree-node__content {
-  background-color: mix($--color-white, $--color-primary, 92%);
+  background-color: var(--td-color-primary-light-9);
 }

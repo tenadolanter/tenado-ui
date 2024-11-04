@@ -15,15 +15,11 @@ a {
 
   &:hover,
   &:focus {
-    color: mix($--color-white, $--color-primary, $--button-hover-tint-percent);
+    color: var(--td-color-primary-light-2);
   }
 
   &:active {
-    color: mix(
-      $--color-black,
-      $--color-primary,
-      $--button-active-shade-percent
-    );
+    color: var(--td-color-primary-dark-1);
   }
 }
 

@@ -40,7 +40,7 @@ html, body {
 }
 
 a {
-  color: #409EFF;
+  color: var(--td-color-primary);
   text-decoration: none;
 }
 

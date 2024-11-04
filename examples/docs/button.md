@@ -40,7 +40,7 @@
   <td-button icon="td-icon-search" circle></td-button>
   <td-button type="primary" icon="td-icon-edit" circle></td-button>
   <td-button type="success" icon="td-icon-check" circle></td-button>
-  <td-button type="info" icon="td-icon-message" circle></td-button>
+  <td-button type="info" icon="td-icon-mail-outline" circle></td-button>
   <td-button type="warning" icon="td-icon-star-off" circle></td-button>
   <td-button type="danger" icon="td-icon-delete" circle></td-button>
 </td-row>

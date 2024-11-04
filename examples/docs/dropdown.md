@@ -25,7 +25,7 @@
 <style>
   .td-dropdown-link {
     cursor: pointer;
-    color: #409eff;
+    color: var(--td-color-primary);
   }
   .td-icon-arrow-down {
     font-size: 12px;
@@ -137,7 +137,7 @@
 <style>
   .td-dropdown-link {
     cursor: pointer;
-    color: #409eff;
+    color: var(--td-color-primary);
   }
   .td-icon-arrow-down {
     font-size: 12px;
@@ -176,7 +176,7 @@
 <style>
   .td-dropdown-link {
     cursor: pointer;
-    color: #409eff;
+    color: var(--td-color-primary);
   }
   .td-icon-arrow-down {
     font-size: 12px;
@@ -209,7 +209,7 @@
 <style>
   .td-dropdown-link {
     cursor: pointer;
-    color: #409eff;
+    color: var(--td-color-primary);
   }
   .td-icon-arrow-down {
     font-size: 12px;

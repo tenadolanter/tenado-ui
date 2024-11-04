@@ -42,6 +42,8 @@
   --td-color-primary-light-9: #ecf5ff;
   // mix('#000000', var(--td-color-primary), 0.1)
   --td-color-primary-dark-1: #3a8ee6;
+  // tint(var(--td-color-primary), 0.2)
+  --td-color-primary-tint-2: #66b1ff;
 
   // mix('#ffffff', var(--td-color-success), 0.2)
   --td-color-success-light-1: #76c84e;

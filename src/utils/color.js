@@ -52,3 +52,22 @@ export const rgba = (hex, alpha) => {
   // 返回 RGBA 字符串
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 };
+
+/**
+ * 变亮 hex 格式颜色
+ */
+export const tint = (hex, amount) => {
+  let r = parseInt(hex.slice(1, 3), 16);
+  let g = parseInt(hex.slice(3, 5), 16);
+  let b = parseInt(hex.slice(5, 7), 16);
+  // 混合颜色，amount 是白色的混合比例（0 - 100）
+  r = Math.round(r + (255 - r) * amount);
+  g = Math.round(g + (255 - g) * amount);
+  b = Math.round(b + (255 - b) * amount);
+
+  // 将 RGB 转换回十六进制颜色
+  return `#${((1 << 24) | (r << 16) | (g << 8) | b)
+    .toString(16)
+    .slice(1)
+    .toUpperCase()}`;
+};

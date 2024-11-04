@@ -41,7 +41,7 @@
       font-weight: bold;
 
       &.active {
-        color: #409eff;
+        color: var(--td-color-primary);
       }
     }
 
@@ -59,7 +59,7 @@
 
         &:hover,
         &.active {
-          color: #409eff;
+          color: var(--td-color-primary);
         }
       }
     }

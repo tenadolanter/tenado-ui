@@ -45,6 +45,7 @@ import Notification from '../packages/notification/index.js';
 import Slider from '../packages/slider/index.js';
 import Loading from '../packages/loading/index.js';
 import Icon from '../packages/icon/index.js';
+import IconPicker from '../packages/icon-picker/index.js';
 import Row from '../packages/row/index.js';
 import Col from '../packages/col/index.js';
 import Upload from '../packages/upload/index.js';
@@ -135,6 +136,7 @@ const components = [
   Alert,
   Slider,
   Icon,
+  IconPicker,
   Row,
   Col,
   Upload,
@@ -212,7 +214,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '1.0.4',
+  version: '1.0.5',
   locale: locale.use,
   i18n: locale.i18n,
   install,
@@ -262,6 +264,7 @@ export default {
   Notification,
   Slider,
   Icon,
+  IconPicker,
   Row,
   Col,
   Upload,

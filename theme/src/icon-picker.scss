@@ -1,0 +1,26 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(icon-picker) {
+  position: relative;
+  font-size: $--font-size-base;
+  display: inline-block;
+  width: 100%;
+  @include e(inner) {
+    background-color: $--input-background-color;
+    background-image: none;
+    border-radius: $--input-border-radius;
+    border: $--border-width-base $--border-style-base
+      var(--td-border-color-base);
+    box-sizing: border-box;
+    color: var(--td-color-text-regular);
+    display: inline-block;
+    font-size: inherit;
+    height: $--input-height;
+    line-height: $--input-height;
+    outline: none;
+    padding: 0 15px;
+    transition: $--border-transition-base;
+    width: 100%;
+  }
+}
