@@ -11,6 +11,7 @@
   "scripts": {
     "dev": "npm run build:file && cross-env NODE_ENV=development webpack-dev-server --config build/webpack.demo.js",
     "clean": "rimraf lib && rimraf packages/*/lib",
+    "format": "prettier --write \"packages/**/*.{js,vue,css,scss,html}\"",
     "build:file": "node build/bin/iconInit.js & node build/bin/build-entry.js",
     "build:theme": "node build/bin/gen-cssfile && gulp build --gulpfile theme/gulpfile.js && cp-cli theme/lib lib/theme",
     "build:utils": "cross-env BABEL_ENV=utils babel src --out-dir lib --ignore src/index.js",

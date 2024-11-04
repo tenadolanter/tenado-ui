@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "strict": true,
+    "lib": ["DOM", "ESNext"],
+    "resolveJsonModule": true
+  },
+  "include": ["src", "packages"],
+  "exclude": ["node_modules", "dist", "lib"]
+}
