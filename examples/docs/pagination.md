@@ -53,7 +53,44 @@
 :::demo 只需要一个`small`属性，它接受一个`Boolean`，默认为`false`，设为`true`即可启用。
 
 ```html
-<td-pagination small layout="prev, pager, next" :total="50"> </td-pagination>
+<template>
+  <div class="block">
+    <td-pagination small layout="prev, pager, next" :total="50">
+    </td-pagination>
+  </div>
+  <div class="block">
+    <td-pagination
+      small
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+      :current-page="currentPage4"
+      :page-size="100"
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="400"
+    >
+    </td-pagination>
+  </div>
+</template>
+<script>
+  export default {
+    methods: {
+      handleSizeChange(val) {
+        console.log(`每页 ${val} 条`);
+      },
+      handleCurrentChange(val) {
+        console.log(`当前页: ${val}`);
+      },
+    },
+    data() {
+      return {
+        currentPage1: 5,
+        currentPage2: 5,
+        currentPage3: 5,
+        currentPage4: 4,
+      };
+    },
+  };
+</script>
 ```
 
 :::
