@@ -80,6 +80,7 @@ import { valueEquals } from "@tenado/ui/src/utils/util";
 import TdInput from "@tenado/ui/packages/input";
 import TdScrollbar from "@tenado/ui/packages/scrollbar";
 import TdIconPickerDropdown from "./picker-dropdown.vue";
+import { t } from "@tenado/ui/src/locale";
 export default {
   name: "TdIconPicker",
   mixins: [Emitter, Locale, Focus("reference")],
@@ -104,7 +105,7 @@ export default {
     placeholder: {
       type: String,
       required: false,
-      default: () => this.t("el.select.placeholder"),
+      default: () => t("el.select.placeholder"),
     },
     size: String,
     disabled: Boolean,
