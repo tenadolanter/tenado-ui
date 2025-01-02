@@ -9,7 +9,6 @@
 ```html
 <template>
   <td-icon-picker
-    style="width: 100%"
     v-model="value"
     :options="options"
     placeholder="请选择"

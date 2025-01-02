@@ -15,6 +15,8 @@
       :readonly="true"
       @focus="handleFocus"
       @blur="handleBlur"
+      @mouseenter.native="inputHovering = true"
+      @mouseleave.native="inputHovering = false"
     >
       <template slot="prepend">
         <i v-if="value" :class="value"></i>
@@ -35,11 +37,7 @@
         ></i>
       </template>
     </td-input>
-    <transition
-      name="td-zoom-in-top"
-      @before-enter="handleMenuEnter"
-      @after-leave="doDestroy"
-    >
+    <transition name="td-zoom-in-top" @after-leave="doDestroy">
       <TdIconPickerDropdown
         ref="popper"
         :append-to-body="popperAppendToBody"
@@ -131,7 +129,12 @@ export default {
       return this.disabled || (this.elForm || {}).disabled;
     },
     showClose() {
-      return this.value !== "" && !this.iconPickerDisabled && this.clearable;
+      return (
+        this.value !== "" &&
+        !this.iconPickerDisabled &&
+        this.clearable &&
+        this.inputHovering
+      );
     },
     iconClass() {
       return this.visible ? "arrow-up is-reverse" : "arrow-up";
@@ -142,6 +145,7 @@ export default {
       visible: false,
       softFocus: false,
       menuVisibleOnFocus: false,
+      inputHovering: false,
     };
   },
   watch: {
@@ -180,7 +184,6 @@ export default {
     handleBlur() {
       this.softFocus = false;
     },
-    handleMenuEnter() {},
     doDestroy() {
       this.$refs.popper && this.$refs.popper.doDestroy();
     },

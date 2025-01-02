@@ -5,6 +5,7 @@
 @include b(icon-picker) {
   display: inline-block;
   position: relative;
+  width: 100%;
 
   &:hover {
     .td-input__inner {
