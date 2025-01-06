@@ -76,6 +76,10 @@
             "title": "Select 选择器"
           },
           {
+            "path": "/tree-select",
+            "title": "TreeSelect 树形下拉框控件"
+          },
+          {
             "path": "/cascader",
             "title": "Cascader 级联选择器"
           },
