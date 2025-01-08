@@ -138,8 +138,14 @@
     }
 
     @include e((increase, decrease)) {
+      border: none;
+      width: 14px;
+      right: 8px;
+      top: auto;
+      left: auto;
+      bottom: auto;
       height: auto;
-      line-height: calc(($--input-height - 2px) / 2);
+      line-height: calc(($--input-height - 16px) / 2);
 
       [class*="td-icon"] {
         transform: scale(0.8);
@@ -147,40 +153,45 @@
     }
 
     @include e(increase) {
-      border-radius: 0 $--border-radius-base 0 0;
-      border-bottom: $--border-width-base $--border-style-base
-        var(--td-border-color-base);
+      top: 8px;
+      border-radius: $--border-radius-base $--border-radius-base 0 0;
     }
 
     @include e(decrease) {
-      right: 1px;
-      bottom: 1px;
-      top: auto;
-      left: auto;
-      border-right: none;
-      border-left: $--border-width-base $--border-style-base
-        var(--td-border-color-base);
-      border-radius: 0 0 $--border-radius-base 0;
+      bottom: 8px;
+      border-radius: 0 0 $--border-radius-base $--border-radius-base;
     }
 
     &[class*="medium"] {
-      [class*="increase"],
+      [class*="increase"] {
+        top: 6px;
+        line-height: calc(($--input-medium-height - 16px) / 2);
+      }
       [class*="decrease"] {
-        line-height: calc(($--input-medium-height - 2px) / 2);
+        bottom: 6px;
+        line-height: calc(($--input-medium-height - 16px) / 2);
       }
     }
 
     &[class*="small"] {
-      [class*="increase"],
+      [class*="increase"] {
+        top: 4px;
+        line-height: calc(($--input-small-height - 16px) / 2);
+      }
       [class*="decrease"] {
-        line-height: calc(($--input-small-height - 2px) / 2);
+        bottom: 4px;
+        line-height: calc(($--input-small-height - 16px) / 2);
       }
     }
 
     &[class*="mini"] {
-      [class*="increase"],
+      [class*="increase"] {
+        top: 2px;
+        line-height: calc(($--input-mini-height - 16px) / 2);
+      }
       [class*="decrease"] {
-        line-height: calc(($--input-mini-height - 2px) / 2);
+        bottom: 2px;
+        line-height: calc(($--input-mini-height - 16px) / 2);
       }
     }
   }

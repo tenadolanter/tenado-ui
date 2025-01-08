@@ -166,7 +166,7 @@
 <template>
   <td-input-number
     v-model="num"
-    controls-position="right"
+    controls-position=""
     @change="handleChange"
     :min="1"
     :max="10"
@@ -203,7 +203,7 @@
 | size              | 计数器尺寸               | string  | large, small | —         |
 | disabled          | 是否禁用计数器           | boolean | —            | false     |
 | controls          | 是否使用控制按钮         | boolean | —            | true      |
-| controls-position | 控制按钮位置             | string  | right        | -         |
+| controls-position | 控制按钮位置             | string  | -            | right     |
 | name              | 原生属性                 | string  | —            | —         |
 | label             | 输入框关联的 label 文字  | string  | —            | —         |
 | placeholder       | 输入框默认 placeholder   | string  | -            | -         |

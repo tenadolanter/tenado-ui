@@ -97,7 +97,7 @@ export default {
     },
     controlsPosition: {
       type: String,
-      default: "",
+      default: "right",
     },
     name: String,
     label: String,
