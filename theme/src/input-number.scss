@@ -29,7 +29,7 @@
     background: var(--td-background-color-base);
     color: var(--td-color-text-regular);
     cursor: pointer;
-    font-size: 13px;
+    font-size: $--input-font-size;
 
     &:hover {
       color: var(--td-color-primary);
