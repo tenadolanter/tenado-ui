@@ -8,6 +8,7 @@
           {
             "loose": true,
             "modules": "commonjs",
+            "absoluteRuntime": false,
             "targets": {
               "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
             }
@@ -20,7 +21,7 @@
           {
             "root": ["@tenado/ui"],
             "alias": {
-              "@tenado/ui/src": "./src"
+              "@tenado/ui/src": "@tenado/ui/lib"
             }
           }
         ]
