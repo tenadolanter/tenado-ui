@@ -10,8 +10,7 @@
         'td-input-group--append': $slots.append,
         'td-input-group--prepend': $slots.prepend,
         'td-input--prefix': $slots.prefix || prefixIcon,
-        'td-input--suffix':
-          $slots.suffix || suffixIcon || clearable || showPassword,
+        'td-input--suffix': $slots.suffix || suffixIcon || clearable,
       },
     ]"
     @mouseenter="hovering = true"
@@ -27,7 +26,7 @@
         v-if="type !== 'textarea'"
         class="td-input__inner"
         v-bind="$attrs"
-        :type="showPassword ? (passwordVisible ? 'text' : 'password') : type"
+        :type="type"
         :disabled="inputDisabled"
         :readonly="readonly"
         :autocomplete="autoComplete || autocomplete"
@@ -49,7 +48,7 @@
       <!-- 后置内容 -->
       <span class="td-input__suffix" v-if="getSuffixVisible()">
         <span class="td-input__suffix-inner">
-          <template v-if="!showClear || !showPwdVisible || !isWordLimitVisible">
+          <template v-if="!showClear || !isWordLimitVisible">
             <slot name="suffix"></slot>
             <i class="td-input__icon" v-if="suffixIcon" :class="suffixIcon">
             </i>
@@ -59,11 +58,6 @@
             class="td-input__icon td-icon-circle-close td-input__clear"
             @mousedown.prevent
             @click="clear"
-          ></i>
-          <i
-            v-if="showPwdVisible"
-            class="td-input__icon td-icon-eye td-input__clear"
-            @click="handlePasswordVisible"
           ></i>
           <span v-if="isWordLimitVisible" class="td-input__count">
             <span class="td-input__count-inner">
@@ -141,7 +135,6 @@ export default {
       hovering: false,
       focused: false,
       isComposing: false,
-      passwordVisible: false,
     };
   },
 
@@ -183,10 +176,6 @@ export default {
     prefixIcon: String,
     label: String,
     clearable: {
-      type: Boolean,
-      default: false,
-    },
-    showPassword: {
       type: Boolean,
       default: false,
     },
@@ -237,22 +226,13 @@ export default {
         (this.focused || this.hovering)
       );
     },
-    showPwdVisible() {
-      return (
-        this.showPassword &&
-        !this.inputDisabled &&
-        !this.readonly &&
-        (!!this.nativeInputValue || this.focused)
-      );
-    },
     isWordLimitVisible() {
       return (
         this.showWordLimit &&
         this.$attrs.maxlength &&
         (this.type === "text" || this.type === "textarea") &&
         !this.inputDisabled &&
-        !this.readonly &&
-        !this.showPassword
+        !this.readonly
       );
     },
     upperLimit() {
@@ -424,12 +404,6 @@ export default {
       this.$emit("change", "");
       this.$emit("clear");
     },
-    handlePasswordVisible() {
-      this.passwordVisible = !this.passwordVisible;
-      this.$nextTick(() => {
-        this.focus();
-      });
-    },
     getInput() {
       return this.$refs.input || this.$refs.textarea;
     },
@@ -438,7 +412,6 @@ export default {
         this.$slots.suffix ||
         this.suffixIcon ||
         this.showClear ||
-        this.showPassword ||
         this.isWordLimitVisible ||
         (this.validateState && this.needStatusIcon)
       );

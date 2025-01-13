@@ -70,26 +70,6 @@ Input 为受控组件，它**总会显示 Vue 绑定值**。
 
 :::
 
-### 密码框
-
-:::demo 使用`show-password`属性即可得到一个可切换显示隐藏的密码框
-
-```html
-<td-input placeholder="请输入密码" v-model="input" show-password></td-input>
-
-<script>
-  export default {
-    data() {
-      return {
-        input: "",
-      };
-    },
-  };
-</script>
-```
-
-:::
-
 ### 带 icon 的输入框
 
 带有图标标记输入类型
