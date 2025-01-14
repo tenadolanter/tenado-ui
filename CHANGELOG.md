@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.0.11 (2025-01-14)
+
+
+### Bug Fixes
+
+* 调整password组件展示逻辑 ([d5e2fd0](https://github.com/tenadolanter/tenado-ui/commit/d5e2fd03b19374d1750abd8a9147b95fc9f83b60))
+
 ### 1.0.10 (2025-01-09)
 
 ### 1.0.9 (2025-01-08)
