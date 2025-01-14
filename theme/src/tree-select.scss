@@ -131,5 +131,9 @@
   .td-tree-node__content {
     min-height: 32px;
     line-height: 32px;
+    &.is-disabled {
+      color: var(--td-color-text-placeholder);
+      cursor: not-allowed;
+    }
   }
 }

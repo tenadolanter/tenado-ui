@@ -25,6 +25,7 @@
   >
     <div
       class="td-tree-node__content"
+      :class="{ 'is-disabled': !!node.disabled }"
       :style="{ 'padding-left': (node.level - 1) * tree.indent + 'px' }"
     >
       <span

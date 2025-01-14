@@ -224,6 +224,63 @@
 
 :::
 
+### 禁用状态
+
+禁用状态。
+
+:::demo
+
+```html
+<td-tree-select
+  v-model="value"
+  @input="handleInput"
+  :data="treeData"
+  :props="props"
+  clearable
+></td-tree-select>
+
+<script>
+  export default {
+    data() {
+      return {
+        value: "11",
+        props: {
+          value: "value",
+          label: "name",
+          disabled: "disabled",
+        },
+        treeData: [
+          {
+            value: "1",
+            name: "region",
+            children: [
+              { value: "11", name: "region1", disabled: true },
+              { value: "12", name: "region2" },
+            ],
+          },
+          {
+            value: "2",
+            name: "text",
+            disabled: true,
+          },
+          {
+            value: "3",
+            name: "name",
+          },
+        ],
+      };
+    },
+    methods: {
+      handleInput(val) {
+        console.log("handleInput", val);
+      },
+    },
+  };
+</script>
+```
+
+:::
+
 ### 可搜索
 
 可以利用搜索功能快速查找选项
