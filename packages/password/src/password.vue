@@ -34,6 +34,9 @@ export default {
     },
   },
   props: {
+    type: {
+      type: String,
+    },
     showPassword: {
       type: Boolean,
       default: false,
@@ -60,10 +63,16 @@ export default {
     } else {
       this.inputType = "password";
     }
+    if (this.type) {
+      this.inputType = this.type;
+    }
   },
   methods: {
     handlePasswordVisible() {
-      if (this.isSupportWebkitTextSecurity) {
+      if (this.type) {
+        this.visible = !this.visible;
+        this.inputType = !this.visible ? "password" : "text";
+      } else if (this.isSupportWebkitTextSecurity) {
         this.visible = !this.visible;
       } else {
         this.visible = !this.visible;
